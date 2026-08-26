@@ -989,7 +989,7 @@ export const GameScreen: React.FC = () => {
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
                     onKeyDown={handleInputKeyDown}
-                    placeholder={isGenerating ? '❖ 灵枢运转 · 案情推演中...' : '起草奏呈 / 决断言行...（Enter 呈递，Esc 收合）'}
+                    placeholder={isGenerating ? '❖ 灵枢运转 · 案情推演中...' : '起草言行...（Enter 发送，Esc 收合）'}
                     disabled={isGenerating}
                     autoComplete="off"
                     autoCapitalize="sentences"
@@ -1015,12 +1015,12 @@ export const GameScreen: React.FC = () => {
               {/* 按钮组 */}
               <div className="flex justify-between items-end mt-4 z-10">
                 {isInputMode ? (
-                  /* ── 输入模式：呈递 / 收合 ── */
+                  /* ── 输入模式：发送 / 收合 ── */
                   <div className="flex gap-2 flex-wrap" onClick={(e) => e.stopPropagation()}>
                     <button onClick={handleSendInput} disabled={!inputText.trim() || isGenerating}
                       className="flex items-center gap-1 px-3 py-1.5 bg-vermilion-800 hover:bg-vermilion-700 border border-vermilion-600 text-paper-50 rounded-xs text-xs sm:text-sm font-serif font-bold tracking-widest transition-all shadow-sm active:scale-95 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
                       {isGenerating ? <Loader className="w-3.5 h-3.5 animate-spin text-gold-300" /> : <Send className="w-3.5 h-3.5 text-gold-300" />}
-                      呈 递
+                      发 送
                     </button>
                     <button onClick={handleExitInputMode} disabled={isGenerating}
                       className="flex items-center gap-1 px-3 py-1.5 bg-ink-825/90 border border-gold-800 text-paper-400 hover:text-paper-50 hover:border-gold-700 transition-all rounded-xs text-xs sm:text-sm font-serif cursor-pointer disabled:opacity-30">
@@ -1057,12 +1057,12 @@ export const GameScreen: React.FC = () => {
                     <Search className="w-3.5 h-3.5" />
                     <span className="hidden sm:inline">勘验</span>
                   </button>
-                  {/* 呈递按钮 — 切换到输入模式 */}
+                  {/* 发送按钮 — 切换到输入模式 */}
                   <button onClick={(e) => { e.stopPropagation(); handleEnterInputMode(); }}
                     className="flex items-center gap-1 px-3 py-1.5 bg-vermilion-800 border border-vermilion-600 text-paper-50 hover:bg-vermilion-700 transition-all rounded-xs text-xs sm:text-sm font-serif font-bold tracking-widest cursor-pointer shadow-sm"
                     title="起草奏呈">
                     <Send className="w-3.5 h-3.5 text-gold-300" />
-                    <span>呈 递</span>
+                    <span>发 送</span>
                   </button>
                 </div>
                 )}

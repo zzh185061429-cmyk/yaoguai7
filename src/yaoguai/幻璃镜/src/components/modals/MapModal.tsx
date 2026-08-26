@@ -515,7 +515,7 @@ export const MapModal: React.FC<MapModalProps> = ({ isOpen, onClose }) => {
                 className="w-full py-2.5 bg-vermilion-800 hover:bg-vermilion-700 border border-vermilion-600 text-paper-50 font-serif text-sm font-bold tracking-[0.3em] rounded-xs transition-all shadow-md cursor-pointer pl-[0.3em] flex items-center justify-center gap-2"
               >
                 <Compass size={15} />
-                <span>起 驾 · 移 步 该 处</span>
+                <span>前 往 该 处</span>
               </button>
             </div>
           </div>

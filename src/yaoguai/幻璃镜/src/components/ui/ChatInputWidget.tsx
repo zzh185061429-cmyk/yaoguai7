@@ -92,7 +92,7 @@ export const ChatInputWidget: React.FC = () => {
             value={text}
             onChange={(e) => setText(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder={isBusy ? '❖ 灵枢运转 · 案情推演中...' : isMobile ? '起草奏呈 / 决断言行...（点呈递）' : '起草奏呈 / 决断言行...（Enter 呈递，Shift+Enter 换行）'}
+            placeholder={isBusy ? '❖ 灵枢运转 · 案情推演中...' : isMobile ? '起草言行...（点发送）' : '起草言行...（Enter 发送，Shift+Enter 换行）'}
             rows={isMobile ? 1 : 2}
             disabled={isBusy}
             autoComplete="off"
@@ -141,7 +141,7 @@ export const ChatInputWidget: React.FC = () => {
             <>
               <Send className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-gold-300" />
               <span className="text-[11px] sm:text-sm font-bold tracking-widest whitespace-nowrap">
-                呈 递
+                发 送
               </span>
             </>
           )}

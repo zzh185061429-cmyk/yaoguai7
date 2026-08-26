@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Modal } from '../ui/Modal';
 import { Clock, CloudRain, Moon, ChevronLeft, ChevronRight, Compass, Sparkles, Shield, Sun } from 'lucide-react';
 import { cn } from '../../utils';
+import { getDailyYiJi, findSolarTerm, findFestival, type SolarTermInfo, type FestivalInfo } from '../../data/calendarData';
 
 interface CalendarModalProps {
   isOpen: boolean;
@@ -59,17 +60,15 @@ const GAME_TIME = {
   minute: 0,
   weekday: 4,
   weather: '夜雨微凉',
-  yi: ['勘案理绪', '访友求卜', '密札合券', '调息静坐'],
-  ji: ['涉险渡江', '轻启封印', '喧嚣动土', '贪功冒进'],
 };
 
-// 永安年号最底限：不允许调到一年以下
 const MIN_ERA_YEAR = 1;
 
 export const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose }) => {
   const shichen = getShichen(GAME_TIME.hour);
   const [viewEraYear, setViewEraYear] = useState(GAME_TIME.year);
   const [viewMonth, setViewMonth] = useState(GAME_TIME.month);
+  const [selectedDay, setSelectedDay] = useState<number | null>(null);
   const isCurrentMonth = viewEraYear === GAME_TIME.year && viewMonth === GAME_TIME.month;
 
   const baseYear = 2000 + GAME_TIME.year;
@@ -81,12 +80,13 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose })
 
   const handlePrevMonth = () => {
     if (viewMonth === 0) {
-      if (viewEraYear <= MIN_ERA_YEAR) return; // 不允许调到一年以下
+      if (viewEraYear <= MIN_ERA_YEAR) return;
       setViewMonth(11);
       setViewEraYear(y => Math.max(MIN_ERA_YEAR, y - 1));
     } else {
       setViewMonth(m => m - 1);
     }
+    setSelectedDay(null);
   };
 
   const handleNextMonth = () => {
@@ -96,13 +96,29 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose })
     } else {
       setViewMonth(m => m + 1);
     }
+    setSelectedDay(null);
   };
 
   const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
   const emptySlots = Array.from({ length: firstDayOffset }, (_, i) => i);
 
+  // 选中日期的信息（节日/节气/宜忌）
+  const selectedDayInfo = useMemo(() => {
+    if (!selectedDay) return null;
+    const solarTerm = findSolarTerm(calcMonth + 1, selectedDay);
+    // 农历日简化：公历日直接当农历日用（游戏内简化）
+    const festival = findFestival(calcMonth + 1, selectedDay);
+    const yiJi = getDailyYiJi(calcYear, calcMonth + 1, selectedDay);
+    return { solarTerm, festival, yiJi };
+  }, [selectedDay, calcMonth, calcYear]);
+
+  // 今日宜忌（动态生成）
+  const todayYiJi = useMemo(() => getDailyYiJi(baseYear, GAME_TIME.month + 1, GAME_TIME.day), [baseYear]);
+  const todaySolarTerm = findSolarTerm(GAME_TIME.month + 1, GAME_TIME.day);
+  const todayFestival = findFestival(GAME_TIME.month + 1, GAME_TIME.day);
+
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="大 统 皇 极 历 · 岁 时 通 书" id="calendar-modal">
+    <Modal isOpen={isOpen} onClose={onClose} title="岁 时 历 · 节 气 通 书" id="calendar-modal">
       <div className="flex flex-col gap-5 text-paper-100">
         {/* 顶部天象牌匾 */}
         <div className="bg-ink-850 border border-gold-750 rounded-xs p-3 sm:p-5 relative overflow-hidden shadow-lg">
@@ -113,10 +129,11 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose })
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
                 <span className="px-2 py-0.5 text-[11px] font-serif border border-vermilion-700 text-vermilion-400 bg-vermilion-900 rounded-xs">
-                  司天监颁历
+                  钦天监颁历
                 </span>
                 <span className="text-[12px] font-serif text-paper-400">
-                  {GAME_TIME.solarTerm}
+                  {todaySolarTerm ? todaySolarTerm.name : GAME_TIME.solarTerm}
+                  {todayFestival && ` · ${todayFestival.name}`}
                 </span>
               </div>
               <h3 className="font-serif text-lg sm:text-2xl tracking-[0.15em] sm:tracking-[0.2em] text-gold-300 font-bold mt-1">
@@ -142,15 +159,15 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose })
             </div>
           </div>
 
-          {/* 宜忌条目 */}
+          {/* 今日宜忌（动态） */}
           <div className="mt-4 pt-3 border-t border-gold-850 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-serif">
             <div className="flex items-center gap-2 bg-cyan-900/60 px-3 py-1.5 border border-jade-500/40 rounded-xs">
               <span className="px-1.5 py-0.5 text-[10px] bg-jade-500 text-white font-bold rounded-xs">宜</span>
-              <span className="text-paper-400 tracking-wider">{GAME_TIME.yi.join(' · ')}</span>
+              <span className="text-paper-400 tracking-wider">{todayYiJi.yi.join(' · ')}</span>
             </div>
             <div className="flex items-center gap-2 bg-ink-825/60 px-3 py-1.5 border border-vermilion-700/40 rounded-xs">
               <span className="px-1.5 py-0.5 text-[10px] bg-vermilion-700 text-white font-bold rounded-xs">忌</span>
-              <span className="text-paper-400 tracking-wider">{GAME_TIME.ji.join(' · ')}</span>
+              <span className="text-paper-400 tracking-wider">{todayYiJi.ji.join(' · ')}</span>
             </div>
           </div>
         </div>
@@ -169,7 +186,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose })
             
             <div className="text-center">
               <span className="font-serif text-base font-bold text-gold-300 tracking-widest">
-                {ANCIENT_MONTHS[viewMonth]}（农历八月）
+                {ANCIENT_MONTHS[viewMonth]}（农历{calcMonth + 1}月）
               </span>
             </div>
 
@@ -196,24 +213,38 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose })
             {days.map(day => {
               const isToday = isCurrentMonth && day === GAME_TIME.day;
               const lunarName = LUNAR_DAY_NAMES[(day - 1) % 30] || '初一';
+              const daySolarTerm = findSolarTerm(calcMonth + 1, day);
+              const dayFestival = findFestival(calcMonth + 1, day);
+              const isSelected = selectedDay === day;
+              const hasMarker = !!(daySolarTerm || dayFestival);
               return (
                 <div 
                   key={day} 
                   id={`calendar-day-${day}`}
+                  onClick={() => setSelectedDay(isSelected ? null : day)}
                   className={cn(
                     "h-10 sm:h-14 flex flex-col items-center justify-center rounded-xs border transition-all relative cursor-pointer group",
                     isToday 
                       ? 'bg-gold-850 border-gold-500 text-paper-50 shadow-[0_0_15px_rgba(197,164,63,0.3)]' 
-                      : 'bg-ink-750 border-gold-850 text-paper-400 hover:border-paper-550 hover:bg-ink-800'
+                      : isSelected
+                        ? 'bg-cyan-900 border-cyan-500 text-cyan-100 shadow-[0_0_12px_rgba(50,135,135,0.25)]'
+                        : 'bg-ink-750 border-gold-850 text-paper-400 hover:border-paper-550 hover:bg-ink-800'
                   )}
                 >
                   <span className="font-serif text-sm font-bold">{day}</span>
                   <span className={cn(
-                    "font-serif text-[10px] tracking-wider",
-                    isToday ? "text-gold-300 font-bold" : "text-paper-600"
+                    "font-serif text-[10px] tracking-wider truncate max-w-full px-0.5",
+                    isToday ? "text-gold-300 font-bold" : dayFestival ? "text-vermilion-400" : daySolarTerm ? "text-cyan-400" : "text-paper-600"
                   )}>
-                    {isToday ? '今夕' : lunarName}
+                    {dayFestival ? dayFestival.name : daySolarTerm ? daySolarTerm.name : isToday ? '今夕' : lunarName}
                   </span>
+                  {/* 节日/节气标记点 */}
+                  {hasMarker && !isToday && (
+                    <div className={cn(
+                      "absolute top-1 right-1 w-1.5 h-1.5 rounded-full",
+                      dayFestival ? "bg-vermilion-400" : "bg-cyan-400"
+                    )} />
+                  )}
                   {isToday && (
                     <div className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-vermilion-400" />
                   )}
@@ -222,6 +253,57 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose })
             })}
           </div>
         </div>
+
+        {/* 选中日期详情 */}
+        {selectedDayInfo && (
+          <div className="bg-ink-850 border border-gold-750 rounded-xs p-4 space-y-3 animate-in fade-in duration-200">
+            <div className="flex items-center gap-2 pb-2 border-b border-gold-850">
+              <Compass size={16} className="text-gold-400 shrink-0" />
+              <h4 className="font-serif text-sm font-bold text-gold-300 tracking-widest">
+                {viewEraYear}年{ANCIENT_MONTHS[viewMonth]}·{selectedDay}日
+              </h4>
+            </div>
+
+            {/* 节日 */}
+            {selectedDayInfo.festival && (
+              <div className="space-y-1">
+                <div className="flex items-center gap-1.5">
+                  <Sparkles size={13} className="text-vermilion-400 shrink-0" />
+                  <span className="font-serif text-xs font-bold text-vermilion-300 tracking-wider">{selectedDayInfo.festival.name}</span>
+                </div>
+                <p className="text-xs text-paper-400 leading-relaxed pl-5">{selectedDayInfo.festival.desc}</p>
+              </div>
+            )}
+
+            {/* 节气 */}
+            {selectedDayInfo.solarTerm && (
+              <div className="space-y-1">
+                <div className="flex items-center gap-1.5">
+                  <Sun size={13} className="text-cyan-400 shrink-0" />
+                  <span className="font-serif text-xs font-bold text-cyan-300 tracking-wider">{selectedDayInfo.solarTerm.name}</span>
+                </div>
+                <p className="text-xs text-paper-400 leading-relaxed pl-5">{selectedDayInfo.solarTerm.desc}</p>
+              </div>
+            )}
+
+            {/* 无节日节气时的提示 */}
+            {!selectedDayInfo.festival && !selectedDayInfo.solarTerm && (
+              <p className="text-xs text-paper-500 leading-relaxed">此日无特别节候，平常之日。</p>
+            )}
+
+            {/* 当日宜忌 */}
+            <div className="pt-2 border-t border-gold-850 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-serif">
+              <div className="flex items-center gap-2 bg-cyan-900/60 px-3 py-1.5 border border-jade-500/40 rounded-xs">
+                <span className="px-1.5 py-0.5 text-[10px] bg-jade-500 text-white font-bold rounded-xs shrink-0">宜</span>
+                <span className="text-paper-400 tracking-wider">{selectedDayInfo.yiJi.yi.join(' · ')}</span>
+              </div>
+              <div className="flex items-center gap-2 bg-ink-825/60 px-3 py-1.5 border border-vermilion-700/40 rounded-xs">
+                <span className="px-1.5 py-0.5 text-[10px] bg-vermilion-700 text-white font-bold rounded-xs shrink-0">忌</span>
+                <span className="text-paper-400 tracking-wider">{selectedDayInfo.yiJi.ji.join(' · ')}</span>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </Modal>
   );
