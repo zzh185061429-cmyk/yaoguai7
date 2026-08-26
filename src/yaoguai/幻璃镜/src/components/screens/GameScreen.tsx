@@ -25,6 +25,114 @@ import { getLocationImageSmart } from '../../data/locationImages';
 
 // ── 场景角色信息、常量和工具函数已提取到 utils/gameConstants.ts ──
 
+/** 场景背景层（memo 化）：背景 CG + 渐变遮罩 + 粒子，合并手机/桌面重复 JSX */
+const SceneBackground = React.memo(function SceneBackground({
+  bgUrl, locationName, showParticles, fallbackTextSize,
+}: {
+  bgUrl?: string;
+  locationName: string;
+  showParticles: boolean;
+  fallbackTextSize: string;
+}) {
+  return (
+    <>
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <AnimatePresence mode="wait">
+          {bgUrl ? (
+            <motion.img key={bgUrl} src={bgUrl} alt={locationName}
+              initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }} transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="w-full h-full object-cover" />
+          ) : (
+            <motion.div key="fallback" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              className="w-full h-full bg-ink-900 flex items-center justify-center">
+              <div className={cn('text-paper-200/20 font-serif tracking-[0.3em]', fallbackTextSize)}>{locationName}</div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+      <div className="absolute inset-0 bg-linear-to-t from-ink-900 via-ink-900/30 to-transparent z-10 pointer-events-none" />
+      {showParticles && <AtmosphereEffect />}
+    </>
+  );
+});
+
+/** 平行事件面板（memo 化）：合并手机/桌面 4 份重复 JSX */
+const ParallelEventsPanel = React.memo(function ParallelEventsPanel({
+  events, expanded, variant, onToggle,
+}: {
+  events: ParallelEvent[];
+  expanded: boolean;
+  variant: 'mobile' | 'desktop';
+  onToggle: (v: boolean) => void;
+}) {
+  const isMobile = variant === 'mobile';
+  const posCls = isMobile ? 'absolute top-2 left-2 z-30 max-w-64' : 'absolute top-16 left-4 z-30 max-w-72';
+  const padCls = isMobile ? 'px-2.5 py-1' : 'px-3 py-2';
+  const bodyPadCls = isMobile ? 'p-2 space-y-2 max-h-48' : 'p-3 space-y-2.5 max-h-80';
+  const titleCls = isMobile ? 'text-xs' : 'font-serif text-sm';
+  const closeSize = isMobile ? 'w-3.5 h-3.5' : 'w-4 h-4';
+  const collapsePadCls = isMobile ? 'px-2 py-1' : 'px-2.5 py-1.5';
+  const collapseLabel = isMobile ? '异闻' : '八荒异闻';
+  const tagCls = isMobile
+    ? 'text-[10px] text-paper-600'
+    : 'text-[10px] text-paper-600 bg-ink-825 px-1.5 py-0.2 border border-gold-850 rounded-xs';
+  const tagText = isMobile ? '【异动】' : '异动演化';
+
+  return (
+    <AnimatePresence mode="wait">
+      {events.length > 0 && expanded && (
+        <motion.div
+          key={isMobile ? 'pe-m-expanded' : 'pe-expanded'}
+          initial={{ x: isMobile ? -200 : -300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: isMobile ? -200 : -300, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className={cn(posCls, 'pointer-events-auto')}
+        >
+          <div className="bg-ink-825/95 backdrop-blur-md border border-gold-750 rounded-xs shadow-2xl overflow-hidden font-serif">
+            <div className={cn('flex items-center justify-between bg-ink-825 border-b border-gold-850', padCls)}>
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-gold-500 animate-pulse" />
+                <span className={cn('text-gold-300 font-bold tracking-widest', titleCls)}>八荒异闻 · 同时演进</span>
+              </div>
+              <button onClick={(e) => { e.stopPropagation(); onToggle(false); }}
+                className="text-paper-400 hover:text-vermilion-400 transition-colors p-0.5 cursor-pointer">
+                <X className={closeSize} />
+              </button>
+            </div>
+            <div className={cn(bodyPadCls, 'overflow-y-auto custom-scrollbar')}>
+              {events.map((evt, i) => (
+                <div key={i} className="border-l-2 border-vermilion-800 bg-ink-825/80 rounded-xs border-r border-t border-b border-ink-800">
+                  <div className={cn('text-gold-300 text-xs font-bold tracking-wider mb-0.5 flex items-center justify-between', !isMobile && 'font-serif leading-tight mb-1')}>
+                    <span>{evt.location}</span>
+                    <span className={tagCls}>{tagText}</span>
+                  </div>
+                  <div className={cn('text-paper-400 text-xs leading-relaxed', isMobile ? '' : 'font-serif', isMobile ? 'pl-2 p-1.5' : 'pl-2.5 p-2')}>{evt.event}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      )}
+      {events.length > 0 && !expanded && (
+        <motion.button
+          key={isMobile ? 'pe-m-collapsed' : 'pe-collapsed'}
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -50, opacity: 0 }}
+          onClick={(e) => { e.stopPropagation(); onToggle(true); }}
+          className={cn(posCls, 'bg-ink-750/95 border border-gold-700 rounded-xs hover:scale-105 active:scale-95 transition-all pointer-events-auto flex items-center gap-1 text-gold-300 text-xs font-serif shadow-md cursor-pointer', collapsePadCls)}
+          title="展开八荒异闻"
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse" />
+          <span className={cn('tracking-wider', !isMobile && 'font-bold')}>{collapseLabel}</span>
+        </motion.button>
+      )}
+    </AnimatePresence>
+  );
+});
+
 export const GameScreen: React.FC = () => {
   const {
     setCurrentScreen, addNotification, setGalleryTab,
@@ -568,6 +676,9 @@ export const GameScreen: React.FC = () => {
     onRegenerate: handleRegenerate,
   }), [toggleFullscreen, handleRegenerate, setActiveModal]);
 
+  // GameModals 关闭回调（3 处共用，避免内联闭包）
+  const handleCloseModal = useCallback(() => setActiveModal(null), []);
+
   // 空状态
   if (!currentLine && script.length === 0) {
     return (
@@ -577,7 +688,7 @@ export const GameScreen: React.FC = () => {
         <div className="flex-1 flex items-center justify-center">
           <p className="text-paper-200/50 text-xl font-serif tracking-widest">等待剧情内容...</p>
         </div>
-        <GameModals activeModal={activeModal} onClose={() => setActiveModal(null)} />
+        <GameModals activeModal={activeModal} onClose={handleCloseModal} />
 <MusicPlayerWidget />
       </motion.div>
     );
@@ -630,27 +741,7 @@ export const GameScreen: React.FC = () => {
           }}
         >
           {/* 背景层 */}
-          <div className="absolute inset-0 z-0 overflow-hidden">
-            <AnimatePresence mode="wait">
-              {sceneBgUrl ? (
-                <motion.img key={sceneBgUrl} src={sceneBgUrl} alt={displayLocationName}
-                  initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }} transition={{ duration: 0.6, ease: 'easeOut' }}
-                  className="w-full h-full object-cover" />
-              ) : (
-                <motion.div key="fallback" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                  className="w-full h-full bg-ink-900 flex items-center justify-center">
-                  <div className="text-paper-200/20 text-2xl font-serif tracking-[0.3em]">{displayLocationName}</div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          {/* 底部渐变遮罩 */}
-          <div className="absolute inset-0 bg-linear-to-t from-ink-900 via-ink-900/30 to-transparent z-10 pointer-events-none" />
-
-          {/* 大气粒子 */}
-          {weatherParticlesEnabled && <AtmosphereEffect />}
+          <SceneBackground bgUrl={sceneBgUrl} locationName={displayLocationName} showParticles={weatherParticlesEnabled} fallbackTextSize="text-2xl" />
 
           {/* 立绘层 — 限制在上半区内 */}
           <CharacterSprites characters={sceneCharacters} variant="mobile" />
@@ -659,45 +750,7 @@ export const GameScreen: React.FC = () => {
           <EmotionEffects shake={screenEffect?.shake} flashColor={screenEffect?.flashColor} vignette={screenEffect?.vignette} />
 
           {/* 平行事件面板 — 手机端古典木签版 */}
-          <AnimatePresence mode="wait">
-            {parallelEvents.length > 0 && showParallelEvents && (
-              <motion.div key="pe-m-expanded" initial={{ x: -200, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -200, opacity: 0 }}
-                transition={{ duration: 0.3 }} className="absolute top-2 left-2 z-30 max-w-64 pointer-events-auto">
-                <div className="bg-ink-825/95 backdrop-blur-md border border-gold-750 rounded-xs shadow-2xl overflow-hidden font-serif">
-                  <div className="flex items-center justify-between bg-ink-825 px-2.5 py-1 border-b border-gold-850">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-gold-500 animate-pulse" />
-                      <span className="text-xs text-gold-300 font-bold tracking-widest">八荒异闻 · 同时演进</span>
-                    </div>
-                    <button onClick={(e) => { e.stopPropagation(); setShowParallelEvents(false); }}
-                      className="text-paper-400 hover:text-vermilion-400 transition-colors p-0.5 cursor-pointer">
-                      <X className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                  <div className="p-2 space-y-2 max-h-48 overflow-y-auto custom-scrollbar">
-                    {parallelEvents.map((evt, i) => (
-                      <div key={i} className="border-l-2 border-vermilion-800 pl-2 bg-ink-825/80 p-1.5 rounded-xs border-r border-t border-b border-ink-800">
-                        <div className="text-gold-300 text-xs font-bold tracking-wider mb-0.5 flex items-center justify-between">
-                          <span>{evt.location}</span>
-                          <span className="text-[10px] text-paper-600">【异动】</span>
-                        </div>
-                        <div className="text-paper-400 text-xs leading-relaxed">{evt.event}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            )}
-            {parallelEvents.length > 0 && !showParallelEvents && (
-              <motion.button key="pe-m-collapsed" initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -50, opacity: 0 }}
-                onClick={(e) => { e.stopPropagation(); setShowParallelEvents(true); }}
-                className="absolute top-2 left-2 z-30 bg-ink-750/95 border border-gold-700 px-2 py-1 rounded-xs hover:scale-105 active:scale-95 transition-all pointer-events-auto flex items-center gap-1 text-gold-300 text-xs font-serif shadow-md cursor-pointer"
-                title="展开八荒异闻">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse" />
-                <span>异闻</span>
-              </motion.button>
-            )}
-          </AnimatePresence>
+          <ParallelEventsPanel events={parallelEvents} expanded={showParallelEvents} variant="mobile" onToggle={setShowParallelEvents} />
 
           {/* 视觉区底部渐变 */}
           <div className="absolute bottom-0 left-0 right-0 h-6 bg-linear-to-t from-ink-900 to-transparent z-19 pointer-events-none" />
@@ -841,7 +894,7 @@ export const GameScreen: React.FC = () => {
         </AnimatePresence>
 
         {/* 模态框 */}
-        <GameModals activeModal={activeModal} onClose={() => setActiveModal(null)} />
+        <GameModals activeModal={activeModal} onClose={handleCloseModal} />
 
 <TextSelectionClue />
 <MusicPlayerWidget />
@@ -861,27 +914,7 @@ export const GameScreen: React.FC = () => {
       className="relative w-full h-screen bg-ink-900 overflow-hidden" id="screen-game"
     >
       {/* ════ 背景层 ════ */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <AnimatePresence mode="wait">
-          {sceneBgUrl ? (
-            <motion.img key={sceneBgUrl} src={sceneBgUrl} alt={displayLocationName}
-              initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }} transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="w-full h-full object-cover" />
-          ) : (
-            <motion.div key="fallback" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="w-full h-full bg-ink-900 flex items-center justify-center">
-              <div className="text-paper-200/20 text-3xl font-serif tracking-[0.3em]">{displayLocationName}</div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-
-      {/* 底部渐变遮罩 */}
-      <div className="absolute inset-0 bg-linear-to-t from-ink-900 via-ink-900/30 to-transparent z-10 pointer-events-none" />
-
-      {/* 大气粒子 */}
-      {weatherParticlesEnabled && <AtmosphereEffect />}
+      <SceneBackground bgUrl={sceneBgUrl} locationName={displayLocationName} showParticles={weatherParticlesEnabled} fallbackTextSize="text-3xl" />
 
       {/* ════ HUD ════ */}
       <HUD isFullscreen={isFullscreen} regenerating={regenerating} onOpenHarem={openHarem} {...hudHandlers} />
@@ -893,47 +926,7 @@ export const GameScreen: React.FC = () => {
       <EmotionEffects shake={screenEffect?.shake} flashColor={screenEffect?.flashColor} vignette={screenEffect?.vignette} />
 
       {/* ════ 平行事件面板 ════ */}
-      <AnimatePresence mode="wait">
-        {parallelEvents.length > 0 && showParallelEvents && (
-          <motion.div key="pe-expanded" initial={{ x: -300, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -300, opacity: 0 }}
-            transition={{ duration: 0.3 }} className="absolute top-16 left-4 z-30 max-w-72 pointer-events-auto">
-            <div className="bg-ink-825/95 backdrop-blur-md border border-gold-750 rounded-xs shadow-2xl overflow-hidden font-serif">
-              <div className="flex items-center justify-between bg-ink-825 px-3 py-2 border-b border-gold-850">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-gold-500 animate-pulse" />
-                  <span className="font-serif text-sm font-bold text-gold-300 tracking-widest">八荒异闻 · 同时演进</span>
-                </div>
-                <button onClick={(e) => { e.stopPropagation(); setShowParallelEvents(false); }}
-                  className="text-paper-400 hover:text-vermilion-400 transition-colors p-0.5 cursor-pointer">
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
-              <div className="p-3 space-y-2.5 max-h-80 overflow-y-auto custom-scrollbar">
-                {parallelEvents.map((evt, i) => (
-                  <div key={i} className="border-l-2 border-vermilion-800 pl-2.5 bg-ink-825/80 p-2 rounded-xs border-r border-t border-b border-ink-800">
-                    <div className="text-gold-300 text-xs font-bold font-serif leading-tight mb-1 flex items-center justify-between">
-                      <span>{evt.location}</span>
-                      <span className="text-[10px] text-paper-600 bg-ink-825 px-1.5 py-0.2 border border-gold-850 rounded-xs">
-                        异动演化
-                      </span>
-                    </div>
-                    <div className="text-paper-400 text-xs leading-relaxed font-serif">{evt.event}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        )}
-        {parallelEvents.length > 0 && !showParallelEvents && (
-          <motion.button key="pe-collapsed" initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -50, opacity: 0 }}
-            onClick={(e) => { e.stopPropagation(); setShowParallelEvents(true); }}
-            className="absolute top-16 left-4 z-30 bg-ink-750/95 border border-gold-700 px-2.5 py-1.5 rounded-xs hover:scale-105 active:scale-95 transition-all pointer-events-auto flex items-center gap-1.5 text-gold-300 text-xs font-serif shadow-md cursor-pointer"
-            title="展开八荒异闻">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse" />
-            <span className="font-bold tracking-wider">八荒异闻</span>
-          </motion.button>
-        )}
-      </AnimatePresence>
+      <ParallelEventsPanel events={parallelEvents} expanded={showParallelEvents} variant="desktop" onToggle={setShowParallelEvents} />
 
       {/* ════ 文本框 ════ */}
       <AnimatePresence mode="wait">
@@ -1246,7 +1239,7 @@ export const GameScreen: React.FC = () => {
       </AnimatePresence>
 
       {/* ════ 模态框 ════ */}
-      <GameModals activeModal={activeModal} onClose={() => setActiveModal(null)} />
+      <GameModals activeModal={activeModal} onClose={handleCloseModal} />
 
 <TextSelectionClue />
 <MusicPlayerWidget />
