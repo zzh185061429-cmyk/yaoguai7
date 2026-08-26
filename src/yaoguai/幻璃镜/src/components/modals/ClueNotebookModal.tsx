@@ -83,22 +83,22 @@ const PaperDialog: React.FC<{
       animate={{ scale: 1, y: 0, opacity: 1 }}
       exit={{ scale: 0.92, y: 15, opacity: 0 }}
       transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-      className={`relative ${wide ? 'max-w-lg' : 'max-w-md'} w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] bg-paper-100 rounded-sm p-4 sm:p-7 shadow-[0_20px_60px_rgba(0,0,0,0.45)] ${vermilion ? 'max-h-[85vh]' : ''} overflow-y-auto custom-scrollbar`}
-      style={{ border: '1px solid paper-550', boxShadow: '0 20px 60px rgba(0,0,0,0.45), inset 0 0 0 4px paper-100, inset 0 0 0 5px paper-350' }}
+      className={`relative ${wide ? 'max-w-lg' : 'max-w-md'} w-[calc(100%-2rem)] bg-paper-100 rounded-sm p-7 shadow-[0_20px_60px_rgba(0,0,0,0.45)] ${vermilion ? 'max-h-[85vh]' : ''} overflow-y-auto custom-scrollbar`}
+      style={{ border: '1px solid var(--color-paper-550)', boxShadow: '0 20px 60px rgba(0,0,0,0.45), inset 0 0 0 4px var(--color-paper-100), inset 0 0 0 5px var(--color-paper-350)' }}
       onClick={e => e.stopPropagation()}
     >
       {/* 函套顶饰：素带 + 朱心 */}
-      <div className="absolute top-1.25 left-1.25 right-1.25 h-0.75 flex items-center pointer-events-none">
+      <div className="absolute top-[5px] left-[5px] right-[5px] h-[3px] flex items-center pointer-events-none">
         <div className={`flex-1 h-px ${vermilion ? 'bg-vermilion-700/50' : 'bg-paper-500/60'}`} />
         <div className={`w-1.5 h-1.5 rotate-45 ${vermilion ? 'bg-vermilion-700/60' : 'bg-paper-550/60'}`} />
         <div className={`flex-1 h-px ${vermilion ? 'bg-vermilion-700/50' : 'bg-paper-500/60'}`} />
       </div>
       {/* 标题 */}
-      <div className="flex items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-5 pb-2 sm:pb-3 border-b border-paper-350">
-        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-          <span className={`font-serif text-[13px] sm:text-[15px] ${vermilion ? 'text-vermilion-700' : 'text-paper-600'} shrink-0`}>◆</span>
-          <h3 className={`font-serif text-[15px] sm:text-[19px] font-bold tracking-[0.15em] sm:tracking-[0.3em] ${vermilion ? 'text-vermilion-800' : 'text-ink-825'} truncate`}>{title}</h3>
-          <span className={`font-serif text-[13px] sm:text-[15px] ${vermilion ? 'text-vermilion-700' : 'text-paper-600'} hidden sm:inline`}>◆</span>
+      <div className="flex items-center justify-between gap-3 mb-5 pb-3 border-b border-paper-350">
+        <div className="flex items-center gap-3 min-w-0">
+          <span className={`font-serif text-[15px] ${vermilion ? 'text-vermilion-700' : 'text-paper-600'}`}>◆</span>
+          <h3 className={`font-serif text-[19px] font-bold tracking-[0.3em] ${vermilion ? 'text-vermilion-800' : 'text-ink-825'} truncate`}>{title}</h3>
+          <span className={`font-serif text-[15px] ${vermilion ? 'text-vermilion-700' : 'text-paper-600'}`}>◆</span>
         </div>
         {onClose && (
           <button onClick={onClose} className="text-paper-600 hover:text-vermilion-700 hover:bg-vermilion-700/10 transition-all p-1 rounded-sm shrink-0" title="关闭">
@@ -140,8 +140,8 @@ const ShelfItem = React.memo(function ShelfItem({
         style={{
           height: '272px',
           background: isClosed
-            ? 'linear-gradient(160deg, gold-400 0%, gold-400 48%, gold-500 100%)'
-            : 'linear-gradient(160deg, indigo-300 0%, indigo-400 45%, indigo-500 100%)',
+            ? `linear-gradient(160deg, var(--color-gold-400) 0%, var(--color-gold-400) 48%, var(--color-gold-500) 100%)`
+            : `linear-gradient(160deg, var(--color-indigo-300) 0%, var(--color-indigo-400) 45%, var(--color-indigo-500) 100%)`,
           boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08), 2px 3px 8px rgba(30,22,10,0.35), 0 10px 22px rgba(30,22,10,0.28)',
         }}
       >
@@ -150,19 +150,19 @@ const ShelfItem = React.memo(function ShelfItem({
             backgroundImage: 'repeating-linear-gradient(90deg, rgba(255,255,255,0.35) 0 1px, transparent 1px 3px), repeating-linear-gradient(0deg, rgba(0,0,0,0.35) 0 1px, transparent 1px 3px)',
           }} />
         <div className="absolute left-0 top-0 bottom-0 w-2.75"
-          style={{ background: isClosed ? 'linear-gradient(to right, gold-600, gold-550)' : 'linear-gradient(to right, indigo-700, indigo-600)' }} />
+          style={{ background: isClosed ? `linear-gradient(to right, var(--color-gold-600), var(--color-gold-550))` : `linear-gradient(to right, var(--color-indigo-700), var(--color-indigo-600))` }} />
         {[10, 34, 62, 88].map(t => (
           <div key={t} className="absolute left-0.75 w-1.75 h-1.75 rounded-full pointer-events-none"
             style={{
               top: `${t}%`,
-              background: 'radial-gradient(circle, paper-300 0 1.5px, rgba(232,220,187,0.4) 1.5px 3px, transparent 3px)',
+              background: `radial-gradient(circle, var(--color-paper-300) 0 1.5px, rgba(232,220,187,0.4) 1.5px 3px, transparent 3px)`,
             }} />
         ))}
         <div className="absolute left-6.5 top-3.75 rounded-xs px-2 pt-2 pb-3"
           style={{
-            background: 'linear-gradient(180deg, paper-75, paper-150)',
-            border: '1px solid paper-450',
-            boxShadow: '2px 2px 6px rgba(15,10,4,0.4), inset 0 0 0 3px paper-125, inset 0 0 0 4px paper-350',
+            background: `linear-gradient(180deg, var(--color-paper-75), var(--color-paper-150))`,
+            border: `1px solid var(--color-paper-450)`,
+            boxShadow: `2px 2px 6px rgba(15,10,4,0.4), inset 0 0 0 3px var(--color-paper-125), inset 0 0 0 4px var(--color-paper-350)`,
           }}>
           <div className="flex flex-col items-center gap-2">
             <span className="font-serif text-[13px] font-bold tracking-[0.3em] pl-[0.3em] text-vermilion-700 border-b border-paper-350 pb-1.5 w-full text-center">
@@ -186,7 +186,7 @@ const ShelfItem = React.memo(function ShelfItem({
         {isClosed && (
           <div className="absolute inset-0 pointer-events-none z-20">
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-24deg] flex items-center gap-2 px-4 py-1.5"
-              style={{ background: 'rgba(247,240,218,0.97)', border: '1.5px solid vermilion-700', boxShadow: '0 2px 10px rgba(40,25,10,0.35)' }}>
+              style={{ background: 'rgba(247,240,218,0.97)', border: `1.5px solid var(--color-vermilion-700)`, boxShadow: '0 2px 10px rgba(40,25,10,0.35)' }}>
               <span className="font-serif text-[21px] font-bold text-vermilion-800 tracking-[0.4em] pl-[0.4em]">已结</span>
               <span className="font-serif text-[12px] font-bold text-vermilion-800 border border-vermilion-800 px-1 py-px rotate-[8deg]">验讫</span>
             </div>
@@ -209,7 +209,7 @@ const ShelfItem = React.memo(function ShelfItem({
         style={{
           width: '196px',
           height: '9px',
-          background: 'linear-gradient(to bottom, paper-600 0%, gold-850 45%, gold-850 100%)',
+          background: `linear-gradient(to bottom, var(--color-paper-600) 0%, var(--color-gold-850) 45%, var(--color-gold-850) 100%)`,
           boxShadow: '0 3px 5px rgba(30,20,8,0.35), inset 0 1px 0 rgba(255,230,190,0.25)',
         }} />
     </motion.div>
@@ -580,7 +580,7 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
 
         {/* ── 古风 Header（漆木题匾） ── */}
         <div className="flex items-center justify-between pl-4 pr-3 py-3 relative z-30 shrink-0 border-b-2 border-ink-800"
-          style={{ background: 'linear-gradient(180deg, gold-850 0%, gold-850 100%)', boxShadow: '0 3px 10px rgba(20,14,6,0.35)' }}>
+          style={{ background: `linear-gradient(180deg, var(--color-gold-850) 0%, var(--color-gold-850) 100%)`, boxShadow: '0 3px 10px rgba(20,14,6,0.35)' }}>
           <div className="flex items-center gap-3 min-w-0">
             {view === 'detail' && (
               <button onClick={backToShelf}
@@ -590,7 +590,7 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
               </button>
             )}
             <div className="flex items-center gap-2.5 px-3 py-1 rounded-[3px]"
-              style={{ background: 'rgba(20,14,6,0.35)', border: '1px solid gold-850', boxShadow: 'inset 0 1px 0 rgba(255,235,200,0.12)' }}>
+              style={{ background: 'rgba(20,14,6,0.35)', border: `1px solid var(--color-gold-850)`, boxShadow: 'inset 0 1px 0 rgba(255,235,200,0.12)' }}>
               <span className="text-gold-400 font-serif text-[15px]">◆</span>
               <h2 className="font-serif text-[19px] text-paper-125 font-bold tracking-[0.3em] whitespace-nowrap"
                 style={{ textShadow: '0 1px 2px rgba(0,0,0,0.6)' }}>
@@ -625,7 +625,7 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
         <div
           className="absolute inset-0 opacity-[0.045] pointer-events-none z-0 mix-blend-multiply"
           style={{
-            backgroundImage: 'radial-gradient(paper-550 1px, transparent 1px), radial-gradient(paper-550 0.5px, transparent 0.5px)',
+            backgroundImage: `radial-gradient(var(--color-paper-550) 1px, transparent 1px), radial-gradient(var(--color-paper-550) 0.5px, transparent 0.5px)`,
             backgroundSize: '24px 24px, 12px 12px',
             backgroundPosition: '0 0, 6px 6px',
           }}
@@ -647,7 +647,7 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
               <div className="px-7 pt-6 pb-4">
                 <div className="flex items-center gap-3 mb-6 flex-wrap">
                   <div className="px-3.5 py-1.5 rounded-[3px] flex items-center gap-2.5"
-                    style={{ background: 'linear-gradient(160deg, gold-850, gold-850)', boxShadow: 'inset 0 1px 0 rgba(255,235,200,0.16), 0 2px 6px rgba(30,20,8,0.3)' }}>
+                    style={{ background: `linear-gradient(160deg, var(--color-gold-850), var(--color-gold-850))`, boxShadow: 'inset 0 1px 0 rgba(255,235,200,0.16), 0 2px 6px rgba(30,20,8,0.3)' }}>
                     <span className="w-2 h-2 rounded-full bg-vermilion-500 shadow-[0_0_6px_rgba(214,61,46,0.9)]" />
                     <h3 className="font-serif text-[17px] font-bold tracking-[0.25em] text-paper-125">正在调查</h3>
                   </div>
@@ -691,7 +691,7 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                 <div className="px-7 pt-4 pb-8 border-t-2 border-paper-450/40">
                   <div className="flex items-center gap-3 mb-6 flex-wrap">
                     <div className="px-3.5 py-1.5 rounded-[3px] flex items-center gap-2.5"
-                      style={{ background: 'linear-gradient(160deg, paper-600, gold-850)', boxShadow: 'inset 0 1px 0 rgba(255,235,200,0.14), 0 2px 6px rgba(30,20,8,0.3)' }}>
+                      style={{ background: `linear-gradient(160deg, var(--color-paper-600), var(--color-gold-850))`, boxShadow: 'inset 0 1px 0 rgba(255,235,200,0.14), 0 2px 6px rgba(30,20,8,0.3)' }}>
                       <Stamp size={15} className="text-paper-300" />
                       <h3 className="font-serif text-[17px] font-bold tracking-[0.25em] text-paper-125">已结归档</h3>
                     </div>
