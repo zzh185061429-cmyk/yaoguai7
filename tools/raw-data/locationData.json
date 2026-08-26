@@ -1,7 +1,7 @@
 {
   "residents": [
     {
-      "fullPath": "宫城/01外朝",
+      "fullPath": "宫城/外朝",
       "sceneName": "东华门",
       "type": "outdoor",
       "variants": {
@@ -14,7 +14,7 @@
       }
     },
     {
-      "fullPath": "宫城/01外朝",
+      "fullPath": "宫城/外朝/会极门",
       "sceneName": "会极门廊庑",
       "type": "outdoor",
       "variants": {
@@ -27,7 +27,7 @@
       }
     },
     {
-      "fullPath": "宫城/01外朝",
+      "fullPath": "宫城/外朝",
       "sceneName": "内金水桥",
       "type": "outdoor",
       "variants": {
@@ -40,7 +40,7 @@
       }
     },
     {
-      "fullPath": "宫城/01外朝",
+      "fullPath": "宫城/外朝",
       "sceneName": "乾元殿",
       "type": "indoor",
       "variants": {
@@ -49,7 +49,7 @@
       }
     },
     {
-      "fullPath": "宫城/01外朝",
+      "fullPath": "宫城/外朝",
       "sceneName": "神武门",
       "type": "outdoor",
       "variants": {
@@ -62,7 +62,7 @@
       }
     },
     {
-      "fullPath": "宫城/01外朝",
+      "fullPath": "宫城/外朝",
       "sceneName": "文华殿",
       "type": "indoor",
       "variants": {
@@ -71,7 +71,7 @@
       }
     },
     {
-      "fullPath": "宫城/01外朝",
+      "fullPath": "宫城/外朝",
       "sceneName": "文渊阁",
       "type": "indoor",
       "variants": {
@@ -80,7 +80,7 @@
       }
     },
     {
-      "fullPath": "宫城/01外朝",
+      "fullPath": "宫城/外朝/午门",
       "sceneName": "午门城楼",
       "type": "outdoor",
       "variants": {
@@ -93,7 +93,7 @@
       }
     },
     {
-      "fullPath": "宫城/01外朝",
+      "fullPath": "宫城/外朝/午门",
       "sceneName": "午门外朝房",
       "type": "indoor",
       "variants": {
@@ -102,7 +102,7 @@
       }
     },
     {
-      "fullPath": "宫城/01外朝",
+      "fullPath": "宫城/外朝",
       "sceneName": "武英殿",
       "type": "indoor",
       "variants": {
@@ -111,7 +111,7 @@
       }
     },
     {
-      "fullPath": "宫城/01外朝",
+      "fullPath": "宫城/外朝",
       "sceneName": "西华门",
       "type": "outdoor",
       "variants": {
@@ -124,8 +124,8 @@
       }
     },
     {
-      "fullPath": "宫城/02帝后",
-      "sceneName": "慈宁宫小佛堂",
+      "fullPath": "宫城/内廷/慈宁宫",
+      "sceneName": "小佛堂",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/HxS9V4dt/ci-ning-gong-xiao-fu-tang-ye.png",
@@ -133,8 +133,8 @@
       }
     },
     {
-      "fullPath": "宫城/02帝后",
-      "sceneName": "慈宁宫正殿",
+      "fullPath": "宫城/内廷/慈宁宫",
+      "sceneName": "正殿",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/GtHJY8mf/ci-ning-gong-zheng-dian-ye.png",
@@ -142,8 +142,8 @@
       }
     },
     {
-      "fullPath": "宫城/02帝后",
-      "sceneName": "坤宁宫寝阁",
+      "fullPath": "宫城/内廷/坤宁宫",
+      "sceneName": "寝阁",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/tgj5f4BV/kun-ning-gong-qin-ge-ye.png",
@@ -151,8 +151,8 @@
       }
     },
     {
-      "fullPath": "宫城/02帝后",
-      "sceneName": "坤宁宫正殿",
+      "fullPath": "宫城/内廷/坤宁宫",
+      "sceneName": "正殿",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/Jh5qWCgw/kun-ning-gong-zheng-dian-ye.png",
@@ -160,8 +160,8 @@
       }
     },
     {
-      "fullPath": "宫城/02帝后",
-      "sceneName": "乾清宫暖阁",
+      "fullPath": "宫城/内廷/乾清宫",
+      "sceneName": "暖阁",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/QxvSQb5d/qian-qing-gong-nuan-ge-ye.png",
@@ -169,8 +169,8 @@
       }
     },
     {
-      "fullPath": "宫城/02帝后",
-      "sceneName": "乾清宫正殿",
+      "fullPath": "宫城/内廷/乾清宫",
+      "sceneName": "正殿",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/hPNMLrxZ/qian-qing-gong-zheng-dian-ye.png",
@@ -178,7 +178,7 @@
       }
     },
     {
-      "fullPath": "宫城/02帝后",
+      "fullPath": "宫城/内廷",
       "sceneName": "养心殿",
       "type": "indoor",
       "variants": {
@@ -187,7 +187,7 @@
       }
     },
     {
-      "fullPath": "宫城/02帝后",
+      "fullPath": "宫城/内廷",
       "sceneName": "御书房",
       "type": "indoor",
       "variants": {
@@ -196,8 +196,8 @@
       }
     },
     {
-      "fullPath": "宫城/03东宫",
-      "sceneName": "东宫官属值房",
+      "fullPath": "宫城/东宫",
+      "sceneName": "官属值房",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/MTGy2MVk/dong-gong-guan-shu-zhi-fang-ye.png",
@@ -205,8 +205,8 @@
       }
     },
     {
-      "fullPath": "宫城/03东宫",
-      "sceneName": "东宫后苑",
+      "fullPath": "宫城/东宫",
+      "sceneName": "后苑",
       "type": "outdoor",
       "variants": {
         "晴夜": "https://i.postimg.cc/W1MmMPsv/dong-gong-hou-yuan-qing-ye.png",
@@ -218,8 +218,8 @@
       }
     },
     {
-      "fullPath": "宫城/03东宫",
-      "sceneName": "东宫前院",
+      "fullPath": "宫城/东宫",
+      "sceneName": "前院",
       "type": "outdoor",
       "variants": {
         "晴夜": "https://i.postimg.cc/xTN31z78/dong-gong-qian-yuan-qing-ye.png",
@@ -231,8 +231,8 @@
       }
     },
     {
-      "fullPath": "宫城/03东宫",
-      "sceneName": "东宫书堂",
+      "fullPath": "宫城/东宫",
+      "sceneName": "书堂",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/BZVC3ghZ/dong-gong-shu-tang-ye.png",
@@ -240,8 +240,8 @@
       }
     },
     {
-      "fullPath": "宫城/03东宫",
-      "sceneName": "端本宫内寝",
+      "fullPath": "宫城/东宫",
+      "sceneName": "内寝",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/0QH78k0w/duan-ben-gong-nei-qin-ye.png",
@@ -249,8 +249,8 @@
       }
     },
     {
-      "fullPath": "宫城/03东宫",
-      "sceneName": "端本宫书房",
+      "fullPath": "宫城/东宫",
+      "sceneName": "书房",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/4d3zk7Vh/duan-ben-gong-shu-fang-ye.png",
@@ -258,8 +258,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "宫正司值房",
+      "fullPath": "宫城/六宫/宫正司",
+      "sceneName": "值房",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/Kj6LM0VM/gong-zheng-si-zhi-fang-ye.png",
@@ -267,8 +267,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "宁安宫小院",
+      "fullPath": "宫城/六宫/宁安宫",
+      "sceneName": "小院",
       "type": "outdoor",
       "variants": {
         "晴夜": "https://i.postimg.cc/Y9yQprzd/ning-an-gong-xiao-yuan-qing-ye.png",
@@ -280,8 +280,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "宁安宫正殿",
+      "fullPath": "宫城/六宫/宁安宫",
+      "sceneName": "正殿",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/Kj6LM0Vv/ning-an-gong-zheng-dian-ye.png",
@@ -289,8 +289,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "锁澜宫封殿",
+      "fullPath": "宫城/六宫/锁澜宫",
+      "sceneName": "封殿",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/cLMYvMcv/suo-lan-gong-feng-dian-ye.png",
@@ -298,8 +298,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "锁澜宫封院",
+      "fullPath": "宫城/六宫/锁澜宫",
+      "sceneName": "封院",
       "type": "outdoor",
       "variants": {
         "晴夜": "https://i.postimg.cc/q7JKyhmb/suo-lan-gong-feng-yuan-qing-ye.png",
@@ -311,8 +311,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "昭华宫前院",
+      "fullPath": "宫城/六宫/昭华宫",
+      "sceneName": "前院",
       "type": "outdoor",
       "variants": {
         "晴夜": "https://i.postimg.cc/xjhLhdCD/zhao-hua-gong-qian-yuan-qing-ye.png",
@@ -324,8 +324,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "昭华宫寝阁",
+      "fullPath": "宫城/六宫/昭华宫",
+      "sceneName": "寝阁",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/L8ML40Lv/zhao-hua-gong-qin-ge-ye.png",
@@ -333,8 +333,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "昭华宫正殿",
+      "fullPath": "宫城/六宫/昭华宫",
+      "sceneName": "正殿",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/Z5hpYD6z/zhao-hua-gong-zheng-dian-ye.png",
@@ -342,7 +342,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "安乐堂",
       "type": "indoor",
       "variants": {
@@ -351,7 +351,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "百鸟房",
       "type": "indoor",
       "variants": {
@@ -360,7 +360,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "宝钞司作坊",
       "type": "indoor",
       "variants": {
@@ -369,7 +369,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "兵仗局火药作",
       "type": "indoor",
       "variants": {
@@ -378,7 +378,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "浣衣房",
       "type": "indoor",
       "variants": {
@@ -387,7 +387,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "浣衣局大院",
       "type": "outdoor",
       "variants": {
@@ -400,7 +400,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "混堂",
       "type": "indoor",
       "variants": {
@@ -409,7 +409,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "经厂",
       "type": "indoor",
       "variants": {
@@ -418,7 +418,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "猫儿房",
       "type": "indoor",
       "variants": {
@@ -427,7 +427,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "内承运库",
       "type": "indoor",
       "variants": {
@@ -436,7 +436,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "内官监料场",
       "type": "outdoor",
       "variants": {
@@ -449,7 +449,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "内书堂",
       "type": "indoor",
       "variants": {
@@ -458,7 +458,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "染坊",
       "type": "indoor",
       "variants": {
@@ -467,7 +467,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "司礼监值房",
       "type": "indoor",
       "variants": {
@@ -476,7 +476,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "太医院值房",
       "type": "indoor",
       "variants": {
@@ -485,7 +485,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "文书房",
       "type": "indoor",
       "variants": {
@@ -494,7 +494,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "惜薪司炭厂",
       "type": "indoor",
       "variants": {
@@ -503,7 +503,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "绣坊",
       "type": "indoor",
       "variants": {
@@ -512,7 +512,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "御花房",
       "type": "indoor",
       "variants": {
@@ -521,7 +521,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "御酒房",
       "type": "indoor",
       "variants": {
@@ -530,7 +530,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "御马监操场",
       "type": "outdoor",
       "variants": {
@@ -543,7 +543,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "御膳房",
       "type": "indoor",
       "variants": {
@@ -552,7 +552,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "御药房药库",
       "type": "indoor",
       "variants": {
@@ -561,7 +561,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "御用监造办房",
       "type": "indoor",
       "variants": {
@@ -570,7 +570,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "赃罚库",
       "type": "indoor",
       "variants": {
@@ -579,7 +579,7 @@
       }
     },
     {
-      "fullPath": "宫城/05内官",
+      "fullPath": "宫城/内官",
       "sceneName": "钟鼓司戏台",
       "type": "outdoor",
       "variants": {
@@ -592,7 +592,7 @@
       }
     },
     {
-      "fullPath": "宫城/06苑囿",
+      "fullPath": "宫城/苑囿",
       "sceneName": "堆秀山御景亭",
       "type": "outdoor",
       "variants": {
@@ -605,7 +605,7 @@
       }
     },
     {
-      "fullPath": "宫城/06苑囿",
+      "fullPath": "宫城/苑囿",
       "sceneName": "钦安殿",
       "type": "indoor",
       "variants": {
@@ -614,7 +614,7 @@
       }
     },
     {
-      "fullPath": "宫城/06苑囿",
+      "fullPath": "宫城/苑囿",
       "sceneName": "御花园",
       "type": "outdoor",
       "variants": {
@@ -627,7 +627,7 @@
       }
     },
     {
-      "fullPath": "宫城/07阴面",
+      "fullPath": "宫城/杂处",
       "sceneName": "宫井井亭",
       "type": "outdoor",
       "variants": {
@@ -640,7 +640,7 @@
       }
     },
     {
-      "fullPath": "宫城/07阴面",
+      "fullPath": "宫城/杂处",
       "sceneName": "宫墙马道",
       "type": "outdoor",
       "variants": {
@@ -653,7 +653,7 @@
       }
     },
     {
-      "fullPath": "宫城/07阴面",
+      "fullPath": "宫城/杂处",
       "sceneName": "角楼",
       "type": "outdoor",
       "variants": {
@@ -666,7 +666,7 @@
       }
     },
     {
-      "fullPath": "宫城/07阴面",
+      "fullPath": "宫城/杂处",
       "sceneName": "冷宫偏院",
       "type": "outdoor",
       "variants": {
@@ -679,7 +679,7 @@
       }
     },
     {
-      "fullPath": "宫城/07阴面",
+      "fullPath": "宫城/杂处",
       "sceneName": "内金水河暗渠口",
       "type": "outdoor",
       "variants": {
@@ -692,7 +692,7 @@
       }
     },
     {
-      "fullPath": "宫城/07阴面",
+      "fullPath": "宫城/杂处",
       "sceneName": "神武门内夹墙",
       "type": "outdoor",
       "variants": {
@@ -705,7 +705,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "北镇抚司诏狱",
       "type": "indoor",
       "variants": {
@@ -714,7 +714,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "兵部值房",
       "type": "indoor",
       "variants": {
@@ -723,7 +723,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "承天门御道",
       "type": "outdoor",
       "variants": {
@@ -736,7 +736,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "大理寺评案堂",
       "type": "indoor",
       "variants": {
@@ -745,7 +745,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "大雍门",
       "type": "outdoor",
       "variants": {
@@ -758,7 +758,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "都察院大堂",
       "type": "indoor",
       "variants": {
@@ -767,7 +767,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "端门",
       "type": "outdoor",
       "variants": {
@@ -780,7 +780,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "工部缮造司",
       "type": "indoor",
       "variants": {
@@ -789,7 +789,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "鸿胪寺大堂",
       "type": "indoor",
       "variants": {
@@ -798,7 +798,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "户部账库",
       "type": "indoor",
       "variants": {
@@ -807,7 +807,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "金匮石室",
       "type": "indoor",
       "variants": {
@@ -816,7 +816,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "锦衣卫大堂",
       "type": "indoor",
       "variants": {
@@ -825,7 +825,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "锦衣卫校场",
       "type": "outdoor",
       "variants": {
@@ -838,7 +838,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "礼部祠祭司",
       "type": "indoor",
       "variants": {
@@ -847,7 +847,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "吏部值房",
       "type": "indoor",
       "variants": {
@@ -856,7 +856,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "千步廊官署街",
       "type": "outdoor",
       "variants": {
@@ -869,7 +869,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "钦天监大堂",
       "type": "indoor",
       "variants": {
@@ -878,7 +878,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "钦天监卷宗库",
       "type": "indoor",
       "variants": {
@@ -887,7 +887,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "钦天监漏刻房",
       "type": "indoor",
       "variants": {
@@ -896,7 +896,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "钦天监算房",
       "type": "indoor",
       "variants": {
@@ -905,7 +905,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "钦天监庭院",
       "type": "outdoor",
       "variants": {
@@ -918,7 +918,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "太仓库",
       "type": "indoor",
       "variants": {
@@ -927,7 +927,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "通政司收本厅",
       "type": "indoor",
       "variants": {
@@ -936,7 +936,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "刑部成案档库",
       "type": "indoor",
       "variants": {
@@ -945,7 +945,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "刑部大牢",
       "type": "indoor",
       "variants": {
@@ -954,7 +954,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "刑部大堂",
       "type": "indoor",
       "variants": {
@@ -963,7 +963,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "刑部提牢厅",
       "type": "indoor",
       "variants": {
@@ -972,7 +972,7 @@
       }
     },
     {
-      "fullPath": "皇城/02西苑",
+      "fullPath": "皇城/西苑",
       "sceneName": "虎城",
       "type": "outdoor",
       "variants": {
@@ -985,7 +985,7 @@
       }
     },
     {
-      "fullPath": "皇城/02西苑",
+      "fullPath": "皇城/西苑",
       "sceneName": "琼岛广寒殿",
       "type": "outdoor",
       "variants": {
@@ -998,7 +998,7 @@
       }
     },
     {
-      "fullPath": "皇城/02西苑",
+      "fullPath": "皇城/西苑",
       "sceneName": "太液池畔",
       "type": "outdoor",
       "variants": {
@@ -1011,7 +1011,7 @@
       }
     },
     {
-      "fullPath": "皇城/02西苑",
+      "fullPath": "皇城/西苑",
       "sceneName": "西苑醮坛",
       "type": "indoor",
       "variants": {
@@ -1020,7 +1020,7 @@
       }
     },
     {
-      "fullPath": "皇城/02西苑",
+      "fullPath": "皇城/西苑",
       "sceneName": "西苑水榭",
       "type": "outdoor",
       "variants": {
@@ -1033,7 +1033,7 @@
       }
     },
     {
-      "fullPath": "皇城/03苑山",
+      "fullPath": "皇城/苑山",
       "sceneName": "朝天宫三清大殿",
       "type": "indoor",
       "variants": {
@@ -1042,7 +1042,7 @@
       }
     },
     {
-      "fullPath": "皇城/03苑山",
+      "fullPath": "皇城/苑山",
       "sceneName": "朝天宫山门",
       "type": "outdoor",
       "variants": {
@@ -1055,7 +1055,7 @@
       }
     },
     {
-      "fullPath": "皇城/03苑山",
+      "fullPath": "皇城/苑山",
       "sceneName": "社稷坛",
       "type": "outdoor",
       "variants": {
@@ -1068,7 +1068,7 @@
       }
     },
     {
-      "fullPath": "皇城/03苑山",
+      "fullPath": "皇城/苑山",
       "sceneName": "太庙",
       "type": "outdoor",
       "variants": {
@@ -1081,7 +1081,7 @@
       }
     },
     {
-      "fullPath": "皇城/03苑山",
+      "fullPath": "皇城/苑山",
       "sceneName": "万岁山",
       "type": "outdoor",
       "variants": {
@@ -1094,7 +1094,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/01商贸",
+      "fullPath": "内城/东城/商贸",
       "sceneName": "灯市口大街",
       "type": "outdoor",
       "variants": {
@@ -1107,7 +1107,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/01商贸",
+      "fullPath": "内城/东城/商贸",
       "sceneName": "东四牌楼街",
       "type": "outdoor",
       "variants": {
@@ -1120,7 +1120,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/01商贸",
+      "fullPath": "内城/东城/商贸",
       "sceneName": "隆福寺大殿",
       "type": "indoor",
       "variants": {
@@ -1129,7 +1129,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/01商贸",
+      "fullPath": "内城/东城/商贸",
       "sceneName": "隆福寺庙市",
       "type": "outdoor",
       "variants": {
@@ -1142,7 +1142,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/01商贸",
+      "fullPath": "内城/东城/商贸",
       "sceneName": "内市",
       "type": "outdoor",
       "variants": {
@@ -1155,7 +1155,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/01商贸",
+      "fullPath": "内城/东城/商贸",
       "sceneName": "望仙楼大堂",
       "type": "indoor",
       "variants": {
@@ -1164,7 +1164,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/01商贸",
+      "fullPath": "内城/东城/商贸",
       "sceneName": "望仙楼雅座",
       "type": "indoor",
       "variants": {
@@ -1173,7 +1173,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/02文教",
+      "fullPath": "内城/东城/文教",
       "sceneName": "贡院号舍巷",
       "type": "outdoor",
       "variants": {
@@ -1186,7 +1186,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/02文教",
+      "fullPath": "内城/东城/文教",
       "sceneName": "贡院明远楼",
       "type": "outdoor",
       "variants": {
@@ -1199,7 +1199,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/02文教",
+      "fullPath": "内城/东城/文教",
       "sceneName": "贡院至公堂",
       "type": "indoor",
       "variants": {
@@ -1208,7 +1208,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/02文教",
+      "fullPath": "内城/东城/文教",
       "sceneName": "蒙学堂",
       "type": "indoor",
       "variants": {
@@ -1217,7 +1217,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/02文教",
+      "fullPath": "内城/东城/文教",
       "sceneName": "文墨书铺",
       "type": "indoor",
       "variants": {
@@ -1226,7 +1226,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/03仓储",
+      "fullPath": "内城/东城/仓储",
       "sceneName": "朝阳门",
       "type": "outdoor",
       "variants": {
@@ -1239,7 +1239,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/03仓储",
+      "fullPath": "内城/东城/仓储",
       "sceneName": "禄米仓廒内",
       "type": "indoor",
       "variants": {
@@ -1248,7 +1248,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/03仓储",
+      "fullPath": "内城/东城/仓储",
       "sceneName": "禄米仓仓院",
       "type": "outdoor",
       "variants": {
@@ -1261,7 +1261,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/03仓储",
+      "fullPath": "内城/东城/仓储",
       "sceneName": "太仓廒区",
       "type": "outdoor",
       "variants": {
@@ -1274,7 +1274,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/04司法",
+      "fullPath": "内城/东城/司法",
       "sceneName": "大兴班房",
       "type": "indoor",
       "variants": {
@@ -1283,7 +1283,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/04司法",
+      "fullPath": "内城/东城/司法",
       "sceneName": "大兴监房",
       "type": "indoor",
       "variants": {
@@ -1292,7 +1292,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/04司法",
+      "fullPath": "内城/东城/司法",
       "sceneName": "大兴仵作房",
       "type": "indoor",
       "variants": {
@@ -1301,7 +1301,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/04司法",
+      "fullPath": "内城/东城/司法",
       "sceneName": "大兴县衙大堂",
       "type": "indoor",
       "variants": {
@@ -1310,7 +1310,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/04司法",
+      "fullPath": "内城/东城/司法",
       "sceneName": "东城兵马司",
       "type": "indoor",
       "variants": {
@@ -1319,7 +1319,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "抄报房",
       "type": "indoor",
       "variants": {
@@ -1328,7 +1328,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "成衣铺",
       "type": "indoor",
       "variants": {
@@ -1337,7 +1337,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "灯铺",
       "type": "indoor",
       "variants": {
@@ -1346,7 +1346,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "丰裕米行",
       "type": "indoor",
       "variants": {
@@ -1355,7 +1355,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "果子铺",
       "type": "indoor",
       "variants": {
@@ -1364,7 +1364,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "花想容胭脂铺",
       "type": "indoor",
       "variants": {
@@ -1373,7 +1373,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "集雅斋古玩铺",
       "type": "indoor",
       "variants": {
@@ -1382,7 +1382,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "济生堂后坊",
       "type": "indoor",
       "variants": {
@@ -1391,7 +1391,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "济生堂药铺",
       "type": "indoor",
       "variants": {
@@ -1400,7 +1400,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "街角茶铺",
       "type": "indoor",
       "variants": {
@@ -1409,7 +1409,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "锦华裱画铺",
       "type": "indoor",
       "variants": {
@@ -1418,7 +1418,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "老酱园",
       "type": "indoor",
       "variants": {
@@ -1427,7 +1427,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "南货铺",
       "type": "indoor",
       "variants": {
@@ -1436,7 +1436,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "荣文堂书坊",
       "type": "indoor",
       "variants": {
@@ -1445,7 +1445,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "瑞云斋靴帽铺",
       "type": "indoor",
       "variants": {
@@ -1454,7 +1454,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "寿材铺",
       "type": "indoor",
       "variants": {
@@ -1463,7 +1463,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "四时花铺",
       "type": "indoor",
       "variants": {
@@ -1472,7 +1472,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "松烟斋笔墨铺",
       "type": "indoor",
       "variants": {
@@ -1481,7 +1481,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "天成号绸缎庄",
       "type": "indoor",
       "variants": {
@@ -1490,7 +1490,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "通济当铺",
       "type": "indoor",
       "variants": {
@@ -1499,7 +1499,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "鲜鱼行",
       "type": "indoor",
       "variants": {
@@ -1508,7 +1508,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "银楼",
       "type": "indoor",
       "variants": {
@@ -1517,7 +1517,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "油盐店",
       "type": "indoor",
       "variants": {
@@ -1526,7 +1526,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "纸马铺",
       "type": "indoor",
       "variants": {
@@ -1535,7 +1535,7 @@
       }
     },
     {
-      "fullPath": "内城/东城/05百业",
+      "fullPath": "内城/东城/百业",
       "sceneName": "猪肉铺",
       "type": "indoor",
       "variants": {
@@ -1544,7 +1544,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "东江米巷官署街",
       "type": "outdoor",
       "variants": {
@@ -1557,7 +1557,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "翰林院藏书楼",
       "type": "indoor",
       "variants": {
@@ -1566,7 +1566,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "翰林院大堂",
       "type": "indoor",
       "variants": {
@@ -1575,7 +1575,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "会同馆客堂",
       "type": "indoor",
       "variants": {
@@ -1584,7 +1584,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "会同馆驿庭",
       "type": "outdoor",
       "variants": {
@@ -1597,7 +1597,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/02十王邸",
+      "fullPath": "内城/中城/十王邸",
       "sceneName": "晋王邸后园",
       "type": "outdoor",
       "variants": {
@@ -1610,7 +1610,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/02十王邸",
+      "fullPath": "内城/中城/十王邸",
       "sceneName": "晋王邸花厅",
       "type": "indoor",
       "variants": {
@@ -1619,7 +1619,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/02十王邸",
+      "fullPath": "内城/中城/十王邸",
       "sceneName": "晋王邸前庭",
       "type": "outdoor",
       "variants": {
@@ -1632,7 +1632,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/02十王邸",
+      "fullPath": "内城/中城/十王邸",
       "sceneName": "晋王邸正堂",
       "type": "indoor",
       "variants": {
@@ -1641,7 +1641,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/02十王邸",
+      "fullPath": "内城/中城/十王邸",
       "sceneName": "十王邸街",
       "type": "outdoor",
       "variants": {
@@ -1654,7 +1654,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/03教坊",
+      "fullPath": "内城/中城/教坊",
       "sceneName": "教坊司值房",
       "type": "indoor",
       "variants": {
@@ -1663,7 +1663,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/03教坊",
+      "fullPath": "内城/中城/教坊",
       "sceneName": "教坊演乐厅",
       "type": "indoor",
       "variants": {
@@ -1672,7 +1672,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/03教坊",
+      "fullPath": "内城/中城/教坊",
       "sceneName": "乐户后巷",
       "type": "outdoor",
       "variants": {
@@ -1685,7 +1685,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/04玉河",
+      "fullPath": "内城/中城/玉河",
       "sceneName": "上林苑监值房",
       "type": "indoor",
       "variants": {
@@ -1694,7 +1694,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/04玉河",
+      "fullPath": "内城/中城/玉河",
       "sceneName": "台基厂",
       "type": "outdoor",
       "variants": {
@@ -1707,7 +1707,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/04玉河",
+      "fullPath": "内城/中城/玉河",
       "sceneName": "银街",
       "type": "outdoor",
       "variants": {
@@ -1720,7 +1720,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/04玉河",
+      "fullPath": "内城/中城/玉河",
       "sceneName": "玉河柳岸",
       "type": "outdoor",
       "variants": {
@@ -1733,7 +1733,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/04玉河",
+      "fullPath": "内城/中城/玉河",
       "sceneName": "玉河桥",
       "type": "outdoor",
       "variants": {
@@ -1746,7 +1746,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/05泡子河",
+      "fullPath": "内城/中城/泡子河",
       "sceneName": "观象台台顶",
       "type": "outdoor",
       "variants": {
@@ -1759,7 +1759,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/05泡子河",
+      "fullPath": "内城/中城/泡子河",
       "sceneName": "观象台台下院",
       "type": "outdoor",
       "variants": {
@@ -1772,7 +1772,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/05泡子河",
+      "fullPath": "内城/中城/泡子河",
       "sceneName": "观象台值庐",
       "type": "indoor",
       "variants": {
@@ -1781,7 +1781,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/05泡子河",
+      "fullPath": "内城/中城/泡子河",
       "sceneName": "泡子河岸",
       "type": "outdoor",
       "variants": {
@@ -1794,7 +1794,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/05泡子河",
+      "fullPath": "内城/中城/泡子河",
       "sceneName": "玩家宅书房",
       "type": "indoor",
       "variants": {
@@ -1803,7 +1803,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/05泡子河",
+      "fullPath": "内城/中城/泡子河",
       "sceneName": "玩家宅堂屋",
       "type": "indoor",
       "variants": {
@@ -1812,7 +1812,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/05泡子河",
+      "fullPath": "内城/中城/泡子河",
       "sceneName": "玩家宅庭院",
       "type": "outdoor",
       "variants": {
@@ -1825,7 +1825,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/01钟鼓",
+      "fullPath": "内城/北城/钟鼓",
       "sceneName": "德胜门",
       "type": "outdoor",
       "variants": {
@@ -1838,7 +1838,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/01钟鼓",
+      "fullPath": "内城/北城/钟鼓",
       "sceneName": "鼓楼",
       "type": "outdoor",
       "variants": {
@@ -1851,7 +1851,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/01钟鼓",
+      "fullPath": "内城/北城/钟鼓",
       "sceneName": "鼓楼前大街",
       "type": "outdoor",
       "variants": {
@@ -1864,7 +1864,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/01钟鼓",
+      "fullPath": "内城/北城/钟鼓",
       "sceneName": "钟楼",
       "type": "outdoor",
       "variants": {
@@ -1877,7 +1877,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/02什刹海",
+      "fullPath": "内城/北城/什刹海",
       "sceneName": "地安门",
       "type": "outdoor",
       "variants": {
@@ -1890,7 +1890,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/02什刹海",
+      "fullPath": "内城/北城/什刹海",
       "sceneName": "湖畔斜街",
       "type": "outdoor",
       "variants": {
@@ -1903,7 +1903,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/02什刹海",
+      "fullPath": "内城/北城/什刹海",
       "sceneName": "湖上画舫",
       "type": "outdoor",
       "variants": {
@@ -1916,7 +1916,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/02什刹海",
+      "fullPath": "内城/北城/什刹海",
       "sceneName": "积水潭西海",
       "type": "outdoor",
       "variants": {
@@ -1929,7 +1929,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/02什刹海",
+      "fullPath": "内城/北城/什刹海",
       "sceneName": "什刹前海",
       "type": "outdoor",
       "variants": {
@@ -1942,7 +1942,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/02什刹海",
+      "fullPath": "内城/北城/什刹海",
       "sceneName": "万宁桥",
       "type": "outdoor",
       "variants": {
@@ -1955,7 +1955,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/02什刹海",
+      "fullPath": "内城/北城/什刹海",
       "sceneName": "烟波楼大堂",
       "type": "indoor",
       "variants": {
@@ -1964,7 +1964,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/02什刹海",
+      "fullPath": "内城/北城/什刹海",
       "sceneName": "烟波楼湖景雅座",
       "type": "indoor",
       "variants": {
@@ -1973,7 +1973,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/02什刹海",
+      "fullPath": "内城/北城/什刹海",
       "sceneName": "银锭桥",
       "type": "outdoor",
       "variants": {
@@ -1986,7 +1986,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/03水岸",
+      "fullPath": "内城/北城/水岸",
       "sceneName": "汇通祠",
       "type": "outdoor",
       "variants": {
@@ -1999,7 +1999,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/03水岸",
+      "fullPath": "内城/北城/水岸",
       "sceneName": "火神庙大殿",
       "type": "indoor",
       "variants": {
@@ -2008,7 +2008,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/03水岸",
+      "fullPath": "内城/北城/水岸",
       "sceneName": "火神庙山门",
       "type": "outdoor",
       "variants": {
@@ -2021,7 +2021,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/03水岸",
+      "fullPath": "内城/北城/水岸",
       "sceneName": "净业寺",
       "type": "outdoor",
       "variants": {
@@ -2034,7 +2034,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/03水岸",
+      "fullPath": "内城/北城/水岸",
       "sceneName": "西水关",
       "type": "outdoor",
       "variants": {
@@ -2047,7 +2047,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/04文教",
+      "fullPath": "内城/北城/文教",
       "sceneName": "成贤街",
       "type": "outdoor",
       "variants": {
@@ -2060,7 +2060,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/04文教",
+      "fullPath": "内城/北城/文教",
       "sceneName": "国子监号舍",
       "type": "outdoor",
       "variants": {
@@ -2073,7 +2073,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/04文教",
+      "fullPath": "内城/北城/文教",
       "sceneName": "国子监绳愆厅",
       "type": "indoor",
       "variants": {
@@ -2082,7 +2082,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/04文教",
+      "fullPath": "内城/北城/文教",
       "sceneName": "国子监彝伦堂",
       "type": "indoor",
       "variants": {
@@ -2091,7 +2091,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/04文教",
+      "fullPath": "内城/北城/文教",
       "sceneName": "孔庙大成殿",
       "type": "indoor",
       "variants": {
@@ -2100,7 +2100,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/04文教",
+      "fullPath": "内城/北城/文教",
       "sceneName": "顺天府学",
       "type": "outdoor",
       "variants": {
@@ -2113,7 +2113,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/05府衙",
+      "fullPath": "内城/北城/府衙",
       "sceneName": "顺天府大堂",
       "type": "indoor",
       "variants": {
@@ -2122,7 +2122,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/06冰窖",
+      "fullPath": "内城/北城/冰窖",
       "sceneName": "官冰窖",
       "type": "indoor",
       "variants": {
@@ -2131,7 +2131,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/07肃王府",
+      "fullPath": "内城/北城/肃王府",
       "sceneName": "肃王府承运殿",
       "type": "indoor",
       "variants": {
@@ -2140,7 +2140,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/07肃王府",
+      "fullPath": "内城/北城/肃王府",
       "sceneName": "肃王府存心殿",
       "type": "indoor",
       "variants": {
@@ -2149,7 +2149,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/07肃王府",
+      "fullPath": "内城/北城/肃王府",
       "sceneName": "肃王府大门前庭",
       "type": "outdoor",
       "variants": {
@@ -2162,7 +2162,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/07肃王府",
+      "fullPath": "内城/北城/肃王府",
       "sceneName": "肃王府寝院",
       "type": "outdoor",
       "variants": {
@@ -2175,7 +2175,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/07肃王府",
+      "fullPath": "内城/北城/肃王府",
       "sceneName": "肃王府演武园",
       "type": "outdoor",
       "variants": {
@@ -2188,7 +2188,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/08舅父宅",
+      "fullPath": "内城/北城/舅父宅",
       "sceneName": "舅父宅大门前庭",
       "type": "outdoor",
       "variants": {
@@ -2201,7 +2201,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/08舅父宅",
+      "fullPath": "内城/北城/舅父宅",
       "sceneName": "舅父宅后院",
       "type": "outdoor",
       "variants": {
@@ -2214,7 +2214,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/08舅父宅",
+      "fullPath": "内城/北城/舅父宅",
       "sceneName": "舅父宅书房",
       "type": "indoor",
       "variants": {
@@ -2223,7 +2223,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/08舅父宅",
+      "fullPath": "内城/北城/舅父宅",
       "sceneName": "舅父宅正堂",
       "type": "indoor",
       "variants": {
@@ -2232,7 +2232,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/09兵部府",
+      "fullPath": "内城/北城/兵部府",
       "sceneName": "兵部府花厅",
       "type": "indoor",
       "variants": {
@@ -2241,7 +2241,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/09兵部府",
+      "fullPath": "内城/北城/兵部府",
       "sceneName": "兵部府演武院",
       "type": "outdoor",
       "variants": {
@@ -2254,7 +2254,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/09兵部府",
+      "fullPath": "内城/北城/兵部府",
       "sceneName": "兵部府正堂",
       "type": "indoor",
       "variants": {
@@ -2263,7 +2263,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/09兵部府",
+      "fullPath": "内城/北城/兵部府",
       "sceneName": "兵部尚书府大门",
       "type": "outdoor",
       "variants": {
@@ -2276,7 +2276,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/09兵部府",
+      "fullPath": "内城/北城/兵部府",
       "sceneName": "小将军绣楼",
       "type": "indoor",
       "variants": {
@@ -2285,7 +2285,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/10门厂",
+      "fullPath": "内城/北城/门厂",
       "sceneName": "安定门",
       "type": "outdoor",
       "variants": {
@@ -2298,7 +2298,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/10门厂",
+      "fullPath": "内城/北城/门厂",
       "sceneName": "铸钟厂",
       "type": "outdoor",
       "variants": {
@@ -2311,7 +2311,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/01门关",
+      "fullPath": "内城/南城/门关",
       "sceneName": "崇文门城楼",
       "type": "outdoor",
       "variants": {
@@ -2324,7 +2324,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/01门关",
+      "fullPath": "内城/南城/门关",
       "sceneName": "崇文门税关衙署",
       "type": "indoor",
       "variants": {
@@ -2333,7 +2333,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/01门关",
+      "fullPath": "内城/南城/门关",
       "sceneName": "崇文门验货场",
       "type": "outdoor",
       "variants": {
@@ -2346,7 +2346,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/01门关",
+      "fullPath": "内城/南城/门关",
       "sceneName": "正阳门城楼",
       "type": "outdoor",
       "variants": {
@@ -2359,7 +2359,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/01门关",
+      "fullPath": "内城/南城/门关",
       "sceneName": "正阳门瓮城市",
       "type": "outdoor",
       "variants": {
@@ -2372,7 +2372,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/02商栈",
+      "fullPath": "内城/南城/商栈",
       "sceneName": "宝源局铸炉房",
       "type": "indoor",
       "variants": {
@@ -2381,7 +2381,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/02商栈",
+      "fullPath": "内城/南城/商栈",
       "sceneName": "官店客栈大院",
       "type": "outdoor",
       "variants": {
@@ -2394,7 +2394,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/02商栈",
+      "fullPath": "内城/南城/商栈",
       "sceneName": "官店客栈客房",
       "type": "indoor",
       "variants": {
@@ -2403,7 +2403,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/02商栈",
+      "fullPath": "内城/南城/商栈",
       "sceneName": "货栈仓库",
       "type": "indoor",
       "variants": {
@@ -2412,7 +2412,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/02商栈",
+      "fullPath": "内城/南城/商栈",
       "sceneName": "棋盘街",
       "type": "outdoor",
       "variants": {
@@ -2425,7 +2425,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/03百业",
+      "fullPath": "内城/南城/百业",
       "sceneName": "民间澡堂",
       "type": "indoor",
       "variants": {
@@ -2434,7 +2434,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/03百业",
+      "fullPath": "内城/南城/百业",
       "sceneName": "民染坊",
       "type": "indoor",
       "variants": {
@@ -2443,7 +2443,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/03百业",
+      "fullPath": "内城/南城/百业",
       "sceneName": "木器铺",
       "type": "indoor",
       "variants": {
@@ -2452,7 +2452,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/03百业",
+      "fullPath": "内城/南城/百业",
       "sceneName": "皮货铺",
       "type": "indoor",
       "variants": {
@@ -2461,7 +2461,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/03百业",
+      "fullPath": "内城/南城/百业",
       "sceneName": "烧锅酒坊",
       "type": "indoor",
       "variants": {
@@ -2470,7 +2470,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/03百业",
+      "fullPath": "内城/南城/百业",
       "sceneName": "石磨坊",
       "type": "indoor",
       "variants": {
@@ -2479,7 +2479,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/03百业",
+      "fullPath": "内城/南城/百业",
       "sceneName": "寿衣铺",
       "type": "indoor",
       "variants": {
@@ -2488,7 +2488,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/03百业",
+      "fullPath": "内城/南城/百业",
       "sceneName": "铁匠铺",
       "type": "indoor",
       "variants": {
@@ -2497,7 +2497,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/03百业",
+      "fullPath": "内城/南城/百业",
       "sceneName": "铜锡铺",
       "type": "indoor",
       "variants": {
@@ -2506,7 +2506,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/03百业",
+      "fullPath": "内城/南城/百业",
       "sceneName": "万通牙行",
       "type": "indoor",
       "variants": {
@@ -2515,7 +2515,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/03百业",
+      "fullPath": "内城/南城/百业",
       "sceneName": "盐栈",
       "type": "indoor",
       "variants": {
@@ -2524,7 +2524,7 @@
       }
     },
     {
-      "fullPath": "内城/南城/03百业",
+      "fullPath": "内城/南城/百业",
       "sceneName": "裕丰钱铺",
       "type": "indoor",
       "variants": {
@@ -2533,7 +2533,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/01城隍庙",
+      "fullPath": "内城/西城/城隍庙",
       "sceneName": "城隍庙庙市",
       "type": "outdoor",
       "variants": {
@@ -2546,7 +2546,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/01城隍庙",
+      "fullPath": "内城/西城/城隍庙",
       "sceneName": "城隍庙配殿",
       "type": "indoor",
       "variants": {
@@ -2555,7 +2555,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/01城隍庙",
+      "fullPath": "内城/西城/城隍庙",
       "sceneName": "都城隍庙大殿",
       "type": "indoor",
       "variants": {
@@ -2564,7 +2564,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/01城隍庙",
+      "fullPath": "内城/西城/城隍庙",
       "sceneName": "庙市书肆",
       "type": "indoor",
       "variants": {
@@ -2573,7 +2573,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/01城隍庙",
+      "fullPath": "内城/西城/城隍庙",
       "sceneName": "庙祝值房",
       "type": "indoor",
       "variants": {
@@ -2582,7 +2582,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/02双寺",
+      "fullPath": "内城/西城/双寺",
       "sceneName": "白塔寺大殿",
       "type": "indoor",
       "variants": {
@@ -2591,7 +2591,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/02双寺",
+      "fullPath": "内城/西城/双寺",
       "sceneName": "白塔寺山门",
       "type": "outdoor",
       "variants": {
@@ -2604,7 +2604,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/02双寺",
+      "fullPath": "内城/西城/双寺",
       "sceneName": "护国寺大殿",
       "type": "indoor",
       "variants": {
@@ -2613,7 +2613,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/02双寺",
+      "fullPath": "内城/西城/双寺",
       "sceneName": "护国寺庙市",
       "type": "outdoor",
       "variants": {
@@ -2626,7 +2626,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/03西四",
+      "fullPath": "内城/西城/西四",
       "sceneName": "火药局厂区",
       "type": "outdoor",
       "variants": {
@@ -2639,7 +2639,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/03西四",
+      "fullPath": "内城/西城/西四",
       "sceneName": "火药局碾药房",
       "type": "indoor",
       "variants": {
@@ -2648,7 +2648,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/03西四",
+      "fullPath": "内城/西城/西四",
       "sceneName": "西市法场",
       "type": "outdoor",
       "variants": {
@@ -2661,7 +2661,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/03西四",
+      "fullPath": "内城/西城/西四",
       "sceneName": "西四牌楼街",
       "type": "outdoor",
       "variants": {
@@ -2674,7 +2674,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/03西四",
+      "fullPath": "内城/西城/西四",
       "sceneName": "西域香货铺",
       "type": "indoor",
       "variants": {
@@ -2683,7 +2683,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/03西四",
+      "fullPath": "内城/西城/西四",
       "sceneName": "象房",
       "type": "outdoor",
       "variants": {
@@ -2696,7 +2696,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "庆王府承运殿",
       "type": "indoor",
       "variants": {
@@ -2705,7 +2705,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "庆王府存心殿",
       "type": "indoor",
       "variants": {
@@ -2714,7 +2714,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "庆王府大门前庭",
       "type": "outdoor",
       "variants": {
@@ -2727,7 +2727,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "庆王府后园",
       "type": "outdoor",
       "variants": {
@@ -2740,7 +2740,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "庆王府寝院",
       "type": "outdoor",
       "variants": {
@@ -2753,7 +2753,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "尚书府后院",
       "type": "outdoor",
       "variants": {
@@ -2766,7 +2766,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "尚书府花厅",
       "type": "indoor",
       "variants": {
@@ -2775,7 +2775,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "尚书府绣楼",
       "type": "indoor",
       "variants": {
@@ -2784,7 +2784,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "尚书府正堂",
       "type": "indoor",
       "variants": {
@@ -2793,7 +2793,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "刑部尚书府大门",
       "type": "outdoor",
       "variants": {
@@ -2806,7 +2806,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "勋贵坊街",
       "type": "outdoor",
       "variants": {
@@ -2819,7 +2819,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "英国公府大门",
       "type": "outdoor",
       "variants": {
@@ -2832,7 +2832,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "英国公府演武场",
       "type": "outdoor",
       "variants": {
@@ -2845,7 +2845,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "英国公府正堂",
       "type": "indoor",
       "variants": {
@@ -2854,7 +2854,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/05紫虚观",
+      "fullPath": "内城/西城/紫虚观",
       "sceneName": "丹房静室",
       "type": "indoor",
       "variants": {
@@ -2863,7 +2863,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/05紫虚观",
+      "fullPath": "内城/西城/紫虚观",
       "sceneName": "观后小院",
       "type": "outdoor",
       "variants": {
@@ -2876,7 +2876,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/05紫虚观",
+      "fullPath": "内城/西城/紫虚观",
       "sceneName": "三清殿",
       "type": "indoor",
       "variants": {
@@ -2885,7 +2885,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/05紫虚观",
+      "fullPath": "内城/西城/紫虚观",
       "sceneName": "紫虚观山门",
       "type": "outdoor",
       "variants": {
@@ -2898,7 +2898,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/06宛平",
+      "fullPath": "内城/西城/宛平",
       "sceneName": "宛平仵作房",
       "type": "indoor",
       "variants": {
@@ -2907,7 +2907,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/06宛平",
+      "fullPath": "内城/西城/宛平",
       "sceneName": "宛平县衙大堂",
       "type": "indoor",
       "variants": {
@@ -2916,7 +2916,7 @@
       }
     },
     {
-      "fullPath": "外城/01前门",
+      "fullPath": "外城/前门",
       "sceneName": "大栅栏街",
       "type": "outdoor",
       "variants": {
@@ -2929,7 +2929,7 @@
       }
     },
     {
-      "fullPath": "外城/01前门",
+      "fullPath": "外城/前门",
       "sceneName": "前门大街",
       "type": "outdoor",
       "variants": {
@@ -2942,7 +2942,7 @@
       }
     },
     {
-      "fullPath": "外城/01前门",
+      "fullPath": "外城/前门",
       "sceneName": "戏装铺",
       "type": "indoor",
       "variants": {
@@ -2951,7 +2951,7 @@
       }
     },
     {
-      "fullPath": "外城/01前门",
+      "fullPath": "外城/前门",
       "sceneName": "鲜鱼口",
       "type": "outdoor",
       "variants": {
@@ -2964,7 +2964,7 @@
       }
     },
     {
-      "fullPath": "外城/01前门",
+      "fullPath": "外城/前门",
       "sceneName": "醉仙楼大堂戏台",
       "type": "indoor",
       "variants": {
@@ -2973,7 +2973,7 @@
       }
     },
     {
-      "fullPath": "外城/01前门",
+      "fullPath": "外城/前门",
       "sceneName": "醉仙楼雅座",
       "type": "indoor",
       "variants": {
@@ -2982,7 +2982,7 @@
       }
     },
     {
-      "fullPath": "外城/02老槐茶楼",
+      "fullPath": "外城/老槐茶楼",
       "sceneName": "老槐茶楼大堂书场",
       "type": "indoor",
       "variants": {
@@ -2991,7 +2991,7 @@
       }
     },
     {
-      "fullPath": "外城/02老槐茶楼",
+      "fullPath": "外城/老槐茶楼",
       "sceneName": "老槐茶楼后堂",
       "type": "indoor",
       "variants": {
@@ -3000,7 +3000,7 @@
       }
     },
     {
-      "fullPath": "外城/02老槐茶楼",
+      "fullPath": "外城/老槐茶楼",
       "sceneName": "老槐茶楼雅间",
       "type": "indoor",
       "variants": {
@@ -3009,7 +3009,7 @@
       }
     },
     {
-      "fullPath": "外城/03会馆",
+      "fullPath": "外城/会馆",
       "sceneName": "大车店",
       "type": "outdoor",
       "variants": {
@@ -3022,7 +3022,7 @@
       }
     },
     {
-      "fullPath": "外城/03会馆",
+      "fullPath": "外城/会馆",
       "sceneName": "会馆街",
       "type": "outdoor",
       "variants": {
@@ -3035,7 +3035,7 @@
       }
     },
     {
-      "fullPath": "外城/03会馆",
+      "fullPath": "外城/会馆",
       "sceneName": "云州会馆客房",
       "type": "indoor",
       "variants": {
@@ -3044,7 +3044,7 @@
       }
     },
     {
-      "fullPath": "外城/03会馆",
+      "fullPath": "外城/会馆",
       "sceneName": "云州会馆门庭",
       "type": "outdoor",
       "variants": {
@@ -3057,7 +3057,7 @@
       }
     },
     {
-      "fullPath": "外城/04宣南",
+      "fullPath": "外城/宣南",
       "sceneName": "菜市",
       "type": "outdoor",
       "variants": {
@@ -3070,7 +3070,7 @@
       }
     },
     {
-      "fullPath": "外城/04宣南",
+      "fullPath": "外城/宣南",
       "sceneName": "慈仁寺",
       "type": "outdoor",
       "variants": {
@@ -3083,7 +3083,7 @@
       }
     },
     {
-      "fullPath": "外城/04宣南",
+      "fullPath": "外城/宣南",
       "sceneName": "慈仁寺书市",
       "type": "outdoor",
       "variants": {
@@ -3096,7 +3096,7 @@
       }
     },
     {
-      "fullPath": "外城/04宣南",
+      "fullPath": "外城/宣南",
       "sceneName": "骡马市",
       "type": "outdoor",
       "variants": {
@@ -3109,7 +3109,7 @@
       }
     },
     {
-      "fullPath": "外城/05洼地",
+      "fullPath": "外城/洼地",
       "sceneName": "金鱼池",
       "type": "outdoor",
       "variants": {
@@ -3122,7 +3122,7 @@
       }
     },
     {
-      "fullPath": "外城/05洼地",
+      "fullPath": "外城/洼地",
       "sceneName": "琉璃窑厂",
       "type": "outdoor",
       "variants": {
@@ -3135,7 +3135,7 @@
       }
     },
     {
-      "fullPath": "外城/05洼地",
+      "fullPath": "外城/洼地",
       "sceneName": "芦棚窝区",
       "type": "outdoor",
       "variants": {
@@ -3148,7 +3148,7 @@
       }
     },
     {
-      "fullPath": "外城/06坛台",
+      "fullPath": "外城/坛台",
       "sceneName": "大享殿",
       "type": "outdoor",
       "variants": {
@@ -3161,7 +3161,7 @@
       }
     },
     {
-      "fullPath": "外城/06坛台",
+      "fullPath": "外城/坛台",
       "sceneName": "观耕台",
       "type": "outdoor",
       "variants": {
@@ -3174,7 +3174,7 @@
       }
     },
     {
-      "fullPath": "外城/06坛台",
+      "fullPath": "外城/坛台",
       "sceneName": "圜丘坛",
       "type": "outdoor",
       "variants": {
@@ -3187,7 +3187,7 @@
       }
     },
     {
-      "fullPath": "外城/06坛台",
+      "fullPath": "外城/坛台",
       "sceneName": "天坛斋宫",
       "type": "indoor",
       "variants": {
@@ -3196,7 +3196,7 @@
       }
     },
     {
-      "fullPath": "外城/06坛台",
+      "fullPath": "外城/坛台",
       "sceneName": "先农坛",
       "type": "outdoor",
       "variants": {
@@ -3209,7 +3209,7 @@
       }
     },
     {
-      "fullPath": "外城/06坛台",
+      "fullPath": "外城/坛台",
       "sceneName": "永定门",
       "type": "outdoor",
       "variants": {
@@ -3222,7 +3222,7 @@
       }
     },
     {
-      "fullPath": "关厢村野/村野/01关厢",
+      "fullPath": "关厢村野/村野/关厢",
       "sceneName": "朝外关厢街",
       "type": "outdoor",
       "variants": {
@@ -3235,7 +3235,7 @@
       }
     },
     {
-      "fullPath": "关厢村野/村野/01关厢",
+      "fullPath": "关厢村野/村野/关厢",
       "sceneName": "东岳庙大殿",
       "type": "indoor",
       "variants": {
@@ -3244,7 +3244,7 @@
       }
     },
     {
-      "fullPath": "关厢村野/村野/01关厢",
+      "fullPath": "关厢村野/村野/关厢",
       "sceneName": "东岳庙七十二司",
       "type": "indoor",
       "variants": {
@@ -3253,7 +3253,7 @@
       }
     },
     {
-      "fullPath": "关厢村野/村野/01关厢",
+      "fullPath": "关厢村野/村野/关厢",
       "sceneName": "东岳庙山门",
       "type": "outdoor",
       "variants": {
@@ -3266,7 +3266,7 @@
       }
     },
     {
-      "fullPath": "关厢村野/村野/02坟园",
+      "fullPath": "关厢村野/村野/坟园",
       "sceneName": "城南义庄停灵房",
       "type": "indoor",
       "variants": {
@@ -3275,7 +3275,7 @@
       }
     },
     {
-      "fullPath": "关厢村野/村野/02坟园",
+      "fullPath": "关厢村野/村野/坟园",
       "sceneName": "漏泽园",
       "type": "outdoor",
       "variants": {
@@ -3288,7 +3288,7 @@
       }
     },
     {
-      "fullPath": "关厢村野/村野/02坟园",
+      "fullPath": "关厢村野/村野/坟园",
       "sceneName": "乱葬岗",
       "type": "outdoor",
       "variants": {
@@ -3301,7 +3301,7 @@
       }
     },
     {
-      "fullPath": "关厢村野/村野/02坟园",
+      "fullPath": "关厢村野/村野/坟园",
       "sceneName": "义庄院",
       "type": "outdoor",
       "variants": {
@@ -3314,7 +3314,7 @@
       }
     },
     {
-      "fullPath": "关厢村野/村野/03官道",
+      "fullPath": "关厢村野/村野/官道",
       "sceneName": "京西官道",
       "type": "outdoor",
       "variants": {
@@ -3327,7 +3327,7 @@
       }
     },
     {
-      "fullPath": "关厢村野/村野/03官道",
+      "fullPath": "关厢村野/村野/官道",
       "sceneName": "十里长亭",
       "type": "outdoor",
       "variants": {
@@ -3340,7 +3340,7 @@
       }
     },
     {
-      "fullPath": "关厢村野/村野/03官道",
+      "fullPath": "关厢村野/村野/官道",
       "sceneName": "驿馆客房",
       "type": "indoor",
       "variants": {
@@ -3349,7 +3349,7 @@
       }
     },
     {
-      "fullPath": "关厢村野/村野/03官道",
+      "fullPath": "关厢村野/村野/官道",
       "sceneName": "驿馆门庭",
       "type": "outdoor",
       "variants": {
@@ -3362,7 +3362,7 @@
       }
     },
     {
-      "fullPath": "关厢村野/村野/04槐荫村",
+      "fullPath": "关厢村野/村野/槐荫村",
       "sceneName": "村口古槐",
       "type": "outdoor",
       "variants": {
@@ -3375,7 +3375,7 @@
       }
     },
     {
-      "fullPath": "关厢村野/村野/04槐荫村",
+      "fullPath": "关厢村野/村野/槐荫村",
       "sceneName": "村土地庙",
       "type": "indoor",
       "variants": {
@@ -3384,7 +3384,7 @@
       }
     },
     {
-      "fullPath": "关厢村野/村野/04槐荫村",
+      "fullPath": "关厢村野/村野/槐荫村",
       "sceneName": "村中街巷",
       "type": "outdoor",
       "variants": {
@@ -3397,7 +3397,7 @@
       }
     },
     {
-      "fullPath": "关厢村野/村野/04槐荫村",
+      "fullPath": "关厢村野/村野/槐荫村",
       "sceneName": "打谷场",
       "type": "outdoor",
       "variants": {
@@ -3410,7 +3410,7 @@
       }
     },
     {
-      "fullPath": "远征/01西山",
+      "fullPath": "远征/西山",
       "sceneName": "狐仙洞府",
       "type": "indoor",
       "variants": {
@@ -3419,7 +3419,7 @@
       }
     },
     {
-      "fullPath": "远征/01西山",
+      "fullPath": "远征/西山",
       "sceneName": "戒台寺戒坛",
       "type": "indoor",
       "variants": {
@@ -3428,7 +3428,7 @@
       }
     },
     {
-      "fullPath": "远征/01西山",
+      "fullPath": "远征/西山",
       "sceneName": "青丘峪口",
       "type": "outdoor",
       "variants": {
@@ -3441,7 +3441,7 @@
       }
     },
     {
-      "fullPath": "远征/01西山",
+      "fullPath": "远征/西山",
       "sceneName": "潭柘寺大殿",
       "type": "indoor",
       "variants": {
@@ -3450,7 +3450,7 @@
       }
     },
     {
-      "fullPath": "远征/01西山",
+      "fullPath": "远征/西山",
       "sceneName": "潭柘寺山门",
       "type": "outdoor",
       "variants": {
@@ -3463,7 +3463,7 @@
       }
     },
     {
-      "fullPath": "远征/01西山",
+      "fullPath": "远征/西山",
       "sceneName": "西山山道",
       "type": "outdoor",
       "variants": {
@@ -3476,7 +3476,7 @@
       }
     },
     {
-      "fullPath": "远征/01西山",
+      "fullPath": "远征/西山",
       "sceneName": "峪中泉林",
       "type": "outdoor",
       "variants": {
@@ -3489,7 +3489,7 @@
       }
     },
     {
-      "fullPath": "远征/02皇陵",
+      "fullPath": "远征/皇陵",
       "sceneName": "皇陵神道",
       "type": "outdoor",
       "variants": {
@@ -3502,7 +3502,7 @@
       }
     },
     {
-      "fullPath": "远征/02皇陵",
+      "fullPath": "远征/皇陵",
       "sceneName": "陵门",
       "type": "outdoor",
       "variants": {
@@ -3515,7 +3515,7 @@
       }
     },
     {
-      "fullPath": "远征/02皇陵",
+      "fullPath": "远征/皇陵",
       "sceneName": "陵卫值房",
       "type": "indoor",
       "variants": {
@@ -3524,7 +3524,7 @@
       }
     },
     {
-      "fullPath": "远征/02皇陵",
+      "fullPath": "远征/皇陵",
       "sceneName": "享殿",
       "type": "indoor",
       "variants": {
@@ -3533,7 +3533,7 @@
       }
     },
     {
-      "fullPath": "远征/02皇陵",
+      "fullPath": "远征/皇陵",
       "sceneName": "玄宫封门",
       "type": "outdoor",
       "variants": {
@@ -3546,7 +3546,7 @@
       }
     },
     {
-      "fullPath": "远征/03通州",
+      "fullPath": "远征/通州",
       "sceneName": "漕船甲板",
       "type": "outdoor",
       "variants": {
@@ -3559,7 +3559,7 @@
       }
     },
     {
-      "fullPath": "远征/03通州",
+      "fullPath": "远征/通州",
       "sceneName": "通州漕仓",
       "type": "indoor",
       "variants": {
@@ -3568,7 +3568,7 @@
       }
     },
     {
-      "fullPath": "远征/03通州",
+      "fullPath": "远征/通州",
       "sceneName": "通州码头",
       "type": "outdoor",
       "variants": {
@@ -3581,7 +3581,7 @@
       }
     },
     {
-      "fullPath": "远征/03通州",
+      "fullPath": "远征/通州",
       "sceneName": "张家湾古街",
       "type": "outdoor",
       "variants": {
@@ -3594,7 +3594,7 @@
       }
     },
     {
-      "fullPath": "远征/04南苑",
+      "fullPath": "远征/南苑",
       "sceneName": "南苑苑门",
       "type": "outdoor",
       "variants": {
@@ -3607,7 +3607,7 @@
       }
     },
     {
-      "fullPath": "远征/04南苑",
+      "fullPath": "远征/南苑",
       "sceneName": "围场",
       "type": "outdoor",
       "variants": {
@@ -3620,7 +3620,7 @@
       }
     },
     {
-      "fullPath": "远征/04南苑",
+      "fullPath": "远征/南苑",
       "sceneName": "行宫",
       "type": "indoor",
       "variants": {
@@ -3629,7 +3629,7 @@
       }
     },
     {
-      "fullPath": "远征/05卢沟",
+      "fullPath": "远征/卢沟",
       "sceneName": "卢沟桥",
       "type": "outdoor",
       "variants": {
@@ -3642,7 +3642,7 @@
       }
     },
     {
-      "fullPath": "远征/05卢沟",
+      "fullPath": "远征/卢沟",
       "sceneName": "桥头野店",
       "type": "indoor",
       "variants": {
@@ -3651,7 +3651,7 @@
       }
     },
     {
-      "fullPath": "远征/06边关",
+      "fullPath": "远征/边关",
       "sceneName": "居庸关关城",
       "type": "outdoor",
       "variants": {
@@ -3664,7 +3664,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "安定郡王府大门前庭",
       "type": "outdoor",
       "variants": {
@@ -3677,7 +3677,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "安定郡王府后园",
       "type": "outdoor",
       "variants": {
@@ -3690,7 +3690,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "安定郡王府寝院",
       "type": "outdoor",
       "variants": {
@@ -3703,7 +3703,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "安定郡王府正堂",
       "type": "indoor",
       "variants": {
@@ -3712,7 +3712,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "秉笔宅家庙",
       "type": "indoor",
       "variants": {
@@ -3721,7 +3721,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "秉笔宅门庭",
       "type": "outdoor",
       "variants": {
@@ -3734,7 +3734,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "秉笔宅密室",
       "type": "indoor",
       "variants": {
@@ -3743,7 +3743,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "秉笔宅正堂",
       "type": "indoor",
       "variants": {
@@ -3752,7 +3752,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "茶食铺宅后院",
       "type": "outdoor",
       "variants": {
@@ -3765,7 +3765,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "茶食铺宅前铺",
       "type": "indoor",
       "variants": {
@@ -3774,7 +3774,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "朝议第门庭",
       "type": "outdoor",
       "variants": {
@@ -3787,7 +3787,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "朝议第庭院",
       "type": "outdoor",
       "variants": {
@@ -3800,7 +3800,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "朝议第正房",
       "type": "indoor",
       "variants": {
@@ -3809,7 +3809,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "绸缎巨宅后院",
       "type": "outdoor",
       "variants": {
@@ -3822,7 +3822,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "绸缎巨宅门庭",
       "type": "outdoor",
       "variants": {
@@ -3835,7 +3835,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "绸缎巨宅账房",
       "type": "indoor",
       "variants": {
@@ -3844,7 +3844,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "绸缎巨宅正堂",
       "type": "indoor",
       "variants": {
@@ -3853,7 +3853,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "绸缎铺宅后院",
       "type": "outdoor",
       "variants": {
@@ -3866,7 +3866,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "绸缎铺宅前铺",
       "type": "indoor",
       "variants": {
@@ -3875,7 +3875,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "大宗伯府大门前庭",
       "type": "outdoor",
       "variants": {
@@ -3888,7 +3888,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "大宗伯府后院",
       "type": "outdoor",
       "variants": {
@@ -3901,7 +3901,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "大宗伯府书房",
       "type": "indoor",
       "variants": {
@@ -3910,7 +3910,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "大宗伯府正堂",
       "type": "indoor",
       "variants": {
@@ -3919,7 +3919,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "迪功第门庭",
       "type": "outdoor",
       "variants": {
@@ -3932,7 +3932,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "迪功第堂屋",
       "type": "indoor",
       "variants": {
@@ -3941,7 +3941,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "定远侯府大门前庭",
       "type": "outdoor",
       "variants": {
@@ -3954,7 +3954,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "定远侯府后院",
       "type": "outdoor",
       "variants": {
@@ -3967,7 +3967,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "定远侯府花厅",
       "type": "indoor",
       "variants": {
@@ -3976,7 +3976,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "定远侯府正堂",
       "type": "indoor",
       "variants": {
@@ -3985,7 +3985,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "都宪府大门前庭",
       "type": "outdoor",
       "variants": {
@@ -3998,7 +3998,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "都宪府后院",
       "type": "outdoor",
       "variants": {
@@ -4011,7 +4011,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "都宪府书房",
       "type": "indoor",
       "variants": {
@@ -4020,7 +4020,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "都宪府正堂",
       "type": "indoor",
       "variants": {
@@ -4029,7 +4029,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "奉政第门庭",
       "type": "outdoor",
       "variants": {
@@ -4042,7 +4042,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "奉政第庭院",
       "type": "outdoor",
       "variants": {
@@ -4055,7 +4055,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "奉政第正房",
       "type": "indoor",
       "variants": {
@@ -4064,7 +4064,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "辅国公府大门前庭",
       "type": "outdoor",
       "variants": {
@@ -4077,7 +4077,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "辅国公府花厅",
       "type": "indoor",
       "variants": {
@@ -4086,7 +4086,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "辅国公府寝院",
       "type": "outdoor",
       "variants": {
@@ -4099,7 +4099,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "辅国公府演武园",
       "type": "outdoor",
       "variants": {
@@ -4112,7 +4112,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "辅国公府正堂",
       "type": "indoor",
       "variants": {
@@ -4121,7 +4121,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "阁老府大门前庭",
       "type": "outdoor",
       "variants": {
@@ -4134,7 +4134,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "阁老府后院",
       "type": "outdoor",
       "variants": {
@@ -4147,7 +4147,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "阁老府书房",
       "type": "indoor",
       "variants": {
@@ -4156,7 +4156,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "阁老府正堂",
       "type": "indoor",
       "variants": {
@@ -4165,7 +4165,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "广源号宅后院",
       "type": "outdoor",
       "variants": {
@@ -4178,7 +4178,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "广源号宅门庭",
       "type": "outdoor",
       "variants": {
@@ -4191,7 +4191,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "广源号宅账房",
       "type": "indoor",
       "variants": {
@@ -4200,7 +4200,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "广源号宅正堂",
       "type": "indoor",
       "variants": {
@@ -4209,7 +4209,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "恒昌号宅后院",
       "type": "outdoor",
       "variants": {
@@ -4222,7 +4222,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "恒昌号宅门庭",
       "type": "outdoor",
       "variants": {
@@ -4235,7 +4235,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "恒昌号宅账房",
       "type": "indoor",
       "variants": {
@@ -4244,7 +4244,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "恒昌号宅正堂",
       "type": "indoor",
       "variants": {
@@ -4253,7 +4253,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "荆王府承运殿",
       "type": "indoor",
       "variants": {
@@ -4262,7 +4262,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "荆王府存心殿",
       "type": "indoor",
       "variants": {
@@ -4271,7 +4271,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "荆王府大门前庭",
       "type": "outdoor",
       "variants": {
@@ -4284,7 +4284,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "荆王府后园",
       "type": "outdoor",
       "variants": {
@@ -4297,7 +4297,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "荆王府寝院",
       "type": "outdoor",
       "variants": {
@@ -4310,7 +4310,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "乐安郡王府大门前庭",
       "type": "outdoor",
       "variants": {
@@ -4323,7 +4323,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "乐安郡王府后园",
       "type": "outdoor",
       "variants": {
@@ -4336,7 +4336,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "乐安郡王府寝院",
       "type": "outdoor",
       "variants": {
@@ -4349,7 +4349,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "乐安郡王府正堂",
       "type": "indoor",
       "variants": {
@@ -4358,7 +4358,7 @@
       }
     },
     {
-      "fullPath": "外城/05洼地",
+      "fullPath": "外城/洼地",
       "sceneName": "临街杂院厢房",
       "type": "indoor",
       "variants": {
@@ -4367,7 +4367,7 @@
       }
     },
     {
-      "fullPath": "外城/05洼地",
+      "fullPath": "外城/洼地",
       "sceneName": "临街杂院院场",
       "type": "outdoor",
       "variants": {
@@ -4380,7 +4380,7 @@
       }
     },
     {
-      "fullPath": "外城/05洼地",
+      "fullPath": "外城/洼地",
       "sceneName": "陋巷寒宅柴门",
       "type": "outdoor",
       "variants": {
@@ -4393,7 +4393,7 @@
       }
     },
     {
-      "fullPath": "外城/05洼地",
+      "fullPath": "外城/洼地",
       "sceneName": "陋巷寒宅陋室",
       "type": "indoor",
       "variants": {
@@ -4402,7 +4402,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "岷王府承运殿",
       "type": "indoor",
       "variants": {
@@ -4411,7 +4411,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "岷王府存心殿",
       "type": "indoor",
       "variants": {
@@ -4420,7 +4420,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "岷王府大门前庭",
       "type": "outdoor",
       "variants": {
@@ -4433,7 +4433,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "岷王府后园",
       "type": "outdoor",
       "variants": {
@@ -4446,7 +4446,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "岷王府寝院",
       "type": "outdoor",
       "variants": {
@@ -4459,7 +4459,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "平江伯府门庭",
       "type": "outdoor",
       "variants": {
@@ -4472,7 +4472,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "平江伯府院落",
       "type": "outdoor",
       "variants": {
@@ -4485,7 +4485,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "平江伯府正堂",
       "type": "indoor",
       "variants": {
@@ -4494,7 +4494,7 @@
       }
     },
     {
-      "fullPath": "外城/05洼地",
+      "fullPath": "外城/洼地",
       "sceneName": "青砖民院门庭",
       "type": "outdoor",
       "variants": {
@@ -4507,7 +4507,7 @@
       }
     },
     {
-      "fullPath": "外城/05洼地",
+      "fullPath": "外城/洼地",
       "sceneName": "青砖民院正房",
       "type": "indoor",
       "variants": {
@@ -4516,7 +4516,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "清平伯府门庭",
       "type": "outdoor",
       "variants": {
@@ -4529,7 +4529,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "清平伯府院落",
       "type": "outdoor",
       "variants": {
@@ -4542,7 +4542,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "清平伯府正堂",
       "type": "indoor",
       "variants": {
@@ -4551,7 +4551,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "泰宁侯府大门前庭",
       "type": "outdoor",
       "variants": {
@@ -4564,7 +4564,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "泰宁侯府后院",
       "type": "outdoor",
       "variants": {
@@ -4577,7 +4577,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "泰宁侯府花厅",
       "type": "indoor",
       "variants": {
@@ -4586,7 +4586,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "泰宁侯府正堂",
       "type": "indoor",
       "variants": {
@@ -4595,7 +4595,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "文林第门庭",
       "type": "outdoor",
       "variants": {
@@ -4608,7 +4608,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "文林第堂屋",
       "type": "indoor",
       "variants": {
@@ -4617,7 +4617,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "武安侯府大门前庭",
       "type": "outdoor",
       "variants": {
@@ -4630,7 +4630,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "武安侯府后院",
       "type": "outdoor",
       "variants": {
@@ -4643,7 +4643,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "武安侯府花厅",
       "type": "indoor",
       "variants": {
@@ -4652,7 +4652,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "武安侯府正堂",
       "type": "indoor",
       "variants": {
@@ -4661,7 +4661,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "襄王府承运殿",
       "type": "indoor",
       "variants": {
@@ -4670,7 +4670,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "襄王府存心殿",
       "type": "indoor",
       "variants": {
@@ -4679,7 +4679,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "襄王府大门前庭",
       "type": "outdoor",
       "variants": {
@@ -4692,7 +4692,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "襄王府后园",
       "type": "outdoor",
       "variants": {
@@ -4705,7 +4705,7 @@
       }
     },
     {
-      "fullPath": "内城/北城/11诸王邸",
+      "fullPath": "内城/北城/诸王邸",
       "sceneName": "襄王府寝院",
       "type": "outdoor",
       "variants": {
@@ -4718,7 +4718,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "修职第门庭",
       "type": "outdoor",
       "variants": {
@@ -4731,7 +4731,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "修职第堂屋",
       "type": "indoor",
       "variants": {
@@ -4740,7 +4740,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "盐商巨宅后院",
       "type": "outdoor",
       "variants": {
@@ -4753,7 +4753,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "盐商巨宅门庭",
       "type": "outdoor",
       "variants": {
@@ -4766,7 +4766,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "盐商巨宅账房",
       "type": "indoor",
       "variants": {
@@ -4775,7 +4775,7 @@
       }
     },
     {
-      "fullPath": "外城/02商栈",
+      "fullPath": "外城/商栈",
       "sceneName": "盐商巨宅正堂",
       "type": "indoor",
       "variants": {
@@ -4784,7 +4784,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "长兴侯府大门前庭",
       "type": "outdoor",
       "variants": {
@@ -4797,7 +4797,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "长兴侯府后院",
       "type": "outdoor",
       "variants": {
@@ -4810,7 +4810,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "长兴侯府花厅",
       "type": "indoor",
       "variants": {
@@ -4819,7 +4819,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "长兴侯府正堂",
       "type": "indoor",
       "variants": {
@@ -4828,7 +4828,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "掌印宅家庙",
       "type": "indoor",
       "variants": {
@@ -4837,7 +4837,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "掌印宅门庭",
       "type": "outdoor",
       "variants": {
@@ -4850,7 +4850,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "掌印宅密室",
       "type": "indoor",
       "variants": {
@@ -4859,7 +4859,7 @@
       }
     },
     {
-      "fullPath": "皇城/01衙署",
+      "fullPath": "皇城/衙署",
       "sceneName": "掌印宅正堂",
       "type": "indoor",
       "variants": {
@@ -4868,7 +4868,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "镇国公府大门前庭",
       "type": "outdoor",
       "variants": {
@@ -4881,7 +4881,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "镇国公府花厅",
       "type": "indoor",
       "variants": {
@@ -4890,7 +4890,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "镇国公府寝院",
       "type": "outdoor",
       "variants": {
@@ -4903,7 +4903,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "镇国公府演武园",
       "type": "outdoor",
       "variants": {
@@ -4916,7 +4916,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "镇国公府正堂",
       "type": "indoor",
       "variants": {
@@ -4925,7 +4925,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "中宪第门庭",
       "type": "outdoor",
       "variants": {
@@ -4938,7 +4938,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "中宪第庭院",
       "type": "outdoor",
       "variants": {
@@ -4951,7 +4951,7 @@
       }
     },
     {
-      "fullPath": "内城/中城/01署馆",
+      "fullPath": "内城/中城/署馆",
       "sceneName": "中宪第正房",
       "type": "indoor",
       "variants": {
@@ -4960,7 +4960,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "忠勇伯府门庭",
       "type": "outdoor",
       "variants": {
@@ -4973,7 +4973,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "忠勇伯府院落",
       "type": "outdoor",
       "variants": {
@@ -4986,7 +4986,7 @@
       }
     },
     {
-      "fullPath": "内城/西城/04勋贵",
+      "fullPath": "内城/西城/勋贵",
       "sceneName": "忠勇伯府正堂",
       "type": "indoor",
       "variants": {
@@ -4995,8 +4995,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "宝月宫前院",
+      "fullPath": "宫城/六宫/宝月宫",
+      "sceneName": "前院",
       "type": "outdoor",
       "variants": {
         "晴夜": "https://i.postimg.cc/W4Qwrmy6/bao-yue-gong-qian-yuan-qing-ye.png",
@@ -5008,8 +5008,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "宝月宫寝阁",
+      "fullPath": "宫城/六宫/宝月宫",
+      "sceneName": "寝阁",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/fys7qzDV/bao-yue-gong-qin-ge-ye.png",
@@ -5017,8 +5017,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "宝月宫正殿",
+      "fullPath": "宫城/六宫/宝月宫",
+      "sceneName": "正殿",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/x8PvWw1L/bao-yue-gong-zheng-dian-ye.png",
@@ -5026,8 +5026,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "澄心宫前院",
+      "fullPath": "宫城/六宫/澄心宫",
+      "sceneName": "前院",
       "type": "outdoor",
       "variants": {
         "晴夜": "https://i.postimg.cc/7P1nG2n4/cheng-xin-gong-qian-yuan-qing-ye.png",
@@ -5039,8 +5039,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "澄心宫寝阁",
+      "fullPath": "宫城/六宫/澄心宫",
+      "sceneName": "寝阁",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/GhqPznf6/cheng-xin-gong-qin-ge-ye.png",
@@ -5048,8 +5048,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "澄心宫正殿",
+      "fullPath": "宫城/六宫/澄心宫",
+      "sceneName": "正殿",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/DyBQ53Dz/cheng-xin-gong-zheng-dian-ye.png",
@@ -5057,8 +5057,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "青芜宫前院",
+      "fullPath": "宫城/六宫/青芜宫",
+      "sceneName": "前院",
       "type": "outdoor",
       "variants": {
         "晴夜": "https://i.postimg.cc/P57WszTw/qing-wu-gong-qian-yuan-qing-ye.png",
@@ -5070,8 +5070,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "青芜宫寝阁",
+      "fullPath": "宫城/六宫/青芜宫",
+      "sceneName": "寝阁",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/vBrfVJ9S/qing-wu-gong-qin-ge-ye.png",
@@ -5079,8 +5079,8 @@
       }
     },
     {
-      "fullPath": "宫城/04六宫",
-      "sceneName": "青芜宫正殿",
+      "fullPath": "宫城/六宫/青芜宫",
+      "sceneName": "正殿",
       "type": "indoor",
       "variants": {
         "夜": "https://i.postimg.cc/L5mfBxBG/qing-wu-gong-zheng-dian-ye.png",
@@ -5088,7 +5088,7 @@
       }
     },
     {
-      "fullPath": "外城/03会馆",
+      "fullPath": "外城/会馆",
       "sceneName": "沅溪会馆客房",
       "type": "indoor",
       "variants": {
@@ -5097,7 +5097,7 @@
       }
     },
     {
-      "fullPath": "外城/03会馆",
+      "fullPath": "外城/会馆",
       "sceneName": "沅溪会馆门庭",
       "type": "outdoor",
       "variants": {
@@ -5110,7 +5110,7 @@
       }
     },
     {
-      "fullPath": "外城/03会馆",
+      "fullPath": "外城/会馆",
       "sceneName": "云间会馆客房",
       "type": "indoor",
       "variants": {
@@ -5119,7 +5119,7 @@
       }
     },
     {
-      "fullPath": "外城/03会馆",
+      "fullPath": "外城/会馆",
       "sceneName": "云间会馆门庭",
       "type": "outdoor",
       "variants": {

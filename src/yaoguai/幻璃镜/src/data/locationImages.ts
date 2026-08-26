@@ -47,9 +47,9 @@ export interface TemplateLocationEntry {
 /** 常驻地点映射表
  *  key: "区域/分区/.../场景名" */
 export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
-  '宫城/01外朝/东华门': {
+  '宫城/外朝/东华门': {
     name: '东华门',
-    fullPath: '宫城/01外朝',
+  fullPath: '宫城/外朝',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/fWfhgV5y/dong-hua-men-qing-ye.png',
@@ -60,9 +60,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Kv9hxCd6/dong-hua-men-yin-zhou.png'
     }
   },
-  '宫城/01外朝/会极门廊庑': {
+  '宫城/外朝/会极门/会极门廊庑': {
     name: '会极门廊庑',
-    fullPath: '宫城/01外朝',
+  fullPath: '宫城/外朝/会极门',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/x1cDCtQv/hui-ji-men-lang-wu-qing-ye.png',
@@ -73,9 +73,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/x1hrbMT0/hui-ji-men-lang-wu-yin-zhou.png'
     }
   },
-  '宫城/01外朝/内金水桥': {
+  '宫城/外朝/内金水桥': {
     name: '内金水桥',
-    fullPath: '宫城/01外朝',
+  fullPath: '宫城/外朝',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/g0ZCyjn8/nei-jin-shui-qiao-qing-ye.png',
@@ -86,18 +86,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/x80BSPgz/nei-jin-shui-qiao-yin-zhou.png'
     }
   },
-  '宫城/01外朝/乾元殿': {
+  '宫城/外朝/乾元殿': {
     name: '乾元殿',
-    fullPath: '宫城/01外朝',
+  fullPath: '宫城/外朝',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/0ybRQcvy/qian-yuan-dian-ye.png',
       '昼': 'https://i.postimg.cc/3xd5Rnhk/qian-yuan-dian-zhou.png'
     }
   },
-  '宫城/01外朝/神武门': {
+  '宫城/外朝/神武门': {
     name: '神武门',
-    fullPath: '宫城/01外朝',
+  fullPath: '宫城/外朝',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/DzkjTgww/shen-wu-men-qing-ye.png',
@@ -108,27 +108,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/ZRJw953Y/shen-wu-men-yin-zhou.png'
     }
   },
-  '宫城/01外朝/文华殿': {
+  '宫城/外朝/文华殿': {
     name: '文华殿',
-    fullPath: '宫城/01外朝',
+  fullPath: '宫城/外朝',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/2yc9NN1D/wen-hua-dian-ye.png',
       '昼': 'https://i.postimg.cc/h4p5dTpb/wen-hua-dian-zhou.png'
     }
   },
-  '宫城/01外朝/文渊阁': {
+  '宫城/外朝/文渊阁': {
     name: '文渊阁',
-    fullPath: '宫城/01外朝',
+  fullPath: '宫城/外朝',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/CMmQqkm3/wen-yuan-ge-ye.png',
       '昼': 'https://i.postimg.cc/TY1Hq1sx/wen-yuan-ge-zhou.png'
     }
   },
-  '宫城/01外朝/午门城楼': {
+  '宫城/外朝/午门/午门城楼': {
     name: '午门城楼',
-    fullPath: '宫城/01外朝',
+  fullPath: '宫城/外朝/午门',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/7YZjsmf9/wu-men-cheng-lou-qing-ye.png',
@@ -139,27 +139,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/8zq3CGwZ/wu-men-cheng-lou-yin-zhou.png'
     }
   },
-  '宫城/01外朝/午门外朝房': {
+  '宫城/外朝/午门/午门外朝房': {
     name: '午门外朝房',
-    fullPath: '宫城/01外朝',
+  fullPath: '宫城/外朝/午门',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/LXV0v1R8/wu-men-wai-chao-fang-ye.png',
       '昼': 'https://i.postimg.cc/rsFZHwFh/wu-men-wai-chao-fang-zhou.png'
     }
   },
-  '宫城/01外朝/武英殿': {
+  '宫城/外朝/武英殿': {
     name: '武英殿',
-    fullPath: '宫城/01外朝',
+  fullPath: '宫城/外朝',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/NfnCNYhL/wu-ying-dian-ye.png',
       '昼': 'https://i.postimg.cc/L8ZCw7Rw/wu-ying-dian-zhou.png'
     }
   },
-  '宫城/01外朝/西华门': {
+  '宫城/外朝/西华门': {
     name: '西华门',
-    fullPath: '宫城/01外朝',
+  fullPath: '宫城/外朝',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/QCtSbY0y/xi-hua-men-qing-ye.png',
@@ -170,90 +170,90 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/mZXmDRg5/xi-hua-men-yin-zhou.png'
     }
   },
-  '宫城/02帝后/慈宁宫小佛堂': {
-    name: '慈宁宫小佛堂',
-    fullPath: '宫城/02帝后',
+  '宫城/内廷/慈宁宫/小佛堂': {
+    name: '小佛堂',
+  fullPath: '宫城/内廷/慈宁宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/HxS9V4dt/ci-ning-gong-xiao-fu-tang-ye.png',
       '昼': 'https://i.postimg.cc/2yVFvbSF/ci-ning-gong-xiao-fu-tang-zhou.png'
     }
   },
-  '宫城/02帝后/慈宁宫正殿': {
-    name: '慈宁宫正殿',
-    fullPath: '宫城/02帝后',
+  '宫城/内廷/慈宁宫/正殿': {
+    name: '正殿',
+  fullPath: '宫城/内廷/慈宁宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/GtHJY8mf/ci-ning-gong-zheng-dian-ye.png',
       '昼': 'https://i.postimg.cc/4yqv1fKZ/ci-ning-gong-zheng-dian-zhou.png'
     }
   },
-  '宫城/02帝后/坤宁宫寝阁': {
-    name: '坤宁宫寝阁',
-    fullPath: '宫城/02帝后',
+  '宫城/内廷/坤宁宫/寝阁': {
+    name: '寝阁',
+  fullPath: '宫城/内廷/坤宁宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/tgj5f4BV/kun-ning-gong-qin-ge-ye.png',
       '昼': 'https://i.postimg.cc/R0LRzxYt/kun-ning-gong-qin-ge-zhou.png'
     }
   },
-  '宫城/02帝后/坤宁宫正殿': {
-    name: '坤宁宫正殿',
-    fullPath: '宫城/02帝后',
+  '宫城/内廷/坤宁宫/正殿': {
+    name: '正殿',
+  fullPath: '宫城/内廷/坤宁宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Jh5qWCgw/kun-ning-gong-zheng-dian-ye.png',
       '昼': 'https://i.postimg.cc/509m4kd1/kun-ning-gong-zheng-dian-zhou.png'
     }
   },
-  '宫城/02帝后/乾清宫暖阁': {
-    name: '乾清宫暖阁',
-    fullPath: '宫城/02帝后',
+  '宫城/内廷/乾清宫/暖阁': {
+    name: '暖阁',
+  fullPath: '宫城/内廷/乾清宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/QxvSQb5d/qian-qing-gong-nuan-ge-ye.png',
       '昼': 'https://i.postimg.cc/tC8D35PW/qian-qing-gong-nuan-ge-zhou.png'
     }
   },
-  '宫城/02帝后/乾清宫正殿': {
-    name: '乾清宫正殿',
-    fullPath: '宫城/02帝后',
+  '宫城/内廷/乾清宫/正殿': {
+    name: '正殿',
+  fullPath: '宫城/内廷/乾清宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/hPNMLrxZ/qian-qing-gong-zheng-dian-ye.png',
       '昼': 'https://i.postimg.cc/T3m0CDq9/qian-qing-gong-zheng-dian-zhou.png'
     }
   },
-  '宫城/02帝后/养心殿': {
+  '宫城/内廷/养心殿': {
     name: '养心殿',
-    fullPath: '宫城/02帝后',
+  fullPath: '宫城/内廷',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/K8LfJMDv/yang-xin-dian-ye.png',
       '昼': 'https://i.postimg.cc/CKgNtxch/yang-xin-dian-zhou.png'
     }
   },
-  '宫城/02帝后/御书房': {
+  '宫城/内廷/御书房': {
     name: '御书房',
-    fullPath: '宫城/02帝后',
+  fullPath: '宫城/内廷',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/63HfyLtw/yu-shu-fang-ye.png',
       '昼': 'https://i.postimg.cc/XJ2kpc4G/yu-shu-fang-zhou.png'
     }
   },
-  '宫城/03东宫/东宫官属值房': {
-    name: '东宫官属值房',
-    fullPath: '宫城/03东宫',
+  '宫城/东宫/官属值房': {
+    name: '官属值房',
+  fullPath: '宫城/东宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/MTGy2MVk/dong-gong-guan-shu-zhi-fang-ye.png',
       '昼': 'https://i.postimg.cc/W34MLFgb/dong-gong-guan-shu-zhi-fang-zhou.png'
     }
   },
-  '宫城/03东宫/东宫后苑': {
-    name: '东宫后苑',
-    fullPath: '宫城/03东宫',
+  '宫城/东宫/后苑': {
+    name: '后苑',
+  fullPath: '宫城/东宫',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/W1MmMPsv/dong-gong-hou-yuan-qing-ye.png',
@@ -264,9 +264,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Zq48HDqx/dong-gong-hou-yuan-yin-zhou.png'
     }
   },
-  '宫城/03东宫/东宫前院': {
-    name: '东宫前院',
-    fullPath: '宫城/03东宫',
+  '宫城/东宫/前院': {
+    name: '前院',
+  fullPath: '宫城/东宫',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/xTN31z78/dong-gong-qian-yuan-qing-ye.png',
@@ -277,45 +277,45 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/wjKcyB8Q/dong-gong-qian-yuan-yin-zhou.png'
     }
   },
-  '宫城/03东宫/东宫书堂': {
-    name: '东宫书堂',
-    fullPath: '宫城/03东宫',
+  '宫城/东宫/书堂': {
+    name: '书堂',
+  fullPath: '宫城/东宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/BZVC3ghZ/dong-gong-shu-tang-ye.png',
       '昼': 'https://i.postimg.cc/hPQ1tdwg/dong-gong-shu-tang-zhou.png'
     }
   },
-  '宫城/03东宫/端本宫内寝': {
-    name: '端本宫内寝',
-    fullPath: '宫城/03东宫',
+  '宫城/东宫/内寝': {
+    name: '内寝',
+  fullPath: '宫城/东宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/0QH78k0w/duan-ben-gong-nei-qin-ye.png',
       '昼': 'https://i.postimg.cc/26Xnzk77/duan-ben-gong-nei-qin-zhou.png'
     }
   },
-  '宫城/03东宫/端本宫书房': {
-    name: '端本宫书房',
-    fullPath: '宫城/03东宫',
+  '宫城/东宫/书房': {
+    name: '书房',
+  fullPath: '宫城/东宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/4d3zk7Vh/duan-ben-gong-shu-fang-ye.png',
       '昼': 'https://i.postimg.cc/NMPRgskF/duan-ben-gong-shu-fang-zhou.png'
     }
   },
-  '宫城/04六宫/宫正司值房': {
-    name: '宫正司值房',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/宫正司/值房': {
+    name: '值房',
+  fullPath: '宫城/六宫/宫正司',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Kj6LM0VM/gong-zheng-si-zhi-fang-ye.png',
       '昼': 'https://i.postimg.cc/mZJ7Jrrp/gong-zheng-si-zhi-fang-zhou.png'
     }
   },
-  '宫城/04六宫/宁安宫小院': {
-    name: '宁安宫小院',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/宁安宫/小院': {
+    name: '小院',
+  fullPath: '宫城/六宫/宁安宫',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Y9yQprzd/ning-an-gong-xiao-yuan-qing-ye.png',
@@ -326,27 +326,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/6q2nqkMm/ning-an-gong-xiao-yuan-yin-zhou.png'
     }
   },
-  '宫城/04六宫/宁安宫正殿': {
-    name: '宁安宫正殿',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/宁安宫/正殿': {
+    name: '正殿',
+  fullPath: '宫城/六宫/宁安宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Kj6LM0Vv/ning-an-gong-zheng-dian-ye.png',
       '昼': 'https://i.postimg.cc/prw8Fs7m/ning-an-gong-zheng-dian-zhou.png'
     }
   },
-  '宫城/04六宫/锁澜宫封殿': {
-    name: '锁澜宫封殿',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/锁澜宫/封殿': {
+    name: '封殿',
+  fullPath: '宫城/六宫/锁澜宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/cLMYvMcv/suo-lan-gong-feng-dian-ye.png',
       '昼': 'https://i.postimg.cc/5t4zLYPj/suo-lan-gong-feng-dian-zhou.png'
     }
   },
-  '宫城/04六宫/锁澜宫封院': {
-    name: '锁澜宫封院',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/锁澜宫/封院': {
+    name: '封院',
+  fullPath: '宫城/六宫/锁澜宫',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/q7JKyhmb/suo-lan-gong-feng-yuan-qing-ye.png',
@@ -357,9 +357,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/cJFnmxjp/suo-lan-gong-feng-yuan-yin-zhou.png'
     }
   },
-  '宫城/04六宫/昭华宫前院': {
-    name: '昭华宫前院',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/昭华宫/前院': {
+    name: '前院',
+  fullPath: '宫城/六宫/昭华宫',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/xjhLhdCD/zhao-hua-gong-qian-yuan-qing-ye.png',
@@ -370,72 +370,72 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/pXjKHthW/zhao-hua-gong-qian-yuan-yin-zhou.png'
     }
   },
-  '宫城/04六宫/昭华宫寝阁': {
-    name: '昭华宫寝阁',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/昭华宫/寝阁': {
+    name: '寝阁',
+  fullPath: '宫城/六宫/昭华宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/L8ML40Lv/zhao-hua-gong-qin-ge-ye.png',
       '昼': 'https://i.postimg.cc/L8ML40LC/zhao-hua-gong-qin-ge-zhou.png'
     }
   },
-  '宫城/04六宫/昭华宫正殿': {
-    name: '昭华宫正殿',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/昭华宫/正殿': {
+    name: '正殿',
+  fullPath: '宫城/六宫/昭华宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Z5hpYD6z/zhao-hua-gong-zheng-dian-ye.png',
       '昼': 'https://i.postimg.cc/kgF82FvZ/zhao-hua-gong-zheng-dian-zhou.png'
     }
   },
-  '宫城/05内官/安乐堂': {
+  '宫城/内官/安乐堂': {
     name: '安乐堂',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/3JGcWRb4/an-le-tang-ye.png',
       '昼': 'https://i.postimg.cc/pLt1jHgT/an-le-tang-zhou.png'
     }
   },
-  '宫城/05内官/百鸟房': {
+  '宫城/内官/百鸟房': {
     name: '百鸟房',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/ryrJNHGP/bai-niao-fang-ye.png',
       '昼': 'https://i.postimg.cc/G3yQxfJw/bai-niao-fang-zhou.png'
     }
   },
-  '宫城/05内官/宝钞司作坊': {
+  '宫城/内官/宝钞司作坊': {
     name: '宝钞司作坊',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/T3XHb6ZN/bao-chao-si-zuo-fang-ye.png',
       '昼': 'https://i.postimg.cc/P5zVz7j3/bao-chao-si-zuo-fang-zhou.png'
     }
   },
-  '宫城/05内官/兵仗局火药作': {
+  '宫城/内官/兵仗局火药作': {
     name: '兵仗局火药作',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/XJXyDM6F/bing-zhang-ju-huo-yao-zuo-ye.png',
       '昼': 'https://i.postimg.cc/W3KqB9sm/bing-zhang-ju-huo-yao-zuo-zhou.png'
     }
   },
-  '宫城/05内官/浣衣房': {
+  '宫城/内官/浣衣房': {
     name: '浣衣房',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/pT9B7Gwb/huan-yi-fang-ye.png',
       '昼': 'https://i.postimg.cc/qRtGYbPM/huan-yi-fang-zhou.png'
     }
   },
-  '宫城/05内官/浣衣局大院': {
+  '宫城/内官/浣衣局大院': {
     name: '浣衣局大院',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/HkHBxtyF/huan-yi-ju-da-yuan-qing-ye.png',
@@ -446,45 +446,45 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/bvVTmcFx/huan-yi-ju-da-yuan-yin-zhou.png'
     }
   },
-  '宫城/05内官/混堂': {
+  '宫城/内官/混堂': {
     name: '混堂',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/MThY80wc/hun-tang-ye.png',
       '昼': 'https://i.postimg.cc/76pNy14X/hun-tang-zhou.png'
     }
   },
-  '宫城/05内官/经厂': {
+  '宫城/内官/经厂': {
     name: '经厂',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/X76gHgQS/jing-chang-ye.png',
       '昼': 'https://i.postimg.cc/xTG3Wb40/jing-chang-zhou.png'
     }
   },
-  '宫城/05内官/猫儿房': {
+  '宫城/内官/猫儿房': {
     name: '猫儿房',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/GtGx3B3g/mao-er-fang-ye.png',
       '昼': 'https://i.postimg.cc/mZHwyn3F/mao-er-fang-zhou.png'
     }
   },
-  '宫城/05内官/内承运库': {
+  '宫城/内官/内承运库': {
     name: '内承运库',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/44mMkw6w/nei-cheng-yun-ku-ye.png',
       '昼': 'https://i.postimg.cc/tRwcXPk3/nei-cheng-yun-ku-zhou.png'
     }
   },
-  '宫城/05内官/内官监料场': {
+  '宫城/内官/内官监料场': {
     name: '内官监料场',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/sxhGsp2k/nei-guan-jian-liao-chang-qing-ye.png',
@@ -495,90 +495,90 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/t7GZTYZD/nei-guan-jian-liao-chang-yin-zhou.png'
     }
   },
-  '宫城/05内官/内书堂': {
+  '宫城/内官/内书堂': {
     name: '内书堂',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/LX7gcymC/nei-shu-tang-ye.png',
       '昼': 'https://i.postimg.cc/Ss5YBZmw/nei-shu-tang-zhou.png'
     }
   },
-  '宫城/05内官/染坊': {
+  '宫城/内官/染坊': {
     name: '染坊',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/sD5TsLvp/ran-fang-ye.png',
       '昼': 'https://i.postimg.cc/T3GCwcD7/ran-fang-zhou.png'
     }
   },
-  '宫城/05内官/司礼监值房': {
+  '宫城/内官/司礼监值房': {
     name: '司礼监值房',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/sfqLVSmK/si-li-jian-zhi-fang-ye.png',
       '昼': 'https://i.postimg.cc/2jMtzvGg/si-li-jian-zhi-fang-zhou.png'
     }
   },
-  '宫城/05内官/太医院值房': {
+  '宫城/内官/太医院值房': {
     name: '太医院值房',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/VsphYM4z/tai-yi-yuan-zhi-fang-ye.png',
       '昼': 'https://i.postimg.cc/rF4PzmYV/tai-yi-yuan-zhi-fang-zhou.png'
     }
   },
-  '宫城/05内官/文书房': {
+  '宫城/内官/文书房': {
     name: '文书房',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/NG3Nhtfv/wen-shu-fang-ye.png',
       '昼': 'https://i.postimg.cc/65CMtPyX/wen-shu-fang-zhou.png'
     }
   },
-  '宫城/05内官/惜薪司炭厂': {
+  '宫城/内官/惜薪司炭厂': {
     name: '惜薪司炭厂',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/9XRxN02S/xi-xin-si-tan-chang-ye.png',
       '昼': 'https://i.postimg.cc/8k2y8GkX/xi-xin-si-tan-chang-zhou.png'
     }
   },
-  '宫城/05内官/绣坊': {
+  '宫城/内官/绣坊': {
     name: '绣坊',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/sDP4tZNn/xiu-fang-ye.png',
       '昼': 'https://i.postimg.cc/YCpzkq5P/xiu-fang-zhou.png'
     }
   },
-  '宫城/05内官/御花房': {
+  '宫城/内官/御花房': {
     name: '御花房',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/s2TnbZ1J/yu-hua-fang-ye.png',
       '昼': 'https://i.postimg.cc/CKcv9fdW/yu-hua-fang-zhou.png'
     }
   },
-  '宫城/05内官/御酒房': {
+  '宫城/内官/御酒房': {
     name: '御酒房',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/fLF8RncT/yu-jiu-fang-ye.png',
       '昼': 'https://i.postimg.cc/G2NXmwFy/yu-jiu-fang-zhou.png'
     }
   },
-  '宫城/05内官/御马监操场': {
+  '宫城/内官/御马监操场': {
     name: '御马监操场',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/50Gs2dBp/yu-ma-jian-cao-chang-qing-ye.png',
@@ -589,45 +589,45 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/gcXMBjpJ/yu-ma-jian-cao-chang-yin-zhou.png'
     }
   },
-  '宫城/05内官/御膳房': {
+  '宫城/内官/御膳房': {
     name: '御膳房',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/jjxg8hqw/yu-shan-fang-ye.png',
       '昼': 'https://i.postimg.cc/vmYqPv8r/yu-shan-fang-zhou.png'
     }
   },
-  '宫城/05内官/御药房药库': {
+  '宫城/内官/御药房药库': {
     name: '御药房药库',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/V657wLbT/yu-yao-fang-yao-ku-ye.png',
       '昼': 'https://i.postimg.cc/k4DjCXbD/yu-yao-fang-yao-ku-zhou.png'
     }
   },
-  '宫城/05内官/御用监造办房': {
+  '宫城/内官/御用监造办房': {
     name: '御用监造办房',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/3xCfCqTP/yu-yong-jian-zao-ban-fang-ye.png',
       '昼': 'https://i.postimg.cc/6QWjHh6J/yu-yong-jian-zao-ban-fang-zhou.png'
     }
   },
-  '宫城/05内官/赃罚库': {
+  '宫城/内官/赃罚库': {
     name: '赃罚库',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/x1tydVYz/zang-fa-ku-ye.png',
       '昼': 'https://i.postimg.cc/xd8GJpTz/zang-fa-ku-zhou.png'
     }
   },
-  '宫城/05内官/钟鼓司戏台': {
+  '宫城/内官/钟鼓司戏台': {
     name: '钟鼓司戏台',
-    fullPath: '宫城/05内官',
+  fullPath: '宫城/内官',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/QMCg9Yxk/zhong-gu-si-xi-tai-qing-ye.png',
@@ -638,9 +638,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/9fkdGPDh/zhong-gu-si-xi-tai-yin-zhou.png'
     }
   },
-  '宫城/06苑囿/堆秀山御景亭': {
+  '宫城/苑囿/堆秀山御景亭': {
     name: '堆秀山御景亭',
-    fullPath: '宫城/06苑囿',
+  fullPath: '宫城/苑囿',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/8cRLQqwx/dui-xiu-shan-yu-jing-ting-qing-ye.png',
@@ -651,18 +651,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/vHyWLZZ9/dui-xiu-shan-yu-jing-ting-yin-zhou.png'
     }
   },
-  '宫城/06苑囿/钦安殿': {
+  '宫城/苑囿/钦安殿': {
     name: '钦安殿',
-    fullPath: '宫城/06苑囿',
+  fullPath: '宫城/苑囿',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/QC3Wbfsg/qin-an-dian-ye.png',
       '昼': 'https://i.postimg.cc/kGmtcT9p/qin-an-dian-zhou.png'
     }
   },
-  '宫城/06苑囿/御花园': {
+  '宫城/苑囿/御花园': {
     name: '御花园',
-    fullPath: '宫城/06苑囿',
+  fullPath: '宫城/苑囿',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/fR2mN7jd/yu-hua-yuan-qing-ye.png',
@@ -673,9 +673,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/cJP3KszG/yu-hua-yuan-yin-zhou.png'
     }
   },
-  '宫城/07阴面/宫井井亭': {
+  '宫城/杂处/宫井井亭': {
     name: '宫井井亭',
-    fullPath: '宫城/07阴面',
+  fullPath: '宫城/杂处',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/JnbsGjJG/gong-jing-jing-ting-qing-ye.png',
@@ -686,9 +686,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/prCyBxsV/gong-jing-jing-ting-yin-zhou.png'
     }
   },
-  '宫城/07阴面/宫墙马道': {
+  '宫城/杂处/宫墙马道': {
     name: '宫墙马道',
-    fullPath: '宫城/07阴面',
+  fullPath: '宫城/杂处',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/RCL3mQvN/gong-qiang-ma-dao-qing-ye.png',
@@ -699,9 +699,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/NfN59syC/gong-qiang-ma-dao-yin-zhou.png'
     }
   },
-  '宫城/07阴面/角楼': {
+  '宫城/杂处/角楼': {
     name: '角楼',
-    fullPath: '宫城/07阴面',
+  fullPath: '宫城/杂处',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/3RCwKY51/jiao-lou-qing-ye.png',
@@ -712,9 +712,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/hvDtv6KP/jiao-lou-yin-zhou.png'
     }
   },
-  '宫城/07阴面/冷宫偏院': {
+  '宫城/杂处/冷宫偏院': {
     name: '冷宫偏院',
-    fullPath: '宫城/07阴面',
+  fullPath: '宫城/杂处',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/59Bz0WS4/leng-gong-pian-yuan-qing-ye.png',
@@ -725,9 +725,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/x14J7fn1/leng-gong-pian-yuan-yin-zhou.png'
     }
   },
-  '宫城/07阴面/内金水河暗渠口': {
+  '宫城/杂处/内金水河暗渠口': {
     name: '内金水河暗渠口',
-    fullPath: '宫城/07阴面',
+  fullPath: '宫城/杂处',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/5yVF3sbW/nei-jin-shui-he-an-qu-kou-qing-ye.png',
@@ -738,9 +738,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/rsNRY5wm/nei-jin-shui-he-an-qu-kou-yin-zhou.png'
     }
   },
-  '宫城/07阴面/神武门内夹墙': {
+  '宫城/杂处/神武门内夹墙': {
     name: '神武门内夹墙',
-    fullPath: '宫城/07阴面',
+  fullPath: '宫城/杂处',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/GmH9vWG4/shen-wu-men-nei-jia-qiang-qing-ye.png',
@@ -751,27 +751,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/q7KR52mR/shen-wu-men-nei-jia-qiang-yin-zhou.png'
     }
   },
-  '皇城/01衙署/北镇抚司诏狱': {
+  '皇城/衙署/北镇抚司/诏狱': {
     name: '北镇抚司诏狱',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/北镇抚司',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/28F8hz16/bei-zhen-fu-si-zhao-yu-ye.png',
       '昼': 'https://i.postimg.cc/dVsQ9zC9/bei-zhen-fu-si-zhao-yu-zhou.png'
     }
   },
-  '皇城/01衙署/兵部值房': {
+  '皇城/衙署/兵部/值房': {
     name: '兵部值房',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/兵部',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/3xYNcksC/bing-bu-zhi-fang-ye.png',
       '昼': 'https://i.postimg.cc/NjDFqgtC/bing-bu-zhi-fang-zhou.png'
     }
   },
-  '皇城/01衙署/承天门御道': {
+  '皇城/衙署/承天门御道': {
     name: '承天门御道',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/pTztvZ8m/cheng-tian-men-yu-dao-qing-ye.png',
@@ -782,18 +782,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/GtRnmyJK/cheng-tian-men-yu-dao-yin-zhou.png'
     }
   },
-  '皇城/01衙署/大理寺评案堂': {
+  '皇城/衙署/大理寺/评案堂': {
     name: '大理寺评案堂',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/大理寺',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/xjL0V0yv/da-li-si-ping-an-tang-ye.png',
       '昼': 'https://i.postimg.cc/Wp02c26W/da-li-si-ping-an-tang-zhou.png'
     }
   },
-  '皇城/01衙署/大雍门': {
+  '皇城/衙署/大雍门': {
     name: '大雍门',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Fsmh92T4/da-yong-men-qing-ye.png',
@@ -804,18 +804,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/JzzmXjwk/da-yong-men-yin-zhou.png'
     }
   },
-  '皇城/01衙署/都察院大堂': {
+  '皇城/衙署/都察院/大堂': {
     name: '都察院大堂',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/都察院',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/sgLFZ84C/dou-cha-yuan-da-tang-ye.png',
       '昼': 'https://i.postimg.cc/JzFwBg54/dou-cha-yuan-da-tang-zhou.png'
     }
   },
-  '皇城/01衙署/端门': {
+  '皇城/衙署/端门': {
     name: '端门',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/2jdfX0rJ/duan-men-qing-ye.png',
@@ -826,54 +826,54 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/fTwh4YbR/duan-men-yin-zhou.png'
     }
   },
-  '皇城/01衙署/工部缮造司': {
+  '皇城/衙署/工部/缮造司': {
     name: '工部缮造司',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/工部',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/0NLqh3z0/gong-bu-shan-zao-si-ye.png',
       '昼': 'https://i.postimg.cc/jjGrB9D9/gong-bu-shan-zao-si-zhou.png'
     }
   },
-  '皇城/01衙署/鸿胪寺大堂': {
+  '皇城/衙署/鸿胪寺/大堂': {
     name: '鸿胪寺大堂',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/鸿胪寺',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/tg6cnggd/hong-lu-si-da-tang-ye.png',
       '昼': 'https://i.postimg.cc/SK9PYKK1/hong-lu-si-da-tang-zhou.png'
     }
   },
-  '皇城/01衙署/户部账库': {
+  '皇城/衙署/户部/账库': {
     name: '户部账库',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/户部',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/pTztvZj7/hu-bu-zhang-ku-ye.png',
       '昼': 'https://i.postimg.cc/63nNK0RB/hu-bu-zhang-ku-zhou.png'
     }
   },
-  '皇城/01衙署/金匮石室': {
+  '皇城/衙署/金匮石室': {
     name: '金匮石室',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/jjnp6XMq/jin-kui-shi-shi-ye.png',
       '昼': 'https://i.postimg.cc/nL9yKk37/jin-kui-shi-shi-zhou.png'
     }
   },
-  '皇城/01衙署/锦衣卫大堂': {
+  '皇城/衙署/北镇抚司/大堂': {
     name: '锦衣卫大堂',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/北镇抚司',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/rFy7Zchr/jin-yi-wei-da-tang-ye.png',
       '昼': 'https://i.postimg.cc/Pr69Bccv/jin-yi-wei-da-tang-zhou.png'
     }
   },
-  '皇城/01衙署/锦衣卫校场': {
+  '皇城/衙署/北镇抚司/校场': {
     name: '锦衣卫校场',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/北镇抚司',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/m2dJ0qqY/jin-yi-wei-xiao-chang-qing-ye.png',
@@ -884,27 +884,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/4xmqZPRG/jin-yi-wei-xiao-chang-yin-zhou.png'
     }
   },
-  '皇城/01衙署/礼部祠祭司': {
+  '皇城/衙署/礼部/祠祭司': {
     name: '礼部祠祭司',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/礼部',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/PJMsp5SH/li-bu-ci-ji-si-ye.png',
       '昼': 'https://i.postimg.cc/66VN1MtL/li-bu-ci-ji-si-zhou.png'
     }
   },
-  '皇城/01衙署/吏部值房': {
+  '皇城/衙署/吏部/值房': {
     name: '吏部值房',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/吏部',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Rh197RVL/li-bu-zhi-fang-ye.png',
       '昼': 'https://i.postimg.cc/sxPyYcgC/li-bu-zhi-fang-zhou.png'
     }
   },
-  '皇城/01衙署/千步廊官署街': {
+  '皇城/衙署/千步廊官署街': {
     name: '千步廊官署街',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/7ZKHtm1c/qian-bu-lang-guan-shu-jie-qing-ye.png',
@@ -915,45 +915,45 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/GpNcdt5f/qian-bu-lang-guan-shu-jie-yin-zhou.png'
     }
   },
-  '皇城/01衙署/钦天监大堂': {
+  '皇城/衙署/钦天监/大堂': {
     name: '钦天监大堂',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/钦天监',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/B6WdmKzh/qin-tian-jian-da-tang-ye.png',
       '昼': 'https://i.postimg.cc/qRf913Yk/qin-tian-jian-da-tang-zhou.png'
     }
   },
-  '皇城/01衙署/钦天监卷宗库': {
+  '皇城/衙署/钦天监/卷宗库': {
     name: '钦天监卷宗库',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/钦天监',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/6Q4kV0Mf/qin-tian-jian-juan-zong-ku-ye.png',
       '昼': 'https://i.postimg.cc/R0Jk1RgP/qin-tian-jian-juan-zong-ku-zhou.png'
     }
   },
-  '皇城/01衙署/钦天监漏刻房': {
+  '皇城/衙署/钦天监/漏刻房': {
     name: '钦天监漏刻房',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/钦天监',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/3rFPZWFV/qin-tian-jian-lou-ke-fang-ye.png',
       '昼': 'https://i.postimg.cc/c41PkZF5/qin-tian-jian-lou-ke-fang-zhou.png'
     }
   },
-  '皇城/01衙署/钦天监算房': {
+  '皇城/衙署/钦天监/算房': {
     name: '钦天监算房',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/钦天监',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/tCR8vyrH/qin-tian-jian-suan-fang-ye.png',
       '昼': 'https://i.postimg.cc/WbpxYj9p/qin-tian-jian-suan-fang-zhou.png'
     }
   },
-  '皇城/01衙署/钦天监庭院': {
+  '皇城/衙署/钦天监/庭院': {
     name: '钦天监庭院',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/钦天监',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/d3wgYKw3/qin-tian-jian-ting-yuan-qing-ye.png',
@@ -964,63 +964,63 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/90bKXNfQ/qin-tian-jian-ting-yuan-yin-zhou.png'
     }
   },
-  '皇城/01衙署/太仓库': {
+  '皇城/衙署/太仓库': {
     name: '太仓库',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/s2Br6ygB/tai-cang-ku-ye.png',
       '昼': 'https://i.postimg.cc/JhyL6mzQ/tai-cang-ku-zhou.png'
     }
   },
-  '皇城/01衙署/通政司收本厅': {
+  '皇城/衙署/通政司/收本厅': {
     name: '通政司收本厅',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/通政司',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/QdCGCs5n/tong-zheng-si-shou-ben-ting-ye.png',
       '昼': 'https://i.postimg.cc/sgLFZ89L/tong-zheng-si-shou-ben-ting-zhou.png'
     }
   },
-  '皇城/01衙署/刑部成案档库': {
+  '皇城/衙署/刑部/成案档库': {
     name: '刑部成案档库',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/刑部',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/5y89PJpH/xing-bu-cheng-an-dang-ku-ye.png',
       '昼': 'https://i.postimg.cc/05SN5GxK/xing-bu-cheng-an-dang-ku-zhou.png'
     }
   },
-  '皇城/01衙署/刑部大牢': {
+  '皇城/衙署/刑部/大牢': {
     name: '刑部大牢',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/刑部',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/wBbBM07W/xing-bu-da-lao-ye.png',
       '昼': 'https://i.postimg.cc/gJCkqjyF/xing-bu-da-lao-zhou.png'
     }
   },
-  '皇城/01衙署/刑部大堂': {
+  '皇城/衙署/刑部/大堂': {
     name: '刑部大堂',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/刑部',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/tggT9LC0/xing-bu-da-tang-ye.png',
       '昼': 'https://i.postimg.cc/W4f4zXhb/xing-bu-da-tang-zhou.png'
     }
   },
-  '皇城/01衙署/刑部提牢厅': {
+  '皇城/衙署/刑部/提牢厅': {
     name: '刑部提牢厅',
-    fullPath: '皇城/01衙署',
+  fullPath: '皇城/衙署/刑部',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/yYz8DJYX/xing-bu-ti-lao-ting-ye.png',
       '昼': 'https://i.postimg.cc/4NbNVJm2/xing-bu-ti-lao-ting-zhou.png'
     }
   },
-  '皇城/02西苑/虎城': {
+  '皇城/西苑/虎城': {
     name: '虎城',
-    fullPath: '皇城/02西苑',
+  fullPath: '皇城/西苑',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/DyzYd6ZF/hu-cheng-qing-ye.png',
@@ -1031,9 +1031,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/tCmvr6Z8/hu-cheng-yin-zhou.png'
     }
   },
-  '皇城/02西苑/琼岛广寒殿': {
+  '皇城/西苑/琼岛广寒殿': {
     name: '琼岛广寒殿',
-    fullPath: '皇城/02西苑',
+  fullPath: '皇城/西苑',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/sxjHL94k/qiong-dao-guang-han-dian-qing-ye.png',
@@ -1044,9 +1044,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Wz5YcF93/qiong-dao-guang-han-dian-yin-zhou.png'
     }
   },
-  '皇城/02西苑/太液池畔': {
+  '皇城/西苑/太液池畔': {
     name: '太液池畔',
-    fullPath: '皇城/02西苑',
+  fullPath: '皇城/西苑',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/DZKMrKWB/tai-ye-chi-pan-qing-ye.png',
@@ -1057,18 +1057,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/qRXZQZyg/tai-ye-chi-pan-yin-zhou.png'
     }
   },
-  '皇城/02西苑/西苑醮坛': {
+  '皇城/西苑/醮坛': {
     name: '西苑醮坛',
-    fullPath: '皇城/02西苑',
+  fullPath: '皇城/西苑',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/hG8rqQvK/xi-yuan-jiao-tan-ye.png',
       '昼': 'https://i.postimg.cc/V6YFss0v/xi-yuan-jiao-tan-zhou.png'
     }
   },
-  '皇城/02西苑/西苑水榭': {
+  '皇城/西苑/水榭': {
     name: '西苑水榭',
-    fullPath: '皇城/02西苑',
+  fullPath: '皇城/西苑',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/VNX7LHGQ/xi-yuan-shui-xie-qing-ye.png',
@@ -1079,18 +1079,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/vHD36mqr/xi-yuan-shui-xie-yin-zhou.png'
     }
   },
-  '皇城/03苑山/朝天宫三清大殿': {
+  '皇城/苑山/朝天宫/三清大殿': {
     name: '朝天宫三清大殿',
-    fullPath: '皇城/03苑山',
+  fullPath: '皇城/苑山/朝天宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Y0vYjvrW/chao-tian-gong-san-qing-da-dian-ye.png',
       '昼': 'https://i.postimg.cc/8cxWvTcd/chao-tian-gong-san-qing-da-dian-zhou.png'
     }
   },
-  '皇城/03苑山/朝天宫山门': {
+  '皇城/苑山/朝天宫/山门': {
     name: '朝天宫山门',
-    fullPath: '皇城/03苑山',
+  fullPath: '皇城/苑山/朝天宫',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Vv2MtzvZ/chao-tian-gong-shan-men-qing-ye.png',
@@ -1101,9 +1101,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/bN21hSVm/chao-tian-gong-shan-men-yin-zhou.png'
     }
   },
-  '皇城/03苑山/社稷坛': {
+  '皇城/苑山/社稷坛': {
     name: '社稷坛',
-    fullPath: '皇城/03苑山',
+  fullPath: '皇城/苑山',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/SxFCNQw4/she-ji-tan-qing-ye.png',
@@ -1114,9 +1114,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/T3VmyM6q/she-ji-tan-yin-zhou.png'
     }
   },
-  '皇城/03苑山/太庙': {
+  '皇城/苑山/太庙': {
     name: '太庙',
-    fullPath: '皇城/03苑山',
+  fullPath: '皇城/苑山',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/NfW79krG/tai-miao-qing-ye.png',
@@ -1127,9 +1127,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/B6Qx9hRB/tai-miao-yin-zhou.png'
     }
   },
-  '皇城/03苑山/万岁山': {
+  '皇城/苑山/万岁山': {
     name: '万岁山',
-    fullPath: '皇城/03苑山',
+  fullPath: '皇城/苑山',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/hjp1XFV9/wan-sui-shan-qing-ye.png',
@@ -1140,9 +1140,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/nVS1ZJH5/wan-sui-shan-yin-zhou.png'
     }
   },
-  '内城/东城/01商贸/灯市口大街': {
+  '东城/商贸/灯市口/大街': {
     name: '灯市口大街',
-    fullPath: '内城/东城/01商贸',
+  fullPath: '东城/商贸/灯市口',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/L83RYv0f/deng-shi-kou-da-jie-qing-ye.png',
@@ -1153,9 +1153,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/W3hPyVp8/deng-shi-kou-da-jie-yin-zhou.png'
     }
   },
-  '内城/东城/01商贸/东四牌楼街': {
+  '东城/商贸/东四牌楼街': {
     name: '东四牌楼街',
-    fullPath: '内城/东城/01商贸',
+  fullPath: '东城/商贸',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/qqSSS6DV/dong-si-pai-lou-jie-qing-ye.png',
@@ -1166,18 +1166,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/nh8N17Q0/dong-si-pai-lou-jie-yin-zhou.png'
     }
   },
-  '内城/东城/01商贸/隆福寺大殿': {
+  '东城/商贸/隆福寺/大殿': {
     name: '隆福寺大殿',
-    fullPath: '内城/东城/01商贸',
+  fullPath: '东城/商贸/隆福寺',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/zDHrSqP9/long-fu-si-da-dian-ye.png',
       '昼': 'https://i.postimg.cc/rF6Lf7BT/long-fu-si-da-dian-zhou.png'
     }
   },
-  '内城/东城/01商贸/隆福寺庙市': {
+  '东城/商贸/隆福寺/庙市': {
     name: '隆福寺庙市',
-    fullPath: '内城/东城/01商贸',
+  fullPath: '东城/商贸/隆福寺',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/gk9Pg1Cw/long-fu-si-miao-shi-qing-ye.png',
@@ -1188,9 +1188,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/3xYQTmJx/long-fu-si-miao-shi-yin-zhou.png'
     }
   },
-  '内城/东城/01商贸/内市': {
+  '东城/商贸/内市': {
     name: '内市',
-    fullPath: '内城/东城/01商贸',
+  fullPath: '东城/商贸',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/vBmKmtps/nei-shi-qing-ye.png',
@@ -1201,27 +1201,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Kj6pJS4c/nei-shi-yin-zhou.png'
     }
   },
-  '内城/东城/01商贸/望仙楼大堂': {
+  '东城/商贸/望仙楼/大堂': {
     name: '望仙楼大堂',
-    fullPath: '内城/东城/01商贸',
+  fullPath: '东城/商贸/望仙楼',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/xTH9Y9vb/wang-xian-lou-da-tang-ye.png',
       '昼': 'https://i.postimg.cc/SN8mqm61/wang-xian-lou-da-tang-zhou.png'
     }
   },
-  '内城/东城/01商贸/望仙楼雅座': {
+  '东城/商贸/望仙楼/雅座': {
     name: '望仙楼雅座',
-    fullPath: '内城/东城/01商贸',
+  fullPath: '东城/商贸/望仙楼',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/bwhpw4gW/wang-xian-lou-ya-zuo-ye.png',
       '昼': 'https://i.postimg.cc/2S7mbTXD/wang-xian-lou-ya-zuo-zhou.png'
     }
   },
-  '内城/东城/02文教/贡院号舍巷': {
+  '东城/文教/贡院/号舍巷': {
     name: '贡院号舍巷',
-    fullPath: '内城/东城/02文教',
+  fullPath: '东城/文教/贡院',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/8k62ft7g/gong-yuan-hao-she-xiang-qing-ye.png',
@@ -1232,9 +1232,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/P5t9cHKR/gong-yuan-hao-she-xiang-yin-zhou.png'
     }
   },
-  '内城/东城/02文教/贡院明远楼': {
+  '东城/文教/贡院/明远楼': {
     name: '贡院明远楼',
-    fullPath: '内城/东城/02文教',
+  fullPath: '东城/文教/贡院',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/TPsspDGv/gong-yuan-ming-yuan-lou-qing-ye.png',
@@ -1245,36 +1245,36 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/vTFSvwcP/gong-yuan-ming-yuan-lou-yin-zhou.png'
     }
   },
-  '内城/东城/02文教/贡院至公堂': {
+  '东城/文教/贡院/至公堂': {
     name: '贡院至公堂',
-    fullPath: '内城/东城/02文教',
+  fullPath: '东城/文教/贡院',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/prfcGcj8/gong-yuan-zhi-gong-tang-ye.png',
       '昼': 'https://i.postimg.cc/RCKYZhYm/gong-yuan-zhi-gong-tang-zhou.png'
     }
   },
-  '内城/东城/02文教/蒙学堂': {
+  '东城/文教/蒙学堂': {
     name: '蒙学堂',
-    fullPath: '内城/东城/02文教',
+  fullPath: '东城/文教',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Jn9SdBdP/meng-xue-tang-ye.png',
       '昼': 'https://i.postimg.cc/G2Z6Ss5c/meng-xue-tang-zhou.png'
     }
   },
-  '内城/东城/02文教/文墨书铺': {
+  '东城/文教/文墨书铺': {
     name: '文墨书铺',
-    fullPath: '内城/东城/02文教',
+  fullPath: '东城/文教',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/259shtQt/wen-mo-shu-pu-ye.png',
       '昼': 'https://i.postimg.cc/d0NbrfRk/wen-mo-shu-pu-zhou.png'
     }
   },
-  '内城/东城/03仓储/朝阳门': {
+  '东城/仓储/朝阳门': {
     name: '朝阳门',
-    fullPath: '内城/东城/03仓储',
+  fullPath: '东城/仓储',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/B6Dmb7Mm/chao-yang-men-qing-ye.png',
@@ -1285,18 +1285,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/FshTFZcj/chao-yang-men-yin-zhou.png'
     }
   },
-  '内城/东城/03仓储/禄米仓廒内': {
+  '东城/仓储/禄米仓/廒内': {
     name: '禄米仓廒内',
-    fullPath: '内城/东城/03仓储',
+  fullPath: '东城/仓储/禄米仓',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/2SVF3X54/lu-mi-cang-ao-nei-ye.png',
       '昼': 'https://i.postimg.cc/4xqvcb7R/lu-mi-cang-ao-nei-zhou.png'
     }
   },
-  '内城/东城/03仓储/禄米仓仓院': {
+  '东城/仓储/禄米仓/仓院': {
     name: '禄米仓仓院',
-    fullPath: '内城/东城/03仓储',
+  fullPath: '东城/仓储/禄米仓',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/MGfD3rkN/lu-mi-cang-cang-yuan-qing-ye.png',
@@ -1307,9 +1307,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/XqLcBRFB/lu-mi-cang-cang-yuan-yin-zhou.png'
     }
   },
-  '内城/东城/03仓储/太仓廒区': {
+  '东城/仓储/太仓廒区': {
     name: '太仓廒区',
-    fullPath: '内城/东城/03仓储',
+  fullPath: '东城/仓储',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/7Y4WGDvR/tai-cang-ao-qu-qing-ye.png',
@@ -1320,279 +1320,279 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/0yWWBwzK/tai-cang-ao-qu-yin-zhou.png'
     }
   },
-  '内城/东城/04司法/大兴班房': {
+  '东城/司法/大兴县衙/班房': {
     name: '大兴班房',
-    fullPath: '内城/东城/04司法',
+  fullPath: '东城/司法/大兴县衙',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/PrF1GzMz/da-xing-ban-fang-ye.png',
       '昼': 'https://i.postimg.cc/L8cf59wm/da-xing-ban-fang-zhou.png'
     }
   },
-  '内城/东城/04司法/大兴监房': {
+  '东城/司法/大兴县衙/监房': {
     name: '大兴监房',
-    fullPath: '内城/东城/04司法',
+  fullPath: '东城/司法/大兴县衙',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/GpvDy0nk/da-xing-jian-fang-ye.png',
       '昼': 'https://i.postimg.cc/85D6dyT2/da-xing-jian-fang-zhou.png'
     }
   },
-  '内城/东城/04司法/大兴仵作房': {
+  '东城/司法/大兴县衙/仵作房': {
     name: '大兴仵作房',
-    fullPath: '内城/东城/04司法',
+  fullPath: '东城/司法/大兴县衙',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/sxj5zT85/da-xing-wu-zuo-fang-ye.png',
       '昼': 'https://i.postimg.cc/XqsdYwSm/da-xing-wu-zuo-fang-zhou.png'
     }
   },
-  '内城/东城/04司法/大兴县衙大堂': {
+  '东城/司法/大兴县衙/大堂': {
     name: '大兴县衙大堂',
-    fullPath: '内城/东城/04司法',
+  fullPath: '东城/司法/大兴县衙',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/05npnqMn/da-xing-xian-ya-da-tang-ye.png',
       '昼': 'https://i.postimg.cc/ZKq6DD6Z/da-xing-xian-ya-da-tang-zhou.png'
     }
   },
-  '内城/东城/04司法/东城兵马司': {
+  '东城/司法/东城兵马司': {
     name: '东城兵马司',
-    fullPath: '内城/东城/04司法',
+  fullPath: '东城/司法',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/yNRmygc3/dong-cheng-bing-ma-si-ye.png',
       '昼': 'https://i.postimg.cc/qRX2WP1S/dong-cheng-bing-ma-si-zhou.png'
     }
   },
-  '内城/东城/05百业/抄报房': {
+  '东城/百业/抄报房': {
     name: '抄报房',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/DfpSmfbv/chao-bao-fang-ye.png',
       '昼': 'https://i.postimg.cc/RV3Ntrc3/chao-bao-fang-zhou.png'
     }
   },
-  '内城/东城/05百业/成衣铺': {
+  '东城/百业/成衣铺': {
     name: '成衣铺',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Y0P0P8wh/cheng-yi-pu-ye.png',
       '昼': 'https://i.postimg.cc/G3g493sn/cheng-yi-pu-zhou.png'
     }
   },
-  '内城/东城/05百业/灯铺': {
+  '东城/百业/灯铺': {
     name: '灯铺',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/L6Z8Xtp5/deng-pu-ye.png',
       '昼': 'https://i.postimg.cc/nhbcQXFm/deng-pu-zhou.png'
     }
   },
-  '内城/东城/05百业/丰裕米行': {
+  '东城/百业/丰裕米行': {
     name: '丰裕米行',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/7hZJdfGf/feng-yu-mi-xing-ye.png',
       '昼': 'https://i.postimg.cc/zv2Hr8K0/feng-yu-mi-xing-zhou.png'
     }
   },
-  '内城/东城/05百业/果子铺': {
+  '东城/百业/果子铺': {
     name: '果子铺',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/PqHx0P0Y/guo-zi-pu-ye.png',
       '昼': 'https://i.postimg.cc/1zKtSyZJ/guo-zi-pu-zhou.png'
     }
   },
-  '内城/东城/05百业/花想容胭脂铺': {
+  '东城/百业/花想容胭脂铺': {
     name: '花想容胭脂铺',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/PxxtkZy1/hua-xiang-rong-yan-zhi-pu-ye.png',
       '昼': 'https://i.postimg.cc/0QB95QX7/hua-xiang-rong-yan-zhi-pu-zhou.png'
     }
   },
-  '内城/东城/05百业/集雅斋古玩铺': {
+  '东城/百业/集雅斋古玩铺': {
     name: '集雅斋古玩铺',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/7Y7Jc8bn/ji-ya-zhai-gu-wan-pu-ye.png',
       '昼': 'https://i.postimg.cc/xTHN7Dqh/ji-ya-zhai-gu-wan-pu-zhou.png'
     }
   },
-  '内城/东城/05百业/济生堂后坊': {
+  '东城/百业/济生堂药铺/济生堂后坊': {
     name: '济生堂后坊',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业/济生堂药铺',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/VvJLXM03/ji-sheng-tang-hou-fang-ye.png',
       '昼': 'https://i.postimg.cc/Gt63K2kR/ji-sheng-tang-hou-fang-zhou.png'
     }
   },
-  '内城/东城/05百业/济生堂药铺': {
-    name: '济生堂药铺',
-    fullPath: '内城/东城/05百业',
+  '东城/百业/济生堂药铺/药铺': {
+    name: '药铺',
+  fullPath: '东城/百业/济生堂药铺',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Gt63K2kY/ji-sheng-tang-yao-pu-ye.png',
       '昼': 'https://i.postimg.cc/BZzv4hRr/ji-sheng-tang-yao-pu-zhou.png'
     }
   },
-  '内城/东城/05百业/街角茶铺': {
+  '东城/百业/街角茶铺': {
     name: '街角茶铺',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/sxGsMrty/jie-jiao-cha-pu-ye.png',
       '昼': 'https://i.postimg.cc/9z3VTkhB/jie-jiao-cha-pu-zhou.png'
     }
   },
-  '内城/东城/05百业/锦华裱画铺': {
+  '东城/百业/锦华裱画铺': {
     name: '锦华裱画铺',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/v8C63H8f/jin-hua-biao-hua-pu-ye.png',
       '昼': 'https://i.postimg.cc/tR8V2CRB/jin-hua-biao-hua-pu-zhou.png'
     }
   },
-  '内城/东城/05百业/老酱园': {
+  '东城/百业/老酱园': {
     name: '老酱园',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/hGMSwMLD/lao-jiang-yuan-ye.png',
       '昼': 'https://i.postimg.cc/XJJV0FLV/lao-jiang-yuan-zhou.png'
     }
   },
-  '内城/东城/05百业/南货铺': {
+  '东城/百业/南货铺': {
     name: '南货铺',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/59sCvqTg/nan-huo-pu-ye.png',
       '昼': 'https://i.postimg.cc/154NKVZ3/nan-huo-pu-zhou.png'
     }
   },
-  '内城/东城/05百业/荣文堂书坊': {
+  '东城/百业/荣文堂书坊': {
     name: '荣文堂书坊',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/1tjyRt7d/rong-wen-tang-shu-fang-ye.png',
       '昼': 'https://i.postimg.cc/zvH8yr42/rong-wen-tang-shu-fang-zhou.png'
     }
   },
-  '内城/东城/05百业/瑞云斋靴帽铺': {
+  '东城/百业/瑞云斋靴帽铺': {
     name: '瑞云斋靴帽铺',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/HkwW0TjD/rui-yun-zhai-xue-mao-pu-ye.png',
       '昼': 'https://i.postimg.cc/43XfBjhf/rui-yun-zhai-xue-mao-pu-zhou.png'
     }
   },
-  '内城/东城/05百业/寿材铺': {
+  '东城/百业/寿材铺': {
     name: '寿材铺',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/50n6Bb75/shou-cai-pu-ye.png',
       '昼': 'https://i.postimg.cc/x8Z8ZgVx/shou-cai-pu-zhou.png'
     }
   },
-  '内城/东城/05百业/四时花铺': {
+  '东城/百业/四时花铺': {
     name: '四时花铺',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/6pv2ks3V/si-shi-hua-pu-ye.png',
       '昼': 'https://i.postimg.cc/zfYb5db9/si-shi-hua-pu-zhou.png'
     }
   },
-  '内城/东城/05百业/松烟斋笔墨铺': {
+  '东城/百业/松烟斋笔墨铺': {
     name: '松烟斋笔墨铺',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/9FvztxpB/song-yan-zhai-bi-mo-pu-ye.png',
       '昼': 'https://i.postimg.cc/fRmyHxqR/song-yan-zhai-bi-mo-pu-zhou.png'
     }
   },
-  '内城/东城/05百业/天成号绸缎庄': {
+  '东城/百业/天成号绸缎庄': {
     name: '天成号绸缎庄',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/CKCZKjbP/tian-cheng-hao-chou-duan-zhuang-ye.png',
       '昼': 'https://i.postimg.cc/Jn1sHGqL/tian-cheng-hao-chou-duan-zhuang-zhou.png'
     }
   },
-  '内城/东城/05百业/通济当铺': {
+  '东城/百业/通济当铺': {
     name: '通济当铺',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/sfMhYZrN/tong-ji-dang-pu-ye.png',
       '昼': 'https://i.postimg.cc/RCWH7nmx/tong-ji-dang-pu-zhou.png'
     }
   },
-  '内城/东城/05百业/鲜鱼行': {
+  '东城/百业/鲜鱼行': {
     name: '鲜鱼行',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/6pX4xjGg/xian-yu-xing-ye.png',
       '昼': 'https://i.postimg.cc/8zSfgK6z/xian-yu-xing-zhou.png'
     }
   },
-  '内城/东城/05百业/银楼': {
+  '东城/百业/银楼': {
     name: '银楼',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/2j1ZQBYS/yin-lou-ye.png',
       '昼': 'https://i.postimg.cc/Pf082rfr/yin-lou-zhou.png'
     }
   },
-  '内城/东城/05百业/油盐店': {
+  '东城/百业/油盐店': {
     name: '油盐店',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/ZRKqKXTQ/you-yan-dian-ye.png',
       '昼': 'https://i.postimg.cc/DZjwW50b/you-yan-dian-zhou.png'
     }
   },
-  '内城/东城/05百业/纸马铺': {
+  '东城/百业/纸马铺': {
     name: '纸马铺',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/BvJSMR1D/zhi-ma-pu-ye.png',
       '昼': 'https://i.postimg.cc/GpzcNzkS/zhi-ma-pu-zhou.png'
     }
   },
-  '内城/东城/05百业/猪肉铺': {
+  '东城/百业/猪肉铺': {
     name: '猪肉铺',
-    fullPath: '内城/东城/05百业',
+  fullPath: '东城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/bwcN2Zy6/zhu-rou-pu-ye.png',
       '昼': 'https://i.postimg.cc/CxTLfRMp/zhu-rou-pu-zhou.png'
     }
   },
-  '内城/中城/01署馆/东江米巷官署街': {
+  '中城/署馆/东江米巷官署街': {
     name: '东江米巷官署街',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '中城/署馆',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Nj2yThvp/dong-jiang-mi-xiang-guan-shu-jie-qing-ye.png',
@@ -1603,36 +1603,36 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/j5tCGLw1/dong-jiang-mi-xiang-guan-shu-jie-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/翰林院藏书楼': {
+  '中城/署馆/翰林院/藏书楼': {
     name: '翰林院藏书楼',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '中城/署馆/翰林院',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/RFgCyGzB/han-lin-yuan-cang-shu-lou-ye.png',
       '昼': 'https://i.postimg.cc/hj246Mqz/han-lin-yuan-cang-shu-lou-zhou.png'
     }
   },
-  '内城/中城/01署馆/翰林院大堂': {
+  '中城/署馆/翰林院/大堂': {
     name: '翰林院大堂',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '中城/署馆/翰林院',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/HL4k4dZS/han-lin-yuan-da-tang-ye.png',
       '昼': 'https://i.postimg.cc/XJj7smmz/han-lin-yuan-da-tang-zhou.png'
     }
   },
-  '内城/中城/01署馆/会同馆客堂': {
+  '中城/署馆/会同馆/客堂': {
     name: '会同馆客堂',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '中城/署馆/会同馆',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/x8d81hPF/hui-tong-guan-ke-tang-ye.png',
       '昼': 'https://i.postimg.cc/xjsq4j0G/hui-tong-guan-ke-tang-zhou.png'
     }
   },
-  '内城/中城/01署馆/会同馆驿庭': {
+  '中城/署馆/会同馆/驿庭': {
     name: '会同馆驿庭',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '中城/署馆/会同馆',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Dy8mkV0v/hui-tong-guan-yi-ting-qing-ye.png',
@@ -1643,9 +1643,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/dVC138Gg/hui-tong-guan-yi-ting-yin-zhou.png'
     }
   },
-  '内城/中城/02十王邸/晋王邸后园': {
+  '中城/十王邸/晋王邸/后园': {
     name: '晋王邸后园',
-    fullPath: '内城/中城/02十王邸',
+  fullPath: '中城/十王邸/晋王邸',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Y0J7BsDH/jin-wang-di-hou-yuan-qing-ye.png',
@@ -1656,18 +1656,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/vHVMtGD4/jin-wang-di-hou-yuan-yin-zhou.png'
     }
   },
-  '内城/中城/02十王邸/晋王邸花厅': {
+  '中城/十王邸/晋王邸/花厅': {
     name: '晋王邸花厅',
-    fullPath: '内城/中城/02十王邸',
+  fullPath: '中城/十王邸/晋王邸',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/fbBhRLq7/jin-wang-di-hua-ting-ye.png',
       '昼': 'https://i.postimg.cc/pdqtLT1x/jin-wang-di-hua-ting-zhou.png'
     }
   },
-  '内城/中城/02十王邸/晋王邸前庭': {
+  '中城/十王邸/晋王邸/前庭': {
     name: '晋王邸前庭',
-    fullPath: '内城/中城/02十王邸',
+  fullPath: '中城/十王邸/晋王邸',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/VkXfmz8z/jin-wang-di-qian-ting-qing-ye.png',
@@ -1678,18 +1678,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/9MQCdTq2/jin-wang-di-qian-ting-yin-zhou.png'
     }
   },
-  '内城/中城/02十王邸/晋王邸正堂': {
+  '中城/十王邸/晋王邸/正堂': {
     name: '晋王邸正堂',
-    fullPath: '内城/中城/02十王邸',
+  fullPath: '中城/十王邸/晋王邸',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Hk0gF3wk/jin-wang-di-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/R0MBmfd3/jin-wang-di-zheng-tang-zhou.png'
     }
   },
-  '内城/中城/02十王邸/十王邸街': {
+  '中城/十王邸/十王邸街': {
     name: '十王邸街',
-    fullPath: '内城/中城/02十王邸',
+  fullPath: '中城/十王邸',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/cC61SYsv/shi-wang-di-jie-qing-ye.png',
@@ -1700,27 +1700,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/KjVGvzj4/shi-wang-di-jie-yin-zhou.png'
     }
   },
-  '内城/中城/03教坊/教坊司值房': {
+  '中城/教坊司/司值房': {
     name: '教坊司值房',
-    fullPath: '内城/中城/03教坊',
+  fullPath: '中城/教坊司',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/gr9CT6rr/jiao-fang-si-zhi-fang-ye.png',
       '昼': 'https://i.postimg.cc/sfB1bd1t/jiao-fang-si-zhi-fang-zhou.png'
     }
   },
-  '内城/中城/03教坊/教坊演乐厅': {
+  '中城/教坊司/演乐厅': {
     name: '教坊演乐厅',
-    fullPath: '内城/中城/03教坊',
+  fullPath: '中城/教坊司',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/7PCbj8fH/jiao-fang-yan-le-ting-ye.png',
       '昼': 'https://i.postimg.cc/xjWq2xzk/jiao-fang-yan-le-ting-zhou.png'
     }
   },
-  '内城/中城/03教坊/乐户后巷': {
+  '中城/教坊司/乐户后巷': {
     name: '乐户后巷',
-    fullPath: '内城/中城/03教坊',
+  fullPath: '中城/教坊司',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/zBvYbr98/le-hu-hou-xiang-qing-ye.png',
@@ -1731,18 +1731,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/D0bV6cvg/le-hu-hou-xiang-yin-zhou.png'
     }
   },
-  '内城/中城/04玉河/上林苑监值房': {
+  '中城/玉河/上林苑监/值房': {
     name: '上林苑监值房',
-    fullPath: '内城/中城/04玉河',
+  fullPath: '中城/玉河/上林苑监',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/xTM8TvvL/shang-lin-yuan-jian-zhi-fang-ye.png',
       '昼': 'https://i.postimg.cc/15wX5G0x/shang-lin-yuan-jian-zhi-fang-zhou.png'
     }
   },
-  '内城/中城/04玉河/台基厂': {
+  '中城/玉河/台基厂': {
     name: '台基厂',
-    fullPath: '内城/中城/04玉河',
+  fullPath: '中城/玉河',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Njx0RQP0/tai-ji-chang-qing-ye.png',
@@ -1753,9 +1753,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/SKTNtDhw/tai-ji-chang-yin-zhou.png'
     }
   },
-  '内城/中城/04玉河/银街': {
+  '中城/玉河/银街': {
     name: '银街',
-    fullPath: '内城/中城/04玉河',
+  fullPath: '中城/玉河',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/1zty6wqT/yin-jie-qing-ye.png',
@@ -1766,9 +1766,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/yd3BpKnw/yin-jie-yin-zhou.png'
     }
   },
-  '内城/中城/04玉河/玉河柳岸': {
+  '中城/玉河/玉河柳岸': {
     name: '玉河柳岸',
-    fullPath: '内城/中城/04玉河',
+  fullPath: '中城/玉河',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/0Qz2gD5F/yu-he-liu-an-qing-ye.png',
@@ -1779,9 +1779,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/MHR6HwQf/yu-he-liu-an-yin-zhou.png'
     }
   },
-  '内城/中城/04玉河/玉河桥': {
+  '中城/玉河/玉河桥': {
     name: '玉河桥',
-    fullPath: '内城/中城/04玉河',
+  fullPath: '中城/玉河',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/9F5XSD64/yu-he-qiao-qing-ye.png',
@@ -1792,9 +1792,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Qdj88Rx8/yu-he-qiao-yin-zhou.png'
     }
   },
-  '内城/中城/05泡子河/观象台台顶': {
+  '中城/泡子河/观象台/台顶': {
     name: '观象台台顶',
-    fullPath: '内城/中城/05泡子河',
+  fullPath: '中城/泡子河/观象台',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/26hMBS2g/guan-xiang-tai-tai-ding-qing-ye.png',
@@ -1805,9 +1805,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/3NZqnbMz/guan-xiang-tai-tai-ding-yin-zhou.png'
     }
   },
-  '内城/中城/05泡子河/观象台台下院': {
+  '中城/泡子河/观象台/台下院': {
     name: '观象台台下院',
-    fullPath: '内城/中城/05泡子河',
+  fullPath: '中城/泡子河/观象台',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/MK5kDXq6/guan-xiang-tai-tai-xia-yuan-qing-ye.png',
@@ -1818,18 +1818,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/43Krs5tJ/guan-xiang-tai-tai-xia-yuan-yin-zhou.png'
     }
   },
-  '内城/中城/05泡子河/观象台值庐': {
+  '中城/泡子河/观象台/值庐': {
     name: '观象台值庐',
-    fullPath: '内城/中城/05泡子河',
+  fullPath: '中城/泡子河/观象台',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/wTg8LDKV/guan-xiang-tai-zhi-lu-ye.png',
       '昼': 'https://i.postimg.cc/3JY5m2MP/guan-xiang-tai-zhi-lu-zhou.png'
     }
   },
-  '内城/中城/05泡子河/泡子河岸': {
+  '中城/泡子河/泡子河岸': {
     name: '泡子河岸',
-    fullPath: '内城/中城/05泡子河',
+  fullPath: '中城/泡子河',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/HnQmHtqV/pao-zi-he-an-qing-ye.png',
@@ -1840,27 +1840,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/15QPBLFN/pao-zi-he-an-yin-zhou.png'
     }
   },
-  '内城/中城/05泡子河/玩家宅书房': {
+  '中城/泡子河/<user>宅/书房': {
     name: '玩家宅书房',
-    fullPath: '内城/中城/05泡子河',
+  fullPath: '中城/泡子河/<user>宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Hs9mhB4d/wan-jia-zhai-shu-fang-ye.png',
       '昼': 'https://i.postimg.cc/wjxz8L0q/wan-jia-zhai-shu-fang-zhou.png'
     }
   },
-  '内城/中城/05泡子河/玩家宅堂屋': {
+  '中城/泡子河/<user>宅/堂屋': {
     name: '玩家宅堂屋',
-    fullPath: '内城/中城/05泡子河',
+  fullPath: '中城/泡子河/<user>宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/pLVvbzqj/wan-jia-zhai-tang-wu-ye.png',
       '昼': 'https://i.postimg.cc/DwCT20Md/wan-jia-zhai-tang-wu-zhou.png'
     }
   },
-  '内城/中城/05泡子河/玩家宅庭院': {
+  '中城/泡子河/<user>宅/庭院': {
     name: '玩家宅庭院',
-    fullPath: '内城/中城/05泡子河',
+  fullPath: '中城/泡子河/<user>宅',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/N05wLYhY/wan-jia-zhai-ting-yuan-qing-ye.png',
@@ -1871,9 +1871,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/zv1mdgy8/wan-jia-zhai-ting-yuan-yin-zhou.png'
     }
   },
-  '内城/北城/01钟鼓/德胜门': {
+  '北城/德胜门': {
     name: '德胜门',
-    fullPath: '内城/北城/01钟鼓',
+  fullPath: '北城',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/W4XL5Cs2/de-sheng-men-qing-ye.png',
@@ -1884,9 +1884,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/j51VbfW1/de-sheng-men-yin-zhou.png'
     }
   },
-  '内城/北城/01钟鼓/鼓楼': {
+  '北城/鼓楼': {
     name: '鼓楼',
-    fullPath: '内城/北城/01钟鼓',
+  fullPath: '北城',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/zXKfxz63/gu-lou-qing-ye.png',
@@ -1897,9 +1897,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/yNQ6Dkgf/gu-lou-yin-zhou.png'
     }
   },
-  '内城/北城/01钟鼓/鼓楼前大街': {
+  '北城/鼓楼前大街': {
     name: '鼓楼前大街',
-    fullPath: '内城/北城/01钟鼓',
+  fullPath: '北城',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/26gzxMxd/gu-lou-qian-da-jie-qing-ye.png',
@@ -1910,9 +1910,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/dQTQ0QqB/gu-lou-qian-da-jie-yin-zhou.png'
     }
   },
-  '内城/北城/01钟鼓/钟楼': {
+  '北城/钟楼': {
     name: '钟楼',
-    fullPath: '内城/北城/01钟鼓',
+  fullPath: '北城',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/kGR0X5Kc/zhong-lou-qing-ye.png',
@@ -1923,9 +1923,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/gcwj6qKK/zhong-lou-yin-zhou.png'
     }
   },
-  '内城/北城/02什刹海/地安门': {
+  '北城/什刹海/地安门': {
     name: '地安门',
-    fullPath: '内城/北城/02什刹海',
+  fullPath: '北城/什刹海',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/FzjQVRzN/de-an-men-qing-ye.png',
@@ -1936,9 +1936,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/GhCRhkgm/de-an-men-yin-zhou.png'
     }
   },
-  '内城/北城/02什刹海/湖畔斜街': {
+  '北城/什刹海/湖畔斜街': {
     name: '湖畔斜街',
-    fullPath: '内城/北城/02什刹海',
+  fullPath: '北城/什刹海',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/1X1kXQBZ/hu-pan-xie-jie-qing-ye.png',
@@ -1949,9 +1949,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/y6Fq5D6Y/hu-pan-xie-jie-yin-zhou.png'
     }
   },
-  '内城/北城/02什刹海/湖上画舫': {
+  '北城/什刹海/烟波楼/湖上画舫': {
     name: '湖上画舫',
-    fullPath: '内城/北城/02什刹海',
+  fullPath: '北城/什刹海/烟波楼',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Z5Yh6JST/hu-shang-hua-fang-qing-ye.png',
@@ -1962,9 +1962,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Pq9sGZ8s/hu-shang-hua-fang-yin-zhou.png'
     }
   },
-  '内城/北城/02什刹海/积水潭西海': {
+  '北城/什刹海/积水潭西海': {
     name: '积水潭西海',
-    fullPath: '内城/北城/02什刹海',
+  fullPath: '北城/什刹海',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/90BnfqzX/ji-shui-tan-xi-hai-qing-ye.png',
@@ -1975,9 +1975,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/CLF2QJ6v/ji-shui-tan-xi-hai-yin-zhou.png'
     }
   },
-  '内城/北城/02什刹海/什刹前海': {
+  '北城/什刹海/什刹前海': {
     name: '什刹前海',
-    fullPath: '内城/北城/02什刹海',
+  fullPath: '北城/什刹海',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/cJH0G09v/shen-sha-qian-hai-qing-ye.png',
@@ -1988,9 +1988,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/JnH8tKWM/shen-sha-qian-hai-yin-zhou.png'
     }
   },
-  '内城/北城/02什刹海/万宁桥': {
+  '北城/什刹海/万宁桥': {
     name: '万宁桥',
-    fullPath: '内城/北城/02什刹海',
+  fullPath: '北城/什刹海',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/qMVJ6fq4/wan-ning-qiao-qing-ye.png',
@@ -2001,27 +2001,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/kXQnxjRT/wan-ning-qiao-yin-zhou.png'
     }
   },
-  '内城/北城/02什刹海/烟波楼大堂': {
+  '北城/什刹海/烟波楼/大堂': {
     name: '烟波楼大堂',
-    fullPath: '内城/北城/02什刹海',
+  fullPath: '北城/什刹海/烟波楼',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/q7tSGRDX/yan-bo-lou-da-tang-ye.png',
       '昼': 'https://i.postimg.cc/QMRPY3Rt/yan-bo-lou-da-tang-zhou.png'
     }
   },
-  '内城/北城/02什刹海/烟波楼湖景雅座': {
+  '北城/什刹海/烟波楼/湖景雅座': {
     name: '烟波楼湖景雅座',
-    fullPath: '内城/北城/02什刹海',
+  fullPath: '北城/什刹海/烟波楼',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/ydcGwGHT/yan-bo-lou-hu-jing-ya-zuo-ye.png',
       '昼': 'https://i.postimg.cc/vTyKMvYK/yan-bo-lou-hu-jing-ya-zuo-zhou.png'
     }
   },
-  '内城/北城/02什刹海/银锭桥': {
+  '北城/什刹海/银锭桥': {
     name: '银锭桥',
-    fullPath: '内城/北城/02什刹海',
+  fullPath: '北城/什刹海',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/d0TNyfLP/yin-ding-qiao-qing-ye.png',
@@ -2032,9 +2032,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/MT7ssj7N/yin-ding-qiao-yin-zhou.png'
     }
   },
-  '内城/北城/03水岸/汇通祠': {
+  '北城/水岸/汇通祠': {
     name: '汇通祠',
-    fullPath: '内城/北城/03水岸',
+  fullPath: '北城/水岸',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Pxjy8rg6/hui-tong-ci-qing-ye.png',
@@ -2045,18 +2045,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/90XBJgF9/hui-tong-ci-yin-zhou.png'
     }
   },
-  '内城/北城/03水岸/火神庙大殿': {
+  '北城/水岸/火神庙/大殿': {
     name: '火神庙大殿',
-    fullPath: '内城/北城/03水岸',
+  fullPath: '北城/水岸/火神庙',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/bNJTn5Bm/huo-shen-miao-da-dian-ye.png',
       '昼': 'https://i.postimg.cc/J4nqXFFm/huo-shen-miao-da-dian-zhou.png'
     }
   },
-  '内城/北城/03水岸/火神庙山门': {
+  '北城/水岸/火神庙/山门': {
     name: '火神庙山门',
-    fullPath: '内城/北城/03水岸',
+  fullPath: '北城/水岸/火神庙',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/SNvGfr0x/huo-shen-miao-shan-men-qing-ye.png',
@@ -2067,9 +2067,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/tg0tL44Q/huo-shen-miao-shan-men-yin-zhou.png'
     }
   },
-  '内城/北城/03水岸/净业寺': {
+  '北城/水岸/净业寺': {
     name: '净业寺',
-    fullPath: '内城/北城/03水岸',
+  fullPath: '北城/水岸',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/v8vqffHg/jing-ye-si-qing-ye.png',
@@ -2080,9 +2080,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/3xknsqjG/jing-ye-si-yin-zhou.png'
     }
   },
-  '内城/北城/03水岸/西水关': {
+  '北城/水岸/西水关': {
     name: '西水关',
-    fullPath: '内城/北城/03水岸',
+  fullPath: '北城/水岸',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/nzpKhSmd/xi-shui-guan-qing-ye.png',
@@ -2093,9 +2093,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/8cChhFtH/xi-shui-guan-yin-zhou.png'
     }
   },
-  '内城/北城/04文教/成贤街': {
+  '北城/成贤街': {
     name: '成贤街',
-    fullPath: '内城/北城/04文教',
+  fullPath: '北城',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Vv5CJxkq/cheng-xian-jie-qing-ye.png',
@@ -2106,9 +2106,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/RCbtkZgP/cheng-xian-jie-yin-zhou.png'
     }
   },
-  '内城/北城/04文教/国子监号舍': {
+  '北城/国子监/国子监号舍': {
     name: '国子监号舍',
-    fullPath: '内城/北城/04文教',
+  fullPath: '北城/国子监',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/dQWRJBVW/guo-zi-jian-hao-she-qing-ye.png',
@@ -2119,36 +2119,36 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Fs8jLHcQ/guo-zi-jian-hao-she-yin-zhou.png'
     }
   },
-  '内城/北城/04文教/国子监绳愆厅': {
+  '北城/国子监/绳愆厅': {
     name: '国子监绳愆厅',
-    fullPath: '内城/北城/04文教',
+  fullPath: '北城/国子监',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/gJzRWX9R/guo-zi-jian-sheng-qian-ting-ye.png',
       '昼': 'https://i.postimg.cc/V6fM8ryZ/guo-zi-jian-sheng-qian-ting-zhou.png'
     }
   },
-  '内城/北城/04文教/国子监彝伦堂': {
+  '北城/国子监/彝伦堂': {
     name: '国子监彝伦堂',
-    fullPath: '内城/北城/04文教',
+  fullPath: '北城/国子监',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/zf1Kx2xJ/guo-zi-jian-yi-lun-tang-ye.png',
       '昼': 'https://i.postimg.cc/HL45R0N8/guo-zi-jian-yi-lun-tang-zhou.png'
     }
   },
-  '内城/北城/04文教/孔庙大成殿': {
+  '北城/国子监/孔庙大成殿': {
     name: '孔庙大成殿',
-    fullPath: '内城/北城/04文教',
+  fullPath: '北城/国子监',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Twdm6LM6/kong-miao-da-cheng-dian-ye.png',
       '昼': 'https://i.postimg.cc/xC6mTfnz/kong-miao-da-cheng-dian-zhou.png'
     }
   },
-  '内城/北城/04文教/顺天府学': {
+  '北城/顺天府学': {
     name: '顺天府学',
-    fullPath: '内城/北城/04文教',
+  fullPath: '北城',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/pXwFd1bh/shun-tian-fu-xue-qing-ye.png',
@@ -2159,45 +2159,45 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/pdx5fhdy/shun-tian-fu-xue-yin-zhou.png'
     }
   },
-  '内城/北城/05府衙/顺天府大堂': {
+  '北城/顺天府/大堂': {
     name: '顺天府大堂',
-    fullPath: '内城/北城/05府衙',
+  fullPath: '北城/顺天府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/bJwG57kP/shun-tian-fu-da-tang-ye.png',
       '昼': 'https://i.postimg.cc/63b7xMfR/shun-tian-fu-da-tang-zhou.png'
     }
   },
-  '内城/北城/06冰窖/官冰窖': {
+  '北城/官冰窖': {
     name: '官冰窖',
-    fullPath: '内城/北城/06冰窖',
+  fullPath: '北城',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/gjwxz3gv/guan-bing-jiao-ye.png',
       '昼': 'https://i.postimg.cc/PJBPPN76/guan-bing-jiao-zhou.png'
     }
   },
-  '内城/北城/07肃王府/肃王府承运殿': {
+  '北城/肃王府/承运殿': {
     name: '肃王府承运殿',
-    fullPath: '内城/北城/07肃王府',
+  fullPath: '北城/肃王府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/hjQJg9yp/su-wang-fu-cheng-yun-dian-ye.png',
       '昼': 'https://i.postimg.cc/MHknGvNN/su-wang-fu-cheng-yun-dian-zhou.png'
     }
   },
-  '内城/北城/07肃王府/肃王府存心殿': {
+  '北城/肃王府/存心殿': {
     name: '肃王府存心殿',
-    fullPath: '内城/北城/07肃王府',
+  fullPath: '北城/肃王府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/cJ9Yd1sn/su-wang-fu-cun-xin-dian-ye.png',
       '昼': 'https://i.postimg.cc/C19qfvnF/su-wang-fu-cun-xin-dian-zhou.png'
     }
   },
-  '内城/北城/07肃王府/肃王府大门前庭': {
+  '北城/肃王府/大门前庭': {
     name: '肃王府大门前庭',
-    fullPath: '内城/北城/07肃王府',
+  fullPath: '北城/肃王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/NGVyNP0n/su-wang-fu-da-men-qian-ting-qing-ye.png',
@@ -2208,9 +2208,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Znyqt4Rt/su-wang-fu-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/北城/07肃王府/肃王府寝院': {
+  '北城/肃王府/寝院': {
     name: '肃王府寝院',
-    fullPath: '内城/北城/07肃王府',
+  fullPath: '北城/肃王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/kMt8ddL2/su-wang-fu-qin-yuan-qing-ye.png',
@@ -2221,9 +2221,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/nLzjS8qw/su-wang-fu-qin-yuan-yin-zhou.png'
     }
   },
-  '内城/北城/07肃王府/肃王府演武园': {
+  '北城/肃王府/演武园': {
     name: '肃王府演武园',
-    fullPath: '内城/北城/07肃王府',
+  fullPath: '北城/肃王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/XqMrvptp/su-wang-fu-yan-wu-yuan-qing-ye.png',
@@ -2234,9 +2234,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/dVWDyWg4/su-wang-fu-yan-wu-yuan-yin-zhou.png'
     }
   },
-  '内城/北城/08舅父宅/舅父宅大门前庭': {
+  '北城/舅父宅/大门前庭': {
     name: '舅父宅大门前庭',
-    fullPath: '内城/北城/08舅父宅',
+  fullPath: '北城/舅父宅',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/XJ6WGdNd/jiu-fu-zhai-da-men-qian-ting-qing-ye.png',
@@ -2247,9 +2247,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/9Xp20D6G/jiu-fu-zhai-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/北城/08舅父宅/舅父宅后院': {
+  '北城/舅父宅/后院': {
     name: '舅父宅后院',
-    fullPath: '内城/北城/08舅父宅',
+  fullPath: '北城/舅父宅',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/CKBMfwGg/jiu-fu-zhai-hou-yuan-qing-ye.png',
@@ -2260,36 +2260,36 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/7YKqs5Xv/jiu-fu-zhai-hou-yuan-yin-zhou.png'
     }
   },
-  '内城/北城/08舅父宅/舅父宅书房': {
+  '北城/舅父宅/书房': {
     name: '舅父宅书房',
-    fullPath: '内城/北城/08舅父宅',
+  fullPath: '北城/舅父宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/66d306Dq/jiu-fu-zhai-shu-fang-ye.png',
       '昼': 'https://i.postimg.cc/Nj0jB6Lf/jiu-fu-zhai-shu-fang-zhou.png'
     }
   },
-  '内城/北城/08舅父宅/舅父宅正堂': {
+  '北城/舅父宅/正堂': {
     name: '舅父宅正堂',
-    fullPath: '内城/北城/08舅父宅',
+  fullPath: '北城/舅父宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/cHWq4WTm/jiu-fu-zhai-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/Gt3ZGjWt/jiu-fu-zhai-zheng-tang-zhou.png'
     }
   },
-  '内城/北城/09兵部府/兵部府花厅': {
+  '北城/兵部尚书府/花厅': {
     name: '兵部府花厅',
-    fullPath: '内城/北城/09兵部府',
+  fullPath: '北城/兵部尚书府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/5t3gLMbw/bing-bu-fu-hua-ting-ye.png',
       '昼': 'https://i.postimg.cc/nzhk1wLJ/bing-bu-fu-hua-ting-zhou.png'
     }
   },
-  '内城/北城/09兵部府/兵部府演武院': {
+  '北城/兵部尚书府/演武院': {
     name: '兵部府演武院',
-    fullPath: '内城/北城/09兵部府',
+  fullPath: '北城/兵部尚书府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/5yjsfkcp/bing-bu-fu-yan-wu-yuan-qing-ye.png',
@@ -2300,18 +2300,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/WbB5Pn5S/bing-bu-fu-yan-wu-yuan-yin-zhou.png'
     }
   },
-  '内城/北城/09兵部府/兵部府正堂': {
+  '北城/兵部尚书府/正堂': {
     name: '兵部府正堂',
-    fullPath: '内城/北城/09兵部府',
+  fullPath: '北城/兵部尚书府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/pdtcKZ8f/bing-bu-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/KzG9H808/bing-bu-fu-zheng-tang-zhou.png'
     }
   },
-  '内城/北城/09兵部府/兵部尚书府大门': {
+  '北城/兵部尚书府/大门': {
     name: '兵部尚书府大门',
-    fullPath: '内城/北城/09兵部府',
+  fullPath: '北城/兵部尚书府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/2yHgwZmr/bing-bu-shang-shu-fu-da-men-qing-ye.png',
@@ -2322,18 +2322,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/VvNVdkt0/bing-bu-shang-shu-fu-da-men-yin-zhou.png'
     }
   },
-  '内城/北城/09兵部府/小将军绣楼': {
+  '北城/兵部尚书府/绣楼': {
     name: '小将军绣楼',
-    fullPath: '内城/北城/09兵部府',
+  fullPath: '北城/兵部尚书府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/G2gjgJB7/xiao-jiang-jun-xiu-lou-ye.png',
       '昼': 'https://i.postimg.cc/hvH1cD1B/xiao-jiang-jun-xiu-lou-zhou.png'
     }
   },
-  '内城/北城/10门厂/安定门': {
+  '北城/门厂/安定门': {
     name: '安定门',
-    fullPath: '内城/北城/10门厂',
+  fullPath: '北城/门厂',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/xj7RK5V9/an-ding-men-qing-ye.png',
@@ -2344,9 +2344,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/W4Xmt67T/an-ding-men-yin-zhou.png'
     }
   },
-  '内城/北城/10门厂/铸钟厂': {
+  '北城/门厂/铸钟厂': {
     name: '铸钟厂',
-    fullPath: '内城/北城/10门厂',
+  fullPath: '北城/门厂',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/G3BNwHc2/zhu-zhong-chang-qing-ye.png',
@@ -2357,9 +2357,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/YSqnXSnK/zhu-zhong-chang-yin-zhou.png'
     }
   },
-  '内城/南城/01门关/崇文门城楼': {
+  '南城/门关/崇文门/城楼': {
     name: '崇文门城楼',
-    fullPath: '内城/南城/01门关',
+  fullPath: '南城/门关/崇文门',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/KcdhzCQS/chong-wen-men-cheng-lou-qing-ye.png',
@@ -2370,18 +2370,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/52Jc5vZS/chong-wen-men-cheng-lou-yin-zhou.png'
     }
   },
-  '内城/南城/01门关/崇文门税关衙署': {
+  '南城/门关/崇文门/税关衙署': {
     name: '崇文门税关衙署',
-    fullPath: '内城/南城/01门关',
+  fullPath: '南城/门关/崇文门',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/YC7cNg5M/chong-wen-men-shui-guan-ya-shu-ye.png',
       '昼': 'https://i.postimg.cc/zGFsxvN1/chong-wen-men-shui-guan-ya-shu-zhou.png'
     }
   },
-  '内城/南城/01门关/崇文门验货场': {
+  '南城/门关/崇文门/验货场': {
     name: '崇文门验货场',
-    fullPath: '内城/南城/01门关',
+  fullPath: '南城/门关/崇文门',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/jjqGmTqW/chong-wen-men-yan-huo-chang-qing-ye.png',
@@ -2392,9 +2392,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/GpMZ1fHm/chong-wen-men-yan-huo-chang-yin-zhou.png'
     }
   },
-  '内城/南城/01门关/正阳门城楼': {
+  '南城/门关/正阳门/城楼': {
     name: '正阳门城楼',
-    fullPath: '内城/南城/01门关',
+  fullPath: '南城/门关/正阳门',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/1t228NGp/zheng-yang-men-cheng-lou-qing-ye.png',
@@ -2405,9 +2405,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/05KhLcxx/zheng-yang-men-cheng-lou-yin-zhou.png'
     }
   },
-  '内城/南城/01门关/正阳门瓮城市': {
+  '南城/门关/正阳门/瓮城市': {
     name: '正阳门瓮城市',
-    fullPath: '内城/南城/01门关',
+  fullPath: '南城/门关/正阳门',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/y8s53KZG/zheng-yang-men-weng-cheng-shi-qing-ye.png',
@@ -2418,18 +2418,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Cx72j2Cb/zheng-yang-men-weng-cheng-shi-yin-zhou.png'
     }
   },
-  '内城/南城/02商栈/宝源局铸炉房': {
+  '南城/商栈/商栈/宝源局铸炉房': {
     name: '宝源局铸炉房',
-    fullPath: '内城/南城/02商栈',
+  fullPath: '南城/商栈/商栈',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/d3GHDNtq/bao-yuan-ju-zhu-lu-fang-ye.png',
       '昼': 'https://i.postimg.cc/RCtbPh1X/bao-yuan-ju-zhu-lu-fang-zhou.png'
     }
   },
-  '内城/南城/02商栈/官店客栈大院': {
+  '南城/商栈/商栈/官店客栈/大院': {
     name: '官店客栈大院',
-    fullPath: '内城/南城/02商栈',
+  fullPath: '南城/商栈/商栈/官店客栈',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/5ttRpmpk/guan-dian-ke-zhan-da-yuan-qing-ye.png',
@@ -2440,27 +2440,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/N0PPnrz0/guan-dian-ke-zhan-da-yuan-yin-zhou.png'
     }
   },
-  '内城/南城/02商栈/官店客栈客房': {
+  '南城/商栈/商栈/官店客栈/客房': {
     name: '官店客栈客房',
-    fullPath: '内城/南城/02商栈',
+  fullPath: '南城/商栈/商栈/官店客栈',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/XJR1j6W8/guan-dian-ke-zhan-ke-fang-ye.png',
       '昼': 'https://i.postimg.cc/63kbWxKb/guan-dian-ke-zhan-ke-fang-zhou.png'
     }
   },
-  '内城/南城/02商栈/货栈仓库': {
+  '南城/商栈/商栈/货栈仓库': {
     name: '货栈仓库',
-    fullPath: '内城/南城/02商栈',
+  fullPath: '南城/商栈/商栈',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/SN71hPvw/huo-zhan-cang-ku-ye.png',
       '昼': 'https://i.postimg.cc/P5X3rMgF/huo-zhan-cang-ku-zhou.png'
     }
   },
-  '内城/南城/02商栈/棋盘街': {
+  '南城/商栈/棋盘街': {
     name: '棋盘街',
-    fullPath: '内城/南城/02商栈',
+  fullPath: '南城/商栈',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/VstH7vBY/qi-pan-jie-qing-ye.png',
@@ -2471,117 +2471,117 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Gh1g6RqP/qi-pan-jie-yin-zhou.png'
     }
   },
-  '内城/南城/03百业/民间澡堂': {
+  '南城/百业/民间澡堂': {
     name: '民间澡堂',
-    fullPath: '内城/南城/03百业',
+  fullPath: '南城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/MG4d5JnB/min-jian-zao-tang-ye.png',
       '昼': 'https://i.postimg.cc/26ZTX9WV/min-jian-zao-tang-zhou.png'
     }
   },
-  '内城/南城/03百业/民染坊': {
+  '南城/百业/民染坊': {
     name: '民染坊',
-    fullPath: '内城/南城/03百业',
+  fullPath: '南城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/5tGngWXV/min-ran-fang-ye.png',
       '昼': 'https://i.postimg.cc/SK5DdbnK/min-ran-fang-zhou.png'
     }
   },
-  '内城/南城/03百业/木器铺': {
+  '南城/百业/木器铺': {
     name: '木器铺',
-    fullPath: '内城/南城/03百业',
+  fullPath: '南城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/TPhtn3Y9/mu-qi-pu-ye.png',
       '昼': 'https://i.postimg.cc/FK1T0HHm/mu-qi-pu-zhou.png'
     }
   },
-  '内城/南城/03百业/皮货铺': {
+  '南城/百业/皮货铺': {
     name: '皮货铺',
-    fullPath: '内城/南城/03百业',
+  fullPath: '南城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/0QwZHXS4/pi-huo-pu-ye.png',
       '昼': 'https://i.postimg.cc/PJnKGbzT/pi-huo-pu-zhou.png'
     }
   },
-  '内城/南城/03百业/烧锅酒坊': {
+  '南城/百业/烧锅酒坊': {
     name: '烧锅酒坊',
-    fullPath: '内城/南城/03百业',
+  fullPath: '南城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/hjdM3Zmd/shao-guo-jiu-fang-ye.png',
       '昼': 'https://i.postimg.cc/LX1v0QPj/shao-guo-jiu-fang-zhou.png'
     }
   },
-  '内城/南城/03百业/石磨坊': {
+  '南城/百业/石磨坊': {
     name: '石磨坊',
-    fullPath: '内城/南城/03百业',
+  fullPath: '南城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/x8G59ktX/shi-mo-fang-ye.png',
       '昼': 'https://i.postimg.cc/T1j0TyCW/shi-mo-fang-zhou.png'
     }
   },
-  '内城/南城/03百业/寿衣铺': {
+  '南城/百业/寿衣铺': {
     name: '寿衣铺',
-    fullPath: '内城/南城/03百业',
+  fullPath: '南城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/qv1mt30n/shou-yi-pu-ye.png',
       '昼': 'https://i.postimg.cc/3xtLyv7B/shou-yi-pu-zhou.png'
     }
   },
-  '内城/南城/03百业/铁匠铺': {
+  '南城/百业/铁匠铺': {
     name: '铁匠铺',
-    fullPath: '内城/南城/03百业',
+  fullPath: '南城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/tCyD254q/tie-jiang-pu-ye.png',
       '昼': 'https://i.postimg.cc/Pr4ycwCc/tie-jiang-pu-zhou.png'
     }
   },
-  '内城/南城/03百业/铜锡铺': {
+  '南城/百业/铜锡铺': {
     name: '铜锡铺',
-    fullPath: '内城/南城/03百业',
+  fullPath: '南城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/YCCRwCgS/tong-xi-pu-ye.png',
       '昼': 'https://i.postimg.cc/g2tDcbqj/tong-xi-pu-zhou.png'
     }
   },
-  '内城/南城/03百业/万通牙行': {
+  '南城/百业/万通牙行': {
     name: '万通牙行',
-    fullPath: '内城/南城/03百业',
+  fullPath: '南城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/6pWj50sT/wan-tong-ya-xing-ye.png',
       '昼': 'https://i.postimg.cc/L89C6Tdg/wan-tong-ya-xing-zhou.png'
     }
   },
-  '内城/南城/03百业/盐栈': {
+  '南城/百业/盐栈': {
     name: '盐栈',
-    fullPath: '内城/南城/03百业',
+  fullPath: '南城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/PJbydL2k/yan-zhan-ye.png',
       '昼': 'https://i.postimg.cc/Y0NRt4bp/yan-zhan-zhou.png'
     }
   },
-  '内城/南城/03百业/裕丰钱铺': {
+  '南城/百业/裕丰钱铺': {
     name: '裕丰钱铺',
-    fullPath: '内城/南城/03百业',
+  fullPath: '南城/百业',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/PJbydL2z/yu-feng-qian-pu-ye.png',
       '昼': 'https://i.postimg.cc/057cY3P2/yu-feng-qian-pu-zhou.png'
     }
   },
-  '内城/西城/01城隍庙/城隍庙庙市': {
+  '西城/都城隍庙/庙市': {
     name: '城隍庙庙市',
-    fullPath: '内城/西城/01城隍庙',
+  fullPath: '西城/都城隍庙',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/htDx7ZtF/cheng-huang-miao-miao-shi-qing-ye.png',
@@ -2592,54 +2592,54 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/JzpX33sD/cheng-huang-miao-miao-shi-yin-zhou.png'
     }
   },
-  '内城/西城/01城隍庙/城隍庙配殿': {
+  '西城/都城隍庙/配殿': {
     name: '城隍庙配殿',
-    fullPath: '内城/西城/01城隍庙',
+  fullPath: '西城/都城隍庙',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/6QSGg9Vc/cheng-huang-miao-pei-dian-ye.png',
       '昼': 'https://i.postimg.cc/zfMR6Jws/cheng-huang-miao-pei-dian-zhou.png'
     }
   },
-  '内城/西城/01城隍庙/都城隍庙大殿': {
+  '西城/都城隍庙/大殿': {
     name: '都城隍庙大殿',
-    fullPath: '内城/西城/01城隍庙',
+  fullPath: '西城/都城隍庙',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/j2YnqZF9/dou-cheng-huang-miao-da-dian-ye.png',
       '昼': 'https://i.postimg.cc/C5CBRk3W/dou-cheng-huang-miao-da-dian-zhou.png'
     }
   },
-  '内城/西城/01城隍庙/庙市书肆': {
+  '西城/都城隍庙/书肆': {
     name: '庙市书肆',
-    fullPath: '内城/西城/01城隍庙',
+  fullPath: '西城/都城隍庙',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/vmj6kQLQ/miao-shi-shu-si-ye.png',
       '昼': 'https://i.postimg.cc/DZXbKt59/miao-shi-shu-si-zhou.png'
     }
   },
-  '内城/西城/01城隍庙/庙祝值房': {
+  '西城/都城隍庙/庙祝值房': {
     name: '庙祝值房',
-    fullPath: '内城/西城/01城隍庙',
+  fullPath: '西城/都城隍庙',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Hxy7CfBH/miao-zhu-zhi-fang-ye.png',
       '昼': 'https://i.postimg.cc/PJnvf2RL/miao-zhu-zhi-fang-zhou.png'
     }
   },
-  '内城/西城/02双寺/白塔寺大殿': {
+  '西城/白塔寺/大殿': {
     name: '白塔寺大殿',
-    fullPath: '内城/西城/02双寺',
+  fullPath: '西城/白塔寺',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Qdd9MB0S/bai-ta-si-da-dian-ye.png',
       '昼': 'https://i.postimg.cc/vZZgm13p/bai-ta-si-da-dian-zhou.png'
     }
   },
-  '内城/西城/02双寺/白塔寺山门': {
+  '西城/白塔寺/山门': {
     name: '白塔寺山门',
-    fullPath: '内城/西城/02双寺',
+  fullPath: '西城/白塔寺',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/NjCy2gnv/bai-ta-si-shan-men-qing-ye.png',
@@ -2650,18 +2650,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/8CF7h28h/bai-ta-si-shan-men-yin-zhou.png'
     }
   },
-  '内城/西城/02双寺/护国寺大殿': {
+  '西城/护国寺/大殿': {
     name: '护国寺大殿',
-    fullPath: '内城/西城/02双寺',
+  fullPath: '西城/护国寺',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Vv9rJXyY/hu-guo-si-da-dian-ye.png',
       '昼': 'https://i.postimg.cc/VsXbZPJg/hu-guo-si-da-dian-zhou.png'
     }
   },
-  '内城/西城/02双寺/护国寺庙市': {
+  '西城/护国寺/庙市': {
     name: '护国寺庙市',
-    fullPath: '内城/西城/02双寺',
+  fullPath: '西城/护国寺',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Kctgph1V/hu-guo-si-miao-shi-qing-ye.png',
@@ -2672,9 +2672,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/VL103ZMd/hu-guo-si-miao-shi-yin-zhou.png'
     }
   },
-  '内城/西城/03西四/火药局厂区': {
+  '西城/西四/火药局/厂区': {
     name: '火药局厂区',
-    fullPath: '内城/西城/03西四',
+  fullPath: '西城/西四/火药局',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/rpvKgfMX/huo-yao-ju-chang-qu-qing-ye.png',
@@ -2685,18 +2685,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/qRygF2vw/huo-yao-ju-chang-qu-yin-zhou.png'
     }
   },
-  '内城/西城/03西四/火药局碾药房': {
+  '西城/西四/火药局/碾药房': {
     name: '火药局碾药房',
-    fullPath: '内城/西城/03西四',
+  fullPath: '西城/西四/火药局',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/T1xhvhyX/huo-yao-ju-nian-yao-fang-ye.png',
       '昼': 'https://i.postimg.cc/nr1rFZ7f/huo-yao-ju-nian-yao-fang-zhou.png'
     }
   },
-  '内城/西城/03西四/西市法场': {
+  '西城/西四/法场': {
     name: '西市法场',
-    fullPath: '内城/西城/03西四',
+  fullPath: '西城/西四',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/RZhhBk0z/xi-shi-fa-chang-qing-ye.png',
@@ -2707,9 +2707,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/DzbzW1sc/xi-shi-fa-chang-yin-zhou.png'
     }
   },
-  '内城/西城/03西四/西四牌楼街': {
+  '西城/西四/牌楼街': {
     name: '西四牌楼街',
-    fullPath: '内城/西城/03西四',
+  fullPath: '西城/西四',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/QCqC8s5h/xi-si-pai-lou-jie-qing-ye.png',
@@ -2720,18 +2720,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/G3PHJPfZ/xi-si-pai-lou-jie-yin-zhou.png'
     }
   },
-  '内城/西城/03西四/西域香货铺': {
+  '西城/西四/西域香货铺': {
     name: '西域香货铺',
-    fullPath: '内城/西城/03西四',
+  fullPath: '西城/西四',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/MKWXsM2b/xi-yu-xiang-huo-pu-ye.png',
       '昼': 'https://i.postimg.cc/qMjqWJ4Y/xi-yu-xiang-huo-pu-zhou.png'
     }
   },
-  '内城/西城/03西四/象房': {
+  '西城/西四/象房': {
     name: '象房',
-    fullPath: '内城/西城/03西四',
+  fullPath: '西城/西四',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/tT3CkyB4/xiang-fang-qing-ye.png',
@@ -2742,27 +2742,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/d3nQM6Pq/xiang-fang-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/庆王府承运殿': {
+  '西城/庆王府/承运殿': {
     name: '庆王府承运殿',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/庆王府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/sDqdMqcM/qing-wang-fu-cheng-yun-dian-ye.png',
       '昼': 'https://i.postimg.cc/02FRzFfK/qing-wang-fu-cheng-yun-dian-zhou.png'
     }
   },
-  '内城/西城/04勋贵/庆王府存心殿': {
+  '西城/庆王府/存心殿': {
     name: '庆王府存心殿',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/庆王府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/BZhG0XPs/qing-wang-fu-cun-xin-dian-ye.png',
       '昼': 'https://i.postimg.cc/66HNXy4Q/qing-wang-fu-cun-xin-dian-zhou.png'
     }
   },
-  '内城/西城/04勋贵/庆王府大门前庭': {
+  '西城/庆王府/大门前庭': {
     name: '庆王府大门前庭',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/庆王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/hjcqSm0T/qing-wang-fu-da-men-qian-ting-qing-ye.png',
@@ -2773,9 +2773,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/prdbjt4r/qing-wang-fu-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/庆王府后园': {
+  '西城/庆王府/后园': {
     name: '庆王府后园',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/庆王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/X7z3wpn2/qing-wang-fu-hou-yuan-qing-ye.png',
@@ -2786,9 +2786,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Cxn0JS1j/qing-wang-fu-hou-yuan-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/庆王府寝院': {
+  '西城/庆王府/寝院': {
     name: '庆王府寝院',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/庆王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/jdLYdtyn/qing-wang-fu-qin-yuan-qing-ye.png',
@@ -2799,9 +2799,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/jdLYdtzV/qing-wang-fu-qin-yuan-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/尚书府后院': {
+  '西城/刑部尚书府/府后院': {
     name: '尚书府后院',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/刑部尚书府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/mrMbZBWs/shang-shu-fu-hou-yuan-qing-ye.png',
@@ -2812,36 +2812,36 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/gJHmRs0H/shang-shu-fu-hou-yuan-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/尚书府花厅': {
+  '西城/刑部尚书府/花厅': {
     name: '尚书府花厅',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/刑部尚书府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/286rb4N7/shang-shu-fu-hua-ting-ye.png',
       '昼': 'https://i.postimg.cc/Wb3TFMcS/shang-shu-fu-hua-ting-zhou.png'
     }
   },
-  '内城/西城/04勋贵/尚书府绣楼': {
+  '西城/刑部尚书府/绣楼': {
     name: '尚书府绣楼',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/刑部尚书府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/KcQm80wR/shang-shu-fu-xiu-lou-ye.png',
       '昼': 'https://i.postimg.cc/fTLDtxQ3/shang-shu-fu-xiu-lou-zhou.png'
     }
   },
-  '内城/西城/04勋贵/尚书府正堂': {
+  '西城/刑部尚书府/正堂': {
     name: '尚书府正堂',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/刑部尚书府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Kj9bpYBv/shang-shu-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/kGjCY5Kf/shang-shu-fu-zheng-tang-zhou.png'
     }
   },
-  '内城/西城/04勋贵/刑部尚书府大门': {
+  '西城/刑部尚书府/大门': {
     name: '刑部尚书府大门',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/刑部尚书府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/zXXXCsKf/xing-bu-shang-shu-fu-da-men-qing-ye.png',
@@ -2852,9 +2852,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/c491XFc0/xing-bu-shang-shu-fu-da-men-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/勋贵坊街': {
+  '西城/勋贵坊街': {
     name: '勋贵坊街',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/fRVzFYH9/xun-gui-fang-jie-qing-ye.png',
@@ -2865,9 +2865,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/kgLJdDZF/xun-gui-fang-jie-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/英国公府大门': {
+  '西城/英国公府/大门': {
     name: '英国公府大门',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/英国公府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/T3b8g07p/ying-guo-gong-fu-da-men-qing-ye.png',
@@ -2878,9 +2878,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/hGRkrm6N/ying-guo-gong-fu-da-men-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/英国公府演武场': {
+  '西城/英国公府/演武场': {
     name: '英国公府演武场',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/英国公府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/j5sGVbsD/ying-guo-gong-fu-yan-wu-chang-qing-ye.png',
@@ -2891,27 +2891,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/KzZdX2ZV/ying-guo-gong-fu-yan-wu-chang-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/英国公府正堂': {
+  '西城/英国公府/正堂': {
     name: '英国公府正堂',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/英国公府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/zfw9PB1X/ying-guo-gong-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/25dPX6fq/ying-guo-gong-fu-zheng-tang-zhou.png'
     }
   },
-  '内城/西城/05紫虚观/丹房静室': {
+  '西城/紫虚观/丹房静室': {
     name: '丹房静室',
-    fullPath: '内城/西城/05紫虚观',
+  fullPath: '西城/紫虚观',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/4yyqdQHd/dan-fang-jing-shi-ye.png',
       '昼': 'https://i.postimg.cc/WzzC3wqk/dan-fang-jing-shi-zhou.png'
     }
   },
-  '内城/西城/05紫虚观/观后小院': {
+  '西城/紫虚观/观后小院': {
     name: '观后小院',
-    fullPath: '内城/西城/05紫虚观',
+  fullPath: '西城/紫虚观',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/4NKjRwT1/guan-hou-xiao-yuan-qing-ye.png',
@@ -2922,18 +2922,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/dVrXL13Z/guan-hou-xiao-yuan-yin-zhou.png'
     }
   },
-  '内城/西城/05紫虚观/三清殿': {
+  '西城/紫虚观/三清殿': {
     name: '三清殿',
-    fullPath: '内城/西城/05紫虚观',
+  fullPath: '西城/紫虚观',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Y9bTMs0c/san-qing-dian-ye.png',
       '昼': 'https://i.postimg.cc/d14gwx30/san-qing-dian-zhou.png'
     }
   },
-  '内城/西城/05紫虚观/紫虚观山门': {
+  '西城/紫虚观/山门': {
     name: '紫虚观山门',
-    fullPath: '内城/西城/05紫虚观',
+  fullPath: '西城/紫虚观',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/hvv6j1Q8/zi-xu-guan-shan-men-qing-ye.png',
@@ -2944,27 +2944,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/hP7Z5j9w/zi-xu-guan-shan-men-yin-zhou.png'
     }
   },
-  '内城/西城/06宛平/宛平仵作房': {
+  '西城/宛平/仵作房': {
     name: '宛平仵作房',
-    fullPath: '内城/西城/06宛平',
+  fullPath: '西城/宛平',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/HLth9hQw/wan-ping-wu-zuo-fang-ye.png',
       '昼': 'https://i.postimg.cc/XJ7DHk8H/wan-ping-wu-zuo-fang-zhou.png'
     }
   },
-  '内城/西城/06宛平/宛平县衙大堂': {
+  '西城/宛平/县衙大堂': {
     name: '宛平县衙大堂',
-    fullPath: '内城/西城/06宛平',
+  fullPath: '西城/宛平',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/XJH1TB10/wan-ping-xian-ya-da-tang-ye.png',
       '昼': 'https://i.postimg.cc/PJCVhf0X/wan-ping-xian-ya-da-tang-zhou.png'
     }
   },
-  '外城/01前门/大栅栏街': {
+  '外城/前门/大栅栏街': {
     name: '大栅栏街',
-    fullPath: '外城/01前门',
+  fullPath: '外城/前门',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/G3NTp3ZT/da-zha-lan-jie-qing-ye.png',
@@ -2975,9 +2975,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/0yGzZYr8/da-zha-lan-jie-yin-zhou.png'
     }
   },
-  '外城/01前门/前门大街': {
+  '外城/前门/前门大街': {
     name: '前门大街',
-    fullPath: '外城/01前门',
+  fullPath: '外城/前门',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/9fpqXdhm/qian-men-da-jie-qing-ye.png',
@@ -2988,18 +2988,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/VvSSF2bP/qian-men-da-jie-yin-zhou.png'
     }
   },
-  '外城/01前门/戏装铺': {
+  '外城/前门/戏装铺': {
     name: '戏装铺',
-    fullPath: '外城/01前门',
+  fullPath: '外城/前门',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/8CtjgTRC/xi-zhuang-pu-ye.png',
       '昼': 'https://i.postimg.cc/cHC6sPh8/xi-zhuang-pu-zhou.png'
     }
   },
-  '外城/01前门/鲜鱼口': {
+  '外城/前门/鲜鱼口': {
     name: '鲜鱼口',
-    fullPath: '外城/01前门',
+  fullPath: '外城/前门',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/59Z5Rm9p/xian-yu-kou-qing-ye.png',
@@ -3010,54 +3010,54 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/2SYQz8Zk/xian-yu-kou-yin-zhou.png'
     }
   },
-  '外城/01前门/醉仙楼大堂戏台': {
+  '外城/前门/醉仙楼/醉仙楼大堂戏台': {
     name: '醉仙楼大堂戏台',
-    fullPath: '外城/01前门',
+  fullPath: '外城/前门/醉仙楼',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/cHzC6TkT/zui-xian-lou-da-tang-xi-tai-ye.png',
       '昼': 'https://i.postimg.cc/MHjTBRhn/zui-xian-lou-da-tang-xi-tai-zhou.png'
     }
   },
-  '外城/01前门/醉仙楼雅座': {
+  '外城/前门/醉仙楼/醉仙楼雅座': {
     name: '醉仙楼雅座',
-    fullPath: '外城/01前门',
+  fullPath: '外城/前门/醉仙楼',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/XXSvkqbg/zui-xian-lou-ya-zuo-ye.png',
       '昼': 'https://i.postimg.cc/h4JbsYnV/zui-xian-lou-ya-zuo-zhou.png'
     }
   },
-  '外城/02老槐茶楼/老槐茶楼大堂书场': {
+  '外城/老槐茶楼/老槐茶楼大堂书场': {
     name: '老槐茶楼大堂书场',
-    fullPath: '外城/02老槐茶楼',
+  fullPath: '外城/老槐茶楼',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/XvHdcfDh/lao-huai-cha-lou-da-tang-shu-chang-ye.png',
       '昼': 'https://i.postimg.cc/Ssn8ZnBh/lao-huai-cha-lou-da-tang-shu-chang-zhou.png'
     }
   },
-  '外城/02老槐茶楼/老槐茶楼后堂': {
+  '外城/老槐茶楼/老槐茶楼后堂': {
     name: '老槐茶楼后堂',
-    fullPath: '外城/02老槐茶楼',
+  fullPath: '外城/老槐茶楼',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Pqr1w3Kh/lao-huai-cha-lou-hou-tang-ye.png',
       '昼': 'https://i.postimg.cc/HLsbyZ37/lao-huai-cha-lou-hou-tang-zhou.png'
     }
   },
-  '外城/02老槐茶楼/老槐茶楼雅间': {
+  '外城/老槐茶楼/老槐茶楼雅间': {
     name: '老槐茶楼雅间',
-    fullPath: '外城/02老槐茶楼',
+  fullPath: '外城/老槐茶楼',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/xCBmB0Q2/lao-huai-cha-lou-ya-jian-ye.png',
       '昼': 'https://i.postimg.cc/k4LSLnCB/lao-huai-cha-lou-ya-jian-zhou.png'
     }
   },
-  '外城/03会馆/大车店': {
+  '外城/会馆/大车店': {
     name: '大车店',
-    fullPath: '外城/03会馆',
+  fullPath: '外城/会馆',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/wvRyXSNp/da-che-dian-qing-ye.png',
@@ -3068,9 +3068,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/x8KX7Mgg/da-che-dian-yin-zhou.png'
     }
   },
-  '外城/03会馆/会馆街': {
+  '外城/会馆/会馆街': {
     name: '会馆街',
-    fullPath: '外城/03会馆',
+  fullPath: '外城/会馆',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/13Mqs0Sb/hui-guan-jie-qing-ye.png',
@@ -3081,18 +3081,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/LsXZXq63/hui-guan-jie-yin-zhou.png'
     }
   },
-  '外城/03会馆/云州会馆客房': {
+  '外城/会馆/云州会馆/客房': {
     name: '云州会馆客房',
-    fullPath: '外城/03会馆',
+  fullPath: '外城/会馆/云州会馆',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/VvMt83sg/yun-zhou-hui-guan-ke-fang-ye.png',
       '昼': 'https://i.postimg.cc/dQTrrTR3/yun-zhou-hui-guan-ke-fang-zhou.png'
     }
   },
-  '外城/03会馆/云州会馆门庭': {
+  '外城/会馆/云州会馆/门庭': {
     name: '云州会馆门庭',
-    fullPath: '外城/03会馆',
+  fullPath: '外城/会馆/云州会馆',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/xTDHRTgL/yun-zhou-hui-guan-men-ting-qing-ye.png',
@@ -3103,9 +3103,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/dt2CSPxd/yun-zhou-hui-guan-men-ting-yin-zhou.png'
     }
   },
-  '外城/04宣南/菜市': {
+  '外城/宣南/菜市': {
     name: '菜市',
-    fullPath: '外城/04宣南',
+  fullPath: '外城/宣南',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/qRKqh2f2/cai-shi-qing-ye.png',
@@ -3116,9 +3116,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/h49hK8b7/cai-shi-yin-zhou.png'
     }
   },
-  '外城/04宣南/慈仁寺': {
-    name: '慈仁寺',
-    fullPath: '外城/04宣南',
+  '外城/宣南/慈仁寺/山门': {
+    name: '山门',
+  fullPath: '外城/宣南/慈仁寺',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/3rp0dQ7z/ci-ren-si-qing-ye.png',
@@ -3129,9 +3129,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Yqz4zNvg/ci-ren-si-yin-zhou.png'
     }
   },
-  '外城/04宣南/慈仁寺书市': {
+  '外城/宣南/慈仁寺/慈仁寺书市': {
     name: '慈仁寺书市',
-    fullPath: '外城/04宣南',
+  fullPath: '外城/宣南/慈仁寺',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/529X7HvM/ci-ren-si-shu-shi-qing-ye.png',
@@ -3142,9 +3142,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/TPFh3C4F/ci-ren-si-shu-shi-yin-zhou.png'
     }
   },
-  '外城/04宣南/骡马市': {
+  '外城/宣南/骡马市': {
     name: '骡马市',
-    fullPath: '外城/04宣南',
+  fullPath: '外城/宣南',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/tCkTxXcV/luo-ma-shi-qing-ye.png',
@@ -3155,9 +3155,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/XYvvKRSb/luo-ma-shi-yin-zhou.png'
     }
   },
-  '外城/05洼地/金鱼池': {
+  '外城/洼地/金鱼池': {
     name: '金鱼池',
-    fullPath: '外城/05洼地',
+  fullPath: '外城/洼地',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/fT8zb83X/jin-yu-chi-qing-ye.png',
@@ -3168,9 +3168,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/VkTzq5Wm/jin-yu-chi-yin-zhou.png'
     }
   },
-  '外城/05洼地/琉璃窑厂': {
+  '外城/洼地/琉璃窑厂': {
     name: '琉璃窑厂',
-    fullPath: '外城/05洼地',
+  fullPath: '外城/洼地',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/R0kVBqWR/liu-li-yao-chang-qing-ye.png',
@@ -3181,9 +3181,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/HxbWsH5k/liu-li-yao-chang-yin-zhou.png'
     }
   },
-  '外城/05洼地/芦棚窝区': {
+  '外城/洼地/芦棚窝区': {
     name: '芦棚窝区',
-    fullPath: '外城/05洼地',
+  fullPath: '外城/洼地',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/PJ4tY423/lu-peng-wo-qu-qing-ye.png',
@@ -3194,9 +3194,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/CLhMY3x3/lu-peng-wo-qu-yin-zhou.png'
     }
   },
-  '外城/06坛台/大享殿': {
+  '外城/坛台/大享殿': {
     name: '大享殿',
-    fullPath: '外城/06坛台',
+  fullPath: '外城/坛台',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/K8dyKwmR/da-xiang-dian-qing-ye.png',
@@ -3207,9 +3207,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/hGTRVsGZ/da-xiang-dian-yin-zhou.png'
     }
   },
-  '外城/06坛台/观耕台': {
+  '外城/坛台/观耕台': {
     name: '观耕台',
-    fullPath: '外城/06坛台',
+  fullPath: '外城/坛台',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/28KsJML8/guan-geng-tai-qing-ye.png',
@@ -3220,9 +3220,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/ZnqQsxTC/guan-geng-tai-yin-zhou.png'
     }
   },
-  '外城/06坛台/圜丘坛': {
+  '外城/坛台/圜丘坛': {
     name: '圜丘坛',
-    fullPath: '外城/06坛台',
+  fullPath: '外城/坛台',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/9XpVxLB2/huan-qiu-tan-qing-ye.png',
@@ -3233,18 +3233,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/QxYDDVPk/huan-qiu-tan-yin-zhou.png'
     }
   },
-  '外城/06坛台/天坛斋宫': {
+  '外城/坛台/天坛斋宫': {
     name: '天坛斋宫',
-    fullPath: '外城/06坛台',
+  fullPath: '外城/坛台',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/xCPr4dMG/tian-tan-zhai-gong-ye.png',
       '昼': 'https://i.postimg.cc/Y9xcsSYZ/tian-tan-zhai-gong-zhou.png'
     }
   },
-  '外城/06坛台/先农坛': {
+  '外城/坛台/先农坛': {
     name: '先农坛',
-    fullPath: '外城/06坛台',
+  fullPath: '外城/坛台',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/qRH0FYYr/xian-nong-tan-qing-ye.png',
@@ -3255,9 +3255,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/zvJNzh84/xian-nong-tan-yin-zhou.png'
     }
   },
-  '外城/06坛台/永定门': {
+  '外城/坛台/永定门': {
     name: '永定门',
-    fullPath: '外城/06坛台',
+  fullPath: '外城/坛台',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/7hYv8yND/yong-ding-men-qing-ye.png',
@@ -3268,9 +3268,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/QN0GgHXC/yong-ding-men-yin-zhou.png'
     }
   },
-  '关厢村野/村野/01关厢/朝外关厢街': {
+  '村野/关厢/朝外关厢街': {
     name: '朝外关厢街',
-    fullPath: '关厢村野/村野/01关厢',
+  fullPath: '村野/关厢',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/hGpwgmzP/chao-wai-guan-xiang-jie-qing-ye.png',
@@ -3281,27 +3281,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Px7RvkQF/chao-wai-guan-xiang-jie-yin-zhou.png'
     }
   },
-  '关厢村野/村野/01关厢/东岳庙大殿': {
+  '村野/关厢/东岳庙/大殿': {
     name: '东岳庙大殿',
-    fullPath: '关厢村野/村野/01关厢',
+  fullPath: '村野/关厢/东岳庙',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/wTmSJ3Pn/dong-yue-miao-da-dian-ye.png',
       '昼': 'https://i.postimg.cc/cLGPc0yV/dong-yue-miao-da-dian-zhou.png'
     }
   },
-  '关厢村野/村野/01关厢/东岳庙七十二司': {
+  '村野/关厢/东岳庙/七十二司': {
     name: '东岳庙七十二司',
-    fullPath: '关厢村野/村野/01关厢',
+  fullPath: '村野/关厢/东岳庙',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/d3zppK7H/dong-yue-miao-qi-shi-er-si-ye.png',
       '昼': 'https://i.postimg.cc/gc5Cn3Mh/dong-yue-miao-qi-shi-er-si-zhou.png'
     }
   },
-  '关厢村野/村野/01关厢/东岳庙山门': {
+  '村野/关厢/东岳庙/山门': {
     name: '东岳庙山门',
-    fullPath: '关厢村野/村野/01关厢',
+  fullPath: '村野/关厢/东岳庙',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/x1VBPnVT/dong-yue-miao-shan-men-qing-ye.png',
@@ -3312,18 +3312,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Bn5kYkJz/dong-yue-miao-shan-men-yin-zhou.png'
     }
   },
-  '关厢村野/村野/02坟园/城南义庄停灵房': {
+  '村野/义庄/停灵房': {
     name: '城南义庄停灵房',
-    fullPath: '关厢村野/村野/02坟园',
+  fullPath: '村野/义庄',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/fTYMsHww/cheng-nan-yi-zhuang-ting-ling-fang-ye.png',
       '昼': 'https://i.postimg.cc/sD53znVM/cheng-nan-yi-zhuang-ting-ling-fang-zhou.png'
     }
   },
-  '关厢村野/村野/02坟园/漏泽园': {
+  '村野/坟园/漏泽园': {
     name: '漏泽园',
-    fullPath: '关厢村野/村野/02坟园',
+  fullPath: '村野/坟园',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/MpxqpyTn/lou-ze-yuan-qing-ye.png',
@@ -3334,9 +3334,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/cLmZgrgX/lou-ze-yuan-yin-zhou.png'
     }
   },
-  '关厢村野/村野/02坟园/乱葬岗': {
+  '村野/坟园/乱葬岗': {
     name: '乱葬岗',
-    fullPath: '关厢村野/村野/02坟园',
+  fullPath: '村野/坟园',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/G38c7LVF/luan-zang-gang-qing-ye.png',
@@ -3347,9 +3347,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/CM3wWyVy/luan-zang-gang-yin-zhou.png'
     }
   },
-  '关厢村野/村野/02坟园/义庄院': {
+  '村野/义庄/院子': {
     name: '义庄院',
-    fullPath: '关厢村野/村野/02坟园',
+  fullPath: '村野/义庄',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/RhnbcbP6/yi-zhuang-yuan-qing-ye.png',
@@ -3360,9 +3360,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/bdcVLHMC/yi-zhuang-yuan-yin-zhou.png'
     }
   },
-  '关厢村野/村野/03官道/京西官道': {
+  '村野/官道/京西官道': {
     name: '京西官道',
-    fullPath: '关厢村野/村野/03官道',
+  fullPath: '村野/官道',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Nj4Y9520/jing-xi-guan-dao-qing-ye.png',
@@ -3373,9 +3373,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/j5WrFcgT/jing-xi-guan-dao-yin-zhou.png'
     }
   },
-  '关厢村野/村野/03官道/十里长亭': {
+  '村野/官道/十里长亭': {
     name: '十里长亭',
-    fullPath: '关厢村野/村野/03官道',
+  fullPath: '村野/官道',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/G3yCPMTg/shi-li-zhang-ting-qing-ye.png',
@@ -3386,18 +3386,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/02G1Fbfk/shi-li-zhang-ting-yin-zhou.png'
     }
   },
-  '关厢村野/村野/03官道/驿馆客房': {
+  '村野/官道/驿馆/客房': {
     name: '驿馆客房',
-    fullPath: '关厢村野/村野/03官道',
+  fullPath: '村野/官道/驿馆',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/k5p0K8n1/yi-guan-ke-fang-ye.png',
       '昼': 'https://i.postimg.cc/yd3wPdx1/yi-guan-ke-fang-zhou.png'
     }
   },
-  '关厢村野/村野/03官道/驿馆门庭': {
+  '村野/官道/驿馆/门庭': {
     name: '驿馆门庭',
-    fullPath: '关厢村野/村野/03官道',
+  fullPath: '村野/官道/驿馆',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/1XxbYQVF/yi-guan-men-ting-qing-ye.png',
@@ -3408,9 +3408,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/YqHJ6tHH/yi-guan-men-ting-yin-zhou.png'
     }
   },
-  '关厢村野/村野/04槐荫村/村口古槐': {
+  '村野/槐荫村/村口古槐': {
     name: '村口古槐',
-    fullPath: '关厢村野/村野/04槐荫村',
+  fullPath: '村野/槐荫村',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/QM94LzDr/cun-kou-gu-huai-qing-ye.png',
@@ -3421,18 +3421,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/LscymV4Z/cun-kou-gu-huai-yin-zhou.png'
     }
   },
-  '关厢村野/村野/04槐荫村/村土地庙': {
+  '村野/槐荫村/土地庙': {
     name: '村土地庙',
-    fullPath: '关厢村野/村野/04槐荫村',
+  fullPath: '村野/槐荫村',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/3N7nvJvx/cun-tu-de-miao-ye.png',
       '昼': 'https://i.postimg.cc/Y038fK6G/cun-tu-de-miao-zhou.png'
     }
   },
-  '关厢村野/村野/04槐荫村/村中街巷': {
+  '村野/槐荫村/街巷': {
     name: '村中街巷',
-    fullPath: '关厢村野/村野/04槐荫村',
+  fullPath: '村野/槐荫村',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/J7bF4SkM/cun-zhong-jie-xiang-qing-ye.png',
@@ -3443,9 +3443,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/P5F3RjBx/cun-zhong-jie-xiang-yin-zhou.png'
     }
   },
-  '关厢村野/村野/04槐荫村/打谷场': {
+  '村野/槐荫村/打谷场': {
     name: '打谷场',
-    fullPath: '关厢村野/村野/04槐荫村',
+  fullPath: '村野/槐荫村',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/pL04M8ny/da-gu-chang-qing-ye.png',
@@ -3456,27 +3456,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/V6tVtVZq/da-gu-chang-yin-zhou.png'
     }
   },
-  '远征/01西山/狐仙洞府': {
+  '远征/西山/狐仙洞府': {
     name: '狐仙洞府',
-    fullPath: '远征/01西山',
+  fullPath: '远征/西山',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/hvx25yHH/hu-xian-dong-fu-ye.png',
       '昼': 'https://i.postimg.cc/6qRMmjkq/hu-xian-dong-fu-zhou.png'
     }
   },
-  '远征/01西山/戒台寺戒坛': {
+  '远征/西山/戒台寺戒坛': {
     name: '戒台寺戒坛',
-    fullPath: '远征/01西山',
+  fullPath: '远征/西山',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/rpnZ0t19/jie-tai-si-jie-tan-ye.png',
       '昼': 'https://i.postimg.cc/9f8gRqdN/jie-tai-si-jie-tan-zhou.png'
     }
   },
-  '远征/01西山/青丘峪口': {
+  '远征/西山/青丘峪口': {
     name: '青丘峪口',
-    fullPath: '远征/01西山',
+  fullPath: '远征/西山',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/TYM7Dxbb/qing-qiu-yu-kou-qing-ye.png',
@@ -3487,18 +3487,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/zGqxxkpQ/qing-qiu-yu-kou-yin-zhou.png'
     }
   },
-  '远征/01西山/潭柘寺大殿': {
+  '远征/西山/潭柘寺/大殿': {
     name: '潭柘寺大殿',
-    fullPath: '远征/01西山',
+  fullPath: '远征/西山/潭柘寺',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/DzjpJbrt/tan-zhe-si-da-dian-ye.png',
       '昼': 'https://i.postimg.cc/VNGZrb91/tan-zhe-si-da-dian-zhou.png'
     }
   },
-  '远征/01西山/潭柘寺山门': {
+  '远征/西山/潭柘寺/山门': {
     name: '潭柘寺山门',
-    fullPath: '远征/01西山',
+  fullPath: '远征/西山/潭柘寺',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/765sgYX4/tan-zhe-si-shan-men-qing-ye.png',
@@ -3509,9 +3509,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/B6RhN9wK/tan-zhe-si-shan-men-yin-zhou.png'
     }
   },
-  '远征/01西山/西山山道': {
+  '远征/西山/山道': {
     name: '西山山道',
-    fullPath: '远征/01西山',
+  fullPath: '远征/西山',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/bY2Vrrsx/xi-shan-shan-dao-qing-ye.png',
@@ -3522,9 +3522,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/pXbGFvjb/xi-shan-shan-dao-yin-zhou.png'
     }
   },
-  '远征/01西山/峪中泉林': {
+  '远征/西山/峪中泉林': {
     name: '峪中泉林',
-    fullPath: '远征/01西山',
+  fullPath: '远征/西山',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/kgypCHDH/yu-zhong-quan-lin-qing-ye.png',
@@ -3535,9 +3535,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/GphSmjy9/yu-zhong-quan-lin-yin-zhou.png'
     }
   },
-  '远征/02皇陵/皇陵神道': {
+  '远征/皇陵/神道': {
     name: '皇陵神道',
-    fullPath: '远征/02皇陵',
+  fullPath: '远征/皇陵',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/c1YTZzzW/huang-ling-shen-dao-qing-ye.png',
@@ -3548,9 +3548,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/CLsNnqYm/huang-ling-shen-dao-yin-zhou.png'
     }
   },
-  '远征/02皇陵/陵门': {
+  '远征/皇陵/陵门': {
     name: '陵门',
-    fullPath: '远征/02皇陵',
+  fullPath: '远征/皇陵',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/HkS9B1r0/ling-men-qing-ye.png',
@@ -3561,27 +3561,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/QMwkZggy/ling-men-yin-zhou.png'
     }
   },
-  '远征/02皇陵/陵卫值房': {
+  '远征/皇陵/陵卫值房': {
     name: '陵卫值房',
-    fullPath: '远征/02皇陵',
+  fullPath: '远征/皇陵',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/CxM4Gxxz/ling-wei-zhi-fang-ye.png',
       '昼': 'https://i.postimg.cc/kgjvfP22/ling-wei-zhi-fang-zhou.png'
     }
   },
-  '远征/02皇陵/享殿': {
+  '远征/皇陵/享殿': {
     name: '享殿',
-    fullPath: '远征/02皇陵',
+  fullPath: '远征/皇陵',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/fR5Bp0r3/xiang-dian-ye.png',
       '昼': 'https://i.postimg.cc/JzKPvB23/xiang-dian-zhou.png'
     }
   },
-  '远征/02皇陵/玄宫封门': {
+  '远征/皇陵/玄宫封门': {
     name: '玄宫封门',
-    fullPath: '远征/02皇陵',
+  fullPath: '远征/皇陵',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/nLz0Jcyd/xuan-gong-feng-men-qing-ye.png',
@@ -3592,9 +3592,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/brXTk0s6/xuan-gong-feng-men-yin-zhou.png'
     }
   },
-  '远征/03通州/漕船甲板': {
+  '远征/通州/漕船甲板': {
     name: '漕船甲板',
-    fullPath: '远征/03通州',
+  fullPath: '远征/通州',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Y21NTW4t/cao-chuan-jia-ban-qing-ye.png',
@@ -3605,18 +3605,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/hPsLtRb3/cao-chuan-jia-ban-yin-zhou.png'
     }
   },
-  '远征/03通州/通州漕仓': {
+  '远征/通州/漕仓': {
     name: '通州漕仓',
-    fullPath: '远征/03通州',
+  fullPath: '远征/通州',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/FKd3pdtT/tong-zhou-cao-cang-ye.png',
       '昼': 'https://i.postimg.cc/1znwBnhZ/tong-zhou-cao-cang-zhou.png'
     }
   },
-  '远征/03通州/通州码头': {
+  '远征/通州/码头': {
     name: '通州码头',
-    fullPath: '远征/03通州',
+  fullPath: '远征/通州',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/q7Pn5J44/tong-zhou-ma-tou-qing-ye.png',
@@ -3627,9 +3627,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/yd09qM8g/tong-zhou-ma-tou-yin-zhou.png'
     }
   },
-  '远征/03通州/张家湾古街': {
+  '远征/通州/张家湾古街': {
     name: '张家湾古街',
-    fullPath: '远征/03通州',
+  fullPath: '远征/通州',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/PxDbXL2W/zhang-jia-wan-gu-jie-qing-ye.png',
@@ -3640,9 +3640,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/8cVRj10Y/zhang-jia-wan-gu-jie-yin-zhou.png'
     }
   },
-  '远征/04南苑/南苑苑门': {
+  '远征/南苑/苑门': {
     name: '南苑苑门',
-    fullPath: '远征/04南苑',
+  fullPath: '远征/南苑',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/NFYXQdKJ/nan-yuan-yuan-men-qing-ye.png',
@@ -3653,9 +3653,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/8cH6cLWm/nan-yuan-yuan-men-yin-zhou.png'
     }
   },
-  '远征/04南苑/围场': {
+  '远征/南苑/围场': {
     name: '围场',
-    fullPath: '远征/04南苑',
+  fullPath: '远征/南苑',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/jdxf9k0C/wei-chang-qing-ye.png',
@@ -3666,18 +3666,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/MK9B8bq4/wei-chang-yin-zhou.png'
     }
   },
-  '远征/04南苑/行宫': {
+  '远征/南苑/行宫': {
     name: '行宫',
-    fullPath: '远征/04南苑',
+  fullPath: '远征/南苑',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/nhMDVjLX/xing-gong-ye.png',
       '昼': 'https://i.postimg.cc/SxjMQ2KL/xing-gong-zhou.png'
     }
   },
-  '远征/05卢沟/卢沟桥': {
+  '远征/卢沟桥': {
     name: '卢沟桥',
-    fullPath: '远征/05卢沟',
+  fullPath: '远征',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/wjPs1qts/lu-gou-qiao-qing-ye.png',
@@ -3688,18 +3688,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/1zqV6kw1/lu-gou-qiao-yin-zhou.png'
     }
   },
-  '远征/05卢沟/桥头野店': {
+  '远征/桥头野店': {
     name: '桥头野店',
-    fullPath: '远征/05卢沟',
+  fullPath: '远征',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/d1ck95jj/qiao-tou-ye-dian-ye.png',
       '昼': 'https://i.postimg.cc/fL73qY86/qiao-tou-ye-dian-zhou.png'
     }
   },
-  '远征/06边关/居庸关关城': {
+  '远征/边关/居庸关关城': {
     name: '居庸关关城',
-    fullPath: '远征/06边关',
+  fullPath: '远征/边关',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/RhMWkq8Z/ju-yong-guan-guan-cheng-qing-ye.png',
@@ -3710,9 +3710,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/kMc6xF6M/ju-yong-guan-guan-cheng-yin-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/安定郡王府大门前庭': {
+  '中城/十王邸/安定郡王府/大门前庭': {
     name: '安定郡王府大门前庭',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/安定郡王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/vZD0RmF1/an-ding-jun-wang-fu-da-men-qian-ting-qing-ye.png',
@@ -3723,9 +3723,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/nh50ntnV/an-ding-jun-wang-fu-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/安定郡王府后园': {
+  '中城/十王邸/安定郡王府/后园': {
     name: '安定郡王府后园',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/安定郡王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/0jfVvMyX/an-ding-jun-wang-fu-hou-yuan-qing-ye.png',
@@ -3736,9 +3736,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/GhLMQQX7/an-ding-jun-wang-fu-hou-yuan-yin-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/安定郡王府寝院': {
+  '中城/十王邸/安定郡王府/寝院': {
     name: '安定郡王府寝院',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/安定郡王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/nzf2QYsd/an-ding-jun-wang-fu-qin-yuan-qing-ye.png',
@@ -3749,27 +3749,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/zvJkxzFy/an-ding-jun-wang-fu-qin-yuan-yin-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/安定郡王府正堂': {
-    name: '安定郡王府正堂',
-    fullPath: '内城/北城/11诸王邸',
-    type: 'indoor',
+'中城/十王邸/安定郡王府/正堂': {
+  name: '安定郡王府正堂',
+  fullPath: '中城/十王邸/安定郡王府',
+  type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/L4TDnPmw/an-ding-jun-wang-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/pXLZ8dTN/an-ding-jun-wang-fu-zheng-tang-zhou.png'
     }
   },
-  '皇城/01衙署/秉笔宅家庙': {
-    name: '秉笔宅家庙',
-    fullPath: '皇城/01衙署',
-    type: 'indoor',
+'西城/珰宅/秉笔宅/家庙': {
+  name: '秉笔宅家庙',
+  fullPath: '西城/珰宅/秉笔宅',
+  type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/sgF4L4mR/bing-bi-zhai-jia-miao-ye.png',
       '昼': 'https://i.postimg.cc/kgrvHvsJ/bing-bi-zhai-jia-miao-zhou.png'
     }
   },
-  '皇城/01衙署/秉笔宅门庭': {
+  '西城/珰宅/秉笔宅/门庭': {
     name: '秉笔宅门庭',
-    fullPath: '皇城/01衙署',
+  fullPath: '西城/珰宅/秉笔宅',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Jhx3GVL8/bing-bi-zhai-men-ting-qing-ye.png',
@@ -3780,27 +3780,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/V6NqtGf7/bing-bi-zhai-men-ting-yin-zhou.png'
     }
   },
-  '皇城/01衙署/秉笔宅密室': {
-    name: '秉笔宅密室',
-    fullPath: '皇城/01衙署',
-    type: 'indoor',
+'西城/珰宅/秉笔宅/密室': {
+  name: '秉笔宅密室',
+  fullPath: '西城/珰宅/秉笔宅',
+  type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/pLNJSJCh/bing-bi-zhai-mi-shi-ye.png',
       '昼': 'https://i.postimg.cc/rwSN2RZj/bing-bi-zhai-mi-shi-zhou.png'
     }
   },
-  '皇城/01衙署/秉笔宅正堂': {
+  '西城/珰宅/秉笔宅/正房': {
     name: '秉笔宅正堂',
-    fullPath: '皇城/01衙署',
+  fullPath: '西城/珰宅/秉笔宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/5tbq49Dn/bing-bi-zhai-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/HLz0VDCF/bing-bi-zhai-zheng-tang-zhou.png'
     }
   },
-  '外城/02商栈/茶食铺宅后院': {
+  '南城/前店后宅/茶食铺宅/后院': {
     name: '茶食铺宅后院',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/前店后宅/茶食铺宅',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/JzW29kcT/cha-shi-pu-zhai-hou-yuan-qing-ye.png',
@@ -3811,18 +3811,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/6pLmwpMW/cha-shi-pu-zhai-hou-yuan-yin-zhou.png'
     }
   },
-  '外城/02商栈/茶食铺宅前铺': {
+  '南城/前店后宅/茶食铺宅/前铺': {
     name: '茶食铺宅前铺',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/前店后宅/茶食铺宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/dtCfHBdr/cha-shi-pu-zhai-qian-pu-ye.png',
       '昼': 'https://i.postimg.cc/c43z9mYX/cha-shi-pu-zhai-qian-pu-zhou.png'
     }
   },
-  '内城/中城/01署馆/朝议第门庭': {
+  '西城/品官宅/朝议第/门庭': {
     name: '朝议第门庭',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/品官宅/朝议第',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/8CfDCDWj/chao-yi-di-men-ting-qing-ye.png',
@@ -3833,9 +3833,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/xCrQJ730/chao-yi-di-men-ting-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/朝议第庭院': {
+  '西城/品官宅/朝议第/庭院': {
     name: '朝议第庭院',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/品官宅/朝议第',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/TYTRJzMR/chao-yi-di-ting-yuan-qing-ye.png',
@@ -3846,18 +3846,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/5Npf7sbL/chao-yi-di-ting-yuan-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/朝议第正房': {
+  '西城/品官宅/朝议第/正房': {
     name: '朝议第正房',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/品官宅/朝议第',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/YCsMkjvJ/chao-yi-di-zheng-fang-ye.png',
       '昼': 'https://i.postimg.cc/6pmtwT7W/chao-yi-di-zheng-fang-zhou.png'
     }
   },
-  '外城/02商栈/绸缎巨宅后院': {
+  '南城/商宅/绸缎巨宅/后院': {
     name: '绸缎巨宅后院',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/商宅/绸缎巨宅',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Y0GQnvmj/chou-duan-ju-zhai-hou-yuan-qing-ye.png',
@@ -3868,9 +3868,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/gkhv36W7/chou-duan-ju-zhai-hou-yuan-yin-zhou.png'
     }
   },
-  '外城/02商栈/绸缎巨宅门庭': {
+  '南城/商宅/绸缎巨宅/门庭': {
     name: '绸缎巨宅门庭',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/商宅/绸缎巨宅',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/YSrYcnWC/chou-duan-ju-zhai-men-ting-qing-ye.png',
@@ -3881,27 +3881,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/FKTchyyx/chou-duan-ju-zhai-men-ting-yin-zhou.png'
     }
   },
-  '外城/02商栈/绸缎巨宅账房': {
+  '南城/商宅/绸缎巨宅/账房': {
     name: '绸缎巨宅账房',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/商宅/绸缎巨宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/htbT5WhY/chou-duan-ju-zhai-zhang-fang-ye.png',
       '昼': 'https://i.postimg.cc/pdWzNGnc/chou-duan-ju-zhai-zhang-fang-zhou.png'
     }
   },
-  '外城/02商栈/绸缎巨宅正堂': {
+  '南城/商宅/绸缎巨宅/正堂': {
     name: '绸缎巨宅正堂',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/商宅/绸缎巨宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/y8z0jY6c/chou-duan-ju-zhai-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/MpbVF2X7/chou-duan-ju-zhai-zheng-tang-zhou.png'
     }
   },
-  '外城/02商栈/绸缎铺宅后院': {
+  '南城/前店后宅/绸缎铺宅/后院': {
     name: '绸缎铺宅后院',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/前店后宅/绸缎铺宅',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/qq3CcW9c/chou-duan-pu-zhai-hou-yuan-qing-ye.png',
@@ -3912,18 +3912,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/44mqtZ3J/chou-duan-pu-zhai-hou-yuan-yin-zhou.png'
     }
   },
-  '外城/02商栈/绸缎铺宅前铺': {
+  '南城/前店后宅/绸缎铺宅/前铺': {
     name: '绸缎铺宅前铺',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/前店后宅/绸缎铺宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/wvPmm9b3/chou-duan-pu-zhai-qian-pu-ye.png',
       '昼': 'https://i.postimg.cc/SRMzLHwn/chou-duan-pu-zhai-qian-pu-zhou.png'
     }
   },
-  '内城/中城/01署馆/大宗伯府大门前庭': {
+  '西城/勋贵宅邸/大宗伯府/大门前庭': {
     name: '大宗伯府大门前庭',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/勋贵宅邸/大宗伯府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/cH3zpL3b/da-zong-bo-fu-da-men-qian-ting-qing-ye.png',
@@ -3934,9 +3934,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/2yFK592n/da-zong-bo-fu-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/大宗伯府后院': {
+  '西城/勋贵宅邸/大宗伯府/后院': {
     name: '大宗伯府后院',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/勋贵宅邸/大宗伯府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/T32ZKG8j/da-zong-bo-fu-hou-yuan-qing-ye.png',
@@ -3947,27 +3947,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/N05Sx4jv/da-zong-bo-fu-hou-yuan-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/大宗伯府书房': {
+  '西城/勋贵宅邸/大宗伯府/书房': {
     name: '大宗伯府书房',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/勋贵宅邸/大宗伯府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/4NQD4y0y/da-zong-bo-fu-shu-fang-ye.png',
       '昼': 'https://i.postimg.cc/L84rJRd5/da-zong-bo-fu-shu-fang-zhou.png'
     }
   },
-  '内城/中城/01署馆/大宗伯府正堂': {
+  '西城/勋贵宅邸/大宗伯府/正堂': {
     name: '大宗伯府正堂',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/勋贵宅邸/大宗伯府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/SQW5Vjkr/da-zong-bo-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/28rttmSF/da-zong-bo-fu-zheng-tang-zhou.png'
     }
   },
-  '内城/中城/01署馆/迪功第门庭': {
+  '西城/品官宅/迪功第/门庭': {
     name: '迪功第门庭',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/品官宅/迪功第',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/V6jSZ2YH/di-gong-di-men-ting-qing-ye.png',
@@ -3978,18 +3978,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/nVGj48SB/di-gong-di-men-ting-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/迪功第堂屋': {
+  '西城/品官宅/迪功第/堂屋': {
     name: '迪功第堂屋',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/品官宅/迪功第',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/KY33BRCg/di-gong-di-tang-wu-ye.png',
       '昼': 'https://i.postimg.cc/4dC75XTQ/di-gong-di-tang-wu-zhou.png'
     }
   },
-  '内城/西城/04勋贵/定远侯府大门前庭': {
+  '西城/勋贵宅邸/定远侯府/大门前庭': {
     name: '定远侯府大门前庭',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/定远侯府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/MGVbxMsb/ding-yuan-hou-fu-da-men-qian-ting-qing-ye.png',
@@ -4000,9 +4000,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/qRGs6fV9/ding-yuan-hou-fu-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/定远侯府后院': {
+  '西城/勋贵宅邸/定远侯府/后院': {
     name: '定远侯府后院',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/定远侯府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/7YtNNyGb/ding-yuan-hou-fu-hou-yuan-qing-ye.png',
@@ -4013,27 +4013,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/zGLFtPTZ/ding-yuan-hou-fu-hou-yuan-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/定远侯府花厅': {
+  '西城/勋贵宅邸/定远侯府/花厅': {
     name: '定远侯府花厅',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/定远侯府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/QxCQCn4j/ding-yuan-hou-fu-hua-ting-ye.png',
       '昼': 'https://i.postimg.cc/4N0z9bqN/ding-yuan-hou-fu-hua-ting-zhou.png'
     }
   },
-  '内城/西城/04勋贵/定远侯府正堂': {
+  '西城/勋贵宅邸/定远侯府/正堂': {
     name: '定远侯府正堂',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/定远侯府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Zn76jrqX/ding-yuan-hou-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/KcJ7Zy5C/ding-yuan-hou-fu-zheng-tang-zhou.png'
     }
   },
-  '内城/中城/01署馆/都宪府大门前庭': {
+  '西城/勋贵宅邸/都宪府/大门前庭': {
     name: '都宪府大门前庭',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/勋贵宅邸/都宪府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/hPGjVXdv/dou-xian-fu-da-men-qian-ting-qing-ye.png',
@@ -4044,9 +4044,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/B6sZbb3Q/dou-xian-fu-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/都宪府后院': {
+  '西城/勋贵宅邸/都宪府/后院': {
     name: '都宪府后院',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/勋贵宅邸/都宪府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/sDnMLYr4/dou-xian-fu-hou-yuan-qing-ye.png',
@@ -4057,27 +4057,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/1zF44bNn/dou-xian-fu-hou-yuan-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/都宪府书房': {
+  '西城/勋贵宅邸/都宪府/书房': {
     name: '都宪府书房',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/勋贵宅邸/都宪府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/ncdXW4JV/dou-xian-fu-shu-fang-ye.png',
       '昼': 'https://i.postimg.cc/jd8D1Hbn/dou-xian-fu-shu-fang-zhou.png'
     }
   },
-  '内城/中城/01署馆/都宪府正堂': {
+  '西城/勋贵宅邸/都宪府/正堂': {
     name: '都宪府正堂',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/勋贵宅邸/都宪府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Kjpm05MG/dou-xian-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/yYW1k2Mg/dou-xian-fu-zheng-tang-zhou.png'
     }
   },
-  '内城/中城/01署馆/奉政第门庭': {
+  '西城/品官宅/奉政第/门庭': {
     name: '奉政第门庭',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/品官宅/奉政第',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/FKMWVX6y/feng-zheng-di-men-ting-qing-ye.png',
@@ -4088,9 +4088,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/85LyynQS/feng-zheng-di-men-ting-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/奉政第庭院': {
+  '西城/品官宅/奉政第/庭院': {
     name: '奉政第庭院',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/品官宅/奉政第',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/jdt11KS8/feng-zheng-di-ting-yuan-qing-ye.png',
@@ -4101,18 +4101,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/rFjHXbdR/feng-zheng-di-ting-yuan-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/奉政第正房': {
+  '西城/品官宅/奉政第/正房': {
     name: '奉政第正房',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/品官宅/奉政第',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/7LGtzZKx/feng-zheng-di-zheng-fang-ye.png',
       '昼': 'https://i.postimg.cc/SK219xg9/feng-zheng-di-zheng-fang-zhou.png'
     }
   },
-  '内城/西城/04勋贵/辅国公府大门前庭': {
+  '西城/勋贵宅邸/辅国公府/大门前庭': {
     name: '辅国公府大门前庭',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/辅国公府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Hsm0m4Rq/fu-guo-gong-fu-da-men-qian-ting-qing-ye.png',
@@ -4123,18 +4123,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/NjJR1hMk/fu-guo-gong-fu-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/辅国公府花厅': {
+  '西城/勋贵宅邸/辅国公府/花厅': {
     name: '辅国公府花厅',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/辅国公府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/NjMHGN47/fu-guo-gong-fu-hua-ting-ye.png',
       '昼': 'https://i.postimg.cc/x14bXKx4/fu-guo-gong-fu-hua-ting-zhou.png'
     }
   },
-  '内城/西城/04勋贵/辅国公府寝院': {
+  '西城/勋贵宅邸/辅国公府/寝院': {
     name: '辅国公府寝院',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/辅国公府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/251hGHLr/fu-guo-gong-fu-qin-yuan-qing-ye.png',
@@ -4145,9 +4145,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/5yVzxb7b/fu-guo-gong-fu-qin-yuan-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/辅国公府演武园': {
+  '西城/勋贵宅邸/辅国公府/演武园': {
     name: '辅国公府演武园',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/辅国公府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/L4tfxg5L/fu-guo-gong-fu-yan-wu-yuan-qing-ye.png',
@@ -4158,18 +4158,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/VLztpsbw/fu-guo-gong-fu-yan-wu-yuan-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/辅国公府正堂': {
+  '西城/勋贵宅邸/辅国公府/正堂': {
     name: '辅国公府正堂',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/辅国公府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/FzVLz88M/fu-guo-gong-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/G3FYXTt9/fu-guo-gong-fu-zheng-tang-zhou.png'
     }
   },
-  '内城/中城/01署馆/阁老府大门前庭': {
+  '西城/勋贵宅邸/阁老府/大门前庭': {
     name: '阁老府大门前庭',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/勋贵宅邸/阁老府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/c4NqN2dk/ge-lao-fu-da-men-qian-ting-qing-ye.png',
@@ -4180,9 +4180,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/4xJrYc7z/ge-lao-fu-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/阁老府后院': {
+  '西城/勋贵宅邸/阁老府/后院': {
     name: '阁老府后院',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/勋贵宅邸/阁老府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/k46rndVp/ge-lao-fu-hou-yuan-qing-ye.png',
@@ -4193,27 +4193,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/przgFYJQ/ge-lao-fu-hou-yuan-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/阁老府书房': {
+  '西城/勋贵宅邸/阁老府/书房': {
     name: '阁老府书房',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/勋贵宅邸/阁老府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/R005Dtv9/ge-lao-fu-shu-fang-ye.png',
       '昼': 'https://i.postimg.cc/43Fkk33p/ge-lao-fu-shu-fang-zhou.png'
     }
   },
-  '内城/中城/01署馆/阁老府正堂': {
+  '西城/勋贵宅邸/阁老府/正堂': {
     name: '阁老府正堂',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/勋贵宅邸/阁老府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/PqJ94kMq/ge-lao-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/1zX2HZKc/ge-lao-fu-zheng-tang-zhou.png'
     }
   },
-  '外城/02商栈/广源号宅后院': {
+  '南城/商宅/广源号宅/后院': {
     name: '广源号宅后院',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/商宅/广源号宅',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/MGqXMn6L/guang-yuan-hao-zhai-hou-yuan-qing-ye.png',
@@ -4224,9 +4224,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/L5YsKfD5/guang-yuan-hao-zhai-hou-yuan-yin-zhou.png'
     }
   },
-  '外城/02商栈/广源号宅门庭': {
+  '南城/商宅/广源号宅/门庭': {
     name: '广源号宅门庭',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/商宅/广源号宅',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/RZQZBv77/guang-yuan-hao-zhai-men-ting-qing-ye.png',
@@ -4237,27 +4237,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/C1tFN5g7/guang-yuan-hao-zhai-men-ting-yin-zhou.png'
     }
   },
-  '外城/02商栈/广源号宅账房': {
+  '南城/商宅/广源号宅/账房': {
     name: '广源号宅账房',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/商宅/广源号宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/nhthgXDn/guang-yuan-hao-zhai-zhang-fang-ye.png',
       '昼': 'https://i.postimg.cc/dVmVYJ2V/guang-yuan-hao-zhai-zhang-fang-zhou.png'
     }
   },
-  '外城/02商栈/广源号宅正堂': {
+  '南城/商宅/广源号宅/正堂': {
     name: '广源号宅正堂',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/商宅/广源号宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/QNwtg4N5/guang-yuan-hao-zhai-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/pLtL4mns/guang-yuan-hao-zhai-zheng-tang-zhou.png'
     }
   },
-  '外城/02商栈/恒昌号宅后院': {
+  '南城/商宅/恒昌号宅/后院': {
     name: '恒昌号宅后院',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/商宅/恒昌号宅',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/7h0fJ02f/heng-chang-hao-zhai-hou-yuan-qing-ye.png',
@@ -4268,9 +4268,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/c47vs7ZG/heng-chang-hao-zhai-hou-yuan-yin-zhou.png'
     }
   },
-  '外城/02商栈/恒昌号宅门庭': {
+  '南城/商宅/恒昌号宅/门庭': {
     name: '恒昌号宅门庭',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/商宅/恒昌号宅',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/tgcTr2d1/heng-chang-hao-zhai-men-ting-qing-ye.png',
@@ -4281,45 +4281,45 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/W3J4xgXL/heng-chang-hao-zhai-men-ting-yin-zhou.png'
     }
   },
-  '外城/02商栈/恒昌号宅账房': {
+  '南城/商宅/恒昌号宅/账房': {
     name: '恒昌号宅账房',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/商宅/恒昌号宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/vZ3DnQ4H/heng-chang-hao-zhai-zhang-fang-ye.png',
       '昼': 'https://i.postimg.cc/0NjjdLSz/heng-chang-hao-zhai-zhang-fang-zhou.png'
     }
   },
-  '外城/02商栈/恒昌号宅正堂': {
+  '南城/商宅/恒昌号宅/正堂': {
     name: '恒昌号宅正堂',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/商宅/恒昌号宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/SxDj9yJd/heng-chang-hao-zhai-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/DwBmG28t/heng-chang-hao-zhai-zheng-tang-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/荆王府承运殿': {
+  '中城/十王邸/荆王府/承运殿': {
     name: '荆王府承运殿',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/荆王府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/GmQqVSpq/jing-wang-fu-cheng-yun-dian-ye.png',
       '昼': 'https://i.postimg.cc/s2gwr9Bn/jing-wang-fu-cheng-yun-dian-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/荆王府存心殿': {
+  '中城/十王邸/荆王府/存心殿': {
     name: '荆王府存心殿',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/荆王府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/G38gtQMC/jing-wang-fu-cun-xin-dian-ye.png',
       '昼': 'https://i.postimg.cc/sfQHxcn1/jing-wang-fu-cun-xin-dian-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/荆王府大门前庭': {
+  '中城/十王邸/荆王府/大门前庭': {
     name: '荆王府大门前庭',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/荆王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/26JHTbSX/jing-wang-fu-da-men-qian-ting-qing-ye.png',
@@ -4330,9 +4330,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/j27M1xWs/jing-wang-fu-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/荆王府后园': {
+  '中城/十王邸/荆王府/后园': {
     name: '荆王府后园',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/荆王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/3wtf4b55/jing-wang-fu-hou-yuan-qing-ye.png',
@@ -4343,9 +4343,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/V65GjBmq/jing-wang-fu-hou-yuan-yin-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/荆王府寝院': {
+  '中城/十王邸/荆王府/寝院': {
     name: '荆王府寝院',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/荆王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/3rsSvv6N/jing-wang-fu-qin-yuan-qing-ye.png',
@@ -4356,9 +4356,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/NjYdNwBP/jing-wang-fu-qin-yuan-yin-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/乐安郡王府大门前庭': {
+  '中城/十王邸/乐安郡王府/大门前庭': {
     name: '乐安郡王府大门前庭',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/乐安郡王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/L6kpqNJR/le-an-jun-wang-fu-da-men-qian-ting-qing-ye.png',
@@ -4369,9 +4369,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/FH9Q03Sc/le-an-jun-wang-fu-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/乐安郡王府后园': {
+  '中城/十王邸/乐安郡王府/后园': {
     name: '乐安郡王府后园',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/乐安郡王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/pXMvXgXL/le-an-jun-wang-fu-hou-yuan-qing-ye.png',
@@ -4382,9 +4382,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/YqNH4bhQ/le-an-jun-wang-fu-hou-yuan-yin-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/乐安郡王府寝院': {
+  '中城/十王邸/乐安郡王府/寝院': {
     name: '乐安郡王府寝院',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/乐安郡王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/vZ3whT7j/le-an-jun-wang-fu-qin-yuan-qing-ye.png',
@@ -4395,27 +4395,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Bvb9V3M0/le-an-jun-wang-fu-qin-yuan-yin-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/乐安郡王府正堂': {
-    name: '乐安郡王府正堂',
-    fullPath: '内城/北城/11诸王邸',
-    type: 'indoor',
+'中城/十王邸/乐安郡王府/正堂': {
+  name: '乐安郡王府正堂',
+  fullPath: '中城/十王邸/乐安郡王府',
+  type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/rmt6q9BC/le-an-jun-wang-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/1tNxyKkb/le-an-jun-wang-fu-zheng-tang-zhou.png'
     }
   },
-  '外城/05洼地/临街杂院厢房': {
+  '南城/民宅/临街杂院/厢房': {
     name: '临街杂院厢房',
-    fullPath: '外城/05洼地',
+  fullPath: '南城/民宅/临街杂院',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/wvtz7zmR/lin-jie-za-yuan-xiang-fang-ye.png',
       '昼': 'https://i.postimg.cc/FRfv7vLy/lin-jie-za-yuan-xiang-fang-zhou.png'
     }
   },
-  '外城/05洼地/临街杂院院场': {
+  '南城/民宅/临街杂院/院场': {
     name: '临街杂院院场',
-    fullPath: '外城/05洼地',
+  fullPath: '南城/民宅/临街杂院',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/4dKGmG9S/lin-jie-za-yuan-yuan-chang-qing-ye.png',
@@ -4426,9 +4426,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/vTfdtvXQ/lin-jie-za-yuan-yuan-chang-yin-zhou.png'
     }
   },
-  '外城/05洼地/陋巷寒宅柴门': {
+  '南城/民宅/陋巷寒宅/柴门': {
     name: '陋巷寒宅柴门',
-    fullPath: '外城/05洼地',
+  fullPath: '南城/民宅/陋巷寒宅',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/xdZ7pFxD/lou-xiang-han-zhai-chai-men-qing-ye.png',
@@ -4439,36 +4439,36 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/XqSP4B62/lou-xiang-han-zhai-chai-men-yin-zhou.png'
     }
   },
-  '外城/05洼地/陋巷寒宅陋室': {
+  '南城/民宅/陋巷寒宅/陋室': {
     name: '陋巷寒宅陋室',
-    fullPath: '外城/05洼地',
+  fullPath: '南城/民宅/陋巷寒宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/MpKF68N5/lou-xiang-han-zhai-lou-shi-ye.png',
       '昼': 'https://i.postimg.cc/9Q8NznjC/lou-xiang-han-zhai-lou-shi-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/岷王府承运殿': {
+  '中城/十王邸/岷王府/承运殿': {
     name: '岷王府承运殿',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/岷王府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/DZfWD8HR/min-wang-fu-cheng-yun-dian-ye.png',
       '昼': 'https://i.postimg.cc/PxfLcP0f/min-wang-fu-cheng-yun-dian-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/岷王府存心殿': {
+  '中城/十王邸/岷王府/存心殿': {
     name: '岷王府存心殿',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/岷王府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/rsPt5MnD/min-wang-fu-cun-xin-dian-ye.png',
       '昼': 'https://i.postimg.cc/8kKv2m1w/min-wang-fu-cun-xin-dian-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/岷王府大门前庭': {
+  '中城/十王邸/岷王府/大门前庭': {
     name: '岷王府大门前庭',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/岷王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/bvxb4XJk/min-wang-fu-da-men-qian-ting-qing-ye.png',
@@ -4479,9 +4479,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/QtS7xpcW/min-wang-fu-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/岷王府后园': {
+  '中城/十王邸/岷王府/后园': {
     name: '岷王府后园',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/岷王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/rFHSrC3x/min-wang-fu-hou-yuan-qing-ye.png',
@@ -4492,9 +4492,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Dwb1d4Kf/min-wang-fu-hou-yuan-yin-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/岷王府寝院': {
+  '中城/十王邸/岷王府/寝院': {
     name: '岷王府寝院',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/岷王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/HWZMq9Yp/min-wang-fu-qin-yuan-qing-ye.png',
@@ -4505,9 +4505,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/0ymJJgpz/min-wang-fu-qin-yuan-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/平江伯府门庭': {
+  '西城/勋贵宅邸/平江伯府/门庭': {
     name: '平江伯府门庭',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/平江伯府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/3Ndk8zKf/ping-jiang-bo-fu-men-ting-qing-ye.png',
@@ -4518,9 +4518,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Vvpdd4vN/ping-jiang-bo-fu-men-ting-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/平江伯府院落': {
+  '西城/勋贵宅邸/平江伯府/院落': {
     name: '平江伯府院落',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/平江伯府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/xj4kxj50/ping-jiang-bo-fu-yuan-luo-qing-ye.png',
@@ -4531,18 +4531,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/fRxJRcNw/ping-jiang-bo-fu-yuan-luo-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/平江伯府正堂': {
+  '西城/勋贵宅邸/平江伯府/正堂': {
     name: '平江伯府正堂',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/平江伯府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Kz9KymyL/ping-jiang-bo-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/RhNWS2MQ/ping-jiang-bo-fu-zheng-tang-zhou.png'
     }
   },
-  '外城/05洼地/青砖民院门庭': {
+  '南城/民宅/青砖民院/门庭': {
     name: '青砖民院门庭',
-    fullPath: '外城/05洼地',
+  fullPath: '南城/民宅/青砖民院',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/XJF2HNBW/qing-zhuan-min-yuan-men-ting-qing-ye.png',
@@ -4553,18 +4553,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Wbs98vND/qing-zhuan-min-yuan-men-ting-yin-zhou.png'
     }
   },
-  '外城/05洼地/青砖民院正房': {
+  '南城/民宅/青砖民院/正房': {
     name: '青砖民院正房',
-    fullPath: '外城/05洼地',
+  fullPath: '南城/民宅/青砖民院',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/QMFY7JX5/qing-zhuan-min-yuan-zheng-fang-ye.png',
       '昼': 'https://i.postimg.cc/Gp67xT2M/qing-zhuan-min-yuan-zheng-fang-zhou.png'
     }
   },
-  '内城/西城/04勋贵/清平伯府门庭': {
+  '西城/勋贵宅邸/清平伯府/门庭': {
     name: '清平伯府门庭',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/清平伯府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/PxM7XF6V/qing-ping-bo-fu-men-ting-qing-ye.png',
@@ -4575,9 +4575,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/tR2c8wnp/qing-ping-bo-fu-men-ting-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/清平伯府院落': {
+  '西城/勋贵宅邸/清平伯府/院落': {
     name: '清平伯府院落',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/清平伯府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/y8SrgNQ8/qing-ping-bo-fu-yuan-luo-qing-ye.png',
@@ -4588,18 +4588,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/PxK6svx0/qing-ping-bo-fu-yuan-luo-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/清平伯府正堂': {
+  '西城/勋贵宅邸/清平伯府/正堂': {
     name: '清平伯府正堂',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/清平伯府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/V6wTccF8/qing-ping-bo-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/RFm8zzTn/qing-ping-bo-fu-zheng-tang-zhou.png'
     }
   },
-  '内城/西城/04勋贵/泰宁侯府大门前庭': {
+  '西城/勋贵宅邸/泰宁侯府/大门前庭': {
     name: '泰宁侯府大门前庭',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/泰宁侯府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/RVZkF4xv/tai-ning-hou-fu-da-men-qian-ting-qing-ye.png',
@@ -4610,9 +4610,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/8PXqf9TL/tai-ning-hou-fu-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/泰宁侯府后院': {
+  '西城/勋贵宅邸/泰宁侯府/后院': {
     name: '泰宁侯府后院',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/泰宁侯府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/wv5CtBBQ/tai-ning-hou-fu-hou-yuan-qing-ye.png',
@@ -4623,27 +4623,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/7hmjVQ0y/tai-ning-hou-fu-hou-yuan-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/泰宁侯府花厅': {
+  '西城/勋贵宅邸/泰宁侯府/花厅': {
     name: '泰宁侯府花厅',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/泰宁侯府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/BvHyyvHg/tai-ning-hou-fu-hua-ting-ye.png',
       '昼': 'https://i.postimg.cc/9fZSSfZ6/tai-ning-hou-fu-hua-ting-zhou.png'
     }
   },
-  '内城/西城/04勋贵/泰宁侯府正堂': {
+  '西城/勋贵宅邸/泰宁侯府/正堂': {
     name: '泰宁侯府正堂',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/泰宁侯府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/DwtHBGJv/tai-ning-hou-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/kgkzfS6x/tai-ning-hou-fu-zheng-tang-zhou.png'
     }
   },
-  '内城/中城/01署馆/文林第门庭': {
+  '西城/品官宅/文林第/门庭': {
     name: '文林第门庭',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/品官宅/文林第',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/vTtGdzn3/wen-lin-di-men-ting-qing-ye.png',
@@ -4654,18 +4654,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/bYxybz5m/wen-lin-di-men-ting-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/文林第堂屋': {
+  '西城/品官宅/文林第/堂屋': {
     name: '文林第堂屋',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/品官宅/文林第',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/L5pm77J3/wen-lin-di-tang-wu-ye.png',
       '昼': 'https://i.postimg.cc/Y0ztw3Fx/wen-lin-di-tang-wu-zhou.png'
     }
   },
-  '内城/西城/04勋贵/武安侯府大门前庭': {
+  '西城/勋贵宅邸/武安侯府/大门前庭': {
     name: '武安侯府大门前庭',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/武安侯府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/MKZSQ1Rh/wu-an-hou-fu-da-men-qian-ting-qing-ye.png',
@@ -4676,9 +4676,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/x1cVsY6F/wu-an-hou-fu-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/武安侯府后院': {
+  '西城/勋贵宅邸/武安侯府/后院': {
     name: '武安侯府后院',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/武安侯府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/j2trv71z/wu-an-hou-fu-hou-yuan-qing-ye.png',
@@ -4689,45 +4689,45 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/5ygWrtdc/wu-an-hou-fu-hou-yuan-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/武安侯府花厅': {
+  '西城/勋贵宅邸/武安侯府/花厅': {
     name: '武安侯府花厅',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/武安侯府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/d1Rb700h/wu-an-hou-fu-hua-ting-ye.png',
       '昼': 'https://i.postimg.cc/761FCLL7/wu-an-hou-fu-hua-ting-zhou.png'
     }
   },
-  '内城/西城/04勋贵/武安侯府正堂': {
+  '西城/勋贵宅邸/武安侯府/正堂': {
     name: '武安侯府正堂',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/武安侯府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/XJ0M75nX/wu-an-hou-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/85d2FCCs/wu-an-hou-fu-zheng-tang-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/襄王府承运殿': {
+  '中城/十王邸/襄王府/承运殿': {
     name: '襄王府承运殿',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/襄王府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/MZV0grP0/xiang-wang-fu-cheng-yun-dian-ye.png',
       '昼': 'https://i.postimg.cc/8PGdGB9R/xiang-wang-fu-cheng-yun-dian-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/襄王府存心殿': {
+  '中城/十王邸/襄王府/存心殿': {
     name: '襄王府存心殿',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/襄王府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/wj6kXckv/xiang-wang-fu-cun-xin-dian-ye.png',
       '昼': 'https://i.postimg.cc/CxmsmBvD/xiang-wang-fu-cun-xin-dian-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/襄王府大门前庭': {
+  '中城/十王邸/襄王府/大门前庭': {
     name: '襄王府大门前庭',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/襄王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/Y0Yx3dVH/xiang-wang-fu-da-men-qian-ting-qing-ye.png',
@@ -4738,9 +4738,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/sfhKs2Xz/xiang-wang-fu-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/襄王府后园': {
+  '中城/十王邸/襄王府/后园': {
     name: '襄王府后园',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/襄王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/VNkD8Brs/xiang-wang-fu-hou-yuan-qing-ye.png',
@@ -4751,9 +4751,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/0Q6n6k0n/xiang-wang-fu-hou-yuan-yin-zhou.png'
     }
   },
-  '内城/北城/11诸王邸/襄王府寝院': {
+  '中城/十王邸/襄王府/寝院': {
     name: '襄王府寝院',
-    fullPath: '内城/北城/11诸王邸',
+  fullPath: '中城/十王邸/襄王府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/PqJzcX9j/xiang-wang-fu-qin-yuan-qing-ye.png',
@@ -4764,9 +4764,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/1XhGfpt1/xiang-wang-fu-qin-yuan-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/修职第门庭': {
+  '西城/品官宅/修职第/门庭': {
     name: '修职第门庭',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/品官宅/修职第',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/sxFkxhyf/xiu-zhi-di-men-ting-qing-ye.png',
@@ -4777,18 +4777,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/KcBXVJr4/xiu-zhi-di-men-ting-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/修职第堂屋': {
+  '西城/品官宅/修职第/堂屋': {
     name: '修职第堂屋',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/品官宅/修职第',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/sxFkxhz6/xiu-zhi-di-tang-wu-ye.png',
       '昼': 'https://i.postimg.cc/1XxkXqPx/xiu-zhi-di-tang-wu-zhou.png'
     }
   },
-  '外城/02商栈/盐商巨宅后院': {
+  '南城/商宅/盐商巨宅/后院': {
     name: '盐商巨宅后院',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/商宅/盐商巨宅',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/DySxHZKr/yan-shang-ju-zhai-hou-yuan-qing-ye.png',
@@ -4799,9 +4799,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/52vn9Ryv/yan-shang-ju-zhai-hou-yuan-yin-zhou.png'
     }
   },
-  '外城/02商栈/盐商巨宅门庭': {
+  '南城/商宅/盐商巨宅/门庭': {
     name: '盐商巨宅门庭',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/商宅/盐商巨宅',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/BZVgT010/yan-shang-ju-zhai-men-ting-qing-ye.png',
@@ -4812,27 +4812,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/J4HQK2b3/yan-shang-ju-zhai-men-ting-yin-zhou.png'
     }
   },
-  '外城/02商栈/盐商巨宅账房': {
+  '南城/商宅/盐商巨宅/账房': {
     name: '盐商巨宅账房',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/商宅/盐商巨宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/HnV9qSRf/yan-shang-ju-zhai-zhang-fang-ye.png',
       '昼': 'https://i.postimg.cc/d3pjw2KB/yan-shang-ju-zhai-zhang-fang-zhou.png'
     }
   },
-  '外城/02商栈/盐商巨宅正堂': {
+  '南城/商宅/盐商巨宅/正堂': {
     name: '盐商巨宅正堂',
-    fullPath: '外城/02商栈',
+  fullPath: '南城/商宅/盐商巨宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/nzVkkVk9/yan-shang-ju-zhai-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/gJMKB9Ss/yan-shang-ju-zhai-zheng-tang-zhou.png'
     }
   },
-  '内城/西城/04勋贵/长兴侯府大门前庭': {
+  '西城/勋贵宅邸/长兴侯府/大门前庭': {
     name: '长兴侯府大门前庭',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/长兴侯府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/8zSTtsFp/zhang-xing-hou-fu-da-men-qian-ting-qing-ye.png',
@@ -4843,9 +4843,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/ZR2S3qtt/zhang-xing-hou-fu-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/长兴侯府后院': {
+  '西城/勋贵宅邸/长兴侯府/后院': {
     name: '长兴侯府后院',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/长兴侯府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/TwHsSNCc/zhang-xing-hou-fu-hou-yuan-qing-ye.png',
@@ -4856,36 +4856,36 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/jqDqjpV9/zhang-xing-hou-fu-hou-yuan-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/长兴侯府花厅': {
+  '西城/勋贵宅邸/长兴侯府/花厅': {
     name: '长兴侯府花厅',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/长兴侯府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/W1TP0KK9/zhang-xing-hou-fu-hua-ting-ye.png',
       '昼': 'https://i.postimg.cc/pLCMCCbS/zhang-xing-hou-fu-hua-ting-zhou.png'
     }
   },
-  '内城/西城/04勋贵/长兴侯府正堂': {
+  '西城/勋贵宅邸/长兴侯府/正堂': {
     name: '长兴侯府正堂',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/长兴侯府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/7YgkGDBy/zhang-xing-hou-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/dVwKGXX1/zhang-xing-hou-fu-zheng-tang-zhou.png'
     }
   },
-  '皇城/01衙署/掌印宅家庙': {
-    name: '掌印宅家庙',
-    fullPath: '皇城/01衙署',
-    type: 'indoor',
+'西城/珰宅/掌印宅/家庙': {
+  name: '掌印宅家庙',
+  fullPath: '西城/珰宅/掌印宅',
+  type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/x8v11Qww/zhang-yin-zhai-jia-miao-ye.png',
       '昼': 'https://i.postimg.cc/h4Tjr8Xv/zhang-yin-zhai-jia-miao-zhou.png'
     }
   },
-  '皇城/01衙署/掌印宅门庭': {
+  '西城/珰宅/掌印宅/门庭': {
     name: '掌印宅门庭',
-    fullPath: '皇城/01衙署',
+  fullPath: '西城/珰宅/掌印宅',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/rwFwMvQC/zhang-yin-zhai-men-ting-qing-ye.png',
@@ -4896,27 +4896,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/vm4865R9/zhang-yin-zhai-men-ting-yin-zhou.png'
     }
   },
-  '皇城/01衙署/掌印宅密室': {
-    name: '掌印宅密室',
-    fullPath: '皇城/01衙署',
-    type: 'indoor',
+'西城/珰宅/掌印宅/密室': {
+  name: '掌印宅密室',
+  fullPath: '西城/珰宅/掌印宅',
+  type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/qByRLcNQ/zhang-yin-zhai-mi-shi-ye.png',
       '昼': 'https://i.postimg.cc/mZCDw3Pn/zhang-yin-zhai-mi-shi-zhou.png'
     }
   },
-  '皇城/01衙署/掌印宅正堂': {
+  '西城/珰宅/掌印宅/正房': {
     name: '掌印宅正堂',
-    fullPath: '皇城/01衙署',
+  fullPath: '西城/珰宅/掌印宅',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/rFTpYdWy/zhang-yin-zhai-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/7YNLvxM0/zhang-yin-zhai-zheng-tang-zhou.png'
     }
   },
-  '内城/西城/04勋贵/镇国公府大门前庭': {
+  '西城/勋贵宅邸/镇国公府/大门前庭': {
     name: '镇国公府大门前庭',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/镇国公府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/dVyJ9rQb/zhen-guo-gong-fu-da-men-qian-ting-qing-ye.png',
@@ -4927,18 +4927,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/hjpnG0MG/zhen-guo-gong-fu-da-men-qian-ting-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/镇国公府花厅': {
+  '西城/勋贵宅邸/镇国公府/花厅': {
     name: '镇国公府花厅',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/镇国公府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/CK7XCxDS/zhen-guo-gong-fu-hua-ting-ye.png',
       '昼': 'https://i.postimg.cc/SsK5gb79/zhen-guo-gong-fu-hua-ting-zhou.png'
     }
   },
-  '内城/西城/04勋贵/镇国公府寝院': {
+  '西城/勋贵宅邸/镇国公府/寝院': {
     name: '镇国公府寝院',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/镇国公府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/SQ1qFDns/zhen-guo-gong-fu-qin-yuan-qing-ye.png',
@@ -4949,9 +4949,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/NjmwXtps/zhen-guo-gong-fu-qin-yuan-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/镇国公府演武园': {
+  '西城/勋贵宅邸/镇国公府/演武园': {
     name: '镇国公府演武园',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/镇国公府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/HWNGPnN1/zhen-guo-gong-fu-yan-wu-yuan-qing-ye.png',
@@ -4962,18 +4962,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Gm0WdNdn/zhen-guo-gong-fu-yan-wu-yuan-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/镇国公府正堂': {
+  '西城/勋贵宅邸/镇国公府/正堂': {
     name: '镇国公府正堂',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/镇国公府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/hvfktRfM/zhen-guo-gong-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/3NdsxQkr/zhen-guo-gong-fu-zheng-tang-zhou.png'
     }
   },
-  '内城/中城/01署馆/中宪第门庭': {
+  '西城/品官宅/中宪第/门庭': {
     name: '中宪第门庭',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/品官宅/中宪第',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/SxqmVHB2/zhong-xian-di-men-ting-qing-ye.png',
@@ -4984,9 +4984,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/CKxSpkL0/zhong-xian-di-men-ting-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/中宪第庭院': {
+  '西城/品官宅/中宪第/庭院': {
     name: '中宪第庭院',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/品官宅/中宪第',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/FFMrkYGH/zhong-xian-di-ting-yuan-qing-ye.png',
@@ -4997,18 +4997,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/MK1W7zr1/zhong-xian-di-ting-yuan-yin-zhou.png'
     }
   },
-  '内城/中城/01署馆/中宪第正房': {
+  '西城/品官宅/中宪第/正房': {
     name: '中宪第正房',
-    fullPath: '内城/中城/01署馆',
+  fullPath: '西城/品官宅/中宪第',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/521fpDZh/zhong-xian-di-zheng-fang-ye.png',
       '昼': 'https://i.postimg.cc/kg97wL0q/zhong-xian-di-zheng-fang-zhou.png'
     }
   },
-  '内城/西城/04勋贵/忠勇伯府门庭': {
+  '西城/勋贵宅邸/忠勇伯府/门庭': {
     name: '忠勇伯府门庭',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/忠勇伯府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/pVwjVXF8/zhong-yong-bo-fu-men-ting-qing-ye.png',
@@ -5019,9 +5019,9 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/9QVqT81V/zhong-yong-bo-fu-men-ting-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/忠勇伯府院落': {
+  '西城/勋贵宅邸/忠勇伯府/院落': {
     name: '忠勇伯府院落',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/忠勇伯府',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/pdLhcmg6/zhong-yong-bo-fu-yuan-luo-qing-ye.png',
@@ -5032,18 +5032,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/1tggPLRY/zhong-yong-bo-fu-yuan-luo-yin-zhou.png'
     }
   },
-  '内城/西城/04勋贵/忠勇伯府正堂': {
+  '西城/勋贵宅邸/忠勇伯府/正堂': {
     name: '忠勇伯府正堂',
-    fullPath: '内城/西城/04勋贵',
+  fullPath: '西城/勋贵宅邸/忠勇伯府',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/grbmC7ry/zhong-yong-bo-fu-zheng-tang-ye.png',
       '昼': 'https://i.postimg.cc/dQkdKTL1/zhong-yong-bo-fu-zheng-tang-zhou.png'
     }
   },
-  '宫城/04六宫/宝月宫前院': {
-    name: '宝月宫前院',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/宝月宫/前院': {
+    name: '前院',
+  fullPath: '宫城/六宫/宝月宫',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/W4Qwrmy6/bao-yue-gong-qian-yuan-qing-ye.png',
@@ -5054,27 +5054,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/PJHbVXhV/bao-yue-gong-qian-yuan-yin-zhou.png'
     }
   },
-  '宫城/04六宫/宝月宫寝阁': {
-    name: '宝月宫寝阁',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/宝月宫/寝阁': {
+    name: '寝阁',
+  fullPath: '宫城/六宫/宝月宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/fys7qzDV/bao-yue-gong-qin-ge-ye.png',
       '昼': 'https://i.postimg.cc/XqgfTRYq/bao-yue-gong-qin-ge-zhou.png'
     }
   },
-  '宫城/04六宫/宝月宫正殿': {
-    name: '宝月宫正殿',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/宝月宫/正殿': {
+    name: '正殿',
+  fullPath: '宫城/六宫/宝月宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/x8PvWw1L/bao-yue-gong-zheng-dian-ye.png',
       '昼': 'https://i.postimg.cc/3NZXPsxB/bao-yue-gong-zheng-dian-zhou.png'
     }
   },
-  '宫城/04六宫/澄心宫前院': {
-    name: '澄心宫前院',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/澄心宫/前院': {
+    name: '前院',
+  fullPath: '宫城/六宫/澄心宫',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/7P1nG2n4/cheng-xin-gong-qian-yuan-qing-ye.png',
@@ -5085,27 +5085,27 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/wT6chjwh/cheng-xin-gong-qian-yuan-yin-zhou.png'
     }
   },
-  '宫城/04六宫/澄心宫寝阁': {
-    name: '澄心宫寝阁',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/澄心宫/寝阁': {
+    name: '寝阁',
+  fullPath: '宫城/六宫/澄心宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/GhqPznf6/cheng-xin-gong-qin-ge-ye.png',
       '昼': 'https://i.postimg.cc/nc0KTf5J/cheng-xin-gong-qin-ge-zhou.png'
     }
   },
-  '宫城/04六宫/澄心宫正殿': {
-    name: '澄心宫正殿',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/澄心宫/正殿': {
+    name: '正殿',
+  fullPath: '宫城/六宫/澄心宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/DyBQ53Dz/cheng-xin-gong-zheng-dian-ye.png',
       '昼': 'https://i.postimg.cc/52yBRkdY/cheng-xin-gong-zheng-dian-zhou.png'
     }
   },
-  '宫城/04六宫/青芜宫前院': {
-    name: '青芜宫前院',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/青芜宫/前院': {
+    name: '前院',
+  fullPath: '宫城/六宫/青芜宫',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/P57WszTw/qing-wu-gong-qian-yuan-qing-ye.png',
@@ -5116,36 +5116,36 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/0QR7rk67/qing-wu-gong-qian-yuan-yin-zhou.png'
     }
   },
-  '宫城/04六宫/青芜宫寝阁': {
-    name: '青芜宫寝阁',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/青芜宫/寝阁': {
+    name: '寝阁',
+  fullPath: '宫城/六宫/青芜宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/vBrfVJ9S/qing-wu-gong-qin-ge-ye.png',
       '昼': 'https://i.postimg.cc/ydmcZMcC/qing-wu-gong-qin-ge-zhou.png'
     }
   },
-  '宫城/04六宫/青芜宫正殿': {
-    name: '青芜宫正殿',
-    fullPath: '宫城/04六宫',
+  '宫城/六宫/青芜宫/正殿': {
+    name: '正殿',
+  fullPath: '宫城/六宫/青芜宫',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/L5mfBxBG/qing-wu-gong-zheng-dian-ye.png',
       '昼': 'https://i.postimg.cc/RhvfQgLS/qing-wu-gong-zheng-dian-zhou.png'
     }
   },
-  '外城/03会馆/沅溪会馆客房': {
+  '外城/会馆/沅溪会馆/客房': {
     name: '沅溪会馆客房',
-    fullPath: '外城/03会馆',
+  fullPath: '外城/会馆/沅溪会馆',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Zn0fxYcK/yuan-xi-hui-guan-ke-fang-ye.png',
       '昼': 'https://i.postimg.cc/d3DWjQBy/yuan-xi-hui-guan-ke-fang-zhou.png'
     }
   },
-  '外城/03会馆/沅溪会馆门庭': {
+  '外城/会馆/沅溪会馆/门庭': {
     name: '沅溪会馆门庭',
-    fullPath: '外城/03会馆',
+  fullPath: '外城/会馆/沅溪会馆',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/2yJ0cpcH/yuan-xi-hui-guan-men-ting-qing-ye.png',
@@ -5156,18 +5156,18 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/qMPm2T6F/yuan-xi-hui-guan-men-ting-yin-zhou.png'
     }
   },
-  '外城/03会馆/云间会馆客房': {
+  '外城/会馆/云间会馆/客房': {
     name: '云间会馆客房',
-    fullPath: '外城/03会馆',
+  fullPath: '外城/会馆/云间会馆',
     type: 'indoor',
     variants: {
       '夜': 'https://i.postimg.cc/Fs86GSw7/yun-jian-hui-guan-ke-fang-ye.png',
       '昼': 'https://i.postimg.cc/0ySB4Qqy/yun-jian-hui-guan-ke-fang-zhou.png'
     }
   },
-  '外城/03会馆/云间会馆门庭': {
+  '外城/会馆/云间会馆/门庭': {
     name: '云间会馆门庭',
-    fullPath: '外城/03会馆',
+  fullPath: '外城/会馆/云间会馆',
     type: 'outdoor',
     variants: {
       '晴夜': 'https://i.postimg.cc/3xGcqRHX/yun-jian-hui-guan-men-ting-qing-ye.png',
@@ -5177,13 +5177,13 @@ export const RESIDENT_LOCATIONS: Record<string, ResidentLocationEntry> = {
       '阴夜': 'https://i.postimg.cc/Jhcd120h/yun-jian-hui-guan-men-ting-yin-ye.png',
       '阴昼': 'https://i.postimg.cc/d1sNDjZ5/yun-jian-hui-guan-men-ting-yin-zhou.png'
     }
-  },
+  }
 };
 
 /** 复用场景模板池
  *  key: 场景名（无路径前缀） */
 export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
-  '石桥': {
+  '村野/石桥': {
     name: '石桥',
     type: 'outdoor',
     variants: {
@@ -5195,7 +5195,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/9XZfXXbM/shi-qiao-yin-zhou.png'
     }
   },
-  '草户农家堂屋': {
+  '村野/草户/农家堂屋': {
     name: '草户农家堂屋',
     type: 'indoor',
     variants: {
@@ -5203,7 +5203,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '昼': 'https://i.postimg.cc/V6sJrxNP/cao-hu-nong-jia-tang-wu-zhou.png'
     }
   },
-  '草户农家院': {
+  '村野/草户/农家院': {
     name: '草户农家院',
     type: 'outdoor',
     variants: {
@@ -5215,7 +5215,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/BZVjbw9M/cao-hu-nong-jia-yuan-yin-zhou.png'
     }
   },
-  '粮仓庄园仓房': {
+  '村野/粮仓庄园/仓房': {
     name: '粮仓庄园仓房',
     type: 'indoor',
     variants: {
@@ -5223,7 +5223,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '昼': 'https://i.postimg.cc/nL4mQKYL/liang-cang-zhuang-yuan-cang-fang-zhou.png'
     }
   },
-  '粮仓庄园场院': {
+  '村野/粮仓庄园/场院': {
     name: '粮仓庄园场院',
     type: 'outdoor',
     variants: {
@@ -5235,7 +5235,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/VvV0cK1X/liang-cang-zhuang-yuan-chang-yuan-yin-zhou.png'
     }
   },
-  '粮仓庄园正房': {
+  '村野/粮仓庄园/正房': {
     name: '粮仓庄园正房',
     type: 'indoor',
     variants: {
@@ -5243,7 +5243,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '昼': 'https://i.postimg.cc/wxfmJjJD/liang-cang-zhuang-yuan-zheng-fang-zhou.png'
     }
   },
-  '石屋山户石屋': {
+  '村野/山户/石屋': {
     name: '石屋山户石屋',
     type: 'indoor',
     variants: {
@@ -5251,7 +5251,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '昼': 'https://i.postimg.cc/MGQD3j0z/shi-wu-shan-hu-shi-wu-zhou.png'
     }
   },
-  '石屋山户院': {
+  '村野/山户/院子': {
     name: '石屋山户院',
     type: 'outdoor',
     variants: {
@@ -5263,7 +5263,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/bYTR5PnS/shi-wu-shan-hu-yuan-yin-zhou.png'
     }
   },
-  '瓦舍农家堂屋': {
+  '村野/瓦舍/农家堂屋': {
     name: '瓦舍农家堂屋',
     type: 'indoor',
     variants: {
@@ -5271,7 +5271,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '昼': 'https://i.postimg.cc/NG7NwT3B/wa-she-nong-jia-tang-wu-zhou.png'
     }
   },
-  '瓦舍农家院': {
+  '村野/瓦舍/农家院': {
     name: '瓦舍农家院',
     type: 'outdoor',
     variants: {
@@ -5283,7 +5283,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/Yqrd207R/wa-she-nong-jia-yuan-yin-zhou.png'
     }
   },
-  '苇棚户柴门': {
+  '村野/苇棚户/柴门': {
     name: '苇棚户柴门',
     type: 'outdoor',
     variants: {
@@ -5295,7 +5295,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/qMNCGHxJ/wei-peng-hu-chai-men-yin-zhou.png'
     }
   },
-  '苇棚户棚屋': {
+  '村野/苇棚户/棚屋': {
     name: '苇棚户棚屋',
     type: 'indoor',
     variants: {
@@ -5303,7 +5303,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '昼': 'https://i.postimg.cc/xd3kdfnQ/wei-peng-hu-peng-wu-zhou.png'
     }
   },
-  '砖屏农家堂屋': {
+  '村野/砖屏/农家堂屋': {
     name: '砖屏农家堂屋',
     type: 'indoor',
     variants: {
@@ -5311,7 +5311,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '昼': 'https://i.postimg.cc/JhZN5CmW/zhuan-ping-nong-jia-tang-wu-zhou.png'
     }
   },
-  '砖屏农家院': {
+  '村野/砖屏/农家院': {
     name: '砖屏农家院',
     type: 'outdoor',
     variants: {
@@ -5323,7 +5323,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/fTyYg9ZP/zhuan-ping-nong-jia-yuan-yin-zhou.png'
     }
   },
-  '祠堂': {
+  '村野/祠堂': {
     name: '祠堂',
     type: 'indoor',
     variants: {
@@ -5331,7 +5331,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '昼': 'https://i.postimg.cc/J43tx7H3/ci-tang-zhou.png'
     }
   },
-  '孤坟': {
+  '村野/孤坟': {
     name: '孤坟',
     type: 'outdoor',
     variants: {
@@ -5343,7 +5343,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/g2PkLCMh/gu-fen-yin-zhou.png'
     }
   },
-  '河湾渡口': {
+  '村野/河湾渡口': {
     name: '河湾渡口',
     type: 'outdoor',
     variants: {
@@ -5355,7 +5355,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/NfR2n7S7/he-wan-du-kou-yin-zhou.png'
     }
   },
-  '荒庙': {
+  '村野/荒庙': {
     name: '荒庙',
     type: 'outdoor',
     variants: {
@@ -5367,7 +5367,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/HkBnGS2x/huang-miao-yin-zhou.png'
     }
   },
-  '井台': {
+  '村野/井台': {
     name: '井台',
     type: 'outdoor',
     variants: {
@@ -5379,7 +5379,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '阴昼': 'https://i.postimg.cc/DZzzy1xY/jing-tai-yin-zhou.png'
     }
   },
-  '山神庙': {
+  '村野/山神庙': {
     name: '山神庙',
     type: 'indoor',
     variants: {
@@ -5387,7 +5387,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '昼': 'https://i.postimg.cc/rpf8bKqQ/shan-shen-miao-zhou.png'
     }
   },
-  '水磨坊': {
+  '村野/水磨坊': {
     name: '水磨坊',
     type: 'indoor',
     variants: {
@@ -5395,7 +5395,7 @@ export const TEMPLATE_LOCATIONS: Record<string, TemplateLocationEntry> = {
       '昼': 'https://i.postimg.cc/NMVQsS9K/shui-mo-fang-zhou.png'
     }
   },
-  '土地庙': {
+  '村野/槐荫村/土地庙': {
     name: '土地庙',
     type: 'indoor',
     variants: {
@@ -5454,6 +5454,69 @@ export function getLocationImageFuzzy(
   if (template) return template.variants[variant];
 
   return undefined;
+}
+
+/** 智能查找地点图片
+ *  根据天气(晴/阴/雪)和昼夜自动组合变体，并考虑室内外类型：
+ *  - indoor 场景只有 昼/夜，忽略天气
+ *  - outdoor 场景按 晴阴雪×昼夜 精确匹配，找不到则退回到 昼/夜
+ */
+export function getLocationImageSmart(
+  locationKey: string,
+  weather: 'sunny' | 'cloudy' | 'snowy',
+  time: 'day' | 'night',
+): string | undefined {
+  // 先找到条目，确定室内外类型
+  let entry: ResidentLocationEntry | TemplateLocationEntry | undefined;
+  let isIndoor = false;
+
+  // 精确匹配常驻地点
+  const resident = RESIDENT_LOCATIONS[locationKey];
+  if (resident) {
+    entry = resident;
+    isIndoor = resident.type === 'indoor';
+  }
+
+  // 模糊匹配常驻地点
+  if (!entry) {
+    for (const [key, e] of Object.entries(RESIDENT_LOCATIONS)) {
+      if (key.endsWith('/' + locationKey) || key === locationKey) {
+        entry = e;
+        isIndoor = e.type === 'indoor';
+        break;
+      }
+    }
+  }
+
+  // 模板池匹配
+  if (!entry) {
+    const parts = locationKey.split('/');
+    const sceneName = parts[parts.length - 1];
+    const template = TEMPLATE_LOCATIONS[sceneName];
+    if (template) {
+      entry = template;
+      isIndoor = template.type === 'indoor';
+    }
+  }
+
+  if (!entry) return undefined;
+
+  // 室内场景：只有昼/夜，忽略天气
+  if (isIndoor) {
+    const v: ImageVariant = time === 'night' ? '夜' : '昼';
+    return entry.variants[v];
+  }
+
+  // 室外场景：按 晴阴雪×昼夜 精确匹配
+  const weatherChar = weather === 'sunny' ? '晴' : weather === 'cloudy' ? '阴' : '雪';
+  const timeChar = time === 'night' ? '夜' : '昼';
+  const preciseVariant = (weatherChar + timeChar) as ImageVariant;
+  const preciseUrl = entry.variants[preciseVariant];
+  if (preciseUrl) return preciseUrl;
+
+  // 退回到 昼/夜
+  const fallbackVariant = (time === 'night' ? '夜' : '昼') as ImageVariant;
+  return entry.variants[fallbackVariant];
 }
 
 /** 获取某个路径前缀下所有常驻地点 */

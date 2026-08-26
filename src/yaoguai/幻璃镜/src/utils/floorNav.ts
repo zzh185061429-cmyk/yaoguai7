@@ -11,12 +11,3 @@ export function getAssistantFloors(): number[] {
     return [];
   }
 }
-
-/** 获取当前楼层 ID */
-export function getCurrentFloorId(): number | null {
-  try {
-    return getCurrentMessageId();
-  } catch {
-    return null;
-  }
-}

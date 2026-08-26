@@ -22,21 +22,21 @@ function isLeaf(value: unknown): boolean {
 
 /** 值类型标签样式 — 古风配色 */
 function getTypeBadge(value: unknown): { text: string; color: string } {
-  if (value === null || value === undefined) return { text: 'null', color: 'bg-[#3a2e1e] text-paper-600' };
-  if (typeof value === 'number') return { text: 'number', color: 'bg-[#1a1521] text-cyan-300' };
-  if (typeof value === 'boolean') return { text: 'boolean', color: 'bg-[#2a1a12] text-gold-500' };
-  if (typeof value === 'string') return { text: 'string', color: 'bg-[#1a2218] text-jade-400' };
-  if (Array.isArray(value)) return { text: `array[${value.length}]`, color: 'bg-[#2a1a12] text-vermilion-400' };
+  if (value === null || value === undefined) return { text: 'null', color: 'bg-gold-850 text-paper-600' };
+  if (typeof value === 'number') return { text: 'number', color: 'bg-cyan-900 text-cyan-300' };
+  if (typeof value === 'boolean') return { text: 'boolean', color: 'bg-ink-750 text-gold-500' };
+  if (typeof value === 'string') return { text: 'string', color: 'bg-ink-750 text-jade-400' };
+  if (Array.isArray(value)) return { text: `array[${value.length}]`, color: 'bg-ink-750 text-vermilion-400' };
   if (typeof value === 'object') {
     const keys = Object.keys(value as object);
-    return { text: `object{${keys.length}}`, color: 'bg-[#1a1b22] text-cyan-300' };
+    return { text: `object{${keys.length}}`, color: 'bg-cyan-900 text-cyan-300' };
   }
-  return { text: typeof value, color: 'bg-[#3a2e1e] text-paper-600' };
+  return { text: typeof value, color: 'bg-gold-850 text-paper-600' };
 }
 
 function ValuePreview({ value }: { value: unknown }) {
-  if (value === null) return <span className="text-[#5a4835] italic">null</span>;
-  if (value === undefined) return <span className="text-[#5a4835] italic">undefined</span>;
+  if (value === null) return <span className="text-gold-850 italic">null</span>;
+  if (value === undefined) return <span className="text-gold-850 italic">undefined</span>;
   if (typeof value === 'string') {
     const display = value.length > 60 ? value.slice(0, 60) + '…' : value;
     return <span className="text-jade-400">"{display}"</span>;
@@ -55,10 +55,10 @@ function TreeNode({ label, value, path, depth }: TreeNodeProps) {
   if (leaf) {
     return (
       <div
-        className="flex items-center gap-2 py-1 px-2 hover:bg-[#241c14] transition-colors group"
+        className="flex items-center gap-2 py-1 px-2 hover:bg-ink-750 transition-colors group"
         style={{ paddingLeft: `${depth * 20 + 12}px` }}
       >
-        <Circle className="w-1.5 h-1.5 shrink-0 text-[#5a4835]" />
+        <Circle className="w-1.5 h-1.5 shrink-0 text-gold-850" />
         <span className="font-serif text-sm font-bold text-paper-50">{label}</span>
         <span className={cn('text-[10px] font-bold px-1.5 py-0 rounded-xs', badge.color)}>
           {badge.text}
@@ -76,7 +76,7 @@ function TreeNode({ label, value, path, depth }: TreeNodeProps) {
     <div>
       <button
         onClick={() => setCollapsed(!collapsed)}
-        className="w-full flex items-center gap-2 py-1 px-2 hover:bg-[#241c14] transition-colors text-left"
+        className="w-full flex items-center gap-2 py-1 px-2 hover:bg-ink-750 transition-colors text-left"
         style={{ paddingLeft: `${depth * 20 + 4}px` }}
       >
         {collapsed ? (
@@ -214,9 +214,9 @@ export function VariablesModal({ isOpen, onClose }: VariablesModalProps) {
     <Modal isOpen={isOpen} onClose={onClose} title="天 机 造 化 · 变 量 录" id="variables-modal">
       <div className="flex flex-col gap-4 text-paper-100">
         {/* 顶部简述 */}
-        <div className="bg-[#14100c] border border-[#6b583e] rounded-xs p-3 sm:p-4 flex items-center justify-between shadow-lg">
+        <div className="bg-ink-850 border border-gold-750 rounded-xs p-3 sm:p-4 flex items-center justify-between shadow-lg">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-            <div className="p-1.5 sm:p-2 bg-[#241e17] border border-[#52432d] text-gold-300 rounded-xs shrink-0">
+            <div className="p-1.5 sm:p-2 bg-ink-750 border border-gold-800 text-gold-300 rounded-xs shrink-0">
               <Database size={16} className="sm:w-5 sm:h-5" />
             </div>
             <div>
@@ -228,13 +228,13 @@ export function VariablesModal({ isOpen, onClose }: VariablesModalProps) {
               </p>
             </div>
           </div>
-          <span className="px-2.5 py-1 text-xs font-serif border border-[#8a7556] text-gold-300 bg-[#241e17] rounded-xs">
+          <span className="px-2.5 py-1 text-xs font-serif border border-paper-550 text-gold-300 bg-ink-750 rounded-xs">
             实时造化
           </span>
         </div>
 
         {/* 变量树内容区 */}
-        <div className="bg-[#181410] border border-[#6b583e] rounded-xs overflow-hidden">
+        <div className="bg-ink-800 border border-gold-750 rounded-xs overflow-hidden">
           <div className="flex-1 overflow-y-auto custom-scrollbar max-h-[45vh] sm:max-h-[55vh]">
             {loading ? (
               <div className="flex items-center justify-center h-40 text-paper-600 font-serif text-sm tracking-widest">
@@ -260,13 +260,13 @@ export function VariablesModal({ isOpen, onClose }: VariablesModalProps) {
           </div>
 
           {/* 底部 */}
-          <div className="shrink-0 px-3 sm:px-4 py-2 sm:py-2.5 border-t border-[#3d2e1c] flex justify-between items-center">
+          <div className="shrink-0 px-3 sm:px-4 py-2 sm:py-2.5 border-t border-gold-850 flex justify-between items-center">
             <span className="text-xs font-serif text-paper-500">
               {statData ? `${Object.keys(statData).length} 个顶层字段` : ''}
             </span>
             <button
               onClick={onClose}
-              className="px-4 py-1.5 bg-[#241e17] hover:bg-[#2d251c] border border-[#52432d] text-paper-400 hover:text-paper-50 text-xs font-serif tracking-widest rounded-xs transition-colors"
+              className="px-4 py-1.5 bg-ink-750 hover:bg-gold-850 border border-gold-800 text-paper-400 hover:text-paper-50 text-xs font-serif tracking-widest rounded-xs transition-colors"
             >
               归掩
             </button>

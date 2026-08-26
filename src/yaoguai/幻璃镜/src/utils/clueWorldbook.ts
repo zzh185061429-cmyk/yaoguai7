@@ -65,14 +65,6 @@ export function caseEntryName(caseId: string): string {
   return `${CASE_ENTRY_PREFIX}${caseId}`;
 }
 
-/** 根据条目名称提取案件 ID */
-export function extractCaseId(entryName: string): string | null {
-  if (entryName.startsWith(CASE_ENTRY_PREFIX)) {
-    return entryName.slice(CASE_ENTRY_PREFIX.length);
-  }
-  return null;
-}
-
 /** 截断文本用于推论的源线索回显 */
 function shorten(text: string, max = 18): string {
   return text.length > max ? `${text.slice(0, max)}…` : text;

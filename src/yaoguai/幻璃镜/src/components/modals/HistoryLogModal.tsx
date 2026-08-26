@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Modal } from '../ui/Modal';
 import { cn } from '../../utils';
+import { stripThinking } from '../../utils/stripThinking';
 
 interface HistoryLogModalProps {
   isOpen: boolean;
@@ -32,13 +33,8 @@ export const HistoryLogModal: React.FC<HistoryLogModalProps> = ({ isOpen, onClos
       const result: HistoryEntry[] = [];
 
       for (const msg of latestMessages) {
-        // 步骤 1：剥离思维链
-        const stripped = (msg.message || '')
-          .replace(/<Chain_of_Thought>[\s\S]*?<\/Chain_of_Thought>/gi, '')
-          .replace(/<thinking>[\s\S]*?<\/thinking>/gi, '')
-          .replace(/<think>[\s\S]*?<\/think>/gi, '')
-          .replace(/<simple_thinking>[\s\S]*?<\/simple_thinking>/gi, '')
-          .replace(/<draft>[\s\S]*?<\/draft>/gi, '');
+        // 步骤 1：剥离思维链（统一工具，与正文解析一致）
+        const stripped = stripThinking(msg.message || '');
 
         // 步骤 2：提取 <content>...</content> 内的内容
         const contentMatch = stripped.match(/<content>([\s\S]*?)<\/content>/i);
@@ -64,7 +60,7 @@ export const HistoryLogModal: React.FC<HistoryLogModalProps> = ({ isOpen, onClos
         {entries.length === 0 ? (
           <div className="text-center py-16 text-paper-600 tracking-widest text-sm space-y-2">
             <div>❖ 案牍清朗 · 暂无前卷 ❖</div>
-            <div className="text-xs text-[#6b583e]">推进问卜断案后，此卷将自动载录历史</div>
+            <div className="text-xs text-gold-750">推进问卜断案后，此卷将自动载录历史</div>
           </div>
         ) : (
           entries.map((entry, index) => (
@@ -76,13 +72,13 @@ export const HistoryLogModal: React.FC<HistoryLogModalProps> = ({ isOpen, onClos
 
               <div className="flex gap-3 sm:gap-5 items-start relative">
                 {/* 仿古朱漆印章节点 */}
-                <div className="mt-1 shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full border border-gold-700 bg-[#1a120b] flex items-center justify-center shadow-md text-gold-300 text-[9px] sm:text-[10px] font-bold">
+                <div className="mt-1 shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full border border-gold-700 bg-ink-825 flex items-center justify-center shadow-md text-gold-300 text-[9px] sm:text-[10px] font-bold">
                   {entry.floorId}
                 </div>
 
                 {/* 案卷正文宣纸卡片 */}
-                <div className="flex-1 bg-[#140e0a]/90 p-3 sm:p-5 rounded-xs border border-[#4a3925] hover:border-gold-700 transition-all shadow-md space-y-2">
-                  <div className="flex items-center justify-between border-b border-[#382a1b] pb-2">
+                <div className="flex-1 bg-ink-825/90 p-3 sm:p-5 rounded-xs border border-gold-850 hover:border-gold-700 transition-all shadow-md space-y-2">
+                  <div className="flex items-center justify-between border-b border-gold-850 pb-2">
                     <span className="text-xs font-bold tracking-widest text-gold-300">
                       【 第 {entry.floorId} 卷 · 勘案录 】
                     </span>

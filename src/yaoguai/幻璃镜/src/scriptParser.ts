@@ -17,6 +17,7 @@
  */
 
 import { SAMPLE_CHARACTERS } from './data/sampleData';
+import { stripThinking } from './utils/stripThinking';
 
 // ── 中文情绪名 → 拼音 sprite key 映射 ──
 const EMOTION_MAP: Record<string, string> = {
@@ -80,33 +81,6 @@ const SCENE_RE = /^\[scene:([^\]]+?)\]$/;
 /** <achievement>编号或ID</achievement> */
 const ACHIEVEMENT_RE = /^<achievement>([^<]+?)<\/achievement>$/;
 
-/** 需要移除的思维/规划标签对 */
-const STRIP_PAIRS: [string, string][] = [
-  ['<Chain_of_Thought>', '</Chain_of_Thought>'],
-  ['<draft>', '</draft>'],
-  ['<thinking>', '</thinking>'],
-  ['<simple_thinking>', '</simple_thinking>'],
-];
-
-/** 转义正则特殊字符 */
-function escapeRegExp(s: string): string {
-  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-/**
- * 清理原始文本：删除思维/规划标签对及其内容
- */
-function stripThinkingZones(raw: string): string {
-  let text = raw;
-
-  for (const [open, close] of STRIP_PAIRS) {
-    const re = new RegExp(escapeRegExp(open) + '[\\s\\S]*?' + escapeRegExp(close), 'gi');
-    text = text.replace(re, '');
-  }
-
-  return text;
-}
-
 /** 从角色名获取角色数据（遍历 SAMPLE_CHARACTERS 匹配 name） */
 function findCharacterByName(name: string) {
   for (const key of Object.keys(SAMPLE_CHARACTERS)) {
@@ -149,7 +123,7 @@ function getColorClass(speaker: string): string {
  * 从 AI 消息文本中提取 <content> 标签内的剧本内容，解析为 ScriptLine[]
  */
 export function parseScriptContent(rawText: string, playerName?: string): ScriptLine[] {
-  const cleaned = stripThinkingZones(rawText);
+  const cleaned = stripThinking(rawText);
   const contentMatch = cleaned.match(/<content>([\s\S]*?)<\/content>/);
   if (!contentMatch) return [];
 
@@ -275,7 +249,7 @@ export function parseScriptContent(rawText: string, playerName?: string): Script
  * 从 AI 消息文本中提取 <options> 或 <choice> 标签内的选项列表
  */
 export function parseOptions(rawText: string): string[] {
-  const cleaned = stripThinkingZones(rawText);
+  const cleaned = stripThinking(rawText);
   const options: string[] = [];
 
   // 1. <options> 标签 + > 前缀行
@@ -317,7 +291,7 @@ export function parseOptions(rawText: string): string[] {
  * 从 AI 消息文本中提取 <dream_parallel_event> 标签内的平行事件
  */
 export function parseParallelEvents(rawText: string): ParallelEvent[] {
-  const cleaned = stripThinkingZones(rawText);
+  const cleaned = stripThinking(rawText);
   const blockMatch = cleaned.match(/<dream_parallel_event>([\s\S]*?)<\/dream_parallel_event>/);
   if (!blockMatch) return [];
 
@@ -373,7 +347,7 @@ export function parseSceneImageTag(rawText: string): {
   weather: 'sunny' | 'cloudy';
   time: 'day' | 'night';
 } | undefined {
-  const cleaned = stripThinkingZones(rawText);
+  const cleaned = stripThinking(rawText);
   const match = cleaned.match(/<scene_image>([^<]+?)<\/scene_image>/);
   if (!match) return undefined;
 

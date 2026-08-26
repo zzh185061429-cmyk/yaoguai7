@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
-  X, Volume2, VolumeX, Music, Mic2, MicVocal, Settings,
-  Type, Gauge, Keyboard, Zap, CloudRain,
+  X, Volume2, VolumeX, Music, Settings,
+  Type, Keyboard, Zap, CloudRain,
   Monitor, Smartphone, Lightbulb, Save,
 } from 'lucide-react';
 import { cn } from '../../utils';
@@ -31,12 +31,6 @@ const AUTO_WAIT_OPTIONS = [
   { value: 1, label: '普通' },
   { value: 1.5, label: '长' },
   { value: 2, label: '很久' },
-];
-
-const BLIP_INTERVAL_OPTIONS = [
-  { value: 4, label: '稀疏' },
-  { value: 3, label: '正常' },
-  { value: 2, label: '密集' },
 ];
 
 // ── 颜色映射（避免 Tailwind 动态类名问题）──
@@ -175,12 +169,6 @@ function ToggleSwitch({ enabled, onClick, accentColor = 'cyan' }: {
  * 所有设置 localStorage 持久化，跨组件实时同步。
  */
 export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
-  // ── SFX 设置 ──
-  const [sfxVolume, setSfxVolume] = useState(sfx.getVolume());
-  const [sfxMuted, setSfxMuted] = useState(sfx.isMuted());
-  const [blipEnabled, setBlipEnabled] = useState(sfx.isBlipEnabled());
-  const [blipInterval, setBlipInterval] = useState(sfx.getBlipInterval());
-
   // ── BGM 设置（从 bgmBridge 订阅）──
   const bgmAudio = useBgmSettings();
 
@@ -205,35 +193,6 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
 
   // ── Tab 状态 ──
   const [activeTab, setActiveTab] = useState<'audio' | 'text' | 'display' | 'deduce'>('audio');
-
-  // ── SFX 回调 ──
-  const handleSfxVolumeChange = useCallback((v: number) => {
-    setSfxVolume(v);
-    sfx.setVolume(v);
-  }, []);
-
-  const handleSfxMuteToggle = useCallback(() => {
-    const newMuted = sfx.toggleMute();
-    setSfxMuted(newMuted);
-    if (!newMuted) sfx.play('confirm');
-  }, []);
-
-  const handleBlipToggle = useCallback(() => {
-    const next = !blipEnabled;
-    setBlipEnabled(next);
-    sfx.setBlipEnabled(next);
-    if (next && !sfx.isMuted()) sfx.playBlip('狐小九');
-  }, [blipEnabled]);
-
-  const handleBlipIntervalChange = useCallback((v: number) => {
-    setBlipInterval(v);
-    sfx.setBlipInterval(v);
-    if (blipEnabled && !sfx.isMuted()) {
-      sfx.playBlip('狐小九');
-      setTimeout(() => sfx.playBlip('狐小九'), 120);
-      setTimeout(() => sfx.playBlip('狐小九'), 240);
-    }
-  }, [blipEnabled]);
 
   // ── BGM 回调 ──
   const handleBgmVolumeChange = useCallback((v: number) => {
@@ -347,49 +306,11 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
 
                   <div className="h-px bg-ink-700/50" />
 
-                  {/* ── SE 音量 ── */}
-                  <VolumeRow
-                    icon={<Volume2 className="w-4 h-4" />}
-                    label="音效 (SE)"
-                    volume={sfxVolume}
-                    muted={sfxMuted}
-                    onVolumeChange={handleSfxVolumeChange}
-                    onMuteToggle={handleSfxMuteToggle}
-                    accentColor="vermilion"
-                  />
-
-                  <div className="h-px bg-ink-700/50" />
-
-                  {/* ── 语音 Blip ── */}
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        {blipEnabled
-                          ? <Mic2 className="w-4 h-4 text-vermilion-400" />
-                          : <MicVocal className="w-4 h-4 text-ink-500" />}
-                        <span className="font-serif text-sm tracking-wide text-paper-200">语音 Blip</span>
-                      </div>
-                      <ToggleSwitch
-                        enabled={blipEnabled}
-                        onClick={handleBlipToggle}
-                        accentColor="vermilion"
-                      />
-                    </div>
-                    {blipEnabled && (
-                      <div className="space-y-1.5 pl-1">
-                        <div className="flex items-center gap-1.5">
-                          <Gauge className="w-3 h-3 text-paper-200/40" />
-                          <span className="text-[10px] font-sans text-paper-200/50 tracking-wide">Blip 频率</span>
-                        </div>
-                        <SegmentedControl
-                          options={BLIP_INTERVAL_OPTIONS}
-                          value={blipInterval}
-                          onChange={handleBlipIntervalChange}
-                        />
-                      </div>
-                    )}
+                  {/* ── 音效系统停用提示 ── */}
+                  <div className="flex items-center gap-2 py-2">
+                    <Volume2 className="w-4 h-4 text-paper-200/40 shrink-0" />
                     <p className="text-[10px] text-paper-200/40 leading-relaxed">
-                      对话文字出现时伴随的角色语音音效。频率越高（密集）声音越频繁。
+                      音效系统已停用，后续将接入真实音效资源。
                     </p>
                   </div>
                 </>

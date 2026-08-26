@@ -45,11 +45,6 @@ export function setMobileMode(value: boolean | null) {
   listeners.forEach(l => l());
 }
 
-/** 获取当前手机模式设置（null = 自动检测） */
-export function getMobileMode(): boolean | null {
-  return getSnapshot();
-}
-
 /**
  * 检测当前是否为手机端
  *

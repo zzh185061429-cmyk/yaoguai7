@@ -35,9 +35,9 @@ export class ErrorBoundary extends React.Component<Props, State> {
   public render() {
     if (this.state.hasError) {
       return (
-        <div className="w-full h-screen bg-[#0e0b08] text-paper-100 flex flex-col items-center justify-center p-6 select-none font-serif">
-          <div className="max-w-md w-full bg-[#181410] border border-[#6b583e] p-8 rounded-xs shadow-2xl text-center flex flex-col items-center gap-5">
-            <div className="w-14 h-14 rounded-full bg-[#26100c] border border-vermilion-700 flex items-center justify-center text-vermilion-400">
+        <div className="w-full h-screen bg-ink-850 text-paper-100 flex flex-col items-center justify-center p-6 select-none font-serif">
+          <div className="max-w-md w-full bg-ink-800 border border-gold-750 p-8 rounded-xs shadow-2xl text-center flex flex-col items-center gap-5">
+            <div className="w-14 h-14 rounded-full bg-vermilion-900 border border-vermilion-700 flex items-center justify-center text-vermilion-400">
               <AlertOctagon size={28} />
             </div>
             

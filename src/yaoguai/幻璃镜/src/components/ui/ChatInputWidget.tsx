@@ -78,7 +78,7 @@ export const ChatInputWidget: React.FC = () => {
   // ── 输入栏主体 ──
   const InputBar = (
     <div className={cn(
-      "bg-[#140e0a]/98 backdrop-blur-md border-t-2 border-[#78591c] px-2.5 sm:px-3 py-1.5 sm:py-2 relative font-serif shadow-[0_-10px_30px_rgba(0,0,0,0.8)]",
+      "bg-ink-825/98 backdrop-blur-md border-t-2 border-gold-650 px-2.5 sm:px-3 py-1.5 sm:py-2 relative font-serif shadow-[0_-10px_30px_rgba(0,0,0,0.8)]",
       isMobile ? "pb-safe" : "pb-2.5",
     )}>
       {/* 顶部古金细饰线 */}
@@ -100,7 +100,7 @@ export const ChatInputWidget: React.FC = () => {
             autoCorrect="off"
             spellCheck={false}
             style={{ fontSize: isMobile ? '14px' : '15px' }}
-            className="w-full bg-[#1b130c]/90 text-paper-50 font-serif p-2 sm:p-2.5 pr-7 sm:pr-8 border border-[#52432d] resize-none
+            className="w-full bg-ink-825/90 text-paper-50 font-serif p-2 sm:p-2.5 pr-7 sm:pr-8 border border-gold-800 resize-none
                        placeholder:text-paper-600 placeholder:font-serif focus:outline-none focus:border-gold-500
                        transition-all rounded-xs text-sm shadow-inner
                        disabled:opacity-50"
@@ -131,7 +131,7 @@ export const ChatInputWidget: React.FC = () => {
             "shrink-0 rounded-xs flex items-center justify-center gap-1.5 transition-all border font-serif cursor-pointer shadow-md",
             isMobile ? "h-9 px-3" : "h-12 px-5",
             "bg-vermilion-800 border-vermilion-600 text-paper-50",
-            "hover:bg-[#96251c] active:scale-95",
+            "hover:bg-vermilion-700 active:scale-95",
             "disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-vermilion-800",
           )}
         >
@@ -170,7 +170,7 @@ export const ChatInputWidget: React.FC = () => {
             {/* 收起按钮 */}
             <button
               onClick={() => setIsDesktopOpen(false)}
-              className="absolute -top-7 right-6 z-10 px-3 py-0.5 bg-[#1a120b] text-gold-300 hover:text-paper-50 rounded-t-xs border-t border-x border-[#6b583e] font-serif text-xs tracking-wider transition-colors cursor-pointer flex items-center gap-1 shadow-md"
+              className="absolute -top-7 right-6 z-10 px-3 py-0.5 bg-ink-825 text-gold-300 hover:text-paper-50 rounded-t-xs border-t border-x border-gold-750 font-serif text-xs tracking-wider transition-colors cursor-pointer flex items-center gap-1 shadow-md"
               title="收合奏栏"
             >
               <span>收合</span>
@@ -189,7 +189,7 @@ export const ChatInputWidget: React.FC = () => {
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
             onClick={() => setIsDesktopOpen(true)}
-            className="fixed bottom-5 left-5 z-40 px-3 py-2 rounded-xs bg-[#1f150e]/95 backdrop-blur-md border border-gold-700 text-gold-300 hover:text-paper-50 hover:bg-[#2e1f14] hover:border-gold-500 flex items-center gap-1.5 shadow-[0_4px_15px_rgba(0,0,0,0.8)] hover:scale-105 transition-all font-serif text-xs tracking-widest cursor-pointer"
+            className="fixed bottom-5 left-5 z-40 px-3 py-2 rounded-xs bg-ink-750/95 backdrop-blur-md border border-gold-700 text-gold-300 hover:text-paper-50 hover:bg-ink-750 hover:border-gold-500 flex items-center gap-1.5 shadow-[0_4px_15px_rgba(0,0,0,0.8)] hover:scale-105 transition-all font-serif text-xs tracking-widest cursor-pointer"
             title="起草断案奏呈"
           >
             <span className="w-4 h-4 rounded-full bg-vermilion-800 border border-vermilion-600 flex items-center justify-center text-[10px] text-paper-50 font-bold">

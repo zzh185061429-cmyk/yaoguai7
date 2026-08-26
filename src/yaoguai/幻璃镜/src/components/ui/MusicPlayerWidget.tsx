@@ -2,10 +2,39 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Play, Pause, SkipForward, SkipBack, Music, Repeat, Repeat1, Shuffle, Volume2, VolumeX, Disc3, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { bgmBridge, useBgmSettings, getEffectiveBgmVolume } from '../../audio/bgmBridge';
+import { sfx } from '../../audio/sfxPlayer';
 import { useIsMobile } from '../../hooks';
 import { cn } from '../../utils';
 
 type PlayMode = 'list' | 'loop' | 'shuffle';
+
+const MUSIC_POS_KEY = 'mirage-music-pos';
+const BALL_SIZE = 48; // 悬浮球尺寸上限（用于边界 clamp）
+
+/** 读取已保存的悬浮球位置，没有则返回右下默认 */
+function loadMusicPos(): { x: number; y: number } {
+  try {
+    const saved = localStorage.getItem(MUSIC_POS_KEY);
+    if (saved) {
+      const p = JSON.parse(saved);
+      if (typeof p?.x === 'number' && typeof p?.y === 'number') return p;
+    }
+  } catch { /* ignore */ }
+  const w = typeof window !== 'undefined' ? window.innerWidth : 800;
+  const h = typeof window !== 'undefined' ? window.innerHeight : 600;
+  // 默认接近原固定位置：右下，距底约 210px、距右约 12px
+  return { x: w - BALL_SIZE - 12, y: h - BALL_SIZE - 210 };
+}
+
+/** 将位置限制在视口内 */
+function clampMusicPos(p: { x: number; y: number }): { x: number; y: number } {
+  const w = typeof window !== 'undefined' ? window.innerWidth : 800;
+  const h = typeof window !== 'undefined' ? window.innerHeight : 600;
+  return {
+    x: Math.max(0, Math.min(p.x, w - BALL_SIZE)),
+    y: Math.max(0, Math.min(p.y, h - BALL_SIZE)),
+  };
+}
 
 // ── 明代五音雅乐曲目列表 ──
 const ANCIENT_TRACKS = [
@@ -28,23 +57,50 @@ export const MusicPlayerWidget: React.FC = () => {
   const audioCtxRef = useRef<AudioContext | null>(null);
   const gainNodeRef = useRef<GainNode | null>(null);
 
-  // 初始化合成音频环境
+  // ── 悬浮球可拖拽位置 ──
+  const [ballPos, setBallPos] = useState(loadMusicPos);
+  const dragRef = useRef<{ startX: number; startY: number; startPos: { x: number; y: number }; moved: boolean } | null>(null);
+  useEffect(() => {
+    try { localStorage.setItem(MUSIC_POS_KEY, JSON.stringify(ballPos)); } catch { /* ignore */ }
+  }, [ballPos]);
+
+  // 初始化合成音频环境：复用 sfxPlayer 的共享 AudioContext，避免创建第二个 AudioContext
   const initSynth = useCallback(() => {
-    if (!audioCtxRef.current) {
-      const AC = window.AudioContext || (window as any).webkitAudioContext;
-      if (AC) {
-        const ctx = new AC();
+    sfx.init();
+    const ctx = sfx.getAudioContext();
+    if (ctx) {
+      audioCtxRef.current = ctx;
+      if (!gainNodeRef.current) {
         const gain = ctx.createGain();
         gain.gain.value = getEffectiveBgmVolume() * 0.25;
         gain.connect(ctx.destination);
-        audioCtxRef.current = ctx;
         gainNodeRef.current = gain;
       }
-    }
-    if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') {
-      audioCtxRef.current.resume().catch(() => {});
+      if (ctx.state === 'suspended') ctx.resume().catch(() => {});
     }
   }, []);
+
+  // ── 悬浮球拖拽：按下记起点；移动超 6px 视为拖动；松开若未拖动则展开/收起面板 ──
+  const onBallPointerDown = (e: React.PointerEvent) => {
+    dragRef.current = { startX: e.clientX, startY: e.clientY, startPos: { ...ballPos }, moved: false };
+    try { (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId); } catch { /* ignore */ }
+  };
+  const onBallPointerMove = (e: React.PointerEvent) => {
+    const d = dragRef.current;
+    if (!d) return;
+    const dx = e.clientX - d.startX;
+    const dy = e.clientY - d.startY;
+    if (!d.moved && (Math.abs(dx) > 6 || Math.abs(dy) > 6)) d.moved = true;
+    if (d.moved) setBallPos(clampMusicPos({ x: d.startPos.x + dx, y: d.startPos.y + dy }));
+  };
+  const onBallPointerUp = () => {
+    const d = dragRef.current;
+    dragRef.current = null;
+    if (d && !d.moved) {
+      initSynth();
+      setIsExpanded(v => !v);
+    }
+  };
 
   // 播放单音古典拨弦
   const pluckTone = useCallback((freq: number, dur: number = 2.5) => {
@@ -154,16 +210,15 @@ export const MusicPlayerWidget: React.FC = () => {
   const modeLabel = playMode === 'list' ? '宫商顺奏' : playMode === 'loop' ? '独曲回环' : '随性雅兴';
 
   return (
-    <div className="fixed bottom-[210px] right-3 sm:right-6 z-50 pointer-events-none flex flex-col-reverse items-end gap-2" id="music-player-widget">
+    <div className="fixed z-50 pointer-events-none flex flex-col-reverse items-end gap-2" style={{ left: ballPos.x, top: ballPos.y }} id="music-player-widget">
       {/* 展开/折叠浮动按钮 */}
       <button
         id="btn-toggle-music-panel"
-        onClick={() => {
-          initSynth();
-          setIsExpanded(!isExpanded);
-        }}
-        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#181410]/90 backdrop-blur-md border border-gold-500/60 flex items-center justify-center text-gold-300 shadow-[0_0_20px_rgba(197,164,63,0.3)] hover:scale-105 transition-all pointer-events-auto group relative overflow-hidden"
-        title="雅乐司 · 丝竹音律"
+        onPointerDown={onBallPointerDown}
+        onPointerMove={onBallPointerMove}
+        onPointerUp={onBallPointerUp}
+        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-ink-800/90 backdrop-blur-md border border-gold-500/60 flex items-center justify-center text-gold-300 shadow-[0_0_20px_rgba(197,164,63,0.3)] hover:scale-105 transition-all pointer-events-auto group relative overflow-hidden cursor-grab active:cursor-grabbing touch-none select-none"
+        title="雅乐司 · 丝竹音律（可拖动）"
       >
         {isPlaying && (
           <motion.div
@@ -183,22 +238,22 @@ export const MusicPlayerWidget: React.FC = () => {
             initial={{ opacity: 0, y: 15, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.95 }}
-            className="bg-[#181410]/95 backdrop-blur-md border border-[#8a7556]/60 rounded-sm p-3 sm:p-4 w-[calc(100vw-1.5rem)] sm:w-72 shadow-[0_15px_40px_rgba(0,0,0,0.8)] pointer-events-auto border-gold-ornate"
+            className="bg-ink-800/95 backdrop-blur-md border border-paper-550/60 rounded-sm p-3 sm:p-4 w-[calc(100vw-1.5rem)] sm:w-72 shadow-[0_15px_40px_rgba(0,0,0,0.8)] pointer-events-auto border-gold-ornate"
           >
             {/* 顶栏 */}
             <div className="flex flex-col gap-2.5 mb-3">
-              <div className="flex items-center justify-between border-b border-[#3d3222] pb-2">
+              <div className="flex items-center justify-between border-b border-gold-850 pb-2">
                 <div className="flex items-center gap-1.5 text-gold-300">
                   <Sparkles size={isMobile ? 12 : 14} className="text-gold-500 shrink-0" />
                   <span className="text-[11px] sm:text-[13px] font-serif font-bold tracking-[0.15em] sm:tracking-[0.2em] truncate">雅乐司 · 丝竹雅集</span>
                 </div>
-                <span className="text-[9px] sm:text-[10px] text-paper-500 font-serif border border-[#52432d] px-1.5 py-0.5 rounded-xs shrink-0">
+                <span className="text-[9px] sm:text-[10px] text-paper-500 font-serif border border-gold-800 px-1.5 py-0.5 rounded-xs shrink-0">
                   {ANCIENT_TRACKS[currentTrack].mode.split(' · ')[0]}
                 </span>
               </div>
 
               {/* 当前曲目 */}
-              <div className="bg-[#241e17] p-2 sm:p-2.5 rounded-xs border border-[#423522]">
+              <div className="bg-ink-750 p-2 sm:p-2.5 rounded-xs border border-gold-850">
                 <p className="text-[12px] sm:text-[13px] font-serif font-semibold text-paper-100 truncate tracking-wide">
                   {ANCIENT_TRACKS[currentTrack].title}
                 </p>
@@ -247,7 +302,7 @@ export const MusicPlayerWidget: React.FC = () => {
               <div className="flex items-center gap-1.5 sm:gap-2 pt-1">
                 <Volume2 size={isMobile ? 10 : 11} className={cn('shrink-0', bgmAudio.muted ? 'text-ink-500' : 'text-gold-500')} />
                 <div className="flex-1 relative h-3 flex items-center">
-                  <div className="absolute inset-x-0 h-1 bg-[#2b241c] rounded-full overflow-hidden">
+                  <div className="absolute inset-x-0 h-1 bg-ink-750 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-linear-to-r from-gold-700 to-gold-300 transition-[width] duration-100"
                       style={{ width: `${bgmAudio.muted ? 0 : bgmAudio.volume * 100}%` }}
@@ -268,7 +323,7 @@ export const MusicPlayerWidget: React.FC = () => {
             </div>
 
             {/* 曲目列表 */}
-            <div className="flex flex-col gap-1 max-h-32 sm:max-h-40 overflow-y-auto pr-1 custom-scrollbar border-t border-[#3d3222] pt-2">
+            <div className="flex flex-col gap-1 max-h-32 sm:max-h-40 overflow-y-auto pr-1 custom-scrollbar border-t border-gold-850 pt-2">
               {ANCIENT_TRACKS.map((track, idx) => (
                 <button
                   key={track.id}
@@ -281,8 +336,8 @@ export const MusicPlayerWidget: React.FC = () => {
                   className={cn(
                     "flex flex-col items-start px-2 sm:px-2.5 py-1.5 rounded-xs text-left transition-colors",
                     idx === currentTrack
-                      ? 'bg-[#2b2216] border border-[#8a7556]'
-                      : 'hover:bg-[#1f1912] border border-transparent'
+                      ? 'bg-ink-750 border border-paper-550'
+                      : 'hover:bg-ink-750 border border-transparent'
                   )}
                 >
                   <span className={cn(

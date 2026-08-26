@@ -31,12 +31,12 @@ const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({
     gold: 'border-gold-500/60 text-gold-300',
     cyan: 'border-cyan-700/60 text-cyan-700',
     vermilion: 'border-vermilion-700/60 text-vermilion-700',
-    amber: 'border-[#785c35]/60 text-[#c8a96a]',
-    muted: 'border-[#382a1b] text-paper-500',
+    amber: 'border-gold-800/60 text-gold-400',
+    muted: 'border-gold-850 text-paper-500',
   };
 
   return (
-    <div className="border-b border-[#382a1b]/50 last:border-b-0">
+    <div className="border-b border-gold-850/50 last:border-b-0">
       <button
         onClick={() => { sfx.play('click'); setOpen(!open); }}
         className="w-full flex items-center gap-1.5 py-1.5 sm:py-2 group cursor-pointer"
@@ -50,7 +50,7 @@ const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({
         )}>
           {title}
         </span>
-        <span className="flex-1 h-px bg-[#382a1b]/40" />
+        <span className="flex-1 h-px bg-gold-850/40" />
       </button>
       <AnimatePresence initial={false}>
         {open && (
@@ -155,8 +155,8 @@ export const GalleryScreen: React.FC = () => {
           暂无立绘
         </div>
       )}
-      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-[#0e0a07]/30">
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#33291a]/85 text-gold-300 text-[11px] sm:text-xs font-serif tracking-widest">
+      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-ink-850/30">
+        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gold-850/85 text-gold-300 text-[11px] sm:text-xs font-serif tracking-widest">
           <ZoomIn size={14} />
           鉴赏
         </div>
@@ -180,7 +180,7 @@ export const GalleryScreen: React.FC = () => {
               "px-1.5 sm:px-2.5 py-0.5 text-[10px] sm:text-[11px] font-serif rounded-xs border transition-all cursor-pointer",
               spriteTab === 'sfw'
                 ? "bg-gold-700 border-gold-500 text-paper-50 font-bold"
-                : "bg-[#20150d] border-[#4a3723] text-paper-400 hover:text-gold-300",
+                : "bg-ink-750 border-gold-850 text-paper-400 hover:text-gold-300",
               !hasSfw && "opacity-40 cursor-not-allowed"
             )}
             disabled={!hasSfw}
@@ -194,7 +194,7 @@ export const GalleryScreen: React.FC = () => {
               "px-1.5 sm:px-2.5 py-0.5 text-[10px] sm:text-[11px] font-serif rounded-xs border transition-all cursor-pointer",
               spriteTab === 'nsfw'
                 ? "bg-vermilion-800 border-vermilion-600 text-paper-50 font-bold"
-                : "bg-[#20150d] border-[#4a3723] text-paper-400 hover:text-gold-300",
+                : "bg-ink-750 border-gold-850 text-paper-400 hover:text-gold-300",
               !hasNsfw && "opacity-40 cursor-not-allowed"
             )}
             disabled={!hasNsfw}
@@ -208,7 +208,7 @@ export const GalleryScreen: React.FC = () => {
               "px-1.5 sm:px-2.5 py-0.5 text-[10px] sm:text-[11px] font-serif rounded-xs border transition-all cursor-pointer",
               spriteTab === 'chibi'
                 ? "bg-cyan-700 border-cyan-600 text-paper-50 font-bold"
-                : "bg-[#20150d] border-[#4a3723] text-paper-400 hover:text-gold-300",
+                : "bg-ink-750 border-gold-850 text-paper-400 hover:text-gold-300",
               !hasChibi && "opacity-40 cursor-not-allowed"
             )}
             disabled={!hasChibi}
@@ -234,7 +234,7 @@ export const GalleryScreen: React.FC = () => {
                   "px-1.5 sm:px-2 py-0.5 text-[10px] sm:text-[11px] font-serif rounded-xs border transition-all cursor-pointer",
                   sfwExpression === s.id
                     ? "bg-vermilion-800 border-vermilion-600 text-paper-50"
-                    : "bg-[#20150d] border-[#4a3723] text-paper-400 hover:text-gold-300"
+                    : "bg-ink-750 border-gold-850 text-paper-400 hover:text-gold-300"
                 )}
               >
                 {s.name}
@@ -250,7 +250,7 @@ export const GalleryScreen: React.FC = () => {
   const TextContent = () => (
     <>
       {/* 姓名 */}
-      <div className="flex items-center justify-between border-b border-[#382a1b] pb-2 sm:pb-2.5">
+      <div className="flex items-center justify-between border-b border-gold-850 pb-2 sm:pb-2.5">
         <div className="min-w-0">
           <h2 className="text-lg sm:text-2xl font-bold text-gold-300 tracking-widest truncate">
             {selectedChar?.name}
@@ -263,14 +263,14 @@ export const GalleryScreen: React.FC = () => {
 
       {/* 诗号绝句 */}
       {selectedChar?.poem && (
-        <div className="bg-[#1a120b] border-l-2 border-vermilion-800 p-2 sm:p-2.5 rounded-r-xs font-serif text-[11px] sm:text-sm tracking-widest text-gold-300 italic leading-relaxed my-2 sm:my-2.5 shadow-inner">
+        <div className="bg-ink-825 border-l-2 border-vermilion-800 p-2 sm:p-2.5 rounded-r-xs font-serif text-[11px] sm:text-sm tracking-widest text-gold-300 italic leading-relaxed my-2 sm:my-2.5 shadow-inner">
           {selectedChar.poem}
         </div>
       )}
 
       {/* 身世简述 — 可折叠 */}
       <CollapsibleSection title="身世密卷" accentColor="gold">
-        <p className="text-[11px] sm:text-xs text-paper-400 font-serif leading-relaxed bg-[#160f09] p-2 sm:p-2.5 border border-[#382a1b] rounded-xs">
+        <p className="text-[11px] sm:text-xs text-paper-400 font-serif leading-relaxed bg-ink-825 p-2 sm:p-2.5 border border-gold-850 rounded-xs">
           {selectedChar?.description}
         </p>
       </CollapsibleSection>
@@ -279,7 +279,7 @@ export const GalleryScreen: React.FC = () => {
       {selectedChar?.likes && selectedChar.likes.length > 0 && (
         <CollapsibleSection title="性之所好" accentColor="cyan">
           {selectedChar.likes.map((like, idx) => (
-            <div key={idx} className="text-[11px] sm:text-xs font-serif text-paper-50/90 bg-[#1a120b]/60 p-1.5 sm:p-2 border-l border-cyan-700 rounded-r-xs">
+            <div key={idx} className="text-[11px] sm:text-xs font-serif text-paper-50/90 bg-ink-825/60 p-1.5 sm:p-2 border-l border-cyan-700 rounded-r-xs">
               <span className="text-cyan-700 font-bold">「{like.item}」</span>
               <p className="mt-0.5 text-paper-400">{like.quote}</p>
             </div>
@@ -291,7 +291,7 @@ export const GalleryScreen: React.FC = () => {
       {selectedChar?.dislikes && selectedChar.dislikes.length > 0 && (
         <CollapsibleSection title="性之所恶" accentColor="vermilion" defaultOpen={false}>
           {selectedChar.dislikes.map((dislike, idx) => (
-            <div key={idx} className="text-[11px] sm:text-xs font-serif text-paper-50/90 bg-[#1a120b]/60 p-1.5 sm:p-2 border-l border-vermilion-700 rounded-r-xs">
+            <div key={idx} className="text-[11px] sm:text-xs font-serif text-paper-50/90 bg-ink-825/60 p-1.5 sm:p-2 border-l border-vermilion-700 rounded-r-xs">
               <span className="text-vermilion-700 font-bold">「{dislike.item}」</span>
               <p className="mt-0.5 text-paper-400">{dislike.quote}</p>
             </div>
@@ -303,7 +303,7 @@ export const GalleryScreen: React.FC = () => {
       {selectedChar?.secrets && selectedChar.secrets.length > 0 && (
         <CollapsibleSection title="幽微秘辛" accentColor="gold" defaultOpen={false}>
           {selectedChar.secrets.map((secret, idx) => (
-            <div key={idx} className="text-[11px] sm:text-xs font-serif text-gold-300/80 italic bg-[#1a120b]/60 p-1.5 sm:p-2 border-l border-gold-500 rounded-r-xs">
+            <div key={idx} className="text-[11px] sm:text-xs font-serif text-gold-300/80 italic bg-ink-825/60 p-1.5 sm:p-2 border-l border-gold-500 rounded-r-xs">
               {secret}
             </div>
           ))}
@@ -314,7 +314,7 @@ export const GalleryScreen: React.FC = () => {
       {selectedChar?.quotes && selectedChar.quotes.length > 0 && (
         <CollapsibleSection title="灵犀私语" accentColor="amber" defaultOpen={false}>
           {selectedChar.quotes.map((q, idx) => (
-            <div key={idx} className="text-[11px] sm:text-xs font-serif text-paper-50/90 italic bg-[#1a120b]/60 p-1.5 sm:p-2 border-l border-[#785c35] rounded-r-xs">
+            <div key={idx} className="text-[11px] sm:text-xs font-serif text-paper-50/90 italic bg-ink-825/60 p-1.5 sm:p-2 border-l border-gold-800 rounded-r-xs">
               「 {q} 」
             </div>
           ))}
@@ -329,16 +329,16 @@ export const GalleryScreen: React.FC = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, filter: 'blur(8px)' }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="relative w-full h-screen bg-[#0c0906] text-paper-100 overflow-hidden flex flex-col font-serif select-none"
+      className="relative w-full h-screen bg-ink-900 text-paper-100 overflow-hidden flex flex-col font-serif select-none"
       id="screen-gallery"
     >
       {/* 沉稳古朴暗水墨底图 */}
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1528646927357-55d81b29a286?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-20" />
-      <div className="absolute inset-0 bg-linear-to-b from-[#0e0a07]/95 via-[#120d09]/90 to-[#080504]/98" />
+      <div className="absolute inset-0 bg-linear-to-b from-ink-850/95 via-ink-850/90 to-ink-975/98" />
       <AtmosphereEffect />
 
       {/* 仿古回纹边框 */}
-      <div className="absolute inset-3 sm:inset-6 border border-[#4d3c26]/50 pointer-events-none rounded-xs z-20">
+      <div className="absolute inset-3 sm:inset-6 border border-gold-850/50 pointer-events-none rounded-xs z-20">
         <div className="absolute top-1.5 left-1.5 w-4 h-4 border-t-2 border-l-2 border-gold-500/60" />
         <div className="absolute top-1.5 right-1.5 w-4 h-4 border-t-2 border-r-2 border-gold-500/60" />
         <div className="absolute bottom-1.5 left-1.5 w-4 h-4 border-b-2 border-l-2 border-gold-500/60" />
@@ -346,7 +346,7 @@ export const GalleryScreen: React.FC = () => {
       </div>
 
       {/* 顶部导航栏 */}
-      <div className="relative z-30 flex items-center justify-between px-3 sm:px-8 py-2.5 sm:py-3.5 border-b border-[#3d2e1c] bg-[#140f0b]/90 backdrop-blur-md">
+      <div className="relative z-30 flex items-center justify-between px-3 sm:px-8 py-2.5 sm:py-3.5 border-b border-gold-850 bg-ink-850/90 backdrop-blur-md">
         <div className="flex items-center gap-2 sm:gap-4">
           <div className="flex items-center gap-1.5 sm:gap-2">
             <span className="w-2 h-2 rounded-full bg-vermilion-800 shrink-0" />
@@ -354,7 +354,7 @@ export const GalleryScreen: React.FC = () => {
               红 颜 画 卷 · 灵 魅 谱
             </h1>
           </div>
-          <span className="hidden sm:inline-block text-xs font-serif tracking-widest text-paper-500 border-l border-[#4a3b27] pl-3">
+          <span className="hidden sm:inline-block text-xs font-serif tracking-widest text-paper-500 border-l border-gold-850 pl-3">
             灵犀因缘录
           </span>
         </div>
@@ -363,7 +363,7 @@ export const GalleryScreen: React.FC = () => {
           <button
             id="btn-gallery-return-game"
             onClick={handleReturnToGame}
-            className="px-2.5 sm:px-4 py-1 sm:py-1.5 bg-[#261a10] hover:bg-[#382618] border border-gold-700 text-gold-300 hover:text-paper-50 rounded-xs font-serif text-[11px] sm:text-sm tracking-widest transition-all shadow-sm cursor-pointer"
+            className="px-2.5 sm:px-4 py-1 sm:py-1.5 bg-ink-750 hover:bg-gold-850 border border-gold-700 text-gold-300 hover:text-paper-50 rounded-xs font-serif text-[11px] sm:text-sm tracking-widest transition-all shadow-sm cursor-pointer"
           >
             回归案卷
           </button>
@@ -376,17 +376,17 @@ export const GalleryScreen: React.FC = () => {
 
           /* ═══ 手机端：整体上下滚动 ═══ */
           isMobile ? (
-            <div className="flex-1 bg-[#140e0a]/90 border border-[#453422] rounded-xs p-2.5 overflow-y-auto custom-scrollbar space-y-2.5 shadow-inner">
+            <div className="flex-1 bg-ink-825/90 border border-gold-850 rounded-xs p-2.5 overflow-y-auto custom-scrollbar space-y-2.5 shadow-inner">
               {/* 立绘 + 控制按钮 */}
-              <div className="flex flex-col items-center bg-[#18110b] border border-[#382a1b] rounded-xs p-2 relative overflow-hidden">
-                <IllustrationDisplay heightClass="h-44" />
-                <div className="w-full mt-2 pt-2 border-t border-[#382a1b] flex flex-col gap-1.5">
+              <div className="flex flex-col items-center bg-ink-800 border border-gold-850 rounded-xs p-2 relative overflow-hidden">
+                <IllustrationDisplay heightClass="h-80" />
+                <div className="w-full mt-2 pt-2 border-t border-gold-850 flex flex-col gap-1.5">
                   <SpriteControls />
                 </div>
               </div>
 
               {/* 文字内容区 */}
-              <div className="bg-[#18110b]/50 border border-[#382a1b]/60 rounded-xs p-2.5 space-y-2">
+              <div className="bg-ink-800/50 border border-gold-850/60 rounded-xs p-2.5 space-y-2">
                 <TextContent />
               </div>
             </div>
@@ -394,11 +394,11 @@ export const GalleryScreen: React.FC = () => {
           ) : (
 
           /* ═══ 电脑端：左右并排 ═══ */
-          <div className="flex-1 bg-[#140e0a]/90 border border-[#453422] rounded-xs p-2 sm:p-5 flex flex-row gap-2.5 sm:gap-5 overflow-hidden shadow-inner">
+          <div className="flex-1 bg-ink-825/90 border border-gold-850 rounded-xs p-2 sm:p-5 flex flex-row gap-2.5 sm:gap-5 overflow-hidden shadow-inner">
             {/* 立绘与控制按钮 */}
-            <div className="w-1/2 flex flex-col items-center justify-between bg-[#18110b] border border-[#382a1b] rounded-xs p-2 sm:p-4 relative overflow-hidden">
-              <IllustrationDisplay heightClass="flex-1 min-h-55 max-h-90" />
-              <div className="w-full mt-2 sm:mt-3 pt-2 sm:pt-2.5 border-t border-[#382a1b] flex flex-col gap-1 sm:gap-1.5">
+            <div className="w-1/2 flex flex-col items-center justify-between bg-ink-800 border border-gold-850 rounded-xs p-2 sm:p-4 relative overflow-hidden">
+              <IllustrationDisplay heightClass="flex-1 min-h-60" />
+              <div className="w-full mt-2 sm:mt-3 pt-2 sm:pt-2.5 border-t border-gold-850 flex flex-col gap-1 sm:gap-1.5">
                 <SpriteControls />
               </div>
             </div>
@@ -410,7 +410,7 @@ export const GalleryScreen: React.FC = () => {
           </div>
           )
         ) : (
-        <div className="flex-1 bg-[#140e0a]/90 border border-[#453422] rounded-xs p-4 flex items-center justify-center">
+        <div className="flex-1 bg-ink-825/90 border border-gold-850 rounded-xs p-4 flex items-center justify-center">
           <div className="flex items-center justify-center h-full text-paper-600 font-serif text-sm tracking-widest">
             暂无红颜灵魅录
           </div>
@@ -421,9 +421,9 @@ export const GalleryScreen: React.FC = () => {
       {/* 立绘全屏鉴赏模式 */}
       <AnimatePresence>
         {previewImage && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#070503]/95 backdrop-blur-md p-2 sm:p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-925/95 backdrop-blur-md p-2 sm:p-4">
             <button
-              className="absolute top-3 right-3 sm:top-6 sm:right-6 text-paper-400 hover:text-vermilion-400 p-2 rounded-xs border border-[#52432d] bg-[#1a120b] transition-colors z-50 cursor-pointer"
+              className="absolute top-3 right-3 sm:top-6 sm:right-6 text-paper-400 hover:text-vermilion-400 p-2 rounded-xs border border-gold-800 bg-ink-825 transition-colors z-50 cursor-pointer"
               onClick={() => setPreviewImage(null)}
             >
               <X size={20} />

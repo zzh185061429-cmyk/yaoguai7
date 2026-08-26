@@ -88,7 +88,7 @@ export function FloorSelector({ isLarge = false }: { isLarge?: boolean }) {
       <button
         onClick={handleToggle}
         className={cn(
-          "flex items-center bg-[#1c140c] border border-[#6e5535] hover:border-[#b89552] transition-colors rounded-xs shrink-0 cursor-pointer shadow-sm",
+          "flex items-center bg-ink-850 border border-gold-800 hover:border-gold-550 transition-colors rounded-xs shrink-0 cursor-pointer shadow-sm",
           isMobile ? "py-1 px-1.5 gap-1" : isLarge ? "py-1.5 px-3 gap-2" : "py-1 px-2.5 gap-1.5",
         )}
         title="翻阅层卷"
@@ -109,9 +109,9 @@ export function FloorSelector({ isLarge = false }: { isLarge?: boolean }) {
           {/* 点击外部关闭 */}
           <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
 
-          <div className={cn("fixed left-1/2 -translate-x-1/2 overflow-hidden bg-[#16100b]/95 backdrop-blur-md border border-[#6b583e] z-50 rounded-xs shadow-2xl flex flex-col font-serif", isLarge ? "top-20 w-56 max-h-70vh" : "top-14 w-44 max-h-60vh")}>
+          <div className={cn("fixed left-1/2 -translate-x-1/2 overflow-hidden bg-ink-825/95 backdrop-blur-md border border-gold-750 z-50 rounded-xs shadow-2xl flex flex-col font-serif", isLarge ? "top-20 w-56 max-h-70vh" : "top-14 w-44 max-h-60vh")}>
             {/* 标题栏 */}
-            <div className={cn("sticky top-0 bg-[#22170e] text-gold-300 font-serif border-b border-[#52432d] flex items-center justify-between shrink-0", isLarge ? "text-sm px-4 py-2" : "text-xs px-3 py-1.5")}>
+            <div className={cn("sticky top-0 bg-ink-750 text-gold-300 font-serif border-b border-gold-800 flex items-center justify-between shrink-0", isLarge ? "text-sm px-4 py-2" : "text-xs px-3 py-1.5")}>
               <span className="tracking-widest font-bold">卷宗层数 ({floors.length})</span>
               {totalPages > 1 && (
                 <span className={cn("text-paper-400", isLarge ? "text-xs" : "text-[10px]")}>
@@ -127,11 +127,11 @@ export function FloorSelector({ isLarge = false }: { isLarge?: boolean }) {
                 <button
                   onClick={() => handleSelect(null)}
                   className={cn(
-                    'w-full text-left font-serif transition-colors flex items-center gap-2 border-b border-[#3d2e1c] cursor-pointer',
+                    'w-full text-left font-serif transition-colors flex items-center gap-2 border-b border-gold-850 cursor-pointer',
                     isLarge ? 'px-4 py-2 text-sm' : 'px-3 py-1.5 text-xs',
                     !isViewingHistory
-                      ? 'text-gold-300 bg-[#2a1d12] font-bold'
-                      : 'text-paper-400 hover:bg-[#20150d] hover:text-gold-300',
+                      ? 'text-gold-300 bg-ink-750 font-bold'
+                      : 'text-paper-400 hover:bg-ink-750 hover:text-gold-300',
                   )}
                 >
                   <span className="text-xs text-gold-500">✦</span>
@@ -152,8 +152,8 @@ export function FloorSelector({ isLarge = false }: { isLarge?: boolean }) {
                       'w-full text-left font-serif transition-colors flex items-center gap-2 cursor-pointer',
                       isLarge ? 'px-4 py-2 text-sm' : 'px-3 py-1.5 text-xs',
                       isActive
-                        ? 'text-gold-300 bg-[#2a1d12] font-bold'
-                        : 'text-paper-400 hover:bg-[#20150d] hover:text-gold-300',
+                        ? 'text-gold-300 bg-ink-750 font-bold'
+                        : 'text-paper-400 hover:bg-ink-750 hover:text-gold-300',
                     )}
                   >
                     <span className="text-[10px] text-paper-600">↳</span>
@@ -168,16 +168,16 @@ export function FloorSelector({ isLarge = false }: { isLarge?: boolean }) {
 
             {/* 翻页控制栏 */}
             {totalPages > 1 && (
-              <div className={cn("shrink-0 bg-[#1a120b] border-t border-[#3d2e1c] flex items-center justify-between gap-2", isLarge ? "px-3 py-2" : "px-2 py-1.5")}>
+              <div className={cn("shrink-0 bg-ink-825 border-t border-gold-850 flex items-center justify-between gap-2", isLarge ? "px-3 py-2" : "px-2 py-1.5")}>
                 <button
                   onClick={handlePrevPage}
                   disabled={currentPage === 0}
                   className={cn(
-                    'flex items-center gap-1 font-serif tracking-widest border border-[#52432d] transition-colors rounded-xs cursor-pointer',
+                    'flex items-center gap-1 font-serif tracking-widest border border-gold-800 transition-colors rounded-xs cursor-pointer',
                     isLarge ? 'px-2.5 py-1 text-xs' : 'px-2 py-0.5 text-[10px]',
                     currentPage === 0
-                      ? 'text-[#5a4835] cursor-not-allowed opacity-40'
-                      : 'text-gold-300 hover:bg-[#281c12] hover:border-gold-700',
+                      ? 'text-gold-850 cursor-not-allowed opacity-40'
+                      : 'text-gold-300 hover:bg-ink-750 hover:border-gold-700',
                   )}
                 >
                   前页
@@ -189,11 +189,11 @@ export function FloorSelector({ isLarge = false }: { isLarge?: boolean }) {
                   onClick={handleNextPage}
                   disabled={currentPage >= totalPages - 1}
                   className={cn(
-                    'flex items-center gap-1 font-serif tracking-widest border border-[#52432d] transition-colors rounded-xs cursor-pointer',
+                    'flex items-center gap-1 font-serif tracking-widest border border-gold-800 transition-colors rounded-xs cursor-pointer',
                     isLarge ? 'px-2.5 py-1 text-xs' : 'px-2 py-0.5 text-[10px]',
                     currentPage >= totalPages - 1
-                      ? 'text-[#5a4835] cursor-not-allowed opacity-40'
-                      : 'text-gold-300 hover:bg-[#281c12] hover:border-gold-700',
+                      ? 'text-gold-850 cursor-not-allowed opacity-40'
+                      : 'text-gold-300 hover:bg-ink-750 hover:border-gold-700',
                   )}
                 >
                   后页

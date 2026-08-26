@@ -15,18 +15,18 @@ export const NotificationSystem: React.FC = () => {
       <AnimatePresence>
         {notifications.map((notification) => {
           let Icon = ScrollText;
-          let containerStyle = 'bg-[#181410]/95 border-[#8a7556] text-gold-300 shadow-[0_8px_25px_rgba(0,0,0,0.8)]';
+          let containerStyle = 'bg-ink-800/95 border-paper-550 text-gold-300 shadow-[0_8px_25px_rgba(0,0,0,0.8)]';
           let sealText = '通谕';
           let sealClass = 'border-gold-500 text-gold-500 bg-gold-500/10';
 
           if (notification.type === 'warning') {
             Icon = ShieldAlert;
-            containerStyle = 'bg-[#210c0a]/95 border-vermilion-700 text-paper-100 shadow-[0_8px_25px_rgba(148,32,22,0.4)]';
+            containerStyle = 'bg-vermilion-950/95 border-vermilion-700 text-paper-100 shadow-[0_8px_25px_rgba(148,32,22,0.4)]';
             sealText = '戒饬';
             sealClass = 'border-vermilion-500 text-vermilion-500 bg-vermilion-500/15';
           } else if (notification.type === 'success') {
             Icon = Sparkles;
-            containerStyle = 'bg-[#151d16]/95 border-jade-500 text-paper-100 shadow-[0_8px_25px_rgba(51,141,98,0.3)]';
+            containerStyle = 'bg-cyan-900/95 border-jade-500 text-paper-100 shadow-[0_8px_25px_rgba(51,141,98,0.3)]';
             sealText = '昭验';
             sealClass = 'border-jade-400 text-jade-400 bg-jade-400/15';
           }

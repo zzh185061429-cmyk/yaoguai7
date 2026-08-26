@@ -51,8 +51,8 @@ export function DeleteFloorModal({ isOpen, onClose }: DeleteFloorModalProps) {
     <Modal isOpen={isOpen} onClose={onClose} title="焚 卷 抽 条 · 撤 销 幕 次" id="delete-floor-modal">
       <div className="flex flex-col gap-4 sm:gap-6 text-paper-100">
         {/* 警告区 */}
-        <div className="bg-[#26100c] border border-vermilion-700 p-3 sm:p-5 rounded-xs flex items-start gap-3 sm:gap-4">
-          <div className="p-2 sm:p-2.5 bg-[#381510] text-vermilion-400 rounded-xs border border-vermilion-700 shrink-0">
+        <div className="bg-vermilion-900 border border-vermilion-700 p-3 sm:p-5 rounded-xs flex items-start gap-3 sm:gap-4">
+          <div className="p-2 sm:p-2.5 bg-vermilion-900 text-vermilion-400 rounded-xs border border-vermilion-700 shrink-0">
             <Flame size={20} className="sm:w-6 sm:h-6" />
           </div>
           <div className="space-y-1.5 font-serif">
@@ -66,7 +66,7 @@ export function DeleteFloorModal({ isOpen, onClose }: DeleteFloorModalProps) {
         </div>
 
         {/* 不可撤销警示条 */}
-        <div className="bg-[#2a120e] border-l-2 border-vermilion-700 px-3 sm:px-4 py-2 flex items-center gap-2 text-xs font-serif text-vermilion-400 font-bold tracking-widest">
+        <div className="bg-vermilion-900 border-l-2 border-vermilion-700 px-3 sm:px-4 py-2 flex items-center gap-2 text-xs font-serif text-vermilion-400 font-bold tracking-widest">
           <AlertTriangle size={14} />
           此举不可撤销
         </div>
@@ -82,7 +82,7 @@ export function DeleteFloorModal({ isOpen, onClose }: DeleteFloorModalProps) {
               onChange={(e) => setStartFloor(e.target.value)}
               placeholder="如 5"
               className={cn(
-                "w-full px-3 py-2 border bg-[#1a1510] text-paper-50 text-sm font-bold",
+                "w-full px-3 py-2 border bg-ink-800 text-paper-50 text-sm font-bold",
                 "focus:outline-none focus:border-gold-500 rounded-xs tracking-wider",
                 deleting && "opacity-40 pointer-events-none"
               )}
@@ -98,7 +98,7 @@ export function DeleteFloorModal({ isOpen, onClose }: DeleteFloorModalProps) {
               onChange={(e) => setEndFloor(e.target.value)}
               placeholder="如 10"
               className={cn(
-                "w-full px-3 py-2 border bg-[#1a1510] text-paper-50 text-sm font-bold",
+                "w-full px-3 py-2 border bg-ink-800 text-paper-50 text-sm font-bold",
                 "focus:outline-none focus:border-gold-500 rounded-xs tracking-wider",
                 deleting && "opacity-40 pointer-events-none"
               )}

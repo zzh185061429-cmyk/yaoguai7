@@ -58,7 +58,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, 
                 <div
                   className="absolute inset-0 opacity-[0.025] pointer-events-none mix-blend-overlay"
                   style={{
-                    backgroundImage: 'radial-gradient(#e5be62 1px, transparent 1px)',
+                    backgroundImage: 'radial-gradient(gold-400 1px, transparent 1px)',
                     backgroundSize: '20px 20px',
                   }}
                 />

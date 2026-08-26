@@ -115,9 +115,9 @@ export const ThinkingModal: React.FC<ThinkingModalProps> = ({ isOpen, onClose })
     <Modal isOpen={isOpen} onClose={onClose} title="灵 境 神 识 · 思 维 链" id="thinking-modal">
       <div className="flex flex-col gap-4 text-paper-100">
         {/* 顶部玄思卷首 */}
-        <div className="bg-[#14100c] border border-[#6b583e] rounded-xs p-3 sm:p-4 flex items-center justify-between shadow-lg">
+        <div className="bg-ink-850 border border-gold-750 rounded-xs p-3 sm:p-4 flex items-center justify-between shadow-lg">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-            <div className="p-1.5 sm:p-2 bg-[#241e17] border border-[#52432d] text-cyan-300 rounded-xs shrink-0">
+            <div className="p-1.5 sm:p-2 bg-ink-750 border border-gold-800 text-cyan-300 rounded-xs shrink-0">
               <Brain size={16} className="sm:w-5 sm:h-5" />
             </div>
             <div>
@@ -129,13 +129,13 @@ export const ThinkingModal: React.FC<ThinkingModalProps> = ({ isOpen, onClose })
               </p>
             </div>
           </div>
-          <span className="px-2.5 py-1 text-xs font-serif border border-jade-500 text-jade-400 bg-[#151d16] rounded-xs">
+          <span className="px-2.5 py-1 text-xs font-serif border border-jade-500 text-jade-400 bg-cyan-900 rounded-xs">
             神识清明
           </span>
         </div>
 
         {/* 思维链内容区 */}
-        <div className="bg-[#181410] border border-[#6b583e] rounded-xs overflow-hidden">
+        <div className="bg-ink-800 border border-gold-750 rounded-xs overflow-hidden">
           <div className="overflow-y-auto custom-scrollbar max-h-[45vh] sm:max-h-[55vh] p-3 sm:p-4">
             {sections.length === 0 ? (
               <div className="flex items-center justify-center h-32 text-paper-600 font-serif text-sm tracking-widest">
@@ -144,12 +144,12 @@ export const ThinkingModal: React.FC<ThinkingModalProps> = ({ isOpen, onClose })
             ) : (
               <div className="space-y-3">
                 {sections.map((section, idx) => (
-                  <div key={idx} className="border border-[#3d2e1c] rounded-xs overflow-hidden">
+                  <div key={idx} className="border border-gold-850 rounded-xs overflow-hidden">
                     {/* 可折叠标题 */}
                     <button
                       onClick={() => toggleSection(idx)}
                       className={cn(
-                        'w-full flex items-center gap-2 px-3 py-2 bg-[#1f1912] hover:bg-[#241c14] transition-colors text-left',
+                        'w-full flex items-center gap-2 px-3 py-2 bg-ink-750 hover:bg-ink-750 transition-colors text-left',
                       )}
                     >
                       {section.collapsed ? (
@@ -167,7 +167,7 @@ export const ThinkingModal: React.FC<ThinkingModalProps> = ({ isOpen, onClose })
 
                     {/* 内容体 */}
                     {!section.collapsed && (
-                      <div className="p-3 bg-[#1c1712]">
+                      <div className="p-3 bg-ink-800">
                         <pre className="text-sm text-paper-200 leading-relaxed whitespace-pre-wrap font-mono break-all">
                           {section.content}
                         </pre>
@@ -180,13 +180,13 @@ export const ThinkingModal: React.FC<ThinkingModalProps> = ({ isOpen, onClose })
           </div>
 
           {/* 底部 */}
-          <div className="shrink-0 px-3 sm:px-4 py-2 sm:py-2.5 border-t border-[#3d2e1c] flex justify-between items-center">
+          <div className="shrink-0 px-3 sm:px-4 py-2 sm:py-2.5 border-t border-gold-850 flex justify-between items-center">
             <span className="text-xs font-serif text-paper-500">
               共 {sections.length} 个段落
             </span>
             <button
               onClick={onClose}
-              className="px-4 py-1.5 bg-[#241e17] hover:bg-[#2d251c] border border-[#52432d] text-paper-400 hover:text-paper-50 text-xs font-serif tracking-widest rounded-xs transition-colors"
+              className="px-4 py-1.5 bg-ink-750 hover:bg-gold-850 border border-gold-800 text-paper-400 hover:text-paper-50 text-xs font-serif tracking-widest rounded-xs transition-colors"
             >
               归掩
             </button>

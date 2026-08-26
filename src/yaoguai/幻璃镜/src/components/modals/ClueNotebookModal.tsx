@@ -53,13 +53,13 @@ const HorizontalScroller: React.FC<{
 
 /* ════════════════ 公共样式（可读性规范：正文≥15px，辅文≥12px，禁用低透明度文字） ════════════════ */
 const dialogInputCls =
-  'w-full bg-[#f0e8d3] border border-[#b9a67e] px-3 py-2.5 text-[15px] font-sans text-[#241d12] tracking-wide leading-relaxed focus:border-[#6d5b3d] outline-none resize-none transition-colors placeholder:text-[#7a6949] rounded-sm';
+  'w-full bg-paper-200 border border-paper-450 px-3 py-2.5 text-[15px] font-sans text-ink-825 tracking-wide leading-relaxed focus:border-paper-600 outline-none resize-none transition-colors placeholder:text-paper-550 rounded-sm';
 const dialogBtnGhostCls =
-  'px-5 py-2 text-[14px] font-sans font-bold tracking-[0.25em] pl-[calc(1.25rem+0.25em)] text-[#4a3a22] rounded-sm border border-[#b9a67e] bg-[#efe7d2] hover:bg-[#e5d9ba] hover:border-[#8a7556] transition-all';
+  'px-5 py-2 text-[14px] font-sans font-bold tracking-[0.25em] pl-[calc(1.25rem+0.25em)] text-gold-850 rounded-sm border border-paper-450 bg-paper-150 hover:bg-paper-350 hover:border-paper-550 transition-all';
 const dialogBtnDarkCls =
-  'px-5 py-2 text-[14px] font-sans font-bold tracking-[0.25em] pl-[calc(1.25rem+0.25em)] text-[#f4ecd9] rounded-sm border border-[#33291a] bg-[#4c3f2c] hover:bg-[#3a3020] transition-all shadow-md';
+  'px-5 py-2 text-[14px] font-sans font-bold tracking-[0.25em] pl-[calc(1.25rem+0.25em)] text-paper-125 rounded-sm border border-ink-800 bg-gold-850 hover:bg-gold-850 transition-all shadow-md';
 const dialogBtnRedCls =
-  'px-5 py-2 text-[14px] font-sans font-bold tracking-[0.25em] pl-[calc(1.25rem+0.25em)] text-[#fff1e4] rounded-sm border border-vermilion-800 bg-vermilion-700 hover:bg-vermilion-800 transition-all shadow-md disabled:opacity-40';
+  'px-5 py-2 text-[14px] font-sans font-bold tracking-[0.25em] pl-[calc(1.25rem+0.25em)] text-paper-75 rounded-sm border border-vermilion-800 bg-vermilion-700 hover:bg-vermilion-800 transition-all shadow-md disabled:opacity-40';
 
 /** 明制函套式纸质弹窗面板 */
 const PaperDialog: React.FC<{
@@ -75,7 +75,7 @@ const PaperDialog: React.FC<{
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    className="absolute inset-0 z-50 flex items-center justify-center bg-[#1c1610]/75 backdrop-blur-sm"
+    className="absolute inset-0 z-50 flex items-center justify-center bg-ink-850/75 backdrop-blur-sm"
     onClick={closeDisabled ? undefined : onBackdropClick}
   >
     <motion.div
@@ -83,25 +83,25 @@ const PaperDialog: React.FC<{
       animate={{ scale: 1, y: 0, opacity: 1 }}
       exit={{ scale: 0.92, y: 15, opacity: 0 }}
       transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-      className={`relative ${wide ? 'max-w-lg' : 'max-w-md'} w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] bg-[#f6efdc] rounded-sm p-4 sm:p-7 shadow-[0_20px_60px_rgba(0,0,0,0.45)] ${vermilion ? 'max-h-[85vh]' : ''} overflow-y-auto custom-scrollbar`}
-      style={{ border: '1px solid #8a7556', boxShadow: '0 20px 60px rgba(0,0,0,0.45), inset 0 0 0 4px #f6efdc, inset 0 0 0 5px #c9b68b' }}
+      className={`relative ${wide ? 'max-w-lg' : 'max-w-md'} w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] bg-paper-100 rounded-sm p-4 sm:p-7 shadow-[0_20px_60px_rgba(0,0,0,0.45)] ${vermilion ? 'max-h-[85vh]' : ''} overflow-y-auto custom-scrollbar`}
+      style={{ border: '1px solid paper-550', boxShadow: '0 20px 60px rgba(0,0,0,0.45), inset 0 0 0 4px paper-100, inset 0 0 0 5px paper-350' }}
       onClick={e => e.stopPropagation()}
     >
       {/* 函套顶饰：素带 + 朱心 */}
       <div className="absolute top-1.25 left-1.25 right-1.25 h-0.75 flex items-center pointer-events-none">
-        <div className={`flex-1 h-px ${vermilion ? 'bg-vermilion-700/50' : 'bg-[#a89370]/60'}`} />
-        <div className={`w-1.5 h-1.5 rotate-45 ${vermilion ? 'bg-vermilion-700/60' : 'bg-[#8a7556]/60'}`} />
-        <div className={`flex-1 h-px ${vermilion ? 'bg-vermilion-700/50' : 'bg-[#a89370]/60'}`} />
+        <div className={`flex-1 h-px ${vermilion ? 'bg-vermilion-700/50' : 'bg-paper-500/60'}`} />
+        <div className={`w-1.5 h-1.5 rotate-45 ${vermilion ? 'bg-vermilion-700/60' : 'bg-paper-550/60'}`} />
+        <div className={`flex-1 h-px ${vermilion ? 'bg-vermilion-700/50' : 'bg-paper-500/60'}`} />
       </div>
       {/* 标题 */}
-      <div className="flex items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-5 pb-2 sm:pb-3 border-b border-[#c9b68b]">
+      <div className="flex items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-5 pb-2 sm:pb-3 border-b border-paper-350">
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <span className={`font-serif text-[13px] sm:text-[15px] ${vermilion ? 'text-vermilion-700' : 'text-paper-600'} shrink-0`}>◆</span>
-          <h3 className={`font-serif text-[15px] sm:text-[19px] font-bold tracking-[0.15em] sm:tracking-[0.3em] ${vermilion ? 'text-vermilion-800' : 'text-[#241d0f]'} truncate`}>{title}</h3>
+          <h3 className={`font-serif text-[15px] sm:text-[19px] font-bold tracking-[0.15em] sm:tracking-[0.3em] ${vermilion ? 'text-vermilion-800' : 'text-ink-825'} truncate`}>{title}</h3>
           <span className={`font-serif text-[13px] sm:text-[15px] ${vermilion ? 'text-vermilion-700' : 'text-paper-600'} hidden sm:inline`}>◆</span>
         </div>
         {onClose && (
-          <button onClick={onClose} className="text-[#6d5b3d] hover:text-vermilion-700 hover:bg-vermilion-700/10 transition-all p-1 rounded-sm shrink-0" title="关闭">
+          <button onClick={onClose} className="text-paper-600 hover:text-vermilion-700 hover:bg-vermilion-700/10 transition-all p-1 rounded-sm shrink-0" title="关闭">
             <X size={20} />
           </button>
         )}
@@ -321,8 +321,8 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
           style={{
             height: '272px',
             background: isClosed
-              ? 'linear-gradient(160deg, #dcc489 0%, #cfb476 48%, #c3a565 100%)'
-              : 'linear-gradient(160deg, #36497a 0%, #2d3e67 45%, #26355a 100%)',
+              ? 'linear-gradient(160deg, gold-400 0%, gold-400 48%, gold-500 100%)'
+              : 'linear-gradient(160deg, indigo-300 0%, indigo-400 45%, indigo-500 100%)',
             boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08), 2px 3px 8px rgba(30,22,10,0.35), 0 10px 22px rgba(30,22,10,0.28)',
           }}
         >
@@ -334,27 +334,27 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
 
           {/* 包背装订边（左侧）+ 四眼线装线迹 */}
           <div className="absolute left-0 top-0 bottom-0 w-2.75"
-            style={{ background: isClosed ? 'linear-gradient(to right, #96793f, #a88a4d)' : 'linear-gradient(to right, #1b2743, #222f52)' }} />
+            style={{ background: isClosed ? 'linear-gradient(to right, gold-600, gold-550)' : 'linear-gradient(to right, indigo-700, indigo-600)' }} />
           {[10, 34, 62, 88].map(t => (
             <div key={t} className="absolute left-0.75 w-1.75 h-1.75 rounded-full pointer-events-none"
               style={{
                 top: `${t}%`,
-                background: 'radial-gradient(circle, #e8dcbb 0 1.5px, rgba(232,220,187,0.4) 1.5px 3px, transparent 3px)',
+                background: 'radial-gradient(circle, paper-300 0 1.5px, rgba(232,220,187,0.4) 1.5px 3px, transparent 3px)',
               }} />
           ))}
 
           {/* 题签（竖排书名条，双线框） */}
           <div className="absolute left-6.5 top-3.75 rounded-xs px-2 pt-2 pb-3"
             style={{
-              background: 'linear-gradient(180deg, #f7f0da, #efe6cb)',
-              border: '1px solid #b7a67d',
-              boxShadow: '2px 2px 6px rgba(15,10,4,0.4), inset 0 0 0 3px #f4ecd7, inset 0 0 0 4px #cbbb92',
+              background: 'linear-gradient(180deg, paper-75, paper-150)',
+              border: '1px solid paper-450',
+              boxShadow: '2px 2px 6px rgba(15,10,4,0.4), inset 0 0 0 3px paper-125, inset 0 0 0 4px paper-350',
             }}>
             <div className="flex flex-col items-center gap-2">
-              <span className="font-serif text-[13px] font-bold tracking-[0.3em] pl-[0.3em] text-vermilion-700 border-b border-[#c9b68b] pb-1.5 w-full text-center">
+              <span className="font-serif text-[13px] font-bold tracking-[0.3em] pl-[0.3em] text-vermilion-700 border-b border-paper-350 pb-1.5 w-full text-center">
                 钦天监
               </span>
-              <h3 className="font-serif text-[19px] font-bold leading-none text-[#211a0d] overflow-hidden"
+              <h3 className="font-serif text-[19px] font-bold leading-none text-ink-825 overflow-hidden"
                 style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.22em', maxHeight: '166px' }}>
                 {ci.name}
               </h3>
@@ -364,10 +364,10 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
           {/* 书根：线索/推论计数与立案日期 */}
           <div className="absolute bottom-0 inset-x-0 h-9.5 flex flex-col items-center justify-center gap-0.75"
             style={{ background: isClosed ? 'rgba(88,68,32,0.22)' : 'rgba(13,19,34,0.6)' }}>
-            <span className={`font-sans text-[12px] font-bold tracking-[0.18em] ${isClosed ? 'text-[#3d2f16]' : 'text-[#eee4c6]'}`}>
+            <span className={`font-sans text-[12px] font-bold tracking-[0.18em] ${isClosed ? 'text-gold-850' : 'text-paper-200'}`}>
               线索{clueCount} · 推论{dedCount}
             </span>
-            <span className={`font-sans text-[12px] ${isClosed ? 'text-[#5a4826]' : 'text-[#cdc2a0]'}`}>
+            <span className={`font-sans text-[12px] ${isClosed ? 'text-gold-850' : 'text-paper-400'}`}>
               {ci.createdAt}
             </span>
           </div>
@@ -376,16 +376,16 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
           {isClosed && (
             <div className="absolute inset-0 pointer-events-none z-20">
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-24deg] flex items-center gap-2 px-4 py-1.5"
-                style={{ background: 'rgba(247,240,218,0.97)', border: '1.5px solid #9c2a1e', boxShadow: '0 2px 10px rgba(40,25,10,0.35)' }}>
-                <span className="font-serif text-[21px] font-bold text-[#8f1f14] tracking-[0.4em] pl-[0.4em]">已结</span>
-                <span className="font-serif text-[12px] font-bold text-[#8f1f14] border border-[#8f1f14] px-1 py-px rotate-[8deg]">验讫</span>
+                style={{ background: 'rgba(247,240,218,0.97)', border: '1.5px solid vermilion-700', boxShadow: '0 2px 10px rgba(40,25,10,0.35)' }}>
+                <span className="font-serif text-[21px] font-bold text-vermilion-800 tracking-[0.4em] pl-[0.4em]">已结</span>
+                <span className="font-serif text-[12px] font-bold text-vermilion-800 border border-vermilion-800 px-1 py-px rotate-[8deg]">验讫</span>
               </div>
             </div>
           )}
 
           {/* 悬停展卷提示 */}
           <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-30">
-            <span className="font-sans text-[13px] font-bold text-[#f6efdc] bg-[#33291a]/85 px-3 py-1 rounded-full tracking-[0.2em]">
+            <span className="font-sans text-[13px] font-bold text-paper-100 bg-ink-800/85 px-3 py-1 rounded-full tracking-[0.2em]">
               展卷
             </span>
           </div>
@@ -393,7 +393,7 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
           {/* 删卷按钮（悬停显示，左下角） */}
           <button
             onClick={(e) => { e.stopPropagation(); setDeletingCase(ci); }}
-            className="absolute bottom-10.5 left-1 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center w-6 h-6 rounded-full bg-vermilion-700/90 border border-vermilion-800 text-[#fff1e4] hover:bg-vermilion-800 hover:scale-110 shadow-md"
+            className="absolute bottom-10.5 left-1 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center w-6 h-6 rounded-full bg-vermilion-700/90 border border-vermilion-800 text-paper-75 hover:bg-vermilion-800 hover:scale-110 shadow-md"
             title="焚毁案卷"
           >
             <Trash2 size={12} />
@@ -405,7 +405,7 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
           style={{
             width: '196px',
             height: '9px',
-            background: 'linear-gradient(to bottom, #7a5a38 0%, #5c422a 45%, #3a2a1a 100%)',
+            background: 'linear-gradient(to bottom, paper-600 0%, gold-850 45%, gold-850 100%)',
             boxShadow: '0 3px 5px rgba(30,20,8,0.35), inset 0 1px 0 rgba(255,230,190,0.25)',
           }} />
       </motion.div>
@@ -423,9 +423,9 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
     const vertical = effectiveLayoutMode === 'vertical';
 
     const statusActiveCls: Record<ClueStatus, string> = {
-      'pending': 'bg-[#4c4132] text-[#f2e9d2] border-[#33291a]',
-      'true': 'bg-vermilion-700 text-[#fff1e4] border-vermilion-800',
-      'false': 'bg-[#5a5a5a] text-[#f0f0f0] border-[#404040]',
+      'pending': 'bg-gold-850 text-paper-125 border-ink-800',
+      'true': 'bg-vermilion-700 text-paper-75 border-vermilion-800',
+      'false': 'bg-ink-500 text-paper-50 border-ink-600',
     };
 
     return (
@@ -440,10 +440,10 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
           vertical ? 'h-full min-w-75 w-75 shrink-0 flex flex-col justify-between' : ''
         } ${
           isReadOnly
-            ? 'bg-[#eee5d0] border border-[#a89370] opacity-95'
+            ? 'bg-paper-200 border border-paper-500 opacity-95'
             : isSelected
-              ? 'bg-[#fbf5e5] border-2 border-vermilion-600 shadow-[0_4px_20px_rgba(184,45,32,0.3)] cursor-pointer'
-              : 'bg-[#faf5e8] border border-[#c9b998] hover:border-[#8a7556] hover:shadow-md cursor-pointer'
+              ? 'bg-paper-50 border-2 border-vermilion-600 shadow-[0_4px_20px_rgba(184,45,32,0.3)] cursor-pointer'
+              : 'bg-paper-50 border border-paper-350 hover:border-paper-550 hover:shadow-md cursor-pointer'
         }`}
         style={{ transition: 'all 0.2s ease' }}
       >
@@ -451,7 +451,7 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
         {isSelected && (
           <div className="absolute right-0 top-0 w-10 h-10 overflow-hidden pointer-events-none z-20">
             <div className="absolute -top-3 -right-3 w-12 h-12 bg-vermilion-600 rotate-45 shadow-sm" />
-            <div className="absolute top-1.5 right-1.5 text-[#fff1e4] z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
+            <div className="absolute top-1.5 right-1.5 text-paper-75 z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
               <Check size={13} strokeWidth={3} />
             </div>
           </div>
@@ -460,8 +460,8 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
         {/* 类别章（线索·青 / 推论·朱） */}
         <div className={`absolute top-2 left-2 px-2 py-0.75 text-[12px] font-serif font-bold tracking-[0.2em] rounded-xs pointer-events-none z-10 border ${
           isDeduction
-            ? 'bg-vermilion-700 text-[#fff1e4] border-vermilion-800'
-            : 'bg-cyan-700 text-[#eaf4f1] border-cyan-900'
+            ? 'bg-vermilion-700 text-paper-75 border-vermilion-800'
+            : 'bg-cyan-700 text-paper-50 border-cyan-900'
         }`}>
           {isDeduction ? '推论' : '线索'}
         </div>
@@ -469,7 +469,7 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
         {/* 标题栏 */}
         <div className={`flex justify-between items-start gap-2 mb-3 relative z-10 pt-8 ${vertical ? '' : 'border-b-2 pb-2'}`}
           style={{ borderColor: 'rgba(201,185,148,0.9)' }}>
-          <span className={`font-serif text-[19px] font-bold tracking-[0.15em] ${dStatus === 'false' ? 'text-[#6a6156] line-through' : 'text-[#1e180c]'}`}
+          <span className={`font-serif text-[19px] font-bold tracking-[0.15em] ${dStatus === 'false' ? 'text-paper-550 line-through' : 'text-ink-825'}`}
             style={{ writingMode: vertical ? 'vertical-rl' : 'horizontal-tb' }}>
             {clue.title || (isDeduction ? '推论' : '线索')}
           </span>
@@ -482,7 +482,7 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                   className={`px-2 py-0.75 text-[13px] font-sans font-bold tracking-wider rounded-xs border transition-all ${
                     dStatus === s
                       ? statusActiveCls[s]
-                      : 'bg-[#f0e8d3] text-[#6d5b3d] border-[#c9b68b] hover:border-[#8a7556] hover:text-[#3d3018]'
+                      : 'bg-paper-200 text-paper-600 border-paper-350 hover:border-paper-550 hover:text-gold-850'
                   }`}
                   style={{ writingMode: vertical ? 'vertical-rl' : 'horizontal-tb' }}
                 >
@@ -497,7 +497,7 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
         <HorizontalScroller
           layoutMode={effectiveLayoutMode}
           allowVerticalScroll={isInDeductionMode}
-          className={`font-serif text-[17px] relative z-10 text-[#2a2317] ${
+          className={`font-serif text-[17px] relative z-10 text-ink-800 ${
             vertical ? 'leading-[2.2] tracking-[0.08em] flex-1 overflow-x-auto h-[68%] custom-scrollbar' : 'leading-[1.85] tracking-[0.04em]'
           }`}
           style={{
@@ -510,7 +510,7 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
         {/* 状态水印（装饰，不承担可读信息） */}
         <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-0 opacity-[0.05]">
           <span className={`font-serif font-black text-[64px] -rotate-12 select-none ${
-            dStatus === 'true' ? 'text-vermilion-700' : dStatus === 'false' ? 'text-ink-500' : 'text-[#8c7a56]'
+            dStatus === 'true' ? 'text-vermilion-700' : dStatus === 'false' ? 'text-ink-500' : 'text-paper-550'
           }`}>
             {dStatus === 'true' ? '属实' : dStatus === 'false' ? '伪证' : '待勘'}
           </span>
@@ -519,8 +519,8 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
         {/* 伪证双斜线 */}
         {dStatus === 'false' && (
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden z-0">
-            <div className="w-[140%] h-px bg-[#4a4a4a]/20 transform -rotate-12" />
-            <div className="absolute w-[140%] h-px bg-[#4a4a4a]/15 transform rotate-12" />
+            <div className="w-[140%] h-px bg-ink-500/20 transform -rotate-12" />
+            <div className="absolute w-[140%] h-px bg-ink-500/15 transform rotate-12" />
           </div>
         )}
 
@@ -538,11 +538,11 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
         {/* 底部信息栏 */}
         <div className={`mt-4 flex justify-between items-center text-[12px] font-sans font-bold relative z-10 ${vertical ? 'flex-col items-start gap-2' : ''}`}>
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-[#6d5b3d]" style={{ writingMode: vertical ? 'vertical-rl' : 'horizontal-tb' }}>
+            <span className="text-paper-600" style={{ writingMode: vertical ? 'vertical-rl' : 'horizontal-tb' }}>
               {clue.source}
             </span>
-            <span className="text-[#c4b59d]">|</span>
-            <span className="text-[#7c6a49]" style={{ writingMode: vertical ? 'vertical-rl' : 'horizontal-tb' }}>
+            <span className="text-paper-400">|</span>
+            <span className="text-paper-550" style={{ writingMode: vertical ? 'vertical-rl' : 'horizontal-tb' }}>
               {clue.timestamp}
             </span>
           </div>
@@ -550,10 +550,10 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
             <div className="flex gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
               {editingId !== clue.id && (
                 <button onPointerDown={(e: any) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); setEditingId(clue.id); setEditValue(clue.text); }}
-                  className="text-[#6d5b3d] hover:text-cyan-700 transition-colors pointer-events-auto p-1.5 hover:bg-cyan-700/10 rounded-sm" title="编辑"><Edit2 size={16} /></button>
+                  className="text-paper-600 hover:text-cyan-700 transition-colors pointer-events-auto p-1.5 hover:bg-cyan-700/10 rounded-sm" title="编辑"><Edit2 size={16} /></button>
               )}
               <button onPointerDown={(e: any) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); removeClue(clue.id); setSelectedClues(prev => prev.filter(id => id !== clue.id)); }}
-                className="text-[#6d5b3d] hover:text-vermilion-700 transition-colors pointer-events-auto p-1.5 hover:bg-vermilion-700/10 rounded-sm" title="删除"><Trash2 size={16} /></button>
+                className="text-paper-600 hover:text-vermilion-700 transition-colors pointer-events-auto p-1.5 hover:bg-vermilion-700/10 rounded-sm" title="删除"><Trash2 size={16} /></button>
             </div>
           )}
         </div>
@@ -562,9 +562,9 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
         {editingId === clue.id && !isReadOnly && (
           <div className="mt-2 mb-1 pointer-events-auto" onClick={e => e.stopPropagation()}>
             <textarea value={editValue} onChange={e => setEditValue(e.target.value)}
-              className="w-full text-[14px] font-sans tracking-wide leading-relaxed bg-[#f0e8d3] border-b-2 outline-none resize-none overflow-hidden text-[#241d12] border-[#b9a67e] focus:border-[#6d5b3d] rounded-sm px-2 py-1.5" rows={3} autoFocus onPointerDown={e => e.stopPropagation()} />
+              className="w-full text-[14px] font-sans tracking-wide leading-relaxed bg-paper-200 border-b-2 outline-none resize-none overflow-hidden text-ink-825 border-paper-450 focus:border-paper-600 rounded-sm px-2 py-1.5" rows={3} autoFocus onPointerDown={e => e.stopPropagation()} />
             <div className="flex justify-end gap-2 mt-2">
-              <button onClick={(e) => { e.stopPropagation(); setEditingId(null); }} className="text-[#6d5b3d] hover:text-[#3d3018] p-1.5 hover:bg-[#6d5b3d]/10 rounded-sm transition-colors" title="取消"><X size={16} /></button>
+              <button onClick={(e) => { e.stopPropagation(); setEditingId(null); }} className="text-paper-600 hover:text-gold-850 p-1.5 hover:bg-paper-600/10 rounded-sm transition-colors" title="取消"><X size={16} /></button>
               <button onClick={(e) => { e.stopPropagation(); editClue(clue.id, editValue); setEditingId(null); }} className="text-cyan-700 hover:text-cyan-600 p-1.5 hover:bg-cyan-700/10 rounded-sm transition-colors" title="保存"><Check size={16} /></button>
             </div>
           </div>
@@ -585,28 +585,28 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
       fullScreen={isFullScreen}
       variant="blank"
     >
-      <div className={`absolute inset-0 bg-[#ece2ca] text-[#2a2317] flex flex-col overflow-hidden ${isFullScreen ? '' : 'border-4 border-[#4a3826] rounded-sm'}`}
+      <div className={`absolute inset-0 bg-paper-200 text-ink-800 flex flex-col overflow-hidden ${isFullScreen ? '' : 'border-4 border-gold-850 rounded-sm'}`}
         style={{ boxShadow: 'inset 0 0 70px rgba(120,96,58,0.13)' }}>
 
         {/* ── 古风 Header（漆木题匾） ── */}
-        <div className="flex items-center justify-between pl-4 pr-3 py-3 relative z-30 shrink-0 border-b-2 border-[#2a2013]"
-          style={{ background: 'linear-gradient(180deg, #4a3a26 0%, #3a2c1c 100%)', boxShadow: '0 3px 10px rgba(20,14,6,0.35)' }}>
+        <div className="flex items-center justify-between pl-4 pr-3 py-3 relative z-30 shrink-0 border-b-2 border-ink-800"
+          style={{ background: 'linear-gradient(180deg, gold-850 0%, gold-850 100%)', boxShadow: '0 3px 10px rgba(20,14,6,0.35)' }}>
           <div className="flex items-center gap-3 min-w-0">
             {view === 'detail' && (
               <button onClick={backToShelf}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-sans font-bold tracking-widest text-[#f0e5c6] bg-[#5c4830] border border-[#7a5f40] rounded-sm hover:bg-[#6d5538] hover:border-[#9c7d55] transition-all shrink-0"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-sans font-bold tracking-widest text-paper-200 bg-gold-850 border border-paper-600 rounded-sm hover:bg-gold-850 hover:border-paper-550 transition-all shrink-0"
                 title="返回卷宗架">
                 <ChevronLeft size={16} /> 收卷
               </button>
             )}
             <div className="flex items-center gap-2.5 px-3 py-1 rounded-[3px]"
-              style={{ background: 'rgba(20,14,6,0.35)', border: '1px solid #6d5538', boxShadow: 'inset 0 1px 0 rgba(255,235,200,0.12)' }}>
-              <span className="text-[#d6b75a] font-serif text-[15px]">◆</span>
-              <h2 className="font-serif text-[19px] text-[#f2e7c9] font-bold tracking-[0.3em] whitespace-nowrap"
+              style={{ background: 'rgba(20,14,6,0.35)', border: '1px solid gold-850', boxShadow: 'inset 0 1px 0 rgba(255,235,200,0.12)' }}>
+              <span className="text-gold-400 font-serif text-[15px]">◆</span>
+              <h2 className="font-serif text-[19px] text-paper-125 font-bold tracking-[0.3em] whitespace-nowrap"
                 style={{ textShadow: '0 1px 2px rgba(0,0,0,0.6)' }}>
                 {view === 'shelf' ? '钦天监 · 卷宗架' : '钦天监 · 御览密奏'}
               </h2>
-              <span className="text-[#d6b75a] font-serif text-[15px]">◆</span>
+              <span className="text-gold-400 font-serif text-[15px]">◆</span>
             </div>
           </div>
 
@@ -614,16 +614,16 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
             {view === 'detail' && !isMobile && (
               <button
                 onClick={() => setLayoutMode(prev => prev === 'horizontal' ? 'vertical' : 'horizontal')}
-                className="mr-1 px-3.5 py-1.5 bg-[#5c4830] border border-[#7a5f40] text-[#f0e5c6] text-[13px] font-sans font-bold tracking-widest hover:bg-[#6d5538] hover:border-[#9c7d55] rounded-sm transition-all shadow-sm"
+                className="mr-1 px-3.5 py-1.5 bg-gold-850 border border-paper-600 text-paper-200 text-[13px] font-sans font-bold tracking-widest hover:bg-gold-850 hover:border-paper-550 rounded-sm transition-all shadow-sm"
                 title="切换版式"
               >
-                <span className="text-[#d6b75a] mr-1">{layoutMode === 'horizontal' ? '◇' : '◈'}</span>
+                <span className="text-gold-400 mr-1">{layoutMode === 'horizontal' ? '◇' : '◈'}</span>
                 {layoutMode === 'horizontal' ? '竖排' : '横排'}
               </button>
             )}
             <button
               onClick={onClose}
-              className="p-2 text-[#e8dcbb] hover:text-[#ffb4a6] hover:bg-vermilion-800/40 transition-all rounded-sm border border-transparent hover:border-vermilion-700"
+              className="p-2 text-paper-300 hover:text-vermilion-300 hover:bg-vermilion-800/40 transition-all rounded-sm border border-transparent hover:border-vermilion-700"
               title="合卷（关闭）"
             >
               <XCircle size={20} />
@@ -635,7 +635,7 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
         <div
           className="absolute inset-0 opacity-[0.045] pointer-events-none z-0 mix-blend-multiply"
           style={{
-            backgroundImage: 'radial-gradient(#8c7a56 1px, transparent 1px), radial-gradient(#8c7a56 0.5px, transparent 0.5px)',
+            backgroundImage: 'radial-gradient(paper-550 1px, transparent 1px), radial-gradient(paper-550 0.5px, transparent 0.5px)',
             backgroundSize: '24px 24px, 12px 12px',
             backgroundPosition: '0 0, 6px 6px',
           }}
@@ -657,23 +657,23 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
               <div className="px-7 pt-6 pb-4">
                 <div className="flex items-center gap-3 mb-6 flex-wrap">
                   <div className="px-3.5 py-1.5 rounded-[3px] flex items-center gap-2.5"
-                    style={{ background: 'linear-gradient(160deg, #4e3b26, #3a2b1b)', boxShadow: 'inset 0 1px 0 rgba(255,235,200,0.16), 0 2px 6px rgba(30,20,8,0.3)' }}>
+                    style={{ background: 'linear-gradient(160deg, gold-850, gold-850)', boxShadow: 'inset 0 1px 0 rgba(255,235,200,0.16), 0 2px 6px rgba(30,20,8,0.3)' }}>
                     <span className="w-2 h-2 rounded-full bg-vermilion-500 shadow-[0_0_6px_rgba(214,61,46,0.9)]" />
-                    <h3 className="font-serif text-[17px] font-bold tracking-[0.25em] text-[#f2e7c9]">正在调查</h3>
+                    <h3 className="font-serif text-[17px] font-bold tracking-[0.25em] text-paper-125">正在调查</h3>
                   </div>
-                  <span className="font-sans text-[13px] font-bold text-[#4a3a22] bg-[#e3d7ba] border border-[#b9a67e] rounded-full px-2.5 py-0.5">{activeCases.length}</span>
-                  <div className="flex-1 min-w-10 h-0.5" style={{ background: 'linear-gradient(to right, #a89370, transparent)' }} />
+                  <span className="font-sans text-[13px] font-bold text-gold-850 bg-paper-300 border border-paper-450 rounded-full px-2.5 py-0.5">{activeCases.length}</span>
+                  <div className="flex-1 min-w-10 h-0.5" style={{ background: 'linear-gradient(to right, paper-500, transparent)' }} />
                   <button onClick={() => setShowNewCaseForm(true)}
-                    className="flex items-center gap-1.5 px-3.5 py-1.5 bg-[#f6efdc] border border-dashed border-[#8a7556] text-[#4a3a22] hover:border-vermilion-600 hover:text-vermilion-700 hover:bg-[#fdf7e4] transition-all text-[13px] font-sans font-bold tracking-[0.2em] rounded-sm shadow-sm">
+                    className="flex items-center gap-1.5 px-3.5 py-1.5 bg-paper-100 border border-dashed border-paper-550 text-gold-850 hover:border-vermilion-600 hover:text-vermilion-700 hover:bg-paper-75 transition-all text-[13px] font-sans font-bold tracking-[0.2em] rounded-sm shadow-sm">
                     <FolderPlus size={15} /> 新立案
                   </button>
                 </div>
 
                 {activeCases.length === 0 ? (
-                  <div className="flex flex-col items-center justify-center py-14 text-[#6d5b3d] gap-3">
+                  <div className="flex flex-col items-center justify-center py-14 text-paper-600 gap-3">
                     <Search size={40} className="opacity-50" />
-                    <p className="font-serif tracking-[0.25em] text-[16px] font-bold text-[#4a3a22]">尚无案件在查</p>
-                    <p className="text-[13px] font-sans tracking-wide text-[#6d5b3d]">点击「新立案」开启一卷调查</p>
+                    <p className="font-serif tracking-[0.25em] text-[16px] font-bold text-gold-850">尚无案件在查</p>
+                    <p className="text-[13px] font-sans tracking-wide text-paper-600">点击「新立案」开启一卷调查</p>
                   </div>
                 ) : (
                   <div className="flex gap-x-6 gap-y-3 flex-wrap justify-start">
@@ -686,15 +686,15 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
 
               {/* ── 已结案归档区 ── */}
               {closedCases.length > 0 && (
-                <div className="px-7 pt-4 pb-8 border-t-2 border-[#b9a67e]/40">
+                <div className="px-7 pt-4 pb-8 border-t-2 border-paper-450/40">
                   <div className="flex items-center gap-3 mb-6 flex-wrap">
                     <div className="px-3.5 py-1.5 rounded-[3px] flex items-center gap-2.5"
-                      style={{ background: 'linear-gradient(160deg, #6d5c3d, #57482d)', boxShadow: 'inset 0 1px 0 rgba(255,235,200,0.14), 0 2px 6px rgba(30,20,8,0.3)' }}>
-                      <Stamp size={15} className="text-[#e8dcbb]" />
-                      <h3 className="font-serif text-[17px] font-bold tracking-[0.25em] text-[#f2e7c9]">已结归档</h3>
+                      style={{ background: 'linear-gradient(160deg, paper-600, gold-850)', boxShadow: 'inset 0 1px 0 rgba(255,235,200,0.14), 0 2px 6px rgba(30,20,8,0.3)' }}>
+                      <Stamp size={15} className="text-paper-300" />
+                      <h3 className="font-serif text-[17px] font-bold tracking-[0.25em] text-paper-125">已结归档</h3>
                     </div>
-                    <span className="font-sans text-[13px] font-bold text-[#4a3a22] bg-[#e3d7ba] border border-[#b9a67e] rounded-full px-2.5 py-0.5">{closedCases.length}</span>
-                    <div className="flex-1 min-w-10 h-0.5" style={{ background: 'linear-gradient(to right, #a89370, transparent)' }} />
+                    <span className="font-sans text-[13px] font-bold text-gold-850 bg-paper-300 border border-paper-450 rounded-full px-2.5 py-0.5">{closedCases.length}</span>
+                    <div className="flex-1 min-w-10 h-0.5" style={{ background: 'linear-gradient(to right, paper-500, transparent)' }} />
                   </div>
 
                   <div className="flex gap-x-6 gap-y-3 flex-wrap justify-start">
@@ -706,10 +706,10 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
               )}
 
               {cases.length === 0 && (
-                <div className="flex-1 flex flex-col items-center justify-center text-[#6d5b3d] gap-4 py-16">
+                <div className="flex-1 flex flex-col items-center justify-center text-paper-600 gap-4 py-16">
                   <BookOpen size={56} className="opacity-40" />
-                  <p className="font-serif tracking-[0.3em] text-[19px] font-bold text-[#4a3a22]">卷宗架空空如也</p>
-                  <p className="text-[13px] font-sans tracking-wide text-[#6d5b3d]">点击「新立案」开始第一桩调查</p>
+                  <p className="font-serif tracking-[0.3em] text-[19px] font-bold text-gold-850">卷宗架空空如也</p>
+                  <p className="text-[13px] font-sans tracking-wide text-paper-600">点击「新立案」开始第一桩调查</p>
                 </div>
               )}
             </motion.div>
@@ -728,7 +728,7 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
             >
               {/* ════ 手机端：三视图切换条 ════ */}
               {isMobile && (
-                <div className="shrink-0 flex items-center gap-1 px-3 py-2 bg-[#ddd0b2]">
+                <div className="shrink-0 flex items-center gap-1 px-3 py-2 bg-paper-250">
                   {([
                     { key: 'clues', label: '线索总览', icon: '◇' },
                     { key: 'deductions', label: '推论总览', icon: '◈' },
@@ -739,11 +739,11 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                       onClick={(e) => { e.stopPropagation(); setMobileTab(tab.key); }}
                       className={`flex-1 flex items-center justify-center gap-1.5 px-2 py-1.5 rounded-sm font-sans text-[12px] font-bold tracking-widest transition-all ${
                         mobileTab === tab.key
-                          ? 'bg-[#3a2c1c] text-[#f0e5c6] shadow-sm'
-                          : 'text-[#4a3a22] hover:bg-[#c9b998]/40'
+                          ? 'bg-gold-850 text-paper-200 shadow-sm'
+                          : 'text-gold-850 hover:bg-paper-350/40'
                       }`}
                     >
-                      <span className="text-[#d6b75a] text-[11px]">{tab.icon}</span>
+                      <span className="text-gold-400 text-[11px]">{tab.icon}</span>
                       {tab.label}
                     </button>
                   ))}
@@ -753,13 +753,13 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
               {/* ════ 电脑端：双页布局容器 ════ */}
               <div className={`flex-1 flex flex-col ${effectiveLayoutMode === 'vertical' ? 'md:flex-row-reverse' : 'md:flex-row'} min-h-0 ${isMobile ? 'hidden' : ''}`}>
                 {/* ── 左页：案牍卷宗（线索） ── */}
-                <div className={`w-full md:w-1/2 h-1/2 md:h-full flex flex-col relative ${effectiveLayoutMode === 'vertical' ? 'md:border-l-2' : 'md:border-r-2'} border-b-2 md:border-b-0 border-[#b9a67e] bg-[#e8dfc6] shrink-0 min-h-0`}>
-                  <div className="p-3.5 border-b-2 border-[#b9a67e] bg-[#ddd0b2] flex justify-between items-center shrink-0 gap-2">
+                <div className={`w-full md:w-1/2 h-1/2 md:h-full flex flex-col relative ${effectiveLayoutMode === 'vertical' ? 'md:border-l-2' : 'md:border-r-2'} border-b-2 md:border-b-0 border-paper-450 bg-paper-175 shrink-0 min-h-0`}>
+                  <div className="p-3.5 border-b-2 border-paper-450 bg-paper-250 flex justify-between items-center shrink-0 gap-2">
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <span className="p-1.5 rounded-[3px] bg-[#3a2c1c] text-[#e8dcbb] shrink-0"><Scroll size={17} /></span>
-                      <h3 className="font-serif text-[17px] font-bold tracking-[0.2em] text-[#241d0f] truncate">案牍卷宗</h3>
+                      <span className="p-1.5 rounded-[3px] bg-gold-850 text-paper-300 shrink-0"><Scroll size={17} /></span>
+                      <h3 className="font-serif text-[17px] font-bold tracking-[0.2em] text-ink-825 truncate">案牍卷宗</h3>
                     </div>
-                    <span className="text-[13px] font-sans font-bold text-[#4a3a22] bg-[#ece2ca] border border-[#b9a67e] rounded-full px-2.5 py-0.5 shrink-0">共 {baseClues.length} 卷</span>
+                    <span className="text-[13px] font-sans font-bold text-gold-850 bg-paper-200 border border-paper-450 rounded-full px-2.5 py-0.5 shrink-0">共 {baseClues.length} 卷</span>
                   </div>
 
                   <HorizontalScroller
@@ -768,9 +768,9 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                     className={`flex-1 overflow-y-auto custom-scrollbar p-4 pb-20 ${effectiveLayoutMode === 'vertical' ? 'flex flex-row overflow-x-auto overflow-y-hidden gap-4' : 'space-y-4'}`}
                   >
                     {baseClues.length === 0 ? (
-                      <div className="h-full w-full flex flex-col items-center justify-center text-[#6d5b3d] font-serif gap-4">
+                      <div className="h-full w-full flex flex-col items-center justify-center text-paper-600 font-serif gap-4">
                         <BookOpen size={44} className="opacity-50" />
-                        <p className="tracking-[0.2em] text-[15px] font-bold text-[#4a3a22]" style={{ writingMode: effectiveLayoutMode === 'vertical' ? 'vertical-rl' : 'horizontal-tb' }}>
+                        <p className="tracking-[0.2em] text-[15px] font-bold text-gold-850" style={{ writingMode: effectiveLayoutMode === 'vertical' ? 'vertical-rl' : 'horizontal-tb' }}>
                           {currentCase?.status === 'closed' ? '此案已结，无线索记录' : '尚无线索，请在正文中选词收集'}
                         </p>
                       </div>
@@ -786,11 +786,11 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-40 flex-wrap justify-center max-w-[92%] px-3 py-2 rounded-full"
                       style={{ background: 'rgba(58,44,24,0.92)', boxShadow: '0 4px 16px rgba(20,14,6,0.4)' }}>
                       <button onClick={(e) => { e.stopPropagation(); setShowManualClue(true); }}
-                        className="flex items-center gap-1.5 px-3 py-1.5 bg-[#f2e9d2] border border-[#8a7556] rounded-full text-[#3a2f1c] hover:bg-[#fdf7e4] transition-all text-[13px] font-sans font-bold tracking-widest shadow-sm">
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-paper-125 border border-paper-550 rounded-full text-gold-850 hover:bg-paper-75 transition-all text-[13px] font-sans font-bold tracking-widest shadow-sm">
                         <Plus size={14} /> 线索
                       </button>
                       <div className={`flex items-center gap-2 px-3 py-1 rounded-full border transition-all ${
-                        selectedClues.length === 2 ? 'bg-vermilion-700 border-vermilion-800 text-[#fff1e4] shadow-[0_0_14px_rgba(214,61,46,0.5)]' : 'bg-[#5c4830] border-[#7a5f40] text-[#e8dcbb]'
+                        selectedClues.length === 2 ? 'bg-vermilion-700 border-vermilion-800 text-paper-75 shadow-[0_0_14px_rgba(214,61,46,0.5)]' : 'bg-gold-850 border-paper-600 text-paper-300'
                       }`}>
                         <span className="font-sans text-[13px] font-bold tracking-widest">已选 {selectedClues.length}/2</span>
                         <button disabled={selectedClues.length !== 2 || isCombining} onClick={(e) => { e.stopPropagation(); handleCombine(); }}
@@ -804,16 +804,16 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                 </div>
 
                 {/* ── 右页：勘合定谳（推论） ── */}
-                <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col relative bg-[#f2ead6] min-h-0">
-                  <div className="p-3.5 border-b-2 border-[#b9a67e] bg-[#e6dac0] flex justify-between items-center shrink-0 gap-2">
+                <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col relative bg-paper-125 min-h-0">
+                  <div className="p-3.5 border-b-2 border-paper-450 bg-paper-300 flex justify-between items-center shrink-0 gap-2">
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <span className="px-2 py-1 rounded-xs bg-vermilion-700 text-[#fff1e4] font-serif text-[13px] font-bold tracking-widest shadow-sm shrink-0">密奏</span>
-                      <h3 className="font-serif text-[17px] font-bold tracking-[0.2em] text-[#241d0f] truncate">臣勘合定谳</h3>
+                      <span className="px-2 py-1 rounded-xs bg-vermilion-700 text-paper-75 font-serif text-[13px] font-bold tracking-widest shadow-sm shrink-0">密奏</span>
+                      <h3 className="font-serif text-[17px] font-bold tracking-[0.2em] text-ink-825 truncate">臣勘合定谳</h3>
                     </div>
                     {currentCase?.status === 'active' && (
                       <button
                         onClick={(e) => { e.stopPropagation(); setShowManualDeduction(true); }}
-                        className="flex items-center gap-1.5 px-3 py-1.5 text-vermilion-800 font-sans font-bold border border-vermilion-700/50 rounded-full hover:bg-vermilion-700/10 hover:border-vermilion-700 transition-all text-[13px] tracking-widest bg-[#f6efdc] shadow-sm shrink-0"
+                        className="flex items-center gap-1.5 px-3 py-1.5 text-vermilion-800 font-sans font-bold border border-vermilion-700/50 rounded-full hover:bg-vermilion-700/10 hover:border-vermilion-700 transition-all text-[13px] tracking-widest bg-paper-100 shadow-sm shrink-0"
                       >
                         <PenTool size={15} />
                         亲笔朱批
@@ -827,9 +827,9 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                     className={`flex-1 overflow-y-auto custom-scrollbar p-5 pb-20 ${effectiveLayoutMode === 'vertical' ? 'flex flex-row overflow-x-auto overflow-y-hidden gap-5' : 'space-y-5'}`}
                   >
                     {deductions.length === 0 ? (
-                      <div className="h-full w-full flex flex-col items-center justify-center text-[#6d5b3d] font-serif gap-4">
+                      <div className="h-full w-full flex flex-col items-center justify-center text-paper-600 font-serif gap-4">
                         <BookOpen size={44} className="opacity-50" />
-                        <p className="tracking-[0.2em] text-[15px] font-bold text-[#4a3a22] max-w-70 text-center" style={{ writingMode: effectiveLayoutMode === 'vertical' ? 'vertical-rl' : 'horizontal-tb' }}>
+                        <p className="tracking-[0.2em] text-[15px] font-bold text-gold-850 max-w-70 text-center" style={{ writingMode: effectiveLayoutMode === 'vertical' ? 'vertical-rl' : 'horizontal-tb' }}>
                           {currentCase?.status === 'closed' ? '此案已结，无推论记录' : '尚无推演定论，请于左页择取两卷线索，方可提笔'}
                         </p>
                       </div>
@@ -845,17 +845,17 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                     style={{ background: 'rgba(58,44,24,0.92)', boxShadow: '0 4px 16px rgba(20,14,6,0.4)' }}>
                     {currentCase?.status === 'active' ? (
                       <button onClick={(e) => { e.stopPropagation(); startCloseCase(currentCase); }}
-                        className="flex items-center gap-1.5 px-3 py-1.5 bg-[#f2e9d2] border border-vermilion-700 rounded-full text-vermilion-800 hover:bg-[#ffe9d9] transition-all text-[13px] font-sans font-bold tracking-widest shadow-sm">
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-paper-125 border border-vermilion-700 rounded-full text-vermilion-800 hover:bg-paper-75 transition-all text-[13px] font-sans font-bold tracking-widest shadow-sm">
                         <Lock size={14} /> 结案
                       </button>
                     ) : currentCase && (
                       <>
                         <button onClick={(e) => { e.stopPropagation(); reopenCase(currentCase.id); }}
-                          className="flex items-center gap-1.5 px-3 py-1.5 bg-[#f2e9d2] border border-cyan-700/60 rounded-full text-cyan-700 hover:bg-[#e2f0ee] transition-all text-[13px] font-sans font-bold tracking-widest shadow-sm">
+                          className="flex items-center gap-1.5 px-3 py-1.5 bg-paper-125 border border-cyan-700/60 rounded-full text-cyan-700 hover:bg-paper-50 transition-all text-[13px] font-sans font-bold tracking-widest shadow-sm">
                           <Unlock size={14} /> 重开
                         </button>
                         <button onClick={(e) => { e.stopPropagation(); setDeletingCase(currentCase); }}
-                          className="flex items-center gap-1.5 px-3 py-1.5 bg-[#f2e9d2] border border-vermilion-700/40 rounded-full text-vermilion-700 hover:bg-[#ffe9d9] transition-all text-[13px] font-sans font-bold tracking-widest shadow-sm">
+                          className="flex items-center gap-1.5 px-3 py-1.5 bg-paper-125 border border-vermilion-700/40 rounded-full text-vermilion-700 hover:bg-paper-75 transition-all text-[13px] font-sans font-bold tracking-widest shadow-sm">
                           <Trash2 size={14} /> 焚卷
                         </button>
                       </>
@@ -869,19 +869,19 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                 <div className="flex-1 flex flex-col min-h-0 relative">
                   {/* ── Tab 1: 线索总览 ── */}
                   {mobileTab === 'clues' && (
-                    <div className="flex-1 flex flex-col bg-[#e8dfc6] min-h-0">
-                      <div className="p-3 border-b-2 border-[#b9a67e] bg-[#ddd0b2] flex justify-between items-center shrink-0 gap-2">
+                    <div className="flex-1 flex flex-col bg-paper-175 min-h-0">
+                      <div className="p-3 border-b-2 border-paper-450 bg-paper-250 flex justify-between items-center shrink-0 gap-2">
                         <div className="flex items-center gap-2 min-w-0">
-                          <span className="p-1.5 rounded-[3px] bg-[#3a2c1c] text-[#e8dcbb] shrink-0"><Scroll size={16} /></span>
-                          <h3 className="font-serif text-[15px] font-bold tracking-[0.2em] text-[#241d0f] truncate">案牍卷宗</h3>
+                          <span className="p-1.5 rounded-[3px] bg-gold-850 text-paper-300 shrink-0"><Scroll size={16} /></span>
+                          <h3 className="font-serif text-[15px] font-bold tracking-[0.2em] text-ink-825 truncate">案牍卷宗</h3>
                         </div>
-                        <span className="text-[12px] font-sans font-bold text-[#4a3a22] bg-[#ece2ca] border border-[#b9a67e] rounded-full px-2 py-0.5 shrink-0">共 {baseClues.length} 卷</span>
+                        <span className="text-[12px] font-sans font-bold text-gold-850 bg-paper-200 border border-paper-450 rounded-full px-2 py-0.5 shrink-0">共 {baseClues.length} 卷</span>
                       </div>
                       <div className="flex-1 overflow-y-auto custom-scrollbar p-3 pb-24 space-y-3">
                         {baseClues.length === 0 ? (
-                          <div className="h-full w-full flex flex-col items-center justify-center text-[#6d5b3d] font-serif gap-3">
+                          <div className="h-full w-full flex flex-col items-center justify-center text-paper-600 font-serif gap-3">
                             <BookOpen size={40} className="opacity-50" />
-                            <p className="tracking-[0.2em] text-[14px] font-bold text-[#4a3a22] text-center">
+                            <p className="tracking-[0.2em] text-[14px] font-bold text-gold-850 text-center">
                               {currentCase?.status === 'closed' ? '此案已结，无线索记录' : '尚无线索，请在正文中选词收集'}
                             </p>
                           </div>
@@ -896,14 +896,14 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 z-40 px-2.5 py-1.5 rounded-full"
                           style={{ background: 'rgba(58,44,24,0.92)', boxShadow: '0 4px 16px rgba(20,14,6,0.4)' }}>
                           <button onClick={(e) => { e.stopPropagation(); setShowManualClue(true); }}
-                            className="flex items-center gap-1.5 px-2.5 py-1.5 bg-[#f2e9d2] border border-[#8a7556] rounded-full text-[#3a2f1c] hover:bg-[#fdf7e4] transition-all text-[12px] font-sans font-bold tracking-widest shadow-sm">
+                            className="flex items-center gap-1.5 px-2.5 py-1.5 bg-paper-125 border border-paper-550 rounded-full text-gold-850 hover:bg-paper-75 transition-all text-[12px] font-sans font-bold tracking-widest shadow-sm">
                             <Plus size={14} /> 线索
                           </button>
                           <button disabled={selectedClues.length !== 2 || isCombining} onClick={(e) => { e.stopPropagation(); handleCombine(); }}
                             className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border font-sans text-[12px] font-bold tracking-widest transition-all disabled:opacity-40 ${
                               selectedClues.length === 2
-                                ? 'bg-vermilion-700 border-vermilion-800 text-[#fff1e4] shadow-[0_0_14px_rgba(214,61,46,0.5)]'
-                                : 'bg-[#5c4830] border-[#7a5f40] text-[#e8dcbb]'
+                                ? 'bg-vermilion-700 border-vermilion-800 text-paper-75 shadow-[0_0_14px_rgba(214,61,46,0.5)]'
+                                : 'bg-gold-850 border-paper-600 text-paper-300'
                             }`}>
                             {isCombining ? <Loader2 size={14} className="animate-spin" /> : <Link2 size={15} />}
                             {isCombining ? '推演中' : `连结 ${selectedClues.length}/2`}
@@ -915,24 +915,24 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
 
                   {/* ── Tab 2: 推论总览 ── */}
                   {mobileTab === 'deductions' && (
-                    <div className="flex-1 flex flex-col bg-[#f2ead6] min-h-0">
-                      <div className="p-3 border-b-2 border-[#b9a67e] bg-[#e6dac0] flex justify-between items-center shrink-0 gap-2">
+                    <div className="flex-1 flex flex-col bg-paper-125 min-h-0">
+                      <div className="p-3 border-b-2 border-paper-450 bg-paper-300 flex justify-between items-center shrink-0 gap-2">
                         <div className="flex items-center gap-2 min-w-0">
-                          <span className="px-2 py-1 rounded-xs bg-vermilion-700 text-[#fff1e4] font-serif text-[12px] font-bold tracking-widest shadow-sm shrink-0">密奏</span>
-                          <h3 className="font-serif text-[15px] font-bold tracking-[0.2em] text-[#241d0f] truncate">臣勘合定谳</h3>
+                          <span className="px-2 py-1 rounded-xs bg-vermilion-700 text-paper-75 font-serif text-[12px] font-bold tracking-widest shadow-sm shrink-0">密奏</span>
+                          <h3 className="font-serif text-[15px] font-bold tracking-[0.2em] text-ink-825 truncate">臣勘合定谳</h3>
                         </div>
                         {currentCase?.status === 'active' && (
                           <button onClick={(e) => { e.stopPropagation(); setShowManualDeduction(true); }}
-                            className="flex items-center gap-1.5 px-2.5 py-1 text-vermilion-800 font-sans font-bold border border-vermilion-700/50 rounded-full hover:bg-vermilion-700/10 hover:border-vermilion-700 transition-all text-[12px] tracking-widest bg-[#f6efdc] shadow-sm shrink-0">
+                            className="flex items-center gap-1.5 px-2.5 py-1 text-vermilion-800 font-sans font-bold border border-vermilion-700/50 rounded-full hover:bg-vermilion-700/10 hover:border-vermilion-700 transition-all text-[12px] tracking-widest bg-paper-100 shadow-sm shrink-0">
                             <PenTool size={14} /> 朱批
                           </button>
                         )}
                       </div>
                       <div className="flex-1 overflow-y-auto custom-scrollbar p-3 pb-24 space-y-3">
                         {deductions.length === 0 ? (
-                          <div className="h-full w-full flex flex-col items-center justify-center text-[#6d5b3d] font-serif gap-3">
+                          <div className="h-full w-full flex flex-col items-center justify-center text-paper-600 font-serif gap-3">
                             <BookOpen size={40} className="opacity-50" />
-                            <p className="tracking-[0.2em] text-[14px] font-bold text-[#4a3a22] text-center max-w-60">
+                            <p className="tracking-[0.2em] text-[14px] font-bold text-gold-850 text-center max-w-60">
                               {currentCase?.status === 'closed' ? '此案已结，无推论记录' : '尚无推演定论，请于线索页择取两卷线索，方可提笔'}
                             </p>
                           </div>
@@ -947,17 +947,17 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                         style={{ background: 'rgba(58,44,24,0.92)', boxShadow: '0 4px 16px rgba(20,14,6,0.4)' }}>
                         {currentCase?.status === 'active' ? (
                           <button onClick={(e) => { e.stopPropagation(); startCloseCase(currentCase); }}
-                            className="flex items-center gap-1.5 px-2.5 py-1 bg-[#f2e9d2] border border-vermilion-700 rounded-full text-vermilion-800 hover:bg-[#ffe9d9] transition-all text-[12px] font-sans font-bold tracking-widest shadow-sm">
+                            className="flex items-center gap-1.5 px-2.5 py-1 bg-paper-125 border border-vermilion-700 rounded-full text-vermilion-800 hover:bg-paper-75 transition-all text-[12px] font-sans font-bold tracking-widest shadow-sm">
                             <Lock size={13} /> 结案
                           </button>
                         ) : currentCase && (
                           <>
                             <button onClick={(e) => { e.stopPropagation(); reopenCase(currentCase.id); }}
-                              className="flex items-center gap-1.5 px-2.5 py-1 bg-[#f2e9d2] border border-cyan-700/60 rounded-full text-cyan-700 hover:bg-[#e2f0ee] transition-all text-[12px] font-sans font-bold tracking-widest shadow-sm">
+                              className="flex items-center gap-1.5 px-2.5 py-1 bg-paper-125 border border-cyan-700/60 rounded-full text-cyan-700 hover:bg-paper-50 transition-all text-[12px] font-sans font-bold tracking-widest shadow-sm">
                               <Unlock size={13} /> 重开
                             </button>
                             <button onClick={(e) => { e.stopPropagation(); setDeletingCase(currentCase); }}
-                              className="flex items-center gap-1.5 px-2.5 py-1 bg-[#f2e9d2] border border-vermilion-700/40 rounded-full text-vermilion-700 hover:bg-[#ffe9d9] transition-all text-[12px] font-sans font-bold tracking-widest shadow-sm">
+                              className="flex items-center gap-1.5 px-2.5 py-1 bg-paper-125 border border-vermilion-700/40 rounded-full text-vermilion-700 hover:bg-paper-75 transition-all text-[12px] font-sans font-bold tracking-widest shadow-sm">
                               <Trash2 size={13} /> 焚卷
                             </button>
                           </>
@@ -968,19 +968,19 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
 
                   {/* ── Tab 3: 逻辑链（古风文字式推理脉络） ── */}
                   {mobileTab === 'chain' && (
-                    <div className="flex-1 flex flex-col bg-[#ede3cb] min-h-0">
-                      <div className="p-3 border-b-2 border-[#b9a67e] bg-[#ddd0b2] flex justify-between items-center shrink-0 gap-2">
+                    <div className="flex-1 flex flex-col bg-paper-200 min-h-0">
+                      <div className="p-3 border-b-2 border-paper-450 bg-paper-250 flex justify-between items-center shrink-0 gap-2">
                         <div className="flex items-center gap-2 min-w-0">
-                          <span className="px-2 py-1 rounded-xs bg-[#3a2c1c] text-[#e8dcbb] font-serif text-[12px] font-bold tracking-widest shadow-sm shrink-0">脉络</span>
-                          <h3 className="font-serif text-[15px] font-bold tracking-[0.2em] text-[#241d0f] truncate">推理逻辑链</h3>
+                          <span className="px-2 py-1 rounded-xs bg-gold-850 text-paper-300 font-serif text-[12px] font-bold tracking-widest shadow-sm shrink-0">脉络</span>
+                          <h3 className="font-serif text-[15px] font-bold tracking-[0.2em] text-ink-825 truncate">推理逻辑链</h3>
                         </div>
-                        <span className="text-[12px] font-sans font-bold text-[#4a3a22] bg-[#ece2ca] border border-[#b9a67e] rounded-full px-2 py-0.5 shrink-0">共 {deductions.length} 条</span>
+                        <span className="text-[12px] font-sans font-bold text-gold-850 bg-paper-200 border border-paper-450 rounded-full px-2 py-0.5 shrink-0">共 {deductions.length} 条</span>
                       </div>
                       <div className="flex-1 overflow-y-auto custom-scrollbar p-4 pb-24">
                         {deductions.length === 0 ? (
-                          <div className="h-full w-full flex flex-col items-center justify-center text-[#6d5b3d] font-serif gap-3">
+                          <div className="h-full w-full flex flex-col items-center justify-center text-paper-600 font-serif gap-3">
                             <BookOpen size={40} className="opacity-50" />
-                            <p className="tracking-[0.2em] text-[14px] font-bold text-[#4a3a22] text-center max-w-60">
+                            <p className="tracking-[0.2em] text-[14px] font-bold text-gold-850 text-center max-w-60">
                               {currentCase?.status === 'closed' ? '此案已结，无推理脉络' : '尚无推演定论，逻辑链待续'}
                             </p>
                           </div>
@@ -992,10 +992,10 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                                 .filter(Boolean) as typeof baseClues;
                               const dStatus = (ded.status || 'pending') as ClueStatus;
                               return (
-                                <div key={ded.id} className="relative bg-[#f6efdc] border border-[#c9b998] rounded-sm p-4 shadow-sm">
+                                <div key={ded.id} className="relative bg-paper-100 border border-paper-350 rounded-sm p-4 shadow-sm">
                                   {/* 序号朱印 */}
                                   <div className="absolute -top-2 -left-2 w-7 h-7 rounded-full bg-vermilion-700 border-2 border-vermilion-800 flex items-center justify-center shadow-md">
-                                    <span className="font-serif text-[13px] font-bold text-[#fff1e4]">{idx + 1}</span>
+                                    <span className="font-serif text-[13px] font-bold text-paper-75">{idx + 1}</span>
                                   </div>
 
                                   {/* 源线索 → 推论 */}
@@ -1005,14 +1005,14 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                                       <div className="flex flex-col gap-1.5">
                                         {sourceClues.map((src, i) => (
                                           <div key={src.id} className="flex items-start gap-2">
-                                            <span className="shrink-0 w-5 h-5 rounded-full bg-cyan-700 text-[#eaf4f1] flex items-center justify-center font-sans text-[10px] font-bold mt-0.5">
+                                            <span className="shrink-0 w-5 h-5 rounded-full bg-cyan-700 text-paper-50 flex items-center justify-center font-sans text-[10px] font-bold mt-0.5">
                                               {i + 1}
                                             </span>
                                             <div className="flex-1 min-w-0">
-                                              <p className="font-serif text-[13px] text-[#3a2f1c] leading-relaxed line-clamp-2">
+                                              <p className="font-serif text-[13px] text-gold-850 leading-relaxed line-clamp-2">
                                                 {src.text}
                                               </p>
-                                              <span className="font-sans text-[11px] text-[#6d5b3d]">{src.source}</span>
+                                              <span className="font-sans text-[11px] text-paper-600">{src.source}</span>
                                             </div>
                                           </div>
                                         ))}
@@ -1028,21 +1028,21 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                                   {/* 推论结果 */}
                                   <div className="flex items-start gap-2 pl-3 border-l-2 border-vermilion-700/30">
                                     <span className={`shrink-0 px-1.5 py-0.5 rounded-xs font-serif text-[11px] font-bold tracking-widest border ${
-                                      dStatus === 'true' ? 'bg-vermilion-700 text-[#fff1e4] border-vermilion-800' :
-                                      dStatus === 'false' ? 'bg-[#5a5a5a] text-[#f0f0f0] border-[#404040]' :
-                                      'bg-[#4c4132] text-[#f2e9d2] border-[#33291a]'
+                                      dStatus === 'true' ? 'bg-vermilion-700 text-paper-75 border-vermilion-800' :
+                                      dStatus === 'false' ? 'bg-ink-500 text-paper-50 border-ink-600' :
+                                      'bg-gold-850 text-paper-125 border-ink-800'
                                     }`}>
                                       {dStatus === 'true' ? '属实' : dStatus === 'false' ? '伪证' : '未定'}
                                     </span>
-                                    <p className="font-serif text-[14px] text-[#241d0f] leading-relaxed flex-1">
+                                    <p className="font-serif text-[14px] text-ink-825 leading-relaxed flex-1">
                                       {ded.text}
                                     </p>
                                   </div>
                                   {/* 来源标注 */}
                                   <div className="flex items-center gap-2 pl-3 mt-1">
-                                    <span className="font-sans text-[11px] text-[#6d5b3d]">{ded.source}</span>
-                                    <span className="text-[#c4b59d] text-[11px]">|</span>
-                                    <span className="font-sans text-[11px] text-[#7c6a49]">{ded.timestamp}</span>
+                                    <span className="font-sans text-[11px] text-paper-600">{ded.source}</span>
+                                    <span className="text-paper-400 text-[11px]">|</span>
+                                    <span className="font-sans text-[11px] text-paper-550">{ded.timestamp}</span>
                                   </div>
                                   </div>
                                 </div>
@@ -1077,11 +1077,11 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
             onBackdropClick={() => setDeletingCase(null)}
             onClose={() => setDeletingCase(null)}
           >
-            <p className="font-serif text-[16px] text-[#3a2f1c] leading-loose tracking-widest mb-2">
+            <p className="font-serif text-[16px] text-gold-850 leading-loose tracking-widest mb-2">
               案卷「<span className="font-bold text-vermilion-800">{deletingCase.name}</span>」连同其中线索、推论，
               <span className="text-vermilion-700 font-bold">一旦焚毁，不可复得</span>。
             </p>
-            <p className="font-sans text-[13px] text-[#6d5b3d] tracking-wide mb-6">
+            <p className="font-sans text-[13px] text-paper-600 tracking-wide mb-6">
               共计线索 {getCaseClues(deletingCase.id).filter(c => c.type === 'clue').length} 条，推论 {getCaseClues(deletingCase.id).filter(c => c.type === 'deduction').length} 条。
             </p>
             <div className="flex justify-end gap-3">
@@ -1140,35 +1140,35 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
             onClose={() => { setCombiningOptions(null); setEditingOptionIdx(null); setManualDeductionText(''); }}
             onBackdropClick={() => { setCombiningOptions(null); setEditingOptionIdx(null); setManualDeductionText(''); }}
           >
-            <p className="font-sans text-[14px] text-[#4a3a22] mb-4 tracking-wide leading-relaxed font-medium">以下乃司天台推演所得，可直接采录、润色后采录，或自拟一条：</p>
+            <p className="font-sans text-[14px] text-gold-850 mb-4 tracking-wide leading-relaxed font-medium">以下乃司天台推演所得，可直接采录、润色后采录，或自拟一条：</p>
             <div className="flex flex-col gap-3 mb-4">
               {combiningOptions.options.map((option, idx) => (
-                <div key={idx} className="text-left p-4 bg-[#f0e8d3] border border-[#c9b68b] hover:border-[#8a7556] hover:shadow-md transition-all group rounded-sm relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-full h-0.75 bg-[#c9b68b]/60" />
+                <div key={idx} className="text-left p-4 bg-paper-200 border border-paper-350 hover:border-paper-550 hover:shadow-md transition-all group rounded-sm relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-full h-0.75 bg-paper-350/60" />
                   {editingOptionIdx === idx ? (
                     <div className="flex flex-col gap-2">
                       <textarea value={editingOptionValue} onChange={e => setEditingOptionValue(e.target.value)}
-                        className="w-full bg-transparent border-b-2 border-[#8a7556] text-[#241d12] text-[14px] font-sans outline-none resize-none" rows={2} autoFocus />
+                        className="w-full bg-transparent border-b-2 border-paper-550 text-ink-825 text-[14px] font-sans outline-none resize-none" rows={2} autoFocus />
                       <div className="flex justify-end gap-2">
-                        <button onClick={() => setEditingOptionIdx(null)} className="text-[#6d5b3d] hover:text-[#3d3018] hover:bg-[#6d5b3d]/10 p-1.5 rounded-sm transition-all" title="取消"><X size={15} /></button>
+                        <button onClick={() => setEditingOptionIdx(null)} className="text-paper-600 hover:text-gold-850 hover:bg-paper-600/10 p-1.5 rounded-sm transition-all" title="取消"><X size={15} /></button>
                         <button onClick={confirmEditedOption} className="text-vermilion-700 hover:text-vermilion-600 hover:bg-vermilion-700/10 p-1.5 rounded-sm transition-all" title="确认"><Check size={15} /></button>
                       </div>
                     </div>
                   ) : (
                     <div className="flex items-center justify-between gap-2">
-                      <button onClick={() => selectDeductionOption(option.text, option.truth)} className="flex-1 text-left font-serif text-[15px] tracking-wide leading-relaxed text-[#241d12] hover:text-[#4a3a22] transition-colors">{option.text}</button>
+                      <button onClick={() => selectDeductionOption(option.text, option.truth)} className="flex-1 text-left font-serif text-[15px] tracking-wide leading-relaxed text-ink-825 hover:text-gold-850 transition-colors">{option.text}</button>
                       <button onClick={() => { setEditingOptionIdx(idx); setEditingOptionValue(option.text); }}
-                        className="text-[#6d5b3d] hover:text-vermilion-700 hover:bg-vermilion-700/10 transition-all opacity-70 group-hover:opacity-100 shrink-0 p-1.5 rounded-sm" title="润色后采录"><Edit2 size={15} /></button>
+                        className="text-paper-600 hover:text-vermilion-700 hover:bg-vermilion-700/10 transition-all opacity-70 group-hover:opacity-100 shrink-0 p-1.5 rounded-sm" title="润色后采录"><Edit2 size={15} /></button>
                     </div>
                   )}
                 </div>
               ))}
             </div>
-            <div className="border-t border-[#c9b68b] pt-4">
-              <p className="font-sans text-[13px] font-bold text-[#6d5b3d] mb-2 tracking-wide">或自行拟一道推论：</p>
+            <div className="border-t border-paper-350 pt-4">
+              <p className="font-sans text-[13px] font-bold text-paper-600 mb-2 tracking-wide">或自行拟一道推论：</p>
               <div className="flex gap-2">
                 <input value={manualDeductionText} onChange={e => setManualDeductionText(e.target.value)} placeholder="自拟推论…"
-                  className="flex-1 bg-[#f0e8d3] border border-[#b9a67e] px-3 py-2 text-[#241d12] text-[14px] font-sans focus:border-[#6d5b3d] outline-none transition-colors placeholder:text-[#7a6949] rounded-sm"
+                  className="flex-1 bg-paper-200 border border-paper-450 px-3 py-2 text-ink-825 text-[14px] font-sans focus:border-paper-600 outline-none transition-colors placeholder:text-paper-550 rounded-sm"
                   onKeyDown={e => { if (e.key === 'Enter' && manualDeductionText.trim()) { selectDeductionOption(manualDeductionText); } }} />
                 <button onClick={() => selectDeductionOption(manualDeductionText)} disabled={!manualDeductionText.trim()}
                   className="px-4 py-2 bg-vermilion-700/12 border border-vermilion-700/50 text-vermilion-800 font-sans text-[14px] font-bold tracking-widest hover:bg-vermilion-700/22 hover:border-vermilion-700 transition-all rounded-sm disabled:opacity-40 shadow-sm">采录</button>
@@ -1185,13 +1185,13 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
             title="亲 笔 推 论"
             onBackdropClick={() => { setShowManualDeduction(false); setManualDeductionText(''); }}
           >
-            {selectedClues.length > 0 && <p className="font-sans text-[13px] font-bold text-[#6d5b3d] mb-2 tracking-wide">已择 {selectedClues.length} 条源线索，推论将系于此。</p>}
+            {selectedClues.length > 0 && <p className="font-sans text-[13px] font-bold text-paper-600 mb-2 tracking-wide">已择 {selectedClues.length} 条源线索，推论将系于此。</p>}
             <textarea value={manualDeductionText} onChange={e => setManualDeductionText(e.target.value)} placeholder="将你的推演，书于此处…" rows={4}
               className={dialogInputCls} autoFocus />
             <div className="flex justify-end gap-3 mt-5">
               <button onClick={() => { setShowManualDeduction(false); setManualDeductionText(''); }} className={dialogBtnGhostCls}>作罢</button>
               <button onClick={handleManualDeduction}
-                className="px-5 py-2 text-[14px] font-sans font-bold tracking-[0.25em] pl-[calc(1.25rem+0.25em)] text-[#fff1e4] rounded-sm border border-vermilion-800 bg-vermilion-700 hover:bg-vermilion-800 transition-all shadow-md">记入</button>
+                className="px-5 py-2 text-[14px] font-sans font-bold tracking-[0.25em] pl-[calc(1.25rem+0.25em)] text-paper-75 rounded-sm border border-vermilion-800 bg-vermilion-700 hover:bg-vermilion-800 transition-all shadow-md">记入</button>
             </div>
           </PaperDialog>
         )}
@@ -1210,18 +1210,18 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
           >
             {/* 案件名称 */}
             <div className="mb-4">
-              <label className="font-sans text-[13px] text-[#5a4a2e] block mb-1.5 tracking-[0.2em] font-bold">案件名称</label>
+              <label className="font-sans text-[13px] text-gold-850 block mb-1.5 tracking-[0.2em] font-bold">案件名称</label>
               <input value={closeCaseName} onChange={e => setCloseCaseName(e.target.value)}
                 className={`${dialogInputCls} font-serif tracking-[0.12em]`} />
             </div>
             {/* 关键词 */}
             <div className="mb-4">
-              <label className="font-sans text-[13px] text-[#5a4a2e] block mb-1.5 tracking-[0.2em] font-bold">关键词<span className="ml-2 text-[12px] text-[#7a6949] tracking-normal font-medium">（结案后绿灯激活用）</span></label>
+              <label className="font-sans text-[13px] text-gold-850 block mb-1.5 tracking-[0.2em] font-bold">关键词<span className="ml-2 text-[12px] text-paper-550 tracking-normal font-medium">（结案后绿灯激活用）</span></label>
               <div className="flex gap-2 mb-2">
                 <input value={closeKeywordInput} onChange={e => setCloseKeywordInput(e.target.value)}
                   onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); addKeyword(); } }}
                   placeholder="输入关键词后回车" disabled={isClosing}
-                  className="flex-1 bg-[#f0e8d3] border border-[#b9a67e] px-3 py-1.5 text-[#241d12] text-[14px] font-sans focus:border-vermilion-700 outline-none transition-colors placeholder:text-[#7a6949] rounded-sm" />
+                  className="flex-1 bg-paper-200 border border-paper-450 px-3 py-1.5 text-ink-825 text-[14px] font-sans focus:border-vermilion-700 outline-none transition-colors placeholder:text-paper-550 rounded-sm" />
                 <button onClick={addKeyword} disabled={isClosing || !closeKeywordInput.trim()}
                   className="px-3 py-1.5 bg-vermilion-700/12 border border-vermilion-700/50 text-vermilion-800 font-sans text-[14px] font-bold hover:bg-vermilion-700/22 hover:border-vermilion-700 transition-all rounded-sm disabled:opacity-40 shadow-sm">
                   <Plus size={15} />
@@ -1240,7 +1240,7 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
             </div>
             {/* 结案陈词 */}
             <div className="mb-4">
-              <label className="font-sans text-[13px] text-[#5a4a2e] block mb-1.5 tracking-[0.2em] font-bold">结案陈词</label>
+              <label className="font-sans text-[13px] text-gold-850 block mb-1.5 tracking-[0.2em] font-bold">结案陈词</label>
               <textarea value={closeStatement} onChange={e => setCloseStatement(e.target.value)}
                 placeholder="以钦天监保章正的身份书写结案陈词…" rows={5} disabled={isClosing}
                 className={dialogInputCls} />
@@ -1248,13 +1248,13 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
             {/* 推理记录只读展示 */}
             {currentCase && (
               <div className="mb-4">
-                <label className="font-sans text-[13px] text-[#5a4a2e] block mb-1.5 tracking-[0.2em] font-bold">推理记录<span className="ml-2 text-[12px] text-[#7a6949] tracking-normal font-medium">（只读）</span></label>
-                <div className="bg-[#f0e8d3] border border-[#b9a67e] p-3 max-h-40 overflow-y-auto custom-scrollbar rounded-sm">
+                <label className="font-sans text-[13px] text-gold-850 block mb-1.5 tracking-[0.2em] font-bold">推理记录<span className="ml-2 text-[12px] text-paper-550 tracking-normal font-medium">（只读）</span></label>
+                <div className="bg-paper-200 border border-paper-450 p-3 max-h-40 overflow-y-auto custom-scrollbar rounded-sm">
                   {currentCaseClues.filter(c => c.type === 'deduction').length === 0 ? (
-                    <p className="text-[#6d5b3d] text-[13px] font-sans font-medium">无推论记录</p>
+                    <p className="text-paper-600 text-[13px] font-sans font-medium">无推论记录</p>
                   ) : (
                     currentCaseClues.filter(c => c.type === 'deduction').map((d, i) => (
-                      <div key={d.id} className="text-[13px] font-sans text-[#3a2f1c] mb-1 tracking-wide font-medium">
+                      <div key={d.id} className="text-[13px] font-sans text-gold-850 mb-1 tracking-wide font-medium">
                         {i + 1}. {d.text}
                       </div>
                     ))

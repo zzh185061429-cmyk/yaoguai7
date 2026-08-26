@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback, useEffect, useRef, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect, useRef, useMemo, ReactNode } from 'react';
 import { Screen, NotificationType, ClueStatus } from '../types';
 import { createCaseEntry, updateCaseEntry, closeCaseEntry, deleteCaseEntry } from '../utils/clueWorldbook';
 import { loadSubApi, isSubApiReady, type SubApiConfig } from '../utils/subApi';
@@ -57,7 +57,6 @@ interface GameContextProps {
   cases: CaseInfo[];
   addClue: (text: string, source: string, caseId: string, type?: ClueType, position?: { x: number, y: number }) => void;
   removeClue: (id: string) => void;
-  updateCluePosition: (id: string, position: { x: number, y: number }) => void;
   editClue: (id: string, text: string) => void;
   updateDeductionStatus: (id: string, status: ClueStatus) => void;
   clueConnections: [string, string][];
@@ -208,9 +207,8 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const isViewingHistory = viewingFloorId !== null;
 
-  const setViewingFloor = (floorId: number | null) => {
-    setViewingFloorId(floorId);
-  };
+  // 直接复用 stable setter，避免每轮重建包装函数导致消费方重渲染
+  const setViewingFloor = setViewingFloorId;
 
   // ── state 的 ref 镜像 ──
   const cluesRef = useRef<Clue[]>([]);
@@ -342,26 +340,37 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       setStoryVersion(v => v + 1);
     }));
 
-    const pollInterval = setInterval(syncLatestFloor, 3000);
     syncLatestFloor();
 
     return () => {
       stops.forEach(stop => stop());
-      clearInterval(pollInterval);
     };
   }, []);
 
-  const addNotification = (message: string, type: 'info' | 'warning' | 'success' = 'info') => {
+  // ── 通知系统（记忆化，避免 value 每轮重建拖累所有消费方）──
+  const notificationTimersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  const removeNotification = useCallback((id: string) => {
+    setNotifications((prev) => prev.filter((n) => n.id !== id));
+  }, []);
+
+  const addNotification = useCallback((message: string, type: 'info' | 'warning' | 'success' = 'info') => {
     const id = genId();
     setNotifications((prev) => [...prev, { id, message, type }]);
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       removeNotification(id);
+      notificationTimersRef.current = notificationTimersRef.current.filter(t => t !== timer);
     }, 4000);
-  };
+    notificationTimersRef.current.push(timer);
+  }, [removeNotification]);
 
-  const removeNotification = (id: string) => {
-    setNotifications((prev) => prev.filter((n) => n.id !== id));
-  };
+  // 卸载时清理所有未触发的通知定时器
+  useEffect(() => {
+    return () => {
+      notificationTimersRef.current.forEach(t => clearTimeout(t));
+      notificationTimersRef.current = [];
+    };
+  }, []);
 
   // ── 案件管理 ──
 
@@ -507,11 +516,6 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       const caseClues = cluesRef.current.filter(c => c.caseId === caseId && c.id !== id);
       updateCaseEntry(caseId, caseInfo.name, caseClues, caseInfo.status === 'closed', caseInfo.closingStatement);
     }
-  }, [updateCluesAndCases]);
-
-  /** 更新线索位置 */
-  const updateCluePosition = useCallback((id: string, position: { x: number, y: number }) => {
-    updateCluesAndCases(prev => prev.map(c => c.id === id ? { ...c, position } : c));
   }, [updateCluesAndCases]);
 
   /** 编辑线索/推论文本 */
@@ -691,23 +695,32 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     addNotification('得出新推论！', 'success');
   }, [updateCluesAndCases]);
 
+  // value 记忆化：函数引用稳定 + state 进 deps，state 未变时 value 不重建，
+  // 避免无谓地触发所有 useGameContext 消费方重渲染。
+  const contextValue = useMemo(() => ({
+    currentScreen, setCurrentScreen, galleryTab, setGalleryTab,
+    notifications, addNotification, removeNotification,
+    clues, cases, addClue, removeClue, editClue, updateDeductionStatus, clueConnections, combineClues, commitDeduction,
+    createCase, closeCase, reopenCase, deleteCase, getCaseClues,
+    isInvestigating, setIsInvestigating,
+    isCombining,
+    viewingFloorId, setViewingFloor, lastAssistantFloorId, isViewingHistory,
+    isGenerating, generatingFloorId, startGenerating, finishGenerating,
+    playerName, setPlayerName,
+    pendingMessage, setPendingMessage,
+    scriptCharacterLocations, setScriptCharacterLocations,
+    gameTime, setGameTime,
+    weatherParticlesEnabled, setWeatherParticlesEnabled,
+    storyVersion,
+  }), [
+    currentScreen, galleryTab, notifications, clues, cases, clueConnections,
+    isInvestigating, isCombining, viewingFloorId, lastAssistantFloorId,
+    isGenerating, generatingFloorId, playerName, pendingMessage,
+    scriptCharacterLocations, gameTime, weatherParticlesEnabled, storyVersion,
+  ]);
+
   return (
-    <GameContext.Provider value={{
-      currentScreen, setCurrentScreen, galleryTab, setGalleryTab,
-      notifications, addNotification, removeNotification,
-      clues, cases, addClue, removeClue, updateCluePosition, editClue, updateDeductionStatus, clueConnections, combineClues, commitDeduction,
-      createCase, closeCase, reopenCase, deleteCase, getCaseClues,
-      isInvestigating, setIsInvestigating,
-      isCombining,
-      viewingFloorId, setViewingFloor, lastAssistantFloorId, isViewingHistory,
-      isGenerating, generatingFloorId, startGenerating, finishGenerating,
-      playerName, setPlayerName,
-      pendingMessage, setPendingMessage,
-      scriptCharacterLocations, setScriptCharacterLocations,
-      gameTime, setGameTime,
-      weatherParticlesEnabled, setWeatherParticlesEnabled,
-      storyVersion,
-    }}>
+    <GameContext.Provider value={contextValue}>
       {children}
     </GameContext.Provider>
   );

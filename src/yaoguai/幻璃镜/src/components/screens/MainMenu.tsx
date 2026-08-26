@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useGameContext } from '../../store/GameContext';
 import { AtmosphereEffect } from '../ui/AtmosphereEffect';
@@ -7,6 +7,7 @@ import { sfx } from '../../audio/sfxPlayer';
 export const MainMenu: React.FC = () => {
   const { setCurrentScreen } = useGameContext();
   const [isOpening, setIsOpening] = useState(false);
+  const openTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleOpenDossier = () => {
     if (isOpening) return;
@@ -14,10 +15,16 @@ export const MainMenu: React.FC = () => {
     sfx.play('pageTurn');
 
     // 案卷翻阅动画后进入游戏
-    setTimeout(() => {
+    openTimerRef.current = setTimeout(() => {
       setCurrentScreen('game');
     }, 700);
   };
+
+  useEffect(() => {
+    return () => {
+      if (openTimerRef.current) clearTimeout(openTimerRef.current);
+    };
+  }, []);
 
   return (
     <motion.div 
@@ -26,26 +33,26 @@ export const MainMenu: React.FC = () => {
       exit={{ opacity: 0, scale: 1.03 }}
       transition={{ duration: 0.6, ease: "easeInOut" }}
       onClick={handleOpenDossier}
-      className="relative w-full h-screen overflow-hidden bg-[#0c0906] select-none font-serif flex flex-col items-center justify-between py-12 px-6 cursor-pointer"
+      className="relative w-full h-screen overflow-hidden bg-ink-900 select-none font-serif flex flex-col items-center justify-between py-12 px-6 cursor-pointer"
       id="screen-main-menu"
     >
       {/* 水墨素雅暗纹底图 */}
       <div 
         className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1528646927357-55d81b29a286?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-15 mix-blend-luminosity scale-100 pointer-events-none"
       />
-      <div className="absolute inset-0 bg-linear-to-b from-[#0e0a07]/95 via-[#120d09]/85 to-[#080504]/98 pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-ink-850/95 via-ink-850/85 to-ink-975/98 pointer-events-none" />
       <AtmosphereEffect />
 
       {/* 宣纸线装古籍装订线与仿古回纹铜角 */}
-      <div className="absolute inset-4 sm:inset-8 border border-[#4d3c26]/60 pointer-events-none rounded-xs">
+      <div className="absolute inset-4 sm:inset-8 border border-gold-850/60 pointer-events-none rounded-xs">
         <div className="absolute inset-1.5 border border-gold-700/20 pointer-events-none" />
         
         {/* 左侧线装古籍孔眼与穿线效果 */}
         <div className="hidden sm:flex absolute left-4 inset-y-6 flex-col justify-between items-center py-6 pointer-events-none">
           {[...Array(6)].map((_, i) => (
             <div key={i} className="flex flex-col items-center">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#080504] border border-[#6b583e]" />
-              {i < 5 && <div className="w-0.5 h-16 bg-[#52432d]/40" />}
+              <div className="w-2.5 h-2.5 rounded-full bg-ink-975 border border-gold-750" />
+              {i < 5 && <div className="w-0.5 h-16 bg-gold-800/40" />}
             </div>
           ))}
         </div>
@@ -72,7 +79,7 @@ export const MainMenu: React.FC = () => {
           className="relative mb-6 flex items-center justify-center group"
         >
           {/* 青铜外圈 */}
-          <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border-4 border-[#78591c] bg-[#1a130c] shadow-[0_0_35px_rgba(0,0,0,0.8)] relative overflow-hidden flex items-center justify-center">
+          <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border-4 border-gold-650 bg-ink-825 shadow-[0_0_35px_rgba(0,0,0,0.8)] relative overflow-hidden flex items-center justify-center">
             {/* 镜面幽光 */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(72,139,133,0.25)_0%,transparent_70%)]" />
             <div className="absolute inset-2 rounded-full border border-gold-700/40" />
@@ -97,7 +104,7 @@ export const MainMenu: React.FC = () => {
           className="relative mb-3"
         >
           <h1 className="text-6xl sm:text-7xl md:text-8xl text-paper-50 tracking-[0.25em] font-bold drop-shadow-[0_8px_20px_rgba(0,0,0,0.9)] pl-[0.25em]">
-            <span className="bg-linear-to-b from-[#ffffff] via-[#faeed0] to-paper-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-b from-paper-50 via-paper-100 to-paper-400 bg-clip-text text-transparent">
               幻璃镜
             </span>
           </h1>
@@ -108,7 +115,7 @@ export const MainMenu: React.FC = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.6 }}
-          className="bg-[#18120c]/90 border border-[#52432d] py-3 px-6 rounded-xs shadow-xl my-4 max-w-sm w-full relative overflow-hidden backdrop-blur-sm"
+          className="bg-ink-800/90 border border-gold-800 py-3 px-6 rounded-xs shadow-xl my-4 max-w-sm w-full relative overflow-hidden backdrop-blur-sm"
         >
           <div className="flex items-center justify-center gap-2.5">
             <p className="text-sm tracking-[0.15em] text-paper-50 font-bold">
@@ -129,7 +136,7 @@ export const MainMenu: React.FC = () => {
         transition={{ delay: 0.4, duration: 0.6 }}
         className="relative z-20 flex flex-col items-center gap-2 pb-3"
       >
-        <div className="px-7 py-2.5 bg-[#22180f] hover:bg-[#302215] border border-gold-700 text-gold-300 hover:text-paper-50 rounded-xs font-serif text-sm tracking-[0.35em] transition-all shadow-md active:scale-95 pl-[0.35em]">
+        <div className="px-7 py-2.5 bg-ink-750 hover:bg-gold-850 border border-gold-700 text-gold-300 hover:text-paper-50 rounded-xs font-serif text-sm tracking-[0.35em] transition-all shadow-md active:scale-95 pl-[0.35em]">
           【 翻 阅 卷 宗 · 启 案 】
         </div>
         <span className="text-[11px] font-serif tracking-widest text-paper-600">
@@ -146,10 +153,10 @@ export const MainMenu: React.FC = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             style={{ originX: 0 }}
-            className="fixed inset-0 z-50 bg-[#120d09] border-r-4 border-gold-700 flex items-center justify-center shadow-2xl"
+            className="fixed inset-0 z-50 bg-ink-850 border-r-4 border-gold-700 flex items-center justify-center shadow-2xl"
           >
             <div className="text-center space-y-3 font-serif">
-              <div className="w-12 h-12 rounded-full border-2 border-gold-500 mx-auto flex items-center justify-center bg-[#22170e] text-gold-300 text-lg font-bold">
+              <div className="w-12 h-12 rounded-full border-2 border-gold-500 mx-auto flex items-center justify-center bg-ink-750 text-gold-300 text-lg font-bold">
                 卷
               </div>
               <p className="text-xl text-gold-300 tracking-[0.4em] font-bold pl-[0.4em]">

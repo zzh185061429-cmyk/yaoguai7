@@ -14,6 +14,7 @@ interface HUDProps {
   onOpenSettings: () => void;
   onOpenManual: () => void;
   onOpenCalendar: () => void;
+  onOpenMap: () => void;
   onOpenClues?: () => void;
   onOpenHarem?: () => void;
   onRegenerate: () => void;
@@ -74,10 +75,10 @@ function TraditionalTagButton({
   );
 }
 
-export function HUD({
+export const HUD = React.memo(function HUD({
   isFullscreen, onToggleFullscreen,
   onOpenThinking, onOpenVariables, onOpenReading, onOpenDelete,
-  onOpenSettings, onOpenManual, onOpenCalendar, onOpenClues, onOpenHarem,
+  onOpenSettings, onOpenManual, onOpenCalendar, onOpenMap, onOpenClues, onOpenHarem,
   onRegenerate, regenerating,
 }: HUDProps) {
   const isMobile = useIsMobile();
@@ -111,7 +112,7 @@ export function HUD({
             exit={{ y: -30, opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={() => setIsCollapsed(false)}
-            className="bg-[#18120b] border-2 border-t-0 border-[#78591c] rounded-b-xs shadow-[0_8px_20px_rgba(0,0,0,0.8)] px-4 py-1.5 flex items-center gap-2 hover:brightness-110 active:scale-95 transition-all text-gold-300 cursor-pointer"
+            className="bg-ink-800 border-2 border-t-0 border-gold-650 rounded-b-xs shadow-[0_8px_20px_rgba(0,0,0,0.8)] px-4 py-1.5 flex items-center gap-2 hover:brightness-110 active:scale-95 transition-all text-gold-300 cursor-pointer"
             title="展布案牍仪轨"
           >
             <span className="text-xs font-serif text-gold-500">▼</span>
@@ -127,7 +128,7 @@ export function HUD({
             exit={{ y: -40, opacity: 0 }}
             transition={{ duration: 0.2 }}
             className={cn(
-              "bg-[#150f0a]/95 backdrop-blur-md border border-[#52432d] border-t-0",
+              "bg-ink-825/95 backdrop-blur-md border border-gold-800 border-t-0",
               isLarge ? "py-2.5 px-4" : "py-1.5 px-3",
               isMobile
                 ? "w-full min-w-0 border-x-0"
@@ -135,7 +136,7 @@ export function HUD({
             )}
           >
             {/* 顶栏暗铜装订边线 */}
-            <div className="absolute top-0 inset-x-0 h-0.5 bg-linear-to-r from-transparent via-[#8a7047] to-transparent pointer-events-none" />
+            <div className="absolute top-0 inset-x-0 h-0.5 bg-linear-to-r from-transparent via-paper-550 to-transparent pointer-events-none" />
 
             <div ref={scrollRef} onWheel={handleWheel} className={cn("flex items-center w-full min-w-0", isMobile ? "gap-1 justify-start overflow-x-auto hide-scrollbar py-0.5 [-webkit-overflow-scrolling:touch]" : isLarge ? "gap-2" : "gap-1.5")}>
               
@@ -145,7 +146,7 @@ export function HUD({
                   id="btn-hud-collapse"
                   onClick={() => setIsCollapsed(true)}
                   className={cn(
-                    "shrink-0 flex items-center justify-center bg-[#20160d] text-gold-300 hover:text-paper-50 hover:bg-[#302115] transition-colors border border-[#6b5437] rounded-xs cursor-pointer",
+                    "shrink-0 flex items-center justify-center bg-ink-750 text-gold-300 hover:text-paper-50 hover:bg-gold-850 transition-colors border border-gold-800 rounded-xs cursor-pointer",
                     isLarge ? "w-8 h-8 text-xs font-serif" : "w-6 h-6 text-[10px] font-serif",
                   )}
                   title="收起案牍"
@@ -154,7 +155,7 @@ export function HUD({
                 </button>
               )}
 
-              {!isMobile && <div className={cn("w-px bg-[#453624] shrink-0", sepHeight)} />}
+              {!isMobile && <div className={cn("w-px bg-gold-850 shrink-0", sepHeight)} />}
 
               {/* 屏息全屏 */}
               <TraditionalTagButton
@@ -162,7 +163,7 @@ export function HUD({
                 onClick={onToggleFullscreen}
                 title={isFullscreen ? "退出屏息" : "全屏屏息"}
                 label={isFullscreen ? "常态" : "屏息"}
-                colorStyle="bg-[#1c140c] border-[#5e4930] text-paper-200 hover:border-[#a8894d]"
+                colorStyle="bg-ink-850 border-gold-850 text-paper-200 hover:border-gold-550"
                 isMobile={isMobile}
                 isLarge={isLarge}
               />
@@ -170,7 +171,7 @@ export function HUD({
               {/* 楼层导航 */}
               <FloorSelector isLarge={isLarge} />
 
-              {!isMobile && <div className={cn("w-px bg-[#453624] shrink-0", sepHeight)} />}
+              {!isMobile && <div className={cn("w-px bg-gold-850 shrink-0", sepHeight)} />}
 
               {/* 通书时历 */}
               <TraditionalTagButton
@@ -178,7 +179,18 @@ export function HUD({
                 onClick={onOpenCalendar}
                 title="岁时通书与时辰"
                 label="通书"
-                colorStyle="bg-[#24180d] border-[#8a6828] text-gold-300 hover:border-gold-500"
+                colorStyle="bg-ink-825 border-gold-600 text-gold-300 hover:border-gold-500"
+                isMobile={isMobile}
+                isLarge={isLarge}
+              />
+
+              {/* 乾坤舆图 */}
+              <TraditionalTagButton
+                id="btn-hud-map"
+                onClick={onOpenMap}
+                title="乾坤舆图志"
+                label="舆图"
+                colorStyle="bg-ink-825 border-gold-600 text-gold-300 hover:border-gold-500"
                 isMobile={isMobile}
                 isLarge={isLarge}
               />
@@ -190,7 +202,7 @@ export function HUD({
                   onClick={onOpenClues}
                   title="案卷密札推演"
                   label="密札"
-                  colorStyle="bg-[#220d0a] border-vermilion-800 text-vermilion-300 hover:border-vermilion-600"
+                  colorStyle="bg-ink-850 border-vermilion-800 text-vermilion-300 hover:border-vermilion-600"
                   isMobile={isMobile}
                   isLarge={isLarge}
                 />
@@ -203,13 +215,13 @@ export function HUD({
                   onClick={onOpenHarem}
                   title="红颜画卷·灵魅谱"
                   label="红颜"
-                  colorStyle="bg-[#260e0a] border-[#9c251b] text-vermilion-300 hover:border-vermilion-400"
+                  colorStyle="bg-vermilion-950 border-vermilion-700 text-vermilion-300 hover:border-vermilion-400"
                   isMobile={isMobile}
                   isLarge={isLarge}
                 />
               )}
 
-              {!isMobile && <div className={cn("w-px bg-[#453624] shrink-0", sepHeight)} />}
+              {!isMobile && <div className={cn("w-px bg-gold-850 shrink-0", sepHeight)} />}
 
               {/* 剧情与思辨 */}
               <TraditionalTagButton
@@ -217,7 +229,7 @@ export function HUD({
                 onClick={onOpenReading}
                 title="案情溯回录"
                 label="溯回"
-                colorStyle="bg-[#101b1b] border-[#225757] text-cyan-300 hover:border-cyan-700"
+                colorStyle="bg-cyan-900 border-cyan-700 text-cyan-300 hover:border-cyan-700"
                 isMobile={isMobile}
                 isLarge={isLarge}
               />
@@ -227,7 +239,7 @@ export function HUD({
                 onClick={onOpenThinking}
                 title="灵境神识思维链"
                 label="神识"
-                colorStyle="bg-[#101b1b] border-[#225757] text-cyan-300 hover:border-cyan-700"
+                colorStyle="bg-cyan-900 border-cyan-700 text-cyan-300 hover:border-cyan-700"
                 isMobile={isMobile}
                 isLarge={isLarge}
               />
@@ -237,12 +249,12 @@ export function HUD({
                 onClick={onOpenVariables}
                 title="天机造化变量"
                 label="天机"
-                colorStyle="bg-[#241a0d] border-[#8a6828] text-[#e8c86b] hover:border-gold-500"
+                colorStyle="bg-ink-825 border-gold-600 text-gold-400 hover:border-gold-500"
                 isMobile={isMobile}
                 isLarge={isLarge}
               />
 
-              {!isMobile && <div className={cn("w-px bg-[#453624] shrink-0", sepHeight)} />}
+              {!isMobile && <div className={cn("w-px bg-gold-850 shrink-0", sepHeight)} />}
 
               {/* 焚卷 */}
               <TraditionalTagButton
@@ -250,12 +262,12 @@ export function HUD({
                 onClick={onOpenDelete}
                 title="焚卷抽条（删除楼层）"
                 label="焚卷"
-                colorStyle="bg-[#220d09] border-[#881c14] text-[#e85a4a] hover:border-[#ba291d]"
+                colorStyle="bg-ink-850 border-vermilion-800 text-vermilion-400 hover:border-vermilion-600"
                 isMobile={isMobile}
                 isLarge={isLarge}
               />
 
-              {!isMobile && <div className={cn("w-px bg-[#453624] shrink-0", sepHeight)} />}
+              {!isMobile && <div className={cn("w-px bg-gold-850 shrink-0", sepHeight)} />}
 
               {/* 系统与通鉴 */}
               <TraditionalTagButton
@@ -264,7 +276,7 @@ export function HUD({
                 title="重新问卜推演"
                 label={regenerating ? "推演中" : "重演"}
                 disabled={regenerating}
-                colorStyle="bg-[#1c140c] border-[#5e4930] text-paper-200 hover:border-[#a8894d]"
+                colorStyle="bg-ink-850 border-gold-850 text-paper-200 hover:border-gold-550"
                 isMobile={isMobile}
                 isLarge={isLarge}
               />
@@ -274,7 +286,7 @@ export function HUD({
                 onClick={onOpenSettings}
                 title="仪轨设置"
                 label="仪轨"
-                colorStyle="bg-[#1a140f] border-[#5a4630] text-paper-400 hover:border-gold-700"
+                colorStyle="bg-ink-800 border-gold-850 text-paper-400 hover:border-gold-700"
                 isMobile={isMobile}
                 isLarge={isLarge}
               />
@@ -284,7 +296,7 @@ export function HUD({
                 onClick={onOpenManual}
                 title="操作通鉴"
                 label="通鉴"
-                colorStyle="bg-[#241a0d] border-[#8a6828] text-[#e8c86b] hover:border-gold-500"
+                colorStyle="bg-ink-825 border-gold-600 text-gold-400 hover:border-gold-500"
                 isMobile={isMobile}
                 isLarge={isLarge}
               />
@@ -294,4 +306,4 @@ export function HUD({
       </AnimatePresence>
     </div>
   );
-}
+});

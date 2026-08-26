@@ -8,17 +8,31 @@
   --color-ink-500: #525252;
   --color-ink-600: #3f3f3f;
   --color-ink-700: #262626;
+  --color-ink-750: #1f1c18;
   --color-ink-800: #181512;
+  --color-ink-825: #140e0a;
   --color-ink-850: #120f0d;
+  --color-ink-875: #0c0906;
   --color-ink-900: #0a0908;
+  --color-ink-925: #070503;
   --color-ink-950: #050403;
+  --color-ink-975: #080503;
 
   --color-paper-50: #faf8f2;
+  --color-paper-75: #fdf7e4;
   --color-paper-100: #f6f1e5;
+  --color-paper-125: #f2e9d2;
+  --color-paper-150: #efe6cb;
+  --color-paper-175: #e8dfc6;
   --color-paper-200: #eee5d3;
+  --color-paper-250: #ddd0b2;
   --color-paper-300: #e0d4be;
+  --color-paper-350: #c9b68b;
   --color-paper-400: #cbbaa0;
+  --color-paper-450: #b9a67e;
   --color-paper-500: #b59f82;
+  --color-paper-550: #8a7556;
+  --color-paper-600: #6d5b3d;
 
   --color-vermilion-300: #e87060;
   --color-vermilion-400: #df5645;
@@ -40,14 +54,26 @@
   --color-gold-300: #eed68e;
   --color-gold-400: #ddbf63;
   --color-gold-500: #c5a43f;
+  --color-gold-550: #b89552;
   --color-gold-600: #a9872a;
+  --color-gold-650: #78591c;
   --color-gold-700: #88691b;
+  --color-gold-750: #6b583e;
+  --color-gold-800: #52432d;
+  --color-gold-850: #423522;
   --color-gold-900: #463409;
   --color-gold-950: #261c04;
 
   --color-jade-400: #48a87b;
   --color-jade-500: #338d62;
   --color-jade-700: #1e593d;
+
+  /* 靛蓝系 — 线索面板夜间色 */
+  --color-indigo-300: #36497a;
+  --color-indigo-400: #2d3e67;
+  --color-indigo-500: #26355a;
+  --color-indigo-600: #222f52;
+  --color-indigo-700: #1b2743;
 }
 
 @layer base {
@@ -59,7 +85,7 @@
 
 /* ── 古籍宣纸与印泥质感 ── */
 .paper-texture {
-  background-color: #f7f2e4;
+  background-color: var(--color-paper-150);
   background-image: 
     radial-gradient(rgba(180, 155, 120, 0.15) 1px, transparent 0),
     radial-gradient(rgba(140, 115, 80, 0.08) 1px, transparent 0);
@@ -68,7 +94,7 @@
 }
 
 .paper-dark-texture {
-  background-color: #15120e;
+  background-color: var(--color-ink-750);
   background-image: 
     radial-gradient(rgba(218, 185, 130, 0.04) 1px, transparent 0),
     radial-gradient(rgba(190, 60, 45, 0.03) 1px, transparent 0);
@@ -82,8 +108,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #b02b1f;
-  color: #b02b1f;
+  border: 2px solid var(--color-vermilion-600);
+  color: var(--color-vermilion-600);
   background: rgba(176, 43, 31, 0.08);
   font-family: var(--font-calligraphy), serif;
   box-shadow: inset 0 0 4px rgba(176, 43, 31, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -91,8 +117,8 @@
 }
 
 .seal-stamp-green {
-  border: 2px solid #1e593d;
-  color: #1e593d;
+  border: 2px solid var(--color-jade-700);
+  color: var(--color-jade-700);
   background: rgba(30, 89, 61, 0.08);
   font-family: var(--font-calligraphy), serif;
   transform: rotate(2deg);
@@ -162,10 +188,10 @@
   }
   .phone-frame {
     border-radius: 1.5rem;
-    border: 3px solid #3d3222;
+    border: 3px solid var(--color-gold-800);
     box-shadow:
-      0 0 0 1px #1a150e,
-      0 0 0 6px #0c0a08,
+      0 0 0 1px var(--color-ink-800),
+      0 0 0 6px var(--color-ink-875),
       0 25px 70px rgba(0, 0, 0, 0.8),
       0 0 30px rgba(197, 164, 63, 0.08);
   }

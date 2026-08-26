@@ -1,15 +1,11 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useGameContext } from '../../store/GameContext';
-import { SettingsModal } from '../modals/SettingsModal';
-import { HistoryLogModal } from '../modals/HistoryLogModal';
-import { ClueNotebookModal } from '../modals/ClueNotebookModal';
-import { CalendarModal } from '../modals/CalendarModal';
-import { ThinkingModal } from '../modals/ThinkingModal';
-import { VariablesModal } from '../modals/VariablesModal';
-import { ManualModal } from '../modals/ManualModal';
-import { DeleteFloorModal } from '../modals/DeleteFloorModal';
-import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, X, Radio, Play, Pause, Zap, FastForward, History, Users, Image as ImageIcon, Book, Search, Send, Loader } from 'lucide-react';
+import { GameModals, type ModalType } from '../ui/GameModals';
+import { OptionsPanel } from '../ui/OptionsPanel';
+import { EmotionEffects } from '../ui/EmotionEffects';
+import { CharacterSprites } from '../ui/CharacterSprites';
+import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, X, Play, Pause, Zap, FastForward, History, Search, Send, Loader } from 'lucide-react';
 import { AtmosphereEffect } from '../ui/AtmosphereEffect';
 import { TextSelectionClue } from '../ui/TextSelectionClue';
 import { MusicPlayerWidget } from '../ui/MusicPlayerWidget';
@@ -22,79 +18,12 @@ import { textSettings, useTextSettings, getTextDelay } from '../../audio/textSet
 import { parseScriptContent, parseOptions, parseParallelEvents, parseSceneImageTag, ScriptLine, ParallelEvent } from '../../scriptParser';
 import { getAssistantFloors } from '../../utils/floorNav';
 import { regenerateCurrentFloor } from '../../utils/interaction';
+import { getParentJQuery, getSelfIframe, restoreIframeHeight } from '../../utils/iframeGuard';
 import { SAMPLE_CHARACTERS } from '../../data/sampleData';
+import { displayName, EMOTION_EFFECTS, getCharacterThemeColor, type SceneCharacter } from '../../utils/gameConstants';
+import { getLocationImageSmart } from '../../data/locationImages';
 
-// ── 场景角色信息（多角色同屏）──
-interface SceneCharacter {
-  speaker: string;
-  emotion: string;
-  sprite: string;
-  position: 'left' | 'center' | 'right';
-  isActive: boolean;
-}
-
-/** 将 <user> 替换为显示名 */
-function displayName(name: string, playerName?: string): string {
-  if (name === '<user>') return playerName || '我';
-  return name;
-}
-
-/** 情绪对应的屏幕特效 */
-const EMOTION_EFFECTS: Record<string, {
-  shake?: boolean;
-  flashColor?: string;
-  vignette?: string;
-}> = {
-  '生气': { shake: true, vignette: 'rgba(214,61,46,0.08)' },
-  '惊讶': { shake: true, flashColor: 'rgba(255,255,255,0.2)' },
-  '害羞': { vignette: 'rgba(232,112,96,0.1)' },
-  '害怕': { vignette: 'rgba(0,0,0,0.25)' },
-  '伤心': { vignette: 'rgba(10,10,10,0.15)' },
-  '开心': { vignette: 'rgba(212,183,90,0.08)' },
-  '吃醋': { vignette: 'rgba(184,45,32,0.1)' },
-};
-
-/** 获取切换动画配置 */
-function getTransitionConfig(emotion: string) {
-  switch (emotion) {
-    case '生气':
-    case '惊讶':
-      return {
-        initial: { opacity: 0, scale: 1.08, x: 8 },
-        animate: { opacity: 1, scale: 1, x: 0 },
-        transition: { duration: 0.18, type: 'spring' as const, stiffness: 350 }
-      };
-    case '害羞':
-    case '害怕':
-      return {
-        initial: { opacity: 0, scale: 0.96, y: 12 },
-        animate: { opacity: 1, scale: 1, y: 0 },
-        transition: { duration: 0.35, ease: 'easeOut' as const }
-      };
-    case '伤心':
-      return {
-        initial: { opacity: 0, y: 25 },
-        animate: { opacity: 0.92, y: 0 },
-        transition: { duration: 0.45 }
-      };
-    default:
-      return {
-        initial: { opacity: 0, y: 18 },
-        animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.28 }
-      };
-  }
-}
-
-/** 从角色名获取主题色（数据驱动：查 SAMPLE_CHARACTERS 的 themeColor） */
-function getCharacterThemeColor(speaker?: string): 'cyan' | 'vermilion' | 'gold' {
-  if (!speaker) return 'cyan';
-  for (const key of Object.keys(SAMPLE_CHARACTERS)) {
-    const char = SAMPLE_CHARACTERS[key as keyof typeof SAMPLE_CHARACTERS];
-    if (char.name === speaker) return char.themeColor === 'vermilion' ? 'vermilion' : 'cyan';
-  }
-  return 'cyan';
-}
+// ── 场景角色信息、常量和工具函数已提取到 utils/gameConstants.ts ──
 
 export const GameScreen: React.FC = () => {
   const {
@@ -107,6 +36,7 @@ export const GameScreen: React.FC = () => {
     weatherParticlesEnabled,
     isInvestigating, setIsInvestigating,
     setGameTime, storyVersion,
+    gameTime,
   } = useGameContext();
   const isMobile = useIsMobile();
   const { textSpeed, autoWaitMultiplier } = useTextSettings();
@@ -114,7 +44,7 @@ export const GameScreen: React.FC = () => {
   // ── 全屏状态 ──
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [regenerating, setRegenerating] = useState(false);
-  const [activeModal, setActiveModal] = useState<'settings' | 'history' | 'clues' | 'calendar' | 'thinking' | 'variables' | 'delete' | 'manual' | null>(null);
+  const [activeModal, setActiveModal] = useState<ModalType>(null);
 
   // ── 剧本播放状态 ──
   const [script, setScript] = useState<ScriptLine[]>([]);
@@ -132,54 +62,23 @@ export const GameScreen: React.FC = () => {
   const [isTextBoxCollapsed, setIsTextBoxCollapsed] = useState(false);
   const [isInputMode, setIsInputMode] = useState(false);
   const [inputText, setInputText] = useState('');
+  const [sceneImageInfo, setSceneImageInfo] = useState<{ path?: string; weather: 'sunny' | 'cloudy'; time: 'day' | 'night' } | undefined>();
   const inputTextareaRef = useRef<HTMLTextAreaElement>(null);
 
   const skipTypingRef = useRef(false);
   const prevLocationKeyRef = useRef<string | null>(null);
   const touchStartRef = useRef<number | null>(null);
 
-  // ── 恢复 iframe 撑大高度 ──
-  const restoreIframeHeight = useCallback(() => {
-    try {
-      let parent$: any = null;
-      try {
-        if (typeof window !== 'undefined' && window.parent && window.parent !== window) {
-          parent$ = (window.parent as any).$;
-        }
-      } catch {
-        parent$ = null;
-      }
-      if (!parent$) return;
-
-      let iframe: HTMLIFrameElement | null = null;
-      try {
-        iframe = window.frameElement as HTMLIFrameElement | null;
-      } catch {
-        iframe = null;
-      }
-      if (!iframe) return;
-
-      // 先清除全屏时的内联样式，再撑大高度
-      parent$(iframe).css({ width: '', position: '', top: '', left: '', 'z-index': '', 'max-width': '', 'max-height': '' });
-      const targetH = isMobile ? 700 : 800;
-      parent$(iframe).css({ height: `${targetH}px` });
-    } catch {
-      // ignore
-    }
+  // ── 恢复 iframe 撑大高度（委托给 iframeGuard 工具函数） ──
+  const restoreHeight = useCallback(() => {
+    restoreIframeHeight(isMobile);
   }, [isMobile]);
 
   // ── 全屏：安全尝试操作父页面 DOM ──
-  const toggleFullscreen = async () => {
-    try {
-      let parent$: any = null;
-      try {
-        if (typeof window !== 'undefined' && window.parent && window.parent !== window) {
-          parent$ = (window.parent as any).$;
-        }
-      } catch {
-        parent$ = null;
-      }
+  const toggleFullscreen = useCallback(async () => {
+    const parent$ = getParentJQuery();
 
+    try {
       if (!parent$) {
         if (!isFullscreen) {
           try {
@@ -203,12 +102,7 @@ export const GameScreen: React.FC = () => {
         return;
       }
 
-      let iframe: HTMLIFrameElement | null = null;
-      try {
-        iframe = window.frameElement as HTMLIFrameElement | null;
-      } catch {
-        iframe = null;
-      }
+      const iframe = getSelfIframe();
 
       const $mes = iframe ? parent$(iframe).closest('.mes') : parent$('#chat .mes').last();
       if (!isFullscreen) {
@@ -233,43 +127,31 @@ export const GameScreen: React.FC = () => {
         (window as any).__mirageFullscreen = false;
         setIsFullscreen(false);
         // 退出全屏后重新撑大 iframe 高度
-        restoreIframeHeight();
+        restoreHeight();
         console.info('[幻璃镜] 已退出全屏模式');
       }
     } catch (err) {
       console.warn('[幻璃镜] 全屏切换异常:', err);
     }
-  };
+  }, [isFullscreen, restoreHeight]);
 
   useEffect(() => {
     const onFsChange = async () => {
       try {
         if (!document.fullscreenElement && isFullscreen) {
-          let parent$: any = null;
-          try {
-            if (typeof window !== 'undefined' && window.parent && window.parent !== window) {
-              parent$ = (window.parent as any).$;
-            }
-          } catch {
-            parent$ = null;
-          }
+          const parent$ = getParentJQuery();
           if (!parent$) {
             setIsFullscreen(false);
             return;
           }
-          let iframe: HTMLIFrameElement | null = null;
-          try {
-            iframe = window.frameElement as HTMLIFrameElement | null;
-          } catch {
-            iframe = null;
-          }
+          const iframe = getSelfIframe();
           const $mes = iframe ? parent$(iframe).closest('.mes') : parent$('#chat .mes').last();
           $mes.css({ position: '', top: '', left: '', width: '', height: '', 'z-index': '', 'max-width': '', 'max-height': '' });
           parent$('#tavern-mirage-fs-hide').remove();
           (window as any).__mirageFullscreen = false;
           setIsFullscreen(false);
           // 浏览器全屏退出后重新撑大 iframe 高度
-          restoreIframeHeight();
+          restoreHeight();
           console.info('[幻璃镜] 浏览器全屏退出，已同步退出伪全屏');
         }
       } catch (err) {
@@ -283,21 +165,9 @@ export const GameScreen: React.FC = () => {
   useEffect(() => {
     return () => {
       try {
-        let parent$: any = null;
-        try {
-          if (typeof window !== 'undefined' && window.parent && window.parent !== window) {
-            parent$ = (window.parent as any).$;
-          }
-        } catch {
-          parent$ = null;
-        }
+        const parent$ = getParentJQuery();
         if (!parent$) return;
-        let iframe: HTMLIFrameElement | null = null;
-        try {
-          iframe = window.frameElement as HTMLIFrameElement | null;
-        } catch {
-          iframe = null;
-        }
+        const iframe = getSelfIframe();
         const $mes = iframe ? parent$(iframe).closest('.mes') : parent$('#chat .mes').last();
         $mes.css({ position: '', top: '', left: '', width: '', height: '', 'z-index': '', 'max-width': '', 'max-height': '' });
         if (iframe) parent$(iframe).css({ width: '', height: '' });
@@ -342,6 +212,18 @@ export const GameScreen: React.FC = () => {
     return { path: '未知', displayName: '未知' };
   }, [script, currentIndex]);
 
+  // ── 场景背景 CG 图 ──
+  const sceneBgUrl = useMemo(() => {
+    // 优先用 sceneImageInfo 的 path，退回到 sceneLocation.path
+    const locPath = sceneImageInfo?.path || sceneLocation.path;
+    if (!locPath || locPath === '未知') return undefined;
+    // 智能查找：室内场景只查昼/夜，室外场景按晴阴雪×昼夜查找
+    const isNight = sceneImageInfo ? sceneImageInfo.time === 'night' : gameTime >= 18 || gameTime < 6;
+    const weather = sceneImageInfo ? (sceneImageInfo.weather === 'cloudy' ? 'cloudy' : 'sunny') : 'sunny';
+    const time = isNight ? 'night' : 'day';
+    return getLocationImageSmart(locPath, weather, time);
+  }, [sceneImageInfo, sceneLocation.path, gameTime]);
+
   // ── 楼层切换时解析剧本 ──
   useEffect(() => {
     if (targetFloorId == null) {
@@ -351,6 +233,7 @@ export const GameScreen: React.FC = () => {
       setCurrentIndex(0);
       setSceneCharacters([]);
       prevLocationKeyRef.current = null;
+      setSceneImageInfo(undefined);
       return;
     }
     try {
@@ -367,9 +250,10 @@ export const GameScreen: React.FC = () => {
         setCurrentIndex(0);
         setSceneCharacters([]);
         prevLocationKeyRef.current = null;
-        // 场景图片标签 → 昼夜时间（驱动氛围特效/背景色调）
+        // 场景图片标签 → 昼夜时间 + 天气 + 路径（驱动背景CG + 氛围特效）
         const sceneImage = parseSceneImageTag(msg.message);
         if (sceneImage?.time) setGameTime(sceneImage.time === 'night' ? 21 : 12);
+        setSceneImageInfo(sceneImage);
         parsed.forEach(line => { if (line.sprite) { const img = new Image(); img.src = line.sprite; } });
       } else {
         setScript([]);
@@ -378,6 +262,7 @@ export const GameScreen: React.FC = () => {
         setCurrentIndex(0);
         setSceneCharacters([]);
         prevLocationKeyRef.current = null;
+        setSceneImageInfo(undefined);
       }
     } catch {
       console.warn('StoryView: 无法读取楼层', targetFloorId, '的消息文本');
@@ -585,7 +470,7 @@ export const GameScreen: React.FC = () => {
     sfx.play('confirm'); setPendingMessage(option); setOptionsDismissed(true);
   }, [setPendingMessage]);
 
-  const handleRegenerate = async () => {
+  const handleRegenerate = useCallback(async () => {
     setRegenerating(true); startGenerating();
     console.info('[幻璃镜] 开始重新生成...');
     const result = await regenerateCurrentFloor(targetFloorId);
@@ -595,7 +480,7 @@ export const GameScreen: React.FC = () => {
       addNotification(result.error, 'warning');
     }
     setRegenerating(false); finishGenerating();
-  };
+  }, [startGenerating, targetFloorId, regenerateCurrentFloor, addNotification, finishGenerating]);
 
   // ── 内嵌输入模式：文本区切换为输入框 ──
   const handleEnterInputMode = useCallback(() => {
@@ -663,29 +548,36 @@ export const GameScreen: React.FC = () => {
     return '幻璃镜';
   }, [currentLine]);
 
+  // ── HUD 处理器记忆化：HUD 已包 React.memo，handler stable 后打字/楼层未变时 HUD 跳过重渲染 ──
+  const openHarem = useCallback(() => {
+    setGalleryTab('characters');
+    setCurrentScreen('gallery');
+  }, [setGalleryTab, setCurrentScreen]);
+
+  const hudHandlers = useMemo(() => ({
+    onToggleFullscreen: toggleFullscreen,
+    onOpenThinking: () => setActiveModal('thinking'),
+    onOpenVariables: () => setActiveModal('variables'),
+    onOpenReading: () => setActiveModal('history'),
+    onOpenDelete: () => setActiveModal('delete'),
+    onOpenSettings: () => setActiveModal('settings'),
+    onOpenManual: () => setActiveModal('manual'),
+    onOpenCalendar: () => setActiveModal('calendar'),
+    onOpenMap: () => setActiveModal('map'),
+    onOpenClues: () => setActiveModal('clues'),
+    onRegenerate: handleRegenerate,
+  }), [toggleFullscreen, handleRegenerate, setActiveModal]);
+
   // 空状态
   if (!currentLine && script.length === 0) {
     return (
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
         className="relative w-full h-screen bg-ink-900 overflow-hidden flex flex-col" id="screen-game">
-        <HUD isFullscreen={isFullscreen} onToggleFullscreen={toggleFullscreen}
-          onOpenThinking={() => setActiveModal('thinking')} onOpenVariables={() => setActiveModal('variables')}
-          onOpenReading={() => setActiveModal('history')} onOpenDelete={() => setActiveModal('delete')}
-          onOpenSettings={() => setActiveModal('settings')} onOpenManual={() => setActiveModal('manual')}
-          onOpenCalendar={() => setActiveModal('calendar')}
-          onOpenClues={() => setActiveModal('clues')}
-          onRegenerate={handleRegenerate} regenerating={regenerating} />
+        <HUD isFullscreen={isFullscreen} regenerating={regenerating} {...hudHandlers} />
         <div className="flex-1 flex items-center justify-center">
           <p className="text-paper-200/50 text-xl font-serif tracking-widest">等待剧情内容...</p>
         </div>
-        <SettingsModal isOpen={activeModal === 'settings'} onClose={() => setActiveModal(null)} />
-        <HistoryLogModal isOpen={activeModal === 'history'} onClose={() => setActiveModal(null)} />
-        <ClueNotebookModal isOpen={activeModal === 'clues'} onClose={() => setActiveModal(null)} />
-        <CalendarModal isOpen={activeModal === 'calendar'} onClose={() => setActiveModal(null)} />
-        <ThinkingModal isOpen={activeModal === 'thinking'} onClose={() => setActiveModal(null)} />
-        <VariablesModal isOpen={activeModal === 'variables'} onClose={() => setActiveModal(null)} />
-        <ManualModal isOpen={activeModal === 'manual'} onClose={() => setActiveModal(null)} />
-<DeleteFloorModal isOpen={activeModal === 'delete'} onClose={() => setActiveModal(null)} />
+        <GameModals activeModal={activeModal} onClose={() => setActiveModal(null)} />
 <MusicPlayerWidget />
       </motion.div>
     );
@@ -710,14 +602,7 @@ export const GameScreen: React.FC = () => {
         id="screen-game-mobile"
       >
         {/* ════ HUD ════ */}
-        <HUD isFullscreen={isFullscreen} onToggleFullscreen={toggleFullscreen}
-          onOpenThinking={() => setActiveModal('thinking')} onOpenVariables={() => setActiveModal('variables')}
-          onOpenReading={() => setActiveModal('history')} onOpenDelete={() => setActiveModal('delete')}
-          onOpenSettings={() => setActiveModal('settings')} onOpenManual={() => setActiveModal('manual')}
-          onOpenCalendar={() => setActiveModal('calendar')}
-          onOpenClues={() => setActiveModal('clues')}
-          onOpenHarem={() => { setGalleryTab('characters'); setCurrentScreen('gallery'); }}
-          onRegenerate={handleRegenerate} regenerating={regenerating} />
+        <HUD isFullscreen={isFullscreen} regenerating={regenerating} onOpenHarem={openHarem} {...hudHandlers} />
 
         {/* ════ 上半视觉区 (60%) ════ */}
         <div
@@ -745,10 +630,20 @@ export const GameScreen: React.FC = () => {
           }}
         >
           {/* 背景层 */}
-          <div className="absolute inset-0 z-0">
-            <div className="w-full h-full bg-ink-900 flex items-center justify-center">
-              <div className="text-paper-200/20 text-2xl font-serif tracking-[0.3em]">{displayLocationName}</div>
-            </div>
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            <AnimatePresence mode="wait">
+              {sceneBgUrl ? (
+                <motion.img key={sceneBgUrl} src={sceneBgUrl} alt={displayLocationName}
+                  initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }} transition={{ duration: 0.6, ease: 'easeOut' }}
+                  className="w-full h-full object-cover" />
+              ) : (
+                <motion.div key="fallback" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                  className="w-full h-full bg-ink-900 flex items-center justify-center">
+                  <div className="text-paper-200/20 text-2xl font-serif tracking-[0.3em]">{displayLocationName}</div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           {/* 底部渐变遮罩 */}
@@ -758,65 +653,18 @@ export const GameScreen: React.FC = () => {
           {weatherParticlesEnabled && <AtmosphereEffect />}
 
           {/* 立绘层 — 限制在上半区内 */}
-          <div className="absolute inset-0 z-15 pointer-events-none overflow-hidden">
-            <AnimatePresence mode="popLayout">
-              {sceneCharacters.map((char) => (
-                <motion.div
-                  key={char.speaker}
-                  className={cn(
-                    "absolute bottom-0 w-full h-full flex items-end justify-center transition-all duration-300 pointer-events-none",
-                    sceneCharacters.length >= 2 && char.position === 'center' && "justify-start pl-[3%]",
-                    sceneCharacters.length < 2 && char.position === 'center' && "justify-center",
-                    char.position === 'left' && "justify-start pl-[3%]",
-                    char.position === 'right' && "justify-end pr-[3%]",
-                  )}
-                  style={{
-                    filter: char.isActive ? 'none' : 'brightness(0.55) grayscale(0.35)',
-                    zIndex: char.isActive ? 16 : 15,
-                    transform: char.isActive ? 'scale(1)' : 'scale(0.96)',
-                    transition: 'filter 0.3s ease, transform 0.3s ease',
-                  }}
-                  {...getTransitionConfig(char.emotion)}
-                >
-                  {char.sprite && (
-                    <img src={char.sprite} alt={`${char.speaker}-${char.emotion}`}
-                      className={cn(
-                        "max-h-[80%] object-contain object-bottom",
-                        sceneCharacters.length <= 1 ? "max-w-full" : sceneCharacters.length === 2 ? "max-w-[45%]" : "max-w-[31%]",
-                      )}
-                      style={{
-                        maskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)',
-                        WebkitMaskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)',
-                        filter: 'drop-shadow(0 0 20px rgba(0,0,0,0.5))',
-                      }}
-                      loading="eager" />
-                  )}
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
+          <CharacterSprites characters={sceneCharacters} variant="mobile" />
 
           {/* 情绪特效 */}
-          <div className="absolute inset-0 z-18 pointer-events-none">
-            {screenEffect?.shake && (
-              <motion.div animate={{ x: [0, -4, 4, -4, 4, 0] }} transition={{ duration: 0.25 }} className="w-full h-full" />
-            )}
-            {screenEffect?.vignette && (
-              <div className="absolute inset-0" style={{ boxShadow: `inset 0 0 200px ${screenEffect.vignette}` }} />
-            )}
-            {screenEffect?.flashColor && (
-              <motion.div initial={{ opacity: 1 }} animate={{ opacity: 0 }} transition={{ duration: 0.25 }}
-                className="absolute inset-0" style={{ backgroundColor: screenEffect.flashColor }} />
-            )}
-          </div>
+          <EmotionEffects shake={screenEffect?.shake} flashColor={screenEffect?.flashColor} vignette={screenEffect?.vignette} />
 
           {/* 平行事件面板 — 手机端古典木签版 */}
           <AnimatePresence mode="wait">
             {parallelEvents.length > 0 && showParallelEvents && (
               <motion.div key="pe-m-expanded" initial={{ x: -200, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -200, opacity: 0 }}
                 transition={{ duration: 0.3 }} className="absolute top-2 left-2 z-30 max-w-64 pointer-events-auto">
-                <div className="bg-[#140e0a]/95 backdrop-blur-md border border-[#6b583e] rounded-xs shadow-2xl overflow-hidden font-serif">
-                  <div className="flex items-center justify-between bg-[#241810] px-2.5 py-1 border-b border-[#4d3822]">
+                <div className="bg-ink-825/95 backdrop-blur-md border border-gold-750 rounded-xs shadow-2xl overflow-hidden font-serif">
+                  <div className="flex items-center justify-between bg-ink-825 px-2.5 py-1 border-b border-gold-850">
                     <div className="flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-gold-500 animate-pulse" />
                       <span className="text-xs text-gold-300 font-bold tracking-widest">八荒异闻 · 同时演进</span>
@@ -828,7 +676,7 @@ export const GameScreen: React.FC = () => {
                   </div>
                   <div className="p-2 space-y-2 max-h-48 overflow-y-auto custom-scrollbar">
                     {parallelEvents.map((evt, i) => (
-                      <div key={i} className="border-l-2 border-vermilion-800 pl-2 bg-[#1b120b]/80 p-1.5 rounded-xs border-r border-t border-b border-ink-800">
+                      <div key={i} className="border-l-2 border-vermilion-800 pl-2 bg-ink-825/80 p-1.5 rounded-xs border-r border-t border-b border-ink-800">
                         <div className="text-gold-300 text-xs font-bold tracking-wider mb-0.5 flex items-center justify-between">
                           <span>{evt.location}</span>
                           <span className="text-[10px] text-paper-600">【异动】</span>
@@ -843,7 +691,7 @@ export const GameScreen: React.FC = () => {
             {parallelEvents.length > 0 && !showParallelEvents && (
               <motion.button key="pe-m-collapsed" initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -50, opacity: 0 }}
                 onClick={(e) => { e.stopPropagation(); setShowParallelEvents(true); }}
-                className="absolute top-2 left-2 z-30 bg-[#1f150e]/95 border border-gold-700 px-2 py-1 rounded-xs hover:scale-105 active:scale-95 transition-all pointer-events-auto flex items-center gap-1 text-gold-300 text-xs font-serif shadow-md cursor-pointer"
+                className="absolute top-2 left-2 z-30 bg-ink-750/95 border border-gold-700 px-2 py-1 rounded-xs hover:scale-105 active:scale-95 transition-all pointer-events-auto flex items-center gap-1 text-gold-300 text-xs font-serif shadow-md cursor-pointer"
                 title="展开八荒异闻">
                 <span className="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse" />
                 <span>异闻</span>
@@ -868,7 +716,7 @@ export const GameScreen: React.FC = () => {
                 <motion.div key={currentLine.speaker} initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }}
                   className="flex items-center gap-2 mb-1 shrink-0">
                   {currentLine.avatar && (
-                    <div className={`w-9 h-9 bg-[#1a1510] border-2 flex items-center justify-center overflow-hidden relative transform -skew-x-3 ${isCyan ? 'border-cyan-700' : 'border-vermilion-700'}`}>
+                    <div className={`w-9 h-9 bg-ink-800 border-2 flex items-center justify-center overflow-hidden relative transform -skew-x-3 ${isCyan ? 'border-cyan-700' : 'border-vermilion-700'}`}>
                       <img src={currentLine.avatar} alt="avatar" className="w-full h-full object-cover object-top scale-110" />
                     </div>
                   )}
@@ -909,7 +757,7 @@ export const GameScreen: React.FC = () => {
               <ChevronLeft className="w-3.5 h-3.5" />
             </button>
             <button onClick={(e) => { e.stopPropagation(); setIsAutoMode(prev => !prev); }}
-              className={`flex items-center gap-1 px-2 py-1 border transition-colors rounded-xs text-xs shrink-0 ${isAutoMode ? 'bg-[#382b18] border-gold-500 text-gold-300' : 'bg-ink-800/60 border-ink-700/50 text-paper-200 hover:text-gold-300 hover:border-gold-500/50'}`}
+              className={`flex items-center gap-1 px-2 py-1 border transition-colors rounded-xs text-xs shrink-0 ${isAutoMode ? 'bg-gold-850 border-gold-500 text-gold-300' : 'bg-ink-800/60 border-ink-700/50 text-paper-200 hover:text-gold-300 hover:border-gold-500/50'}`}
               title={isAutoMode ? '关闭 Auto' : '开启 Auto'}>
               {isAutoMode ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
             </button>
@@ -949,47 +797,13 @@ export const GameScreen: React.FC = () => {
         </div>
 
         {/* 选项面板 — 全屏覆盖 */}
-        <AnimatePresence>
-          {showOptions && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}
-              className="absolute inset-0 z-35 bg-ink-900/85 backdrop-blur-md flex items-center justify-center p-4">
-              <button onClick={() => setOptionsDismissed(true)}
-                className="absolute top-4 right-4 z-40 p-2 bg-gold-500 text-ink-900 hover:scale-110 transition-transform rounded font-serif"
-                title="关闭选项">
-                <X className="w-5 h-5" />
-              </button>
-              <motion.div initial={{ scale: 0.85, opacity: 0, y: 30 }} animate={{ scale: 1, opacity: 1, y: 0 }}
-                exit={{ scale: 0.85, opacity: 0, y: 30 }} transition={{ type: "spring", damping: 20, stiffness: 200, delay: 0.1 }}
-                className="w-full max-w-2xl flex flex-col gap-2 relative z-10">
-                {options.map((option, i) => {
-                  const colorScheme = i % 2 === 0
-                    ? "bg-cyan-900/60 border-cyan-500/50 text-cyan-300"
-                    : "bg-vermilion-900/60 border-vermilion-500/50 text-vermilion-300";
-                  return (
-                    <motion.button key={i} initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.15 + i * 0.08, type: "spring", damping: 18 }}
-                      onClick={() => handleSelectOption(option)}
-                      className={cn(
-                        "flex items-center gap-3 p-3 border-2 font-serif text-left rounded",
-                        "hover:scale-[1.03] active:scale-95 transition-all duration-150 group relative overflow-hidden",
-                        colorScheme
-                      )}>
-                      {optionChibis[i] && (
-                        <div className="relative z-10 shrink-0 w-12 h-12 flex items-center justify-center">
-                          <img src={optionChibis[i]} alt="chibi"
-                            className="w-full h-full object-contain group-hover:scale-125 group-hover:-rotate-6 transition-transform drop-shadow-[2px_2px_0_rgba(0,0,0,0.3)]"
-                            loading="eager" />
-                        </div>
-                      )}
-                      <span className="relative z-10 flex-1 text-sm leading-snug">{option}</span>
-                      <ChevronRight className="relative z-10 w-5 h-5 shrink-0 group-hover:translate-x-2 transition-transform" />
-                    </motion.button>
-                  );
-                })}
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <OptionsPanel
+          show={showOptions}
+          options={options}
+          optionChibis={optionChibis}
+          onDismiss={() => setOptionsDismissed(true)}
+          onSelect={handleSelectOption}
+        />
 
         {/* 历史记录侧边栏 — 全屏覆盖 */}
         <AnimatePresence>
@@ -1027,14 +841,7 @@ export const GameScreen: React.FC = () => {
         </AnimatePresence>
 
         {/* 模态框 */}
-        <SettingsModal isOpen={activeModal === 'settings'} onClose={() => setActiveModal(null)} />
-        <HistoryLogModal isOpen={activeModal === 'history'} onClose={() => setActiveModal(null)} />
-        <ClueNotebookModal isOpen={activeModal === 'clues'} onClose={() => setActiveModal(null)} />
-        <CalendarModal isOpen={activeModal === 'calendar'} onClose={() => setActiveModal(null)} />
-        <ThinkingModal isOpen={activeModal === 'thinking'} onClose={() => setActiveModal(null)} />
-        <VariablesModal isOpen={activeModal === 'variables'} onClose={() => setActiveModal(null)} />
-        <ManualModal isOpen={activeModal === 'manual'} onClose={() => setActiveModal(null)} />
-<DeleteFloorModal isOpen={activeModal === 'delete'} onClose={() => setActiveModal(null)} />
+        <GameModals activeModal={activeModal} onClose={() => setActiveModal(null)} />
 
 <TextSelectionClue />
 <MusicPlayerWidget />
@@ -1054,10 +861,20 @@ export const GameScreen: React.FC = () => {
       className="relative w-full h-screen bg-ink-900 overflow-hidden" id="screen-game"
     >
       {/* ════ 背景层 ════ */}
-      <div className="absolute inset-0 z-0">
-        <div className="w-full h-full bg-ink-900 flex items-center justify-center">
-          <div className="text-paper-200/20 text-3xl font-serif tracking-[0.3em]">{displayLocationName}</div>
-        </div>
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <AnimatePresence mode="wait">
+          {sceneBgUrl ? (
+            <motion.img key={sceneBgUrl} src={sceneBgUrl} alt={displayLocationName}
+              initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }} transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="w-full h-full object-cover" />
+          ) : (
+            <motion.div key="fallback" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              className="w-full h-full bg-ink-900 flex items-center justify-center">
+              <div className="text-paper-200/20 text-3xl font-serif tracking-[0.3em]">{displayLocationName}</div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* 底部渐变遮罩 */}
@@ -1067,70 +884,21 @@ export const GameScreen: React.FC = () => {
       {weatherParticlesEnabled && <AtmosphereEffect />}
 
       {/* ════ HUD ════ */}
-      <HUD isFullscreen={isFullscreen} onToggleFullscreen={toggleFullscreen}
-        onOpenThinking={() => setActiveModal('thinking')} onOpenVariables={() => setActiveModal('variables')}
-        onOpenReading={() => setActiveModal('history')} onOpenDelete={() => setActiveModal('delete')}
-        onOpenSettings={() => setActiveModal('settings')} onOpenManual={() => setActiveModal('manual')}
-        onOpenCalendar={() => setActiveModal('calendar')}
-        onOpenClues={() => setActiveModal('clues')}
-        onOpenHarem={() => { setGalleryTab('characters'); setCurrentScreen('gallery'); }}
-        onRegenerate={handleRegenerate} regenerating={regenerating} />
+      <HUD isFullscreen={isFullscreen} regenerating={regenerating} onOpenHarem={openHarem} {...hudHandlers} />
 
       {/* ════ 立绘层（多角色同屏） ════ */}
-      <div className="absolute inset-0 z-15 pointer-events-none overflow-hidden">
-        <AnimatePresence mode="popLayout">
-          {sceneCharacters.map((char) => (
-            <motion.div
-              key={char.speaker}
-              className={cn(
-                "absolute bottom-0 h-full w-auto transition-all duration-300",
-                char.position === 'left' && "left-[5%]",
-                char.position === 'center' && "left-1/2 -translate-x-1/2",
-                char.position === 'right' && "right-[5%]",
-              )}
-              style={{
-                filter: char.isActive ? 'none' : 'brightness(0.55) grayscale(0.35)',
-                zIndex: char.isActive ? 16 : 15,
-                transform: char.isActive ? 'scale(1)' : 'scale(0.96)',
-                transition: 'filter 0.3s ease, transform 0.3s ease',
-              }}
-              {...getTransitionConfig(char.emotion)}
-            >
-              {char.sprite && (
-                <img src={char.sprite} alt={`${char.speaker}-${char.emotion}`}
-                  className="h-[85vh] max-h-250 w-auto object-contain object-bottom drop-shadow-[0_0_20px_rgba(0,0,0,0.5)]"
-                  style={{
-                    maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
-                  }}
-                  loading="eager" />
-              )}
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </div>
+      <CharacterSprites characters={sceneCharacters} variant="desktop" />
 
       {/* ════ 情绪特效 ════ */}
-      <div className="absolute inset-0 z-18 pointer-events-none">
-        {screenEffect?.shake && (
-          <motion.div animate={{ x: [0, -4, 4, -4, 4, 0] }} transition={{ duration: 0.25 }} className="w-full h-full" />
-        )}
-        {screenEffect?.vignette && (
-          <div className="absolute inset-0" style={{ boxShadow: `inset 0 0 200px ${screenEffect.vignette}` }} />
-        )}
-        {screenEffect?.flashColor && (
-          <motion.div initial={{ opacity: 1 }} animate={{ opacity: 0 }} transition={{ duration: 0.25 }}
-            className="absolute inset-0" style={{ backgroundColor: screenEffect.flashColor }} />
-        )}
-      </div>
+      <EmotionEffects shake={screenEffect?.shake} flashColor={screenEffect?.flashColor} vignette={screenEffect?.vignette} />
 
       {/* ════ 平行事件面板 ════ */}
       <AnimatePresence mode="wait">
         {parallelEvents.length > 0 && showParallelEvents && (
           <motion.div key="pe-expanded" initial={{ x: -300, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -300, opacity: 0 }}
             transition={{ duration: 0.3 }} className="absolute top-16 left-4 z-30 max-w-72 pointer-events-auto">
-            <div className="bg-[#140e0a]/95 backdrop-blur-md border border-[#6b583e] rounded-xs shadow-2xl overflow-hidden font-serif">
-              <div className="flex items-center justify-between bg-[#241810] px-3 py-2 border-b border-[#4d3822]">
+            <div className="bg-ink-825/95 backdrop-blur-md border border-gold-750 rounded-xs shadow-2xl overflow-hidden font-serif">
+              <div className="flex items-center justify-between bg-ink-825 px-3 py-2 border-b border-gold-850">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-gold-500 animate-pulse" />
                   <span className="font-serif text-sm font-bold text-gold-300 tracking-widest">八荒异闻 · 同时演进</span>
@@ -1142,10 +910,10 @@ export const GameScreen: React.FC = () => {
               </div>
               <div className="p-3 space-y-2.5 max-h-80 overflow-y-auto custom-scrollbar">
                 {parallelEvents.map((evt, i) => (
-                  <div key={i} className="border-l-2 border-vermilion-800 pl-2.5 bg-[#1b120b]/80 p-2 rounded-xs border-r border-t border-b border-ink-800">
+                  <div key={i} className="border-l-2 border-vermilion-800 pl-2.5 bg-ink-825/80 p-2 rounded-xs border-r border-t border-b border-ink-800">
                     <div className="text-gold-300 text-xs font-bold font-serif leading-tight mb-1 flex items-center justify-between">
                       <span>{evt.location}</span>
-                      <span className="text-[10px] text-paper-600 bg-[#140e09] px-1.5 py-0.2 border border-[#332517] rounded-xs">
+                      <span className="text-[10px] text-paper-600 bg-ink-825 px-1.5 py-0.2 border border-gold-850 rounded-xs">
                         异动演化
                       </span>
                     </div>
@@ -1159,7 +927,7 @@ export const GameScreen: React.FC = () => {
         {parallelEvents.length > 0 && !showParallelEvents && (
           <motion.button key="pe-collapsed" initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -50, opacity: 0 }}
             onClick={(e) => { e.stopPropagation(); setShowParallelEvents(true); }}
-            className="absolute top-16 left-4 z-30 bg-[#1f150e]/95 border border-gold-700 px-2.5 py-1.5 rounded-xs hover:scale-105 active:scale-95 transition-all pointer-events-auto flex items-center gap-1.5 text-gold-300 text-xs font-serif shadow-md cursor-pointer"
+            className="absolute top-16 left-4 z-30 bg-ink-750/95 border border-gold-700 px-2.5 py-1.5 rounded-xs hover:scale-105 active:scale-95 transition-all pointer-events-auto flex items-center gap-1.5 text-gold-300 text-xs font-serif shadow-md cursor-pointer"
             title="展开八荒异闻">
             <span className="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse" />
             <span className="font-bold tracking-wider">八荒异闻</span>
@@ -1173,7 +941,7 @@ export const GameScreen: React.FC = () => {
           <motion.div key="collapsed" initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 100, opacity: 0 }}
             transition={{ duration: 0.3 }} className="fixed bottom-4 right-4 z-30">
             <button onClick={() => setIsTextBoxCollapsed(false)}
-              className="p-2 bg-[#181410]/90 border border-[#6b583e] text-gold-300 hover:bg-[#282118] transition-colors rounded-xs"
+              className="p-2 bg-ink-800/90 border border-gold-750 text-gold-300 hover:bg-ink-800 transition-colors rounded-xs"
               title="展开文本框">
               <ChevronUp className="w-5 h-5" />
             </button>
@@ -1185,7 +953,7 @@ export const GameScreen: React.FC = () => {
             {/* 折叠按钮 */}
             <div className="absolute -top-3 right-6 md:right-12 z-40">
               <button onClick={(e) => { e.stopPropagation(); setIsTextBoxCollapsed(true); }}
-                className="p-1 bg-[#181410]/90 text-paper-200 hover:bg-[#282118] transition-colors rounded-xs border border-[#423522]"
+                className="p-1 bg-ink-800/90 text-paper-200 hover:bg-ink-800 transition-colors rounded-xs border border-gold-850"
                 title="折叠文本框">
                 <ChevronDown className="w-4 h-4" />
               </button>
@@ -1197,7 +965,7 @@ export const GameScreen: React.FC = () => {
                 <motion.div key={currentLine.speaker} initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }}
                   className="absolute -top-12 md:-top-16 left-6 md:left-12 z-30 flex items-end gap-3 drop-shadow-[4px_4px_0_rgba(0,0,0,0.6)]">
                   {currentLine.avatar && (
-                    <div className={`w-16 h-16 md:w-20 md:h-20 bg-[#181410] border-2 flex items-center justify-center overflow-hidden relative transform -skew-x-3 ${isCyan ? 'border-cyan-700' : 'border-vermilion-700'}`}>
+                    <div className={`w-16 h-16 md:w-20 md:h-20 bg-ink-800 border-2 flex items-center justify-center overflow-hidden relative transform -skew-x-3 ${isCyan ? 'border-cyan-700' : 'border-vermilion-700'}`}>
                       <img src={currentLine.avatar} alt="avatar" className="w-full h-full object-cover object-top scale-110" />
                     </div>
                   )}
@@ -1212,7 +980,7 @@ export const GameScreen: React.FC = () => {
             </AnimatePresence>
 
             {/* 主文本框 */}
-            <div className="h-full w-full relative flex flex-col p-4 bg-[#14100c]/85 border border-[#52432d] rounded-xs shadow-2xl backdrop-blur-md"
+            <div className="h-full w-full relative flex flex-col p-4 bg-ink-850/85 border border-gold-800 rounded-xs shadow-2xl backdrop-blur-md"
               style={{ paddingTop: currentLine.type === 'narrator' ? '1.5rem' : '3.5rem' }}>
               {/* 调查模式提示 */}
               {isInvestigating && !isInputMode && (
@@ -1234,7 +1002,7 @@ export const GameScreen: React.FC = () => {
                     autoCapitalize="sentences"
                     autoCorrect="off"
                     spellCheck={false}
-                    className="flex-1 w-full bg-[#1b130c]/90 text-paper-100 font-serif p-3 border border-[#52432d] resize-none
+                    className="flex-1 w-full bg-ink-825/90 text-paper-100 font-serif p-3 border border-gold-800 resize-none
                                placeholder:text-paper-600 placeholder:font-serif focus:outline-none focus:border-gold-500
                                transition-all rounded-xs text-base md:text-lg leading-relaxed shadow-inner
                                disabled:opacity-50 custom-scrollbar"
@@ -1262,7 +1030,7 @@ export const GameScreen: React.FC = () => {
                       呈 递
                     </button>
                     <button onClick={handleExitInputMode} disabled={isGenerating}
-                      className="flex items-center gap-1 px-3 py-1.5 bg-[#1a120b]/90 border border-[#52432d] text-paper-400 hover:text-paper-50 hover:border-gold-700 transition-all rounded-xs text-xs sm:text-sm font-serif cursor-pointer disabled:opacity-30">
+                      className="flex items-center gap-1 px-3 py-1.5 bg-ink-825/90 border border-gold-800 text-paper-400 hover:text-paper-50 hover:border-gold-700 transition-all rounded-xs text-xs sm:text-sm font-serif cursor-pointer disabled:opacity-30">
                       <X className="w-3.5 h-3.5" /> 收合
                     </button>
                   </div>
@@ -1271,27 +1039,27 @@ export const GameScreen: React.FC = () => {
                 <div className="flex gap-2 flex-wrap">
                   <button onClick={(e) => { e.stopPropagation(); setShowBacklog(true); }}
                     id="btn-dialogue-backlog"
-                    className="flex items-center gap-1 px-3 py-1.5 bg-[#1f150e]/90 border border-[#6b583e] text-gold-300 hover:text-paper-50 hover:border-gold-500 hover:bg-[#2b1e14] transition-all rounded-xs text-xs sm:text-sm font-serif cursor-pointer shadow-sm">
+                    className="flex items-center gap-1 px-3 py-1.5 bg-ink-750/90 border border-gold-750 text-gold-300 hover:text-paper-50 hover:border-gold-500 hover:bg-ink-750 transition-all rounded-xs text-xs sm:text-sm font-serif cursor-pointer shadow-sm">
                     <History className="w-3.5 h-3.5" /> 案录
                   </button>
                   <button onClick={(e) => { e.stopPropagation(); handlePrev(); }} disabled={currentIndex === 0}
-                    className="flex items-center gap-1 px-3 py-1.5 bg-[#1a120b]/90 border border-[#52432d] text-paper-400 hover:text-paper-50 hover:border-gold-700 transition-all rounded-xs text-xs sm:text-sm font-serif disabled:opacity-30 cursor-pointer">
+                    className="flex items-center gap-1 px-3 py-1.5 bg-ink-825/90 border border-gold-800 text-paper-400 hover:text-paper-50 hover:border-gold-700 transition-all rounded-xs text-xs sm:text-sm font-serif disabled:opacity-30 cursor-pointer">
                     <ChevronLeft className="w-3.5 h-3.5" /> 上句
                   </button>
                   <button onClick={(e) => { e.stopPropagation(); setIsAutoMode(prev => !prev); }}
-                    className={`flex items-center gap-1 px-3 py-1.5 border transition-all rounded-xs text-xs sm:text-sm font-serif cursor-pointer ${isAutoMode ? 'bg-vermilion-800 border-vermilion-600 text-paper-50 shadow-sm font-bold' : 'bg-[#1a120b]/90 border border-[#52432d] text-paper-400 hover:text-paper-50 hover:border-gold-700'}`}
+                    className={`flex items-center gap-1 px-3 py-1.5 border transition-all rounded-xs text-xs sm:text-sm font-serif cursor-pointer ${isAutoMode ? 'bg-vermilion-800 border-vermilion-600 text-paper-50 shadow-sm font-bold' : 'bg-ink-825/90 border border-gold-800 text-paper-400 hover:text-paper-50 hover:border-gold-700'}`}
                     title={isAutoMode ? '关闭 自动' : '开启 自动'}>
                     {isAutoMode ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
                     <span className="hidden sm:inline">自动</span>
                   </button>
                   <button onClick={(e) => { e.stopPropagation(); const next = textSpeed >= 3 ? 1 : textSpeed + 1; textSettings.setTextSpeed(next); }}
-                    className="flex items-center gap-1 px-3 py-1.5 bg-[#1a120b]/90 border border-[#52432d] text-paper-400 hover:text-paper-50 hover:border-gold-700 transition-all rounded-xs text-xs sm:text-sm font-serif cursor-pointer"
+                    className="flex items-center gap-1 px-3 py-1.5 bg-ink-825/90 border border-gold-800 text-paper-400 hover:text-paper-50 hover:border-gold-700 transition-all rounded-xs text-xs sm:text-sm font-serif cursor-pointer"
                     title={`语速: ${textSpeed === 0 ? '瞬发' : textSpeed === 1 ? '舒缓' : textSpeed === 2 ? '适中' : '迅疾'}`}>
                     {textSpeed >= 3 ? <Zap className="w-3.5 h-3.5 text-gold-300" /> : <FastForward className="w-3.5 h-3.5" />}
                     <span className="hidden sm:inline">{textSpeed === 0 ? '瞬发' : textSpeed === 1 ? '舒缓' : textSpeed === 2 ? '适中' : '迅疾'}</span>
                   </button>
                   <button onClick={(e) => { e.stopPropagation(); setIsInvestigating(!isInvestigating); }}
-                    className={`flex items-center gap-1 px-3 py-1.5 border transition-all rounded-xs text-xs sm:text-sm font-serif cursor-pointer ${isInvestigating ? 'bg-vermilion-800 border-vermilion-400 text-paper-50 font-bold shadow-md' : 'bg-[#1a120b]/90 border border-[#52432d] text-paper-400 hover:text-paper-50 hover:border-gold-700'}`}
+                    className={`flex items-center gap-1 px-3 py-1.5 border transition-all rounded-xs text-xs sm:text-sm font-serif cursor-pointer ${isInvestigating ? 'bg-vermilion-800 border-vermilion-400 text-paper-50 font-bold shadow-md' : 'bg-ink-825/90 border border-gold-800 text-paper-400 hover:text-paper-50 hover:border-gold-700'}`}
                     title={isInvestigating ? '收合勘验' : '开启勘验'}>
                     <Search className="w-3.5 h-3.5" />
                     <span className="hidden sm:inline">勘验</span>
@@ -1307,13 +1075,13 @@ export const GameScreen: React.FC = () => {
                 )}
                 <div className="flex items-center gap-2 shrink-0">
                   <button onClick={handlePrevFloor} disabled={!canPrevFloor}
-                    className={`flex items-center gap-1 px-2.5 py-1.5 border transition-all rounded-xs text-xs font-serif ${canPrevFloor ? 'bg-[#1a120b]/90 border-[#52432d] text-paper-400 hover:text-paper-50 hover:border-gold-700 cursor-pointer' : 'bg-[#120d09]/50 border-[#382a1b]/40 text-ink-600 cursor-not-allowed'}`}
+                    className={`flex items-center gap-1 px-2.5 py-1.5 border transition-all rounded-xs text-xs font-serif ${canPrevFloor ? 'bg-ink-825/90 border-gold-800 text-paper-400 hover:text-paper-50 hover:border-gold-700 cursor-pointer' : 'bg-ink-850/50 border-gold-850/40 text-ink-600 cursor-not-allowed'}`}
                     title="翻阅上卷">
                     <ChevronUp className="w-3.5 h-3.5" />
                     <span className="hidden sm:inline">上卷</span>
                   </button>
                   <button onClick={handleNextFloor} disabled={!canNextFloor}
-                    className={`flex items-center gap-1 px-2.5 py-1.5 border transition-all rounded-xs text-xs font-serif ${canNextFloor ? 'bg-[#1a120b]/90 border-[#52432d] text-paper-400 hover:text-paper-50 hover:border-gold-700 cursor-pointer' : 'bg-[#120d09]/50 border-[#382a1b]/40 text-ink-600 cursor-not-allowed'}`}
+                    className={`flex items-center gap-1 px-2.5 py-1.5 border transition-all rounded-xs text-xs font-serif ${canNextFloor ? 'bg-ink-825/90 border-gold-800 text-paper-400 hover:text-paper-50 hover:border-gold-700 cursor-pointer' : 'bg-ink-850/50 border-gold-850/40 text-ink-600 cursor-not-allowed'}`}
                     title="翻阅下卷">
                     <ChevronDown className="w-3.5 h-3.5" />
                     <span className="hidden sm:inline">下卷</span>
@@ -1331,52 +1099,19 @@ export const GameScreen: React.FC = () => {
       </AnimatePresence>
 
       {/* ════ 选项面板 ════ */}
-      <AnimatePresence>
-        {showOptions && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}
-            className="absolute inset-0 z-35 bg-ink-900/85 backdrop-blur-md flex items-center justify-center p-4">
-            <button onClick={() => setOptionsDismissed(true)}
-              className="absolute top-4 right-4 z-40 p-2 bg-gold-500 text-[#0e0b08] hover:scale-110 transition-transform rounded-xs font-serif"
-              title="关闭选项">
-              <X className="w-5 h-5" />
-            </button>
-            <motion.div initial={{ scale: 0.85, opacity: 0, y: 30 }} animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.85, opacity: 0, y: 30 }} transition={{ type: "spring", damping: 20, stiffness: 200, delay: 0.1 }}
-              className="w-full max-w-2xl flex flex-col gap-3 relative z-10">
-              {options.map((option, i) => {
-                const colorScheme = i % 2 === 0
-                  ? "bg-[#20180f]/90 border-gold-700/70 text-gold-300"
-                  : "bg-[#25100c]/90 border-vermilion-700/70 text-[#f59e93]";
-                return (
-                  <motion.button key={i} initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.15 + i * 0.08, type: "spring", damping: 18 }}
-                    onClick={() => handleSelectOption(option)}
-                    className={cn(
-                      "flex items-center gap-4 p-4 border-2 font-serif text-left rounded-xs",
-                      "hover:scale-[1.02] active:scale-95 transition-all duration-150 group relative overflow-hidden shadow-lg",
-                      colorScheme
-                    )}>
-                    {optionChibis[i] && (
-                      <div className="relative z-10 shrink-0 w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
-                        <img src={optionChibis[i]} alt="chibi"
-                          className="w-full h-full object-contain group-hover:scale-125 group-hover:-rotate-6 transition-transform drop-shadow-[2px_2px_0_rgba(0,0,0,0.3)]"
-                          loading="eager" />
-                      </div>
-                    )}
-                    <span className="relative z-10 flex-1 text-base md:text-xl leading-snug">{option}</span>
-                    <ChevronRight className="relative z-10 w-6 h-6 shrink-0 group-hover:translate-x-2 transition-transform" />
-                  </motion.button>
-                );
-              })}
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <OptionsPanel
+        show={showOptions}
+        options={options}
+        optionChibis={optionChibis}
+        onDismiss={() => setOptionsDismissed(true)}
+        onSelect={handleSelectOption}
+        desktop
+      />
 
       {/* ════ 历史记录竖屏折卷展开（非侧边栏，竖向铺展长卷） ════ */}
       <AnimatePresence>
         {showBacklog && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-[#080503]/85 backdrop-blur-md">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-ink-975/85 backdrop-blur-md">
             {/* 点击背景关闭 */}
             <div className="absolute inset-0" onClick={() => setShowBacklog(false)} />
 
@@ -1386,7 +1121,7 @@ export const GameScreen: React.FC = () => {
               animate={{ opacity: 1, scaleY: 1, y: 0 }}
               exit={{ opacity: 0, scaleY: 0.85, y: 30 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full max-w-2xl h-[88vh] bg-[#140e0a]/98 border-2 border-[#78591c] rounded-xs shadow-[0_20px_60px_rgba(0,0,0,0.95)] flex flex-col overflow-hidden font-serif z-10"
+              className="relative w-full max-w-2xl h-[88vh] bg-ink-825/98 border-2 border-gold-650 rounded-xs shadow-[0_20px_60px_rgba(0,0,0,0.95)] flex flex-col overflow-hidden font-serif z-10"
               onClick={(e) => e.stopPropagation()}
             >
               {/* 四角仿古铜包角 */}
@@ -1396,7 +1131,7 @@ export const GameScreen: React.FC = () => {
               <div className="absolute bottom-1 right-1 w-5 h-5 border-b-2 border-r-2 border-gold-500 pointer-events-none z-20" />
 
               {/* 顶栏木匾标题 */}
-              <div className="relative px-6 py-4 bg-[#1f150d] border-b border-[#52432d] flex items-center justify-between shrink-0 shadow-md">
+              <div className="relative px-6 py-4 bg-ink-750 border-b border-gold-800 flex items-center justify-between shrink-0 shadow-md">
                 <div className="flex items-center gap-3">
                   <span className="w-2.5 h-2.5 rounded-full bg-vermilion-800 border border-vermilion-600" />
                   <div>
@@ -1412,7 +1147,7 @@ export const GameScreen: React.FC = () => {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setShowBacklog(false)}
-                    className="px-3.5 py-1 bg-[#2a1d12] hover:bg-[#3d2a1a] border border-[#78591c] text-gold-300 hover:text-paper-50 rounded-xs text-xs tracking-widest transition-all cursor-pointer"
+                    className="px-3.5 py-1 bg-ink-750 hover:bg-gold-850 border border-gold-650 text-gold-300 hover:text-paper-50 rounded-xs text-xs tracking-widest transition-all cursor-pointer"
                   >
                     收合案录
                   </button>
@@ -1424,7 +1159,7 @@ export const GameScreen: React.FC = () => {
                 {script.slice(0, currentIndex).length === 0 ? (
                   <div className="h-full flex flex-col items-center justify-center text-paper-600 tracking-widest text-sm space-y-2 py-16">
                     <span>❖ 暂无前尘案情 ❖</span>
-                    <span className="text-xs text-[#6b583e]">请继续推进断案</span>
+                    <span className="text-xs text-gold-750">请继续推进断案</span>
                   </div>
                 ) : (
                   script.slice(0, currentIndex).map((log, idx) => {
@@ -1441,23 +1176,23 @@ export const GameScreen: React.FC = () => {
                         className={cn(
                           "relative rounded-xs p-3.5 border transition-all",
                           isNarrator
-                            ? "bg-[#18110a]/60 border-[#3d2e1c] text-paper-400 italic text-sm leading-relaxed"
+                            ? "bg-ink-800/60 border-gold-850 text-paper-400 italic text-sm leading-relaxed"
                             : isUser
-                              ? "bg-[#20150e]/90 border-[#78591c]/80 ml-4 sm:ml-10"
-                              : "bg-[#16100b]/90 border-[#4a3925] mr-4 sm:mr-10"
+                              ? "bg-ink-750/90 border-gold-650/80 ml-4 sm:ml-10"
+                              : "bg-ink-825/90 border-gold-850 mr-4 sm:mr-10"
                         )}
                       >
                         {/* 说话者标贴 */}
                         {!isNarrator && (
-                          <div className="flex items-center gap-2 mb-2 pb-1.5 border-b border-[#3d2e1c]">
+                          <div className="flex items-center gap-2 mb-2 pb-1.5 border-b border-gold-850">
                             {log.avatar ? (
                               <img
                                 src={log.avatar}
                                 alt={log.speaker}
-                                className="w-6 h-6 rounded-full object-cover object-top border border-[#78591c]"
+                                className="w-6 h-6 rounded-full object-cover object-top border border-gold-650"
                               />
                             ) : (
-                              <div className="w-6 h-6 rounded-full bg-[#2a1d12] border border-[#78591c] flex items-center justify-center text-[10px] text-gold-300">
+                              <div className="w-6 h-6 rounded-full bg-ink-750 border border-gold-650 flex items-center justify-center text-[10px] text-gold-300">
                                 {log.speaker?.[0] || '人'}
                               </div>
                             )}
@@ -1468,11 +1203,11 @@ export const GameScreen: React.FC = () => {
                               {displayName(log.speaker!, playerName)}
                             </span>
                             {log.emotion && log.emotion !== '默认' && (
-                              <span className="text-[10px] text-paper-500 px-1.5 py-0.2 bg-[#120d09] border border-[#3d2e1c] rounded-xs">
+                              <span className="text-[10px] text-paper-500 px-1.5 py-0.2 bg-ink-850 border border-gold-850 rounded-xs">
                                 {log.emotion}
                               </span>
                             )}
-                            <span className="ml-auto text-[10px] text-[#6b583e] font-mono">
+                            <span className="ml-auto text-[10px] text-gold-750 font-mono">
                               #{idx + 1}
                             </span>
                           </div>
@@ -1496,7 +1231,7 @@ export const GameScreen: React.FC = () => {
               </div>
 
               {/* 底栏状态与便捷跳至最新 */}
-              <div className="px-6 py-2.5 bg-[#17100b] border-t border-[#3d2e1c] flex items-center justify-between shrink-0 text-xs text-paper-600">
+              <div className="px-6 py-2.5 bg-ink-825 border-t border-gold-850 flex items-center justify-between shrink-0 text-xs text-paper-600">
                 <span>按序翻阅 · 竖屏长卷折子</span>
                 <button
                   onClick={() => setShowBacklog(false)}
@@ -1511,14 +1246,7 @@ export const GameScreen: React.FC = () => {
       </AnimatePresence>
 
       {/* ════ 模态框 ════ */}
-      <SettingsModal isOpen={activeModal === 'settings'} onClose={() => setActiveModal(null)} />
-      <HistoryLogModal isOpen={activeModal === 'history'} onClose={() => setActiveModal(null)} />
-      <ClueNotebookModal isOpen={activeModal === 'clues'} onClose={() => setActiveModal(null)} />
-      <CalendarModal isOpen={activeModal === 'calendar'} onClose={() => setActiveModal(null)} />
-      <ThinkingModal isOpen={activeModal === 'thinking'} onClose={() => setActiveModal(null)} />
-      <VariablesModal isOpen={activeModal === 'variables'} onClose={() => setActiveModal(null)} />
-      <ManualModal isOpen={activeModal === 'manual'} onClose={() => setActiveModal(null)} />
-<DeleteFloorModal isOpen={activeModal === 'delete'} onClose={() => setActiveModal(null)} />
+      <GameModals activeModal={activeModal} onClose={() => setActiveModal(null)} />
 
 <TextSelectionClue />
 <MusicPlayerWidget />

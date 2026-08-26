@@ -1,6 +1,5 @@
 export type Screen = 'main-menu' | 'game' | 'gallery';
 
-export type ClueCategory = '物证' | '口供' | '星象' | '推断' | '密札';
 export type ClueStatus = 'pending' | 'true' | 'false';
 
 export interface Character {
@@ -25,28 +24,6 @@ export interface NotificationType {
   id: string;
   message: string;
   type: 'info' | 'warning' | 'success';
-}
-
-export interface SaveSlot {
-  id: string;
-  timestamp: number;
-  playTime: number;
-  lineId: string;
-  backgroundUrl: string;
-}
-
-export interface Clue {
-  id: string;
-  title?: string;
-  text: string;
-  type: 'clue' | 'deduction';
-  category?: ClueCategory;
-  timestamp: string;
-  source: string;
-  caseDocketNo?: string;
-  officer?: string;
-  position?: { x: number; y: number };
-  status?: ClueStatus;
 }
 
 export interface GalleryCG {

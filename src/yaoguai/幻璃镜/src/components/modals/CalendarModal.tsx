@@ -25,12 +25,11 @@ const SHICHEN_MAP: { range: [number, number]; name: string; period: string; elem
 ];
 
 function getShichen(hour: number) {
-  const h = hour === 23 ? 23 : hour;
   const found = SHICHEN_MAP.find(s => {
     if (s.range[0] > s.range[1]) {
-      return h >= s.range[0] || h < s.range[1];
+      return hour >= s.range[0] || hour < s.range[1];
     }
-    return h >= s.range[0] && h < s.range[1];
+    return hour >= s.range[0] && hour < s.range[1];
   });
   return found || { name: '子时', period: '夜半', element: '水', organ: '胆经' };
 }
@@ -106,14 +105,14 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose })
     <Modal isOpen={isOpen} onClose={onClose} title="大 统 皇 极 历 · 岁 时 通 书" id="calendar-modal">
       <div className="flex flex-col gap-5 text-paper-100">
         {/* 顶部天象牌匾 */}
-        <div className="bg-[#14100c] border border-[#6b583e] rounded-xs p-3 sm:p-5 relative overflow-hidden shadow-lg">
+        <div className="bg-ink-850 border border-gold-750 rounded-xs p-3 sm:p-5 relative overflow-hidden shadow-lg">
           <div className="absolute top-0 right-0 w-48 h-48 bg-gold-500/5 rounded-full blur-3xl pointer-events-none" />
           
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative z-10">
             {/* 左侧：纪年与干支 */}
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 text-[11px] font-serif border border-vermilion-700 text-vermilion-400 bg-[#24100c] rounded-xs">
+                <span className="px-2 py-0.5 text-[11px] font-serif border border-vermilion-700 text-vermilion-400 bg-vermilion-900 rounded-xs">
                   司天监颁历
                 </span>
                 <span className="text-[12px] font-serif text-paper-400">
@@ -129,12 +128,12 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose })
             </div>
 
             {/* 右侧：时辰天机盘 */}
-            <div className="flex items-center gap-2 sm:gap-4 bg-[#1f1912] border border-[#52432d] px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-xs shrink-0">
+            <div className="flex items-center gap-2 sm:gap-4 bg-ink-750 border border-gold-800 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-xs shrink-0">
               <div className="flex flex-col items-center">
                 <CloudRain size={16} className="text-cyan-300 sm:w-5 sm:h-5" />
                 <span className="font-serif text-[10px] sm:text-[11px] text-paper-400 mt-0.5 sm:mt-1">{GAME_TIME.weather}</span>
               </div>
-              <div className="w-px h-6 sm:h-8 bg-[#423522]" />
+              <div className="w-px h-6 sm:h-8 bg-gold-850" />
               <div className="flex flex-col items-center">
                 <Moon size={16} className="text-gold-300 sm:w-5 sm:h-5" />
                 <span className="font-serif text-xs sm:text-[13px] font-bold text-gold-300 mt-0.5">{shichen.name}（{shichen.period}）</span>
@@ -144,12 +143,12 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose })
           </div>
 
           {/* 宜忌条目 */}
-          <div className="mt-4 pt-3 border-t border-[#3a2e1e] grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-serif">
-            <div className="flex items-center gap-2 bg-[#192219]/60 px-3 py-1.5 border border-jade-500/40 rounded-xs">
+          <div className="mt-4 pt-3 border-t border-gold-850 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-serif">
+            <div className="flex items-center gap-2 bg-cyan-900/60 px-3 py-1.5 border border-jade-500/40 rounded-xs">
               <span className="px-1.5 py-0.5 text-[10px] bg-jade-500 text-white font-bold rounded-xs">宜</span>
               <span className="text-paper-400 tracking-wider">{GAME_TIME.yi.join(' · ')}</span>
             </div>
-            <div className="flex items-center gap-2 bg-[#261210]/60 px-3 py-1.5 border border-vermilion-700/40 rounded-xs">
+            <div className="flex items-center gap-2 bg-ink-825/60 px-3 py-1.5 border border-vermilion-700/40 rounded-xs">
               <span className="px-1.5 py-0.5 text-[10px] bg-vermilion-700 text-white font-bold rounded-xs">忌</span>
               <span className="text-paper-400 tracking-wider">{GAME_TIME.ji.join(' · ')}</span>
             </div>
@@ -157,13 +156,13 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose })
         </div>
 
         {/* 皇极经世日历网格 */}
-        <div className="bg-[#181410] border border-[#6b583e] rounded-xs p-3 sm:p-5 flex flex-col">
+        <div className="bg-ink-800 border border-gold-750 rounded-xs p-3 sm:p-5 flex flex-col">
           {/* 月份切换 */}
-          <div className="flex justify-between items-center mb-4 pb-3 border-b border-[#3a2e1e]">
+          <div className="flex justify-between items-center mb-4 pb-3 border-b border-gold-850">
             <button 
               id="btn-calendar-prev-month"
               onClick={handlePrevMonth} 
-              className="p-1.5 text-paper-400 hover:text-gold-300 bg-[#241e17] border border-[#52432d] rounded-xs transition-colors"
+              className="p-1.5 text-paper-400 hover:text-gold-300 bg-ink-750 border border-gold-800 rounded-xs transition-colors"
             >
               <ChevronLeft size={16} />
             </button>
@@ -177,7 +176,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose })
             <button 
               id="btn-calendar-next-month"
               onClick={handleNextMonth} 
-              className="p-1.5 text-paper-400 hover:text-gold-300 bg-[#241e17] border border-[#52432d] rounded-xs transition-colors"
+              className="p-1.5 text-paper-400 hover:text-gold-300 bg-ink-750 border border-gold-800 rounded-xs transition-colors"
             >
               <ChevronRight size={16} />
             </button>
@@ -204,8 +203,8 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose })
                   className={cn(
                     "h-10 sm:h-14 flex flex-col items-center justify-center rounded-xs border transition-all relative cursor-pointer group",
                     isToday 
-                      ? 'bg-[#382b18] border-gold-500 text-paper-50 shadow-[0_0_15px_rgba(197,164,63,0.3)]' 
-                      : 'bg-[#1e1812] border-[#382b1d] text-paper-400 hover:border-[#8a7556] hover:bg-[#282118]'
+                      ? 'bg-gold-850 border-gold-500 text-paper-50 shadow-[0_0_15px_rgba(197,164,63,0.3)]' 
+                      : 'bg-ink-750 border-gold-850 text-paper-400 hover:border-paper-550 hover:bg-ink-800'
                   )}
                 >
                   <span className="font-serif text-sm font-bold">{day}</span>

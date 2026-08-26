@@ -15,7 +15,7 @@ export const ManualModal: React.FC<ManualModalProps> = ({ isOpen, onClose }) => 
     <Modal isOpen={isOpen} onClose={onClose} title="大 雍 异 闻 通 鉴 · 卷 宗 指 南" id="manual-modal">
       <div className="flex flex-col gap-5 text-paper-100">
         {/* 顶部选项卡 */}
-        <div className="flex gap-2 overflow-x-auto hide-scrollbar border-b border-[#3a2e1e] pb-2 shrink-0">
+        <div className="flex gap-2 overflow-x-auto hide-scrollbar border-b border-gold-850 pb-2 shrink-0">
           {[
             { id: 'world', label: '时代风貌', icon: Compass },
             { id: 'gameplay', label: '侦勘推演', icon: BookOpen },
@@ -32,8 +32,8 @@ export const ManualModal: React.FC<ManualModalProps> = ({ isOpen, onClose }) => 
                 className={cn(
                   "flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-serif rounded-xs border transition-all cursor-pointer whitespace-nowrap shrink-0",
                   active
-                    ? "bg-[#382b18] text-gold-300 border-gold-500 font-bold shadow-sm"
-                    : "bg-[#1e1812] text-paper-500 border-[#3a2e1e] hover:text-paper-50 hover:bg-[#282118]"
+                    ? "bg-gold-850 text-gold-300 border-gold-500 font-bold shadow-sm"
+                    : "bg-ink-750 text-paper-500 border-gold-850 hover:text-paper-50 hover:bg-ink-800"
                 )}
               >
                 <Icon size={14} />
@@ -44,10 +44,10 @@ export const ManualModal: React.FC<ManualModalProps> = ({ isOpen, onClose }) => 
         </div>
 
         {/* 内容展示 */}
-        <div className="bg-[#181410] border border-[#6b583e] p-4 sm:p-6 rounded-xs space-y-4 font-serif text-xs leading-relaxed text-paper-400">
+        <div className="bg-ink-800 border border-gold-750 p-4 sm:p-6 rounded-xs space-y-4 font-serif text-xs leading-relaxed text-paper-400">
           {tab === 'world' && (
             <div className="space-y-4">
-              <h4 className="text-base font-bold text-gold-300 tracking-widest border-b border-[#3a2e1e] pb-2">
+              <h4 className="text-base font-bold text-gold-300 tracking-widest border-b border-gold-850 pb-2">
                 【时代风貌 · 架空明制·大雍朝】
               </h4>
               <p>
@@ -56,7 +56,7 @@ export const ManualModal: React.FC<ManualModalProps> = ({ isOpen, onClose }) => 
               <p>
                 坊间相传，上古九尾天狐一脉曾与大雍先祖立下灵枢契约。近年「荧惑守心」异象频现，封印松动，京畿各地灵怪魅影渐显。
               </p>
-              <div className="bg-[#24100c] border border-vermilion-700/40 p-3 rounded-xs text-vermilion-400">
+              <div className="bg-vermilion-900 border border-vermilion-700/40 p-3 rounded-xs text-vermilion-400">
                 ◆ 戒饬条律：锦衣缇骑断案，须讲求人证物证确凿，切不可听信风闻妄断神妖。
               </div>
             </div>
@@ -64,7 +64,7 @@ export const ManualModal: React.FC<ManualModalProps> = ({ isOpen, onClose }) => 
 
           {tab === 'gameplay' && (
             <div className="space-y-4">
-              <h4 className="text-base font-bold text-gold-300 tracking-widest border-b border-[#3a2e1e] pb-2">
+              <h4 className="text-base font-bold text-gold-300 tracking-widest border-b border-gold-850 pb-2">
                 【侦勘推演 · 案卷流程】
               </h4>
               <p>
@@ -81,7 +81,7 @@ export const ManualModal: React.FC<ManualModalProps> = ({ isOpen, onClose }) => 
 
           {tab === 'deduction' && (
             <div className="space-y-4">
-              <h4 className="text-base font-bold text-gold-300 tracking-widest border-b border-[#3a2e1e] pb-2">
+              <h4 className="text-base font-bold text-gold-300 tracking-widest border-b border-gold-850 pb-2">
                 【红线连结 · 案台合券】
               </h4>
               <p>
@@ -97,23 +97,23 @@ export const ManualModal: React.FC<ManualModalProps> = ({ isOpen, onClose }) => 
 
           {tab === 'controls' && (
             <div className="space-y-4">
-              <h4 className="text-base font-bold text-gold-300 tracking-widest border-b border-[#3a2e1e] pb-2">
+              <h4 className="text-base font-bold text-gold-300 tracking-widest border-b border-gold-850 pb-2">
                 【符节法度 · 快捷操作】
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                <div className="p-2.5 bg-[#1f1912] border border-[#423522] rounded-xs">
+                <div className="p-2.5 bg-ink-750 border border-gold-850 rounded-xs">
                   <span className="text-gold-300 font-bold">Space / 鼠标点击</span>
                   <p className="text-paper-500 mt-0.5">继续下一句对话</p>
                 </div>
-                <div className="p-2.5 bg-[#1f1912] border border-[#423522] rounded-xs">
+                <div className="p-2.5 bg-ink-750 border border-gold-850 rounded-xs">
                   <span className="text-gold-300 font-bold">Auto 键</span>
                   <p className="text-paper-500 mt-0.5">自动放映剧情</p>
                 </div>
-                <div className="p-2.5 bg-[#1f1912] border border-[#423522] rounded-xs">
+                <div className="p-2.5 bg-ink-750 border border-gold-850 rounded-xs">
                   <span className="text-gold-300 font-bold">密札 / 舆图</span>
                   <p className="text-paper-500 mt-0.5">顶部与底部快捷呼出</p>
                 </div>
-                <div className="p-2.5 bg-[#1f1912] border border-[#423522] rounded-xs">
+                <div className="p-2.5 bg-ink-750 border border-gold-850 rounded-xs">
                   <span className="text-gold-300 font-bold">音律雅乐</span>
                   <p className="text-paper-500 mt-0.5">右下角随时调律与静音</p>
                 </div>
