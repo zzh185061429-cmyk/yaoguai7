@@ -31,6 +31,125 @@ interface MapModalProps {
   onClose: () => void;
 }
 
+// ── 深度相关的纯函数：提到模块顶层，避免每节点每渲染重建 ──
+function getDepthStyle(depth: number, isSelected: boolean): string {
+  if (isSelected) {
+    if (depth === 0) return "text-sm font-bold text-gold-200";
+    if (depth === 1) return "text-[13px] font-bold text-gold-300";
+    if (depth === 2) return "text-xs font-bold text-gold-300";
+    return "text-[11px] font-bold text-gold-300";
+  }
+  if (depth === 0) return "text-sm font-bold text-gold-400";
+  if (depth === 1) return "text-[13px] font-semibold text-gold-500";
+  if (depth === 2) return "text-xs font-normal text-paper-300";
+  return "text-[11px] font-normal text-paper-500";
+}
+
+function getDepthIcon(depth: number): number {
+  if (depth === 0) return 16;
+  if (depth === 1) return 14;
+  return 12;
+}
+
+function getDepthPadding(depth: number): number {
+  if (depth === 0) return 8;
+  return depth * 16 + 8;
+}
+
+/**
+ * 递归树节点（memo 化）
+ * 从 renderTreeNode 渲染函数提取而来：展开/折叠任一节点时，
+ * 只重渲染受影响节点而非整棵树重建闭包。
+ */
+const TreeNode = React.memo(function TreeNode({
+  node, depth, expandedNodeIds, selectedNodeId, onSelect,
+}: {
+  node: LocationNode;
+  depth: number;
+  expandedNodeIds: Record<string, boolean>;
+  selectedNodeId: string;
+  onSelect: (node: LocationNode) => void;
+}) {
+  const hasChildren = node.children && node.children.length > 0;
+  const isExpanded = !!expandedNodeIds[node.id];
+  const isSelected = selectedNodeId === node.id;
+  const iconSize = getDepthIcon(depth);
+
+  return (
+    <div className="relative">
+      <div
+        onClick={() => onSelect(node)}
+        style={{ paddingLeft: `${getDepthPadding(depth)}px` }}
+        className={cn(
+          "group flex items-center justify-between rounded-xs transition-all cursor-pointer border font-serif my-0.5",
+          isSelected
+            ? "bg-ink-800 border-gold-500 shadow-md"
+            : depth === 0
+              ? "bg-ink-900/80 border-gold-850/60 hover:border-gold-700 hover:bg-ink-850"
+              : depth === 1
+                ? "bg-ink-900/60 border-transparent hover:border-gold-850 hover:bg-ink-850"
+                : "bg-ink-900/40 border-transparent hover:border-gold-850/50 hover:bg-ink-850/80",
+          depth === 0 ? "py-2 pr-2.5" : "py-1.5 pr-2.5",
+          getDepthStyle(depth, isSelected),
+        )}
+      >
+        <div className="flex items-center gap-1.5 overflow-hidden">
+          {hasChildren ? (
+            <span
+              className="flex items-center justify-center text-gold-600 transition-colors shrink-0"
+              style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
+            >
+              {isExpanded ? <ChevronDown size={iconSize} /> : <ChevronRight size={iconSize} />}
+            </span>
+          ) : (
+            <span
+              className="flex items-center justify-center text-gold-700 shrink-0"
+              style={{ width: `${iconSize}px`, height: `${iconSize}px`, fontSize: `${Math.max(8, 11 - depth)}px` }}
+            >
+              ❖
+            </span>
+          )}
+          <span className={cn(
+            "truncate tracking-wide",
+            depth === 0 && "tracking-[0.15em]",
+          )}>
+            {node.name}
+          </span>
+        </div>
+
+        {node.children && node.children.length > 0 && (
+          <span className={cn(
+            "px-1 rounded-xs border shrink-0",
+            depth === 0
+              ? "text-[10px] text-gold-600 bg-ink-850 border-gold-850"
+              : "text-[9px] text-gold-700 bg-ink-850/80 border-gold-850/60",
+          )}>
+            {node.children.length}
+          </span>
+        )}
+      </div>
+
+      {hasChildren && isExpanded && (
+        <div className={cn(
+          "relative border-l my-0.5",
+          depth === 0 ? "border-gold-700/60 ml-4" : "border-gold-850/50 ml-3.5",
+        )}>
+          {node.children!.map(child => (
+            <TreeNode
+              key={child.id}
+              node={child}
+              depth={depth + 1}
+              expandedNodeIds={expandedNodeIds}
+              selectedNodeId={selectedNodeId}
+              onSelect={onSelect}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+});
+
 export const MapModal: React.FC<MapModalProps> = ({ isOpen, onClose }) => {
   const [selectedRegionId, setSelectedRegionId] = useState<string>(
     REALM_REGIONS[0]?.id ?? '',
@@ -109,112 +228,6 @@ export const MapModal: React.FC<MapModalProps> = ({ isOpen, onClose }) => {
         [node.id]: !prev[node.id],
       }));
     }
-  };
-
-  // ── 按深度返回层级样式 ──
-  const getDepthStyle = (depth: number, isSelected: boolean) => {
-    // 选中态覆盖颜色，但保留大小层级
-    if (isSelected) {
-      if (depth === 0) return "text-sm font-bold text-gold-200";
-      if (depth === 1) return "text-[13px] font-bold text-gold-300";
-      if (depth === 2) return "text-xs font-bold text-gold-300";
-      return "text-[11px] font-bold text-gold-300";
-    }
-    // 非选中态：层级越深字越小、色越暗
-    if (depth === 0) return "text-sm font-bold text-gold-400";
-    if (depth === 1) return "text-[13px] font-semibold text-gold-500";
-    if (depth === 2) return "text-xs font-normal text-paper-300";
-    return "text-[11px] font-normal text-paper-500";
-  };
-
-  // ── 按深度返回缩进图标大小 ──
-  const getDepthIcon = (depth: number) => {
-    if (depth === 0) return 16;
-    if (depth === 1) return 14;
-    return 12;
-  };
-
-  // ── 按深度返回容器内边距 ──
-  const getDepthPadding = (depth: number) => {
-    if (depth === 0) return 8;
-    return depth * 16 + 8;
-  };
-
-  // ── 递归渲染目录折签树 ──
-  const renderTreeNode = (node: LocationNode, depth: number = 0) => {
-    const hasChildren = node.children && node.children.length > 0;
-    const isExpanded = !!expandedNodeIds[node.id];
-    const isSelected = selectionInfo?.node.id === node.id;
-    const iconSize = getDepthIcon(depth);
-
-    return (
-      <div key={node.id} className="relative">
-        <div
-          onClick={() => handleSelectNode(node)}
-          style={{ paddingLeft: `${getDepthPadding(depth)}px` }}
-          className={cn(
-            "group flex items-center justify-between rounded-xs transition-all cursor-pointer border font-serif my-0.5",
-            // 选中态背景与边框
-            isSelected
-              ? "bg-ink-800 border-gold-500 shadow-md"
-              : depth === 0
-                ? "bg-ink-900/80 border-gold-850/60 hover:border-gold-700 hover:bg-ink-850"
-                : depth === 1
-                  ? "bg-ink-900/60 border-transparent hover:border-gold-850 hover:bg-ink-850"
-                  : "bg-ink-900/40 border-transparent hover:border-gold-850/50 hover:bg-ink-850/80",
-            // 层级间距
-            depth === 0 ? "py-2 pr-2.5" : "py-1.5 pr-2.5",
-            // 字体层级样式
-            getDepthStyle(depth, isSelected),
-          )}
-        >
-          <div className="flex items-center gap-1.5 overflow-hidden">
-            {hasChildren ? (
-              <span
-                className="flex items-center justify-center text-gold-600 transition-colors shrink-0"
-                style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
-              >
-                {isExpanded ? <ChevronDown size={iconSize} /> : <ChevronRight size={iconSize} />}
-              </span>
-            ) : (
-              <span
-                className="flex items-center justify-center text-gold-700 shrink-0"
-                style={{ width: `${iconSize}px`, height: `${iconSize}px`, fontSize: `${Math.max(8, 11 - depth)}px` }}
-              >
-                ❖
-              </span>
-            )}
-            <span className={cn(
-              "truncate tracking-wide",
-              depth === 0 && "tracking-[0.15em]",
-            )}>
-              {node.name}
-            </span>
-          </div>
-
-          {node.children && node.children.length > 0 && (
-            <span className={cn(
-              "px-1 rounded-xs border shrink-0",
-              depth === 0
-                ? "text-[10px] text-gold-600 bg-ink-850 border-gold-850"
-                : "text-[9px] text-gold-700 bg-ink-850/80 border-gold-850/60",
-            )}>
-              {node.children.length}
-            </span>
-          )}
-        </div>
-
-        {/* 递归子层 */}
-        {hasChildren && isExpanded && (
-          <div className={cn(
-            "relative border-l my-0.5",
-            depth === 0 ? "border-gold-700/60 ml-4" : "border-gold-850/50 ml-3.5",
-          )}>
-            {node.children!.map(child => renderTreeNode(child, depth + 1))}
-          </div>
-        )}
-      </div>
-    );
   };
 
   // ── 空状态：无大区数据 ──
@@ -306,7 +319,16 @@ export const MapModal: React.FC<MapModalProps> = ({ isOpen, onClose }) => {
               <div className="text-[11px] text-paper-500 px-2 py-1 mb-1 leading-relaxed italic bg-ink-850 border border-gold-850 rounded-xs">
                 {currentRegion.description}
               </div>
-              {currentRegion.roots.map(rootNode => renderTreeNode(rootNode, 0))}
+              {currentRegion.roots.map(rootNode => (
+                <TreeNode
+                  key={rootNode.id}
+                  node={rootNode}
+                  depth={0}
+                  expandedNodeIds={expandedNodeIds}
+                  selectedNodeId={selectionInfo?.node.id ?? ''}
+                  onSelect={handleSelectNode}
+                />
+              ))}
             </div>
           </div>
 

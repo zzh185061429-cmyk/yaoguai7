@@ -111,6 +111,264 @@ const PaperDialog: React.FC<{
   </motion.div>
 );
 
+/** 卷宗架单册（memo 化）：从 renderShelfItem 提取，避免每册每渲染重建闭包 */
+const ShelfItem = React.memo(function ShelfItem({
+  ci, clueCount, dedCount, onOpen, onDelete,
+}: {
+  ci: CaseInfo;
+  clueCount: number;
+  dedCount: number;
+  onOpen: (id: string) => void;
+  onDelete: (ci: CaseInfo) => void;
+}) {
+  const isClosed = ci.status === 'closed';
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      onClick={() => onOpen(ci.id)}
+      className="relative cursor-pointer group shrink-0"
+      style={{ width: '172px' }}
+      title={`展卷：${ci.name}`}
+    >
+      <motion.div
+        whileHover={{ y: -8 }}
+        transition={{ duration: 0.22 }}
+        className="relative rounded-[3px] overflow-hidden"
+        style={{
+          height: '272px',
+          background: isClosed
+            ? 'linear-gradient(160deg, gold-400 0%, gold-400 48%, gold-500 100%)'
+            : 'linear-gradient(160deg, indigo-300 0%, indigo-400 45%, indigo-500 100%)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08), 2px 3px 8px rgba(30,22,10,0.35), 0 10px 22px rgba(30,22,10,0.28)',
+        }}
+      >
+        <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(90deg, rgba(255,255,255,0.35) 0 1px, transparent 1px 3px), repeating-linear-gradient(0deg, rgba(0,0,0,0.35) 0 1px, transparent 1px 3px)',
+          }} />
+        <div className="absolute left-0 top-0 bottom-0 w-2.75"
+          style={{ background: isClosed ? 'linear-gradient(to right, gold-600, gold-550)' : 'linear-gradient(to right, indigo-700, indigo-600)' }} />
+        {[10, 34, 62, 88].map(t => (
+          <div key={t} className="absolute left-0.75 w-1.75 h-1.75 rounded-full pointer-events-none"
+            style={{
+              top: `${t}%`,
+              background: 'radial-gradient(circle, paper-300 0 1.5px, rgba(232,220,187,0.4) 1.5px 3px, transparent 3px)',
+            }} />
+        ))}
+        <div className="absolute left-6.5 top-3.75 rounded-xs px-2 pt-2 pb-3"
+          style={{
+            background: 'linear-gradient(180deg, paper-75, paper-150)',
+            border: '1px solid paper-450',
+            boxShadow: '2px 2px 6px rgba(15,10,4,0.4), inset 0 0 0 3px paper-125, inset 0 0 0 4px paper-350',
+          }}>
+          <div className="flex flex-col items-center gap-2">
+            <span className="font-serif text-[13px] font-bold tracking-[0.3em] pl-[0.3em] text-vermilion-700 border-b border-paper-350 pb-1.5 w-full text-center">
+              钦天监
+            </span>
+            <h3 className="font-serif text-[19px] font-bold leading-none text-ink-825 overflow-hidden"
+              style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.22em', maxHeight: '166px' }}>
+              {ci.name}
+            </h3>
+          </div>
+        </div>
+        <div className="absolute bottom-0 inset-x-0 h-9.5 flex flex-col items-center justify-center gap-0.75"
+          style={{ background: isClosed ? 'rgba(88,68,32,0.22)' : 'rgba(13,19,34,0.6)' }}>
+          <span className={`font-sans text-[12px] font-bold tracking-[0.18em] ${isClosed ? 'text-gold-850' : 'text-paper-200'}`}>
+            线索{clueCount} · 推论{dedCount}
+          </span>
+          <span className={`font-sans text-[12px] ${isClosed ? 'text-gold-850' : 'text-paper-400'}`}>
+            {ci.createdAt}
+          </span>
+        </div>
+        {isClosed && (
+          <div className="absolute inset-0 pointer-events-none z-20">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-24deg] flex items-center gap-2 px-4 py-1.5"
+              style={{ background: 'rgba(247,240,218,0.97)', border: '1.5px solid vermilion-700', boxShadow: '0 2px 10px rgba(40,25,10,0.35)' }}>
+              <span className="font-serif text-[21px] font-bold text-vermilion-800 tracking-[0.4em] pl-[0.4em]">已结</span>
+              <span className="font-serif text-[12px] font-bold text-vermilion-800 border border-vermilion-800 px-1 py-px rotate-[8deg]">验讫</span>
+            </div>
+          </div>
+        )}
+        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-30">
+          <span className="font-sans text-[13px] font-bold text-paper-100 bg-ink-800/85 px-3 py-1 rounded-full tracking-[0.2em]">
+            展卷
+          </span>
+        </div>
+        <button
+          onClick={(e) => { e.stopPropagation(); onDelete(ci); }}
+          className="absolute bottom-10.5 left-1 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center w-6 h-6 rounded-full bg-vermilion-700/90 border border-vermilion-800 text-paper-75 hover:bg-vermilion-800 hover:scale-110 shadow-md"
+          title="焚毁案卷"
+        >
+          <Trash2 size={12} />
+        </button>
+      </motion.div>
+      <div className="mx-auto mt-1.5 rounded-xs"
+        style={{
+          width: '196px',
+          height: '9px',
+          background: 'linear-gradient(to bottom, paper-600 0%, gold-850 45%, gold-850 100%)',
+          boxShadow: '0 3px 5px rgba(30,20,8,0.35), inset 0 1px 0 rgba(255,230,190,0.25)',
+        }} />
+    </motion.div>
+  );
+});
+
+/** 推论真伪状态 → 激活态样式（模块顶层常量，避免每卡片每渲染重建） */
+const STATUS_ACTIVE_CLS: Record<ClueStatus, string> = {
+  'pending': 'bg-gold-850 text-paper-125 border-ink-800',
+  'true': 'bg-vermilion-700 text-paper-75 border-vermilion-800',
+  'false': 'bg-ink-500 text-paper-50 border-ink-600',
+};
+
+/** 线索/推论卡片（memo 化）：从 renderClueCard 提取，避免每卡片每渲染重建闭包 */
+const ClueCard = React.memo(function ClueCard({
+  clue, isSelected, isReadOnly, vertical, isInDeductionMode,
+  editingId, editValue,
+  onToggle, onUpdateStatus, onStartEdit, onCancelEdit, onSaveEdit, onRemove, onEditValueChange,
+}: {
+  clue: import('../../store/GameContext').Clue;
+  isSelected: boolean;
+  isReadOnly: boolean;
+  vertical: boolean;
+  isInDeductionMode: boolean;
+  editingId: string | null;
+  editValue: string;
+  onToggle: (id: string, e: React.MouseEvent) => void;
+  onUpdateStatus: (id: string, status: ClueStatus) => void;
+  onStartEdit: (id: string, text: string) => void;
+  onCancelEdit: () => void;
+  onSaveEdit: (id: string, text: string) => void;
+  onRemove: (id: string) => void;
+  onEditValueChange: (v: string) => void;
+}) {
+  const isDeduction = clue.type === 'deduction';
+  const dStatus = (clue.status || 'pending') as ClueStatus;
+
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, x: vertical ? 10 : -10 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      key={clue.id}
+      onClick={(e) => !isReadOnly && onToggle(clue.id, e)}
+      className={`relative p-4 rounded-sm transition-all overflow-hidden group ${
+        vertical ? 'h-full min-w-75 w-75 shrink-0 flex flex-col justify-between' : ''
+      } ${
+        isReadOnly
+          ? 'bg-paper-200 border border-paper-500 opacity-95'
+          : isSelected
+            ? 'bg-paper-50 border-2 border-vermilion-600 shadow-[0_4px_20px_rgba(184,45,32,0.3)] cursor-pointer'
+            : 'bg-paper-50 border border-paper-350 hover:border-paper-550 hover:shadow-md cursor-pointer'
+      }`}
+      style={{ transition: 'all 0.2s ease' }}
+    >
+      {isSelected && (
+        <div className="absolute right-0 top-0 w-10 h-10 overflow-hidden pointer-events-none z-20">
+          <div className="absolute -top-3 -right-3 w-12 h-12 bg-vermilion-600 rotate-45 shadow-sm" />
+          <div className="absolute top-1.5 right-1.5 text-paper-75 z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
+            <Check size={13} strokeWidth={3} />
+          </div>
+        </div>
+      )}
+      <div className={`absolute top-2 left-2 px-2 py-0.75 text-[12px] font-serif font-bold tracking-[0.2em] rounded-xs pointer-events-none z-10 border ${
+        isDeduction ? 'bg-vermilion-700 text-paper-75 border-vermilion-800' : 'bg-cyan-700 text-paper-50 border-cyan-900'
+      }`}>
+        {isDeduction ? '推论' : '线索'}
+      </div>
+      <div className={`flex justify-between items-start gap-2 mb-3 relative z-10 pt-8 ${vertical ? '' : 'border-b-2 pb-2'}`}
+        style={{ borderColor: 'rgba(201,185,148,0.9)' }}>
+        <span className={`font-serif text-[19px] font-bold tracking-[0.15em] ${dStatus === 'false' ? 'text-paper-550 line-through' : 'text-ink-825'}`}
+          style={{ writingMode: vertical ? 'vertical-rl' : 'horizontal-tb' }}>
+          {clue.title || (isDeduction ? '推论' : '线索')}
+        </span>
+        {isDeduction && !isReadOnly && (
+          <div className={`flex gap-1 ${vertical ? 'flex-col' : ''}`}>
+            {(['pending', 'true', 'false'] as const).map(s => (
+              <button
+                key={s}
+                onClick={(e) => { e.stopPropagation(); onUpdateStatus(clue.id, s); }}
+                className={`px-2 py-0.75 text-[13px] font-sans font-bold tracking-wider rounded-xs border transition-all ${
+                  dStatus === s ? STATUS_ACTIVE_CLS[s] : 'bg-paper-200 text-paper-600 border-paper-350 hover:border-paper-550 hover:text-gold-850'
+                }`}
+                style={{ writingMode: vertical ? 'vertical-rl' : 'horizontal-tb' }}
+              >
+                {s === 'pending' ? '未定' : s === 'true' ? '属实' : '伪证'}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+      <HorizontalScroller
+        layoutMode={vertical ? 'vertical' : 'horizontal'}
+        allowVerticalScroll={isInDeductionMode}
+        className={`font-serif text-[17px] relative z-10 text-ink-800 ${
+          vertical ? 'leading-[2.2] tracking-[0.08em] flex-1 overflow-x-auto h-[68%] custom-scrollbar' : 'leading-[1.85] tracking-[0.04em]'
+        }`}
+        style={{ writingMode: vertical ? 'vertical-rl' : 'horizontal-tb' }}
+      >
+        {clue.text}
+      </HorizontalScroller>
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-0 opacity-[0.05]">
+        <span className={`font-serif font-black text-[64px] -rotate-12 select-none ${
+          dStatus === 'true' ? 'text-vermilion-700' : dStatus === 'false' ? 'text-ink-500' : 'text-paper-550'
+        }`}>
+          {dStatus === 'true' ? '属实' : dStatus === 'false' ? '伪证' : '待勘'}
+        </span>
+      </div>
+      {dStatus === 'false' && (
+        <div className="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden z-0">
+          <div className="w-[140%] h-px bg-ink-500/20 transform -rotate-12" />
+          <div className="absolute w-[140%] h-px bg-ink-500/15 transform rotate-12" />
+        </div>
+      )}
+      {dStatus === 'true' && (
+        <div className={`absolute pointer-events-none z-10 ${vertical ? 'left-3 bottom-12' : 'right-4 bottom-9'}`}>
+          <div className="relative rotate-[-10deg]">
+            <div className="border-[3px] border-vermilion-700/35 rounded-sm px-2 py-1">
+              <span className="font-serif text-[22px] font-black text-vermilion-700/45 tracking-[0.15em] select-none">属实</span>
+            </div>
+          </div>
+        </div>
+      )}
+      <div className={`mt-4 flex justify-between items-center text-[12px] font-sans font-bold relative z-10 ${vertical ? 'flex-col items-start gap-2' : ''}`}>
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="text-paper-600" style={{ writingMode: vertical ? 'vertical-rl' : 'horizontal-tb' }}>
+            {clue.source}
+          </span>
+          <span className="text-paper-400">|</span>
+          <span className="text-paper-550" style={{ writingMode: vertical ? 'vertical-rl' : 'horizontal-tb' }}>
+            {clue.timestamp}
+          </span>
+        </div>
+        {!isReadOnly && (
+          <div className="flex gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+            {editingId !== clue.id && (
+              <button onPointerDown={(e: any) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); onStartEdit(clue.id, clue.text); }}
+                className="text-paper-600 hover:text-cyan-700 transition-colors pointer-events-auto p-1.5 hover:bg-cyan-700/10 rounded-sm" title="编辑"><Edit2 size={16} /></button>
+            )}
+            <button onPointerDown={(e: any) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); onRemove(clue.id); }}
+              className="text-paper-600 hover:text-vermilion-700 transition-colors pointer-events-auto p-1.5 hover:bg-vermilion-700/10 rounded-sm" title="删除"><Trash2 size={16} /></button>
+          </div>
+        )}
+      </div>
+      {editingId === clue.id && !isReadOnly && (
+        <div className="mt-2 mb-1 pointer-events-auto" onClick={e => e.stopPropagation()}>
+          <textarea value={editValue} onChange={e => onEditValueChange(e.target.value)}
+            className="w-full text-[14px] font-sans tracking-wide leading-relaxed bg-paper-200 border-b-2 outline-none resize-none overflow-hidden text-ink-825 border-paper-450 focus:border-paper-600 rounded-sm px-2 py-1.5" rows={3} autoFocus onPointerDown={e => e.stopPropagation()} />
+          <div className="flex justify-end gap-2 mt-2">
+            <button onClick={(e) => { e.stopPropagation(); onCancelEdit(); }} className="text-paper-600 hover:text-gold-850 p-1.5 hover:bg-paper-600/10 rounded-sm transition-colors" title="取消"><X size={16} /></button>
+            <button onClick={(e) => { e.stopPropagation(); onSaveEdit(clue.id, editValue); }} className="text-cyan-700 hover:text-cyan-600 p-1.5 hover:bg-cyan-700/10 rounded-sm transition-colors" title="保存"><Check size={16} /></button>
+          </div>
+        </div>
+      )}
+    </motion.div>
+  );
+});
+
 export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, onClose }) => {
   const {
     clues, cases, removeClue, combineClues, commitDeduction, editClue,
@@ -226,6 +484,20 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
     }
   };
 
+  // ── ClueCard 共用 props：memo 化，4 处列表共享，props 稳定让 ClueCard.memo 生效 ──
+  // 必须放在 toggleClue/handleCombine 等定义之后，否则触发暂时性死区
+  const isReadOnly = currentCase?.status === 'closed';
+  const vertical = effectiveLayoutMode === 'vertical';
+  const clueCardHandlers = useMemo(() => ({
+    onToggle: toggleClue,
+    onUpdateStatus: updateDeductionStatus,
+    onStartEdit: (id: string, text: string) => { setEditingId(id); setEditValue(text); },
+    onCancelEdit: () => setEditingId(null),
+    onSaveEdit: (id: string, text: string) => { editClue(id, text); setEditingId(null); },
+    onRemove: (id: string) => { removeClue(id); setSelectedClues(prev => prev.filter(sid => sid !== id)); },
+    onEditValueChange: setEditValue,
+  }), [toggleClue, updateDeductionStatus, editClue, removeClue]);
+
   // ── 选择推论选项 ──
   const selectDeductionOption = (text: string, truth?: TruthTag) => {
     if (!combiningOptions || !currentCase) return;
@@ -289,288 +561,6 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
     await closeCase(closingCaseId, closeCaseName, closeKeywords, closeStatement);
     setIsClosing(false);
     setClosingCaseId(null);
-  };
-
-  /* ══════════════════════════════════════════════════════════════
-     渲染：明制卷宗（书架立册）
-     · 在查案卷：仿《永乐大典》瓷青函套 + 左上竖排题签
-     · 已结案卷：仿黄册旧籍 + 斜贴封条「已结」+ 骑缝印
-  ══════════════════════════════════════════════════════════════ */
-  const renderShelfItem = (ci: CaseInfo) => {
-    const isClosed = ci.status === 'closed';
-    const caseClueList = getCaseClues(ci.id);
-    const clueCount = caseClueList.filter(c => c.type === 'clue').length;
-    const dedCount = caseClueList.filter(c => c.type === 'deduction').length;
-    return (
-      <motion.div
-        key={ci.id}
-        layout
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.9 }}
-        onClick={() => openCaseDetail(ci.id)}
-        className="relative cursor-pointer group shrink-0"
-        style={{ width: '172px' }}
-        title={`展卷：${ci.name}`}
-      >
-        {/* ── 书册（函套封面）── */}
-        <motion.div
-          whileHover={{ y: -8 }}
-          transition={{ duration: 0.22 }}
-          className="relative rounded-[3px] overflow-hidden"
-          style={{
-            height: '272px',
-            background: isClosed
-              ? 'linear-gradient(160deg, gold-400 0%, gold-400 48%, gold-500 100%)'
-              : 'linear-gradient(160deg, indigo-300 0%, indigo-400 45%, indigo-500 100%)',
-            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08), 2px 3px 8px rgba(30,22,10,0.35), 0 10px 22px rgba(30,22,10,0.28)',
-          }}
-        >
-          {/* 织锦纸纹 */}
-          <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
-            style={{
-              backgroundImage: 'repeating-linear-gradient(90deg, rgba(255,255,255,0.35) 0 1px, transparent 1px 3px), repeating-linear-gradient(0deg, rgba(0,0,0,0.35) 0 1px, transparent 1px 3px)',
-            }} />
-
-          {/* 包背装订边（左侧）+ 四眼线装线迹 */}
-          <div className="absolute left-0 top-0 bottom-0 w-2.75"
-            style={{ background: isClosed ? 'linear-gradient(to right, gold-600, gold-550)' : 'linear-gradient(to right, indigo-700, indigo-600)' }} />
-          {[10, 34, 62, 88].map(t => (
-            <div key={t} className="absolute left-0.75 w-1.75 h-1.75 rounded-full pointer-events-none"
-              style={{
-                top: `${t}%`,
-                background: 'radial-gradient(circle, paper-300 0 1.5px, rgba(232,220,187,0.4) 1.5px 3px, transparent 3px)',
-              }} />
-          ))}
-
-          {/* 题签（竖排书名条，双线框） */}
-          <div className="absolute left-6.5 top-3.75 rounded-xs px-2 pt-2 pb-3"
-            style={{
-              background: 'linear-gradient(180deg, paper-75, paper-150)',
-              border: '1px solid paper-450',
-              boxShadow: '2px 2px 6px rgba(15,10,4,0.4), inset 0 0 0 3px paper-125, inset 0 0 0 4px paper-350',
-            }}>
-            <div className="flex flex-col items-center gap-2">
-              <span className="font-serif text-[13px] font-bold tracking-[0.3em] pl-[0.3em] text-vermilion-700 border-b border-paper-350 pb-1.5 w-full text-center">
-                钦天监
-              </span>
-              <h3 className="font-serif text-[19px] font-bold leading-none text-ink-825 overflow-hidden"
-                style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.22em', maxHeight: '166px' }}>
-                {ci.name}
-              </h3>
-            </div>
-          </div>
-
-          {/* 书根：线索/推论计数与立案日期 */}
-          <div className="absolute bottom-0 inset-x-0 h-9.5 flex flex-col items-center justify-center gap-0.75"
-            style={{ background: isClosed ? 'rgba(88,68,32,0.22)' : 'rgba(13,19,34,0.6)' }}>
-            <span className={`font-sans text-[12px] font-bold tracking-[0.18em] ${isClosed ? 'text-gold-850' : 'text-paper-200'}`}>
-              线索{clueCount} · 推论{dedCount}
-            </span>
-            <span className={`font-sans text-[12px] ${isClosed ? 'text-gold-850' : 'text-paper-400'}`}>
-              {ci.createdAt}
-            </span>
-          </div>
-
-          {/* 已结封条（斜贴骑缝） */}
-          {isClosed && (
-            <div className="absolute inset-0 pointer-events-none z-20">
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-24deg] flex items-center gap-2 px-4 py-1.5"
-                style={{ background: 'rgba(247,240,218,0.97)', border: '1.5px solid vermilion-700', boxShadow: '0 2px 10px rgba(40,25,10,0.35)' }}>
-                <span className="font-serif text-[21px] font-bold text-vermilion-800 tracking-[0.4em] pl-[0.4em]">已结</span>
-                <span className="font-serif text-[12px] font-bold text-vermilion-800 border border-vermilion-800 px-1 py-px rotate-[8deg]">验讫</span>
-              </div>
-            </div>
-          )}
-
-          {/* 悬停展卷提示 */}
-          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-30">
-            <span className="font-sans text-[13px] font-bold text-paper-100 bg-ink-800/85 px-3 py-1 rounded-full tracking-[0.2em]">
-              展卷
-            </span>
-          </div>
-
-          {/* 删卷按钮（悬停显示，左下角） */}
-          <button
-            onClick={(e) => { e.stopPropagation(); setDeletingCase(ci); }}
-            className="absolute bottom-10.5 left-1 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center w-6 h-6 rounded-full bg-vermilion-700/90 border border-vermilion-800 text-paper-75 hover:bg-vermilion-800 hover:scale-110 shadow-md"
-            title="焚毁案卷"
-          >
-            <Trash2 size={12} />
-          </button>
-        </motion.div>
-
-        {/* ── 木搁板 ── */}
-        <div className="mx-auto mt-1.5 rounded-xs"
-          style={{
-            width: '196px',
-            height: '9px',
-            background: 'linear-gradient(to bottom, paper-600 0%, gold-850 45%, gold-850 100%)',
-            boxShadow: '0 3px 5px rgba(30,20,8,0.35), inset 0 1px 0 rgba(255,230,190,0.25)',
-          }} />
-      </motion.div>
-    );
-  };
-
-  /* ══════════════════════════════════════════════════════════════
-     渲染：线索/推论卡片（明制档案页，横竖双版式）
-  ══════════════════════════════════════════════════════════════ */
-  const renderClueCard = (clue: typeof baseClues[number]) => {
-    const isSelected = selectedClues.includes(clue.id);
-    const isDeduction = clue.type === 'deduction';
-    const dStatus = (clue.status || 'pending') as ClueStatus;
-    const isReadOnly = currentCase?.status === 'closed';
-    const vertical = effectiveLayoutMode === 'vertical';
-
-    const statusActiveCls: Record<ClueStatus, string> = {
-      'pending': 'bg-gold-850 text-paper-125 border-ink-800',
-      'true': 'bg-vermilion-700 text-paper-75 border-vermilion-800',
-      'false': 'bg-ink-500 text-paper-50 border-ink-600',
-    };
-
-    return (
-      <motion.div
-        layout
-        initial={{ opacity: 0, x: vertical ? 10 : -10 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        key={clue.id}
-        onClick={(e) => !isReadOnly && toggleClue(clue.id, e)}
-        className={`relative p-4 rounded-sm transition-all overflow-hidden group ${
-          vertical ? 'h-full min-w-75 w-75 shrink-0 flex flex-col justify-between' : ''
-        } ${
-          isReadOnly
-            ? 'bg-paper-200 border border-paper-500 opacity-95'
-            : isSelected
-              ? 'bg-paper-50 border-2 border-vermilion-600 shadow-[0_4px_20px_rgba(184,45,32,0.3)] cursor-pointer'
-              : 'bg-paper-50 border border-paper-350 hover:border-paper-550 hover:shadow-md cursor-pointer'
-        }`}
-        style={{ transition: 'all 0.2s ease' }}
-      >
-        {/* 选中态朱印角标 */}
-        {isSelected && (
-          <div className="absolute right-0 top-0 w-10 h-10 overflow-hidden pointer-events-none z-20">
-            <div className="absolute -top-3 -right-3 w-12 h-12 bg-vermilion-600 rotate-45 shadow-sm" />
-            <div className="absolute top-1.5 right-1.5 text-paper-75 z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-              <Check size={13} strokeWidth={3} />
-            </div>
-          </div>
-        )}
-
-        {/* 类别章（线索·青 / 推论·朱） */}
-        <div className={`absolute top-2 left-2 px-2 py-0.75 text-[12px] font-serif font-bold tracking-[0.2em] rounded-xs pointer-events-none z-10 border ${
-          isDeduction
-            ? 'bg-vermilion-700 text-paper-75 border-vermilion-800'
-            : 'bg-cyan-700 text-paper-50 border-cyan-900'
-        }`}>
-          {isDeduction ? '推论' : '线索'}
-        </div>
-
-        {/* 标题栏 */}
-        <div className={`flex justify-between items-start gap-2 mb-3 relative z-10 pt-8 ${vertical ? '' : 'border-b-2 pb-2'}`}
-          style={{ borderColor: 'rgba(201,185,148,0.9)' }}>
-          <span className={`font-serif text-[19px] font-bold tracking-[0.15em] ${dStatus === 'false' ? 'text-paper-550 line-through' : 'text-ink-825'}`}
-            style={{ writingMode: vertical ? 'vertical-rl' : 'horizontal-tb' }}>
-            {clue.title || (isDeduction ? '推论' : '线索')}
-          </span>
-          {isDeduction && !isReadOnly && (
-            <div className={`flex gap-1 ${vertical ? 'flex-col' : ''}`}>
-              {(['pending', 'true', 'false'] as const).map(s => (
-                <button
-                  key={s}
-                  onClick={(e) => { e.stopPropagation(); updateDeductionStatus(clue.id, s); }}
-                  className={`px-2 py-0.75 text-[13px] font-sans font-bold tracking-wider rounded-xs border transition-all ${
-                    dStatus === s
-                      ? statusActiveCls[s]
-                      : 'bg-paper-200 text-paper-600 border-paper-350 hover:border-paper-550 hover:text-gold-850'
-                  }`}
-                  style={{ writingMode: vertical ? 'vertical-rl' : 'horizontal-tb' }}
-                >
-                  {s === 'pending' ? '未定' : s === 'true' ? '属实' : '伪证'}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* 正文 */}
-        <HorizontalScroller
-          layoutMode={effectiveLayoutMode}
-          allowVerticalScroll={isInDeductionMode}
-          className={`font-serif text-[17px] relative z-10 text-ink-800 ${
-            vertical ? 'leading-[2.2] tracking-[0.08em] flex-1 overflow-x-auto h-[68%] custom-scrollbar' : 'leading-[1.85] tracking-[0.04em]'
-          }`}
-          style={{
-            writingMode: vertical ? 'vertical-rl' : 'horizontal-tb',
-          }}
-        >
-          {clue.text}
-        </HorizontalScroller>
-
-        {/* 状态水印（装饰，不承担可读信息） */}
-        <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-0 opacity-[0.05]">
-          <span className={`font-serif font-black text-[64px] -rotate-12 select-none ${
-            dStatus === 'true' ? 'text-vermilion-700' : dStatus === 'false' ? 'text-ink-500' : 'text-paper-550'
-          }`}>
-            {dStatus === 'true' ? '属实' : dStatus === 'false' ? '伪证' : '待勘'}
-          </span>
-        </div>
-
-        {/* 伪证双斜线 */}
-        {dStatus === 'false' && (
-          <div className="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden z-0">
-            <div className="w-[140%] h-px bg-ink-500/20 transform -rotate-12" />
-            <div className="absolute w-[140%] h-px bg-ink-500/15 transform rotate-12" />
-          </div>
-        )}
-
-        {/* 勘验属实骑缝印 */}
-        {dStatus === 'true' && (
-          <div className={`absolute pointer-events-none z-10 ${vertical ? 'left-3 bottom-12' : 'right-4 bottom-9'}`}>
-            <div className="relative rotate-[-10deg]">
-              <div className="border-[3px] border-vermilion-700/35 rounded-sm px-2 py-1">
-                <span className="font-serif text-[22px] font-black text-vermilion-700/45 tracking-[0.15em] select-none">属实</span>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* 底部信息栏 */}
-        <div className={`mt-4 flex justify-between items-center text-[12px] font-sans font-bold relative z-10 ${vertical ? 'flex-col items-start gap-2' : ''}`}>
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-paper-600" style={{ writingMode: vertical ? 'vertical-rl' : 'horizontal-tb' }}>
-              {clue.source}
-            </span>
-            <span className="text-paper-400">|</span>
-            <span className="text-paper-550" style={{ writingMode: vertical ? 'vertical-rl' : 'horizontal-tb' }}>
-              {clue.timestamp}
-            </span>
-          </div>
-          {!isReadOnly && (
-            <div className="flex gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
-              {editingId !== clue.id && (
-                <button onPointerDown={(e: any) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); setEditingId(clue.id); setEditValue(clue.text); }}
-                  className="text-paper-600 hover:text-cyan-700 transition-colors pointer-events-auto p-1.5 hover:bg-cyan-700/10 rounded-sm" title="编辑"><Edit2 size={16} /></button>
-              )}
-              <button onPointerDown={(e: any) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); removeClue(clue.id); setSelectedClues(prev => prev.filter(id => id !== clue.id)); }}
-                className="text-paper-600 hover:text-vermilion-700 transition-colors pointer-events-auto p-1.5 hover:bg-vermilion-700/10 rounded-sm" title="删除"><Trash2 size={16} /></button>
-            </div>
-          )}
-        </div>
-
-        {/* 编辑态 */}
-        {editingId === clue.id && !isReadOnly && (
-          <div className="mt-2 mb-1 pointer-events-auto" onClick={e => e.stopPropagation()}>
-            <textarea value={editValue} onChange={e => setEditValue(e.target.value)}
-              className="w-full text-[14px] font-sans tracking-wide leading-relaxed bg-paper-200 border-b-2 outline-none resize-none overflow-hidden text-ink-825 border-paper-450 focus:border-paper-600 rounded-sm px-2 py-1.5" rows={3} autoFocus onPointerDown={e => e.stopPropagation()} />
-            <div className="flex justify-end gap-2 mt-2">
-              <button onClick={(e) => { e.stopPropagation(); setEditingId(null); }} className="text-paper-600 hover:text-gold-850 p-1.5 hover:bg-paper-600/10 rounded-sm transition-colors" title="取消"><X size={16} /></button>
-              <button onClick={(e) => { e.stopPropagation(); editClue(clue.id, editValue); setEditingId(null); }} className="text-cyan-700 hover:text-cyan-600 p-1.5 hover:bg-cyan-700/10 rounded-sm transition-colors" title="保存"><Check size={16} /></button>
-            </div>
-          </div>
-        )}
-      </motion.div>
-    );
   };
 
   /* ══════════════════════════════════════════════════════════════
@@ -678,7 +668,19 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                 ) : (
                   <div className="flex gap-x-6 gap-y-3 flex-wrap justify-start">
                     <AnimatePresence>
-                      {activeCases.map(ci => renderShelfItem(ci))}
+                      {activeCases.map(ci => {
+                        const list = getCaseClues(ci.id);
+                        return (
+                          <ShelfItem
+                            key={ci.id}
+                            ci={ci}
+                            clueCount={list.filter(c => c.type === 'clue').length}
+                            dedCount={list.filter(c => c.type === 'deduction').length}
+                            onOpen={openCaseDetail}
+                            onDelete={setDeletingCase}
+                          />
+                        );
+                      })}
                     </AnimatePresence>
                   </div>
                 )}
@@ -699,7 +701,19 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
 
                   <div className="flex gap-x-6 gap-y-3 flex-wrap justify-start">
                     <AnimatePresence>
-                      {closedCases.map(ci => renderShelfItem(ci))}
+                      {closedCases.map(ci => {
+                        const list = getCaseClues(ci.id);
+                        return (
+                          <ShelfItem
+                            key={ci.id}
+                            ci={ci}
+                            clueCount={list.filter(c => c.type === 'clue').length}
+                            dedCount={list.filter(c => c.type === 'deduction').length}
+                            onOpen={openCaseDetail}
+                            onDelete={setDeletingCase}
+                          />
+                        );
+                      })}
                     </AnimatePresence>
                   </div>
                 </div>
@@ -776,7 +790,19 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                       </div>
                     ) : (
                       <AnimatePresence>
-                        {baseClues.map(clue => renderClueCard(clue))}
+                        {baseClues.map(clue => (
+                          <ClueCard
+                            key={clue.id}
+                            clue={clue}
+                            isSelected={selectedClues.includes(clue.id)}
+                            isReadOnly={isReadOnly}
+                            vertical={vertical}
+                            isInDeductionMode={isInDeductionMode}
+                            editingId={editingId}
+                            editValue={editValue}
+                            {...clueCardHandlers}
+                          />
+                        ))}
                       </AnimatePresence>
                     )}
                   </HorizontalScroller>
@@ -835,7 +861,19 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                       </div>
                     ) : (
                       <AnimatePresence>
-                        {deductions.map(deduction => renderClueCard(deduction))}
+                        {deductions.map(deduction => (
+                          <ClueCard
+                            key={deduction.id}
+                            clue={deduction}
+                            isSelected={selectedClues.includes(deduction.id)}
+                            isReadOnly={isReadOnly}
+                            vertical={vertical}
+                            isInDeductionMode={isInDeductionMode}
+                            editingId={editingId}
+                            editValue={editValue}
+                            {...clueCardHandlers}
+                          />
+                        ))}
                       </AnimatePresence>
                     )}
                   </HorizontalScroller>
@@ -887,7 +925,19 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                           </div>
                         ) : (
                           <AnimatePresence>
-                            {baseClues.map(clue => renderClueCard(clue))}
+                            {baseClues.map(clue => (
+                          <ClueCard
+                            key={clue.id}
+                            clue={clue}
+                            isSelected={selectedClues.includes(clue.id)}
+                            isReadOnly={isReadOnly}
+                            vertical={vertical}
+                            isInDeductionMode={isInDeductionMode}
+                            editingId={editingId}
+                            editValue={editValue}
+                            {...clueCardHandlers}
+                          />
+                        ))}
                           </AnimatePresence>
                         )}
                       </div>
@@ -938,7 +988,19 @@ export const ClueNotebookModal: React.FC<ClueNotebookModalProps> = ({ isOpen, on
                           </div>
                         ) : (
                           <AnimatePresence>
-                            {deductions.map(deduction => renderClueCard(deduction))}
+                            {deductions.map(deduction => (
+                          <ClueCard
+                            key={deduction.id}
+                            clue={deduction}
+                            isSelected={selectedClues.includes(deduction.id)}
+                            isReadOnly={isReadOnly}
+                            vertical={vertical}
+                            isInDeductionMode={isInDeductionMode}
+                            editingId={editingId}
+                            editValue={editValue}
+                            {...clueCardHandlers}
+                          />
+                        ))}
                           </AnimatePresence>
                         )}
                       </div>
