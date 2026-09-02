@@ -49123,7 +49123,11 @@ function _coercedNumber(Class, params) {
         type: "number",
         coerce: true,
         checks: [],
+<<<<<<< HEAD
         ...api_util.normalizeParams(params),
+=======
+        ...normalizeParams(params),
+>>>>>>> 874db47f3fb8ed8544a74e33a59f780f2c95aa38
     });
 }
 // @__NO_SIDE_EFFECTS__
@@ -52456,7 +52460,11 @@ function coerce_string(params) {
     return _coercedString(ZodString, params);
 }
 function coerce_number(params) {
+<<<<<<< HEAD
     return coerce_core._coercedNumber(coerce_schemas.ZodNumber, params);
+=======
+    return _coercedNumber(ZodNumber, params);
+>>>>>>> 874db47f3fb8ed8544a74e33a59f780f2c95aa38
 }
 function coerce_boolean(params) {
     return coerce_core._coercedBoolean(coerce_schemas.ZodBoolean, params);
@@ -52632,6 +52640,10 @@ function from_tavern_regex(tavern_regex) {
             ...(tavern_regex.source.ai_output ? [2] : []),
             ...(tavern_regex.source.slash_command ? [3] : []),
             ...(tavern_regex.source.world_info ? [5] : []),
+<<<<<<< HEAD
+=======
+            ...(tavern_regex.source.reasoning ? [6] : []),
+>>>>>>> 874db47f3fb8ed8544a74e33a59f780f2c95aa38
         ],
         substituteRegex: 0, // TODO: handle this?
         minDepth: tavern_regex.min_depth,
@@ -55655,6 +55667,10 @@ const Extensions = looseObject({
             ai_output: schemas_boolean(),
             slash_command: schemas_boolean().prefault(false),
             world_info: schemas_boolean().prefault(false),
+<<<<<<< HEAD
+=======
+            reasoning: schemas_boolean().prefault(false),
+>>>>>>> 874db47f3fb8ed8544a74e33a59f780f2c95aa38
         }),
         destination: strictObject({
             display: schemas_boolean(),
@@ -55748,7 +55764,11 @@ const extensions_Extensions = Extensions.transform(data => {
 
 const Worldbook_entry = object({
     name: schemas_string(),
+<<<<<<< HEAD
     uid: schemas_number(),
+=======
+    uid: union([coerce_number(), schemas_string()]),
+>>>>>>> 874db47f3fb8ed8544a74e33a59f780f2c95aa38
     enabled: schemas_boolean(),
     strategy: object({
         type: schemas_enum(['constant', 'selective', 'vectorized']),
@@ -56034,7 +56054,11 @@ function alignValue(value, precedingText) {
 
 const worldbook_en_Worldbook_entry = strictObject({
     name: coerce_string(),
+<<<<<<< HEAD
     uid: schemas_number().optional().describe('该条目的唯一标识符, 如果不设置或有重复则会自动分配一个新的'),
+=======
+    uid: union([coerce_number(), schemas_string()]).optional().describe('该条目的唯一标识符, 如果不设置或有重复则会自动分配一个新的'),
+>>>>>>> 874db47f3fb8ed8544a74e33a59f780f2c95aa38
     enabled: schemas_boolean(),
     strategy: strictObject({
         type: schemas_enum(['constant', 'selective', 'vectorized']).describe(dist_dedent(`
@@ -56272,6 +56296,10 @@ const extensions_zh_zh_to_en_map = {
     AI输出: 'ai_output',
     快捷命令: 'slash_command',
     世界信息: 'world_info',
+<<<<<<< HEAD
+=======
+    思维链: 'reasoning',
+>>>>>>> 874db47f3fb8ed8544a74e33a59f780f2c95aa38
     作用于: 'destination',
     仅格式显示: 'display',
     仅格式提示词: 'prompt',
@@ -56358,6 +56386,10 @@ const extensions_zh_Extensions = looseObject({
             AI输出: schemas_boolean(),
             快捷命令: schemas_boolean().prefault(false),
             世界信息: schemas_boolean().prefault(false),
+<<<<<<< HEAD
+=======
+            思维链: schemas_boolean().prefault(false),
+>>>>>>> 874db47f3fb8ed8544a74e33a59f780f2c95aa38
         }),
         作用于: strictObject({
             仅格式显示: schemas_boolean(),
@@ -56458,7 +56490,11 @@ function worldbook_zh_is_zh(data) {
 }
 const worldbook_zh_Worldbook_entry = strictObject({
     名称: coerce_string(),
+<<<<<<< HEAD
     uid: schemas_number().optional().describe('该条目的唯一标识符, 如果不设置或有重复则会自动分配一个新的'),
+=======
+    uid: union([coerce_number(), schemas_string()]).optional().describe('该条目的唯一标识符, 如果不设置或有重复则会自动分配一个新的'),
+>>>>>>> 874db47f3fb8ed8544a74e33a59f780f2c95aa38
     启用: schemas_boolean(),
     激活策略: strictObject({
         类型: schemas_enum(['蓝灯', '绿灯', '向量化']).describe(dist_dedent(`
